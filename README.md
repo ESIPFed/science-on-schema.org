@@ -14,7 +14,7 @@ To provide a place for the scientific data community to work out how best to imp
 <a id="approach"></a>
 ## Approach ##
 
-1. To be **pragmatic** instead of dogmatic.
+1. To be **pragmatic** with our use of schema.org and external vocabulary adoption.
 2. To **consider schema.org classes and properties first** before considering external vocabularies.
 3. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*. For more, see [Why JSON-LD?](/CONVENTIONS.md#why-jsonld) from the [Conventions](/CONVENTIONS.md) document.
 4. Presently, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) enforces use of [schema.org](http://schema.org) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](http://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
