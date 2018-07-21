@@ -1,5 +1,5 @@
 <a id="top"></a>
-![version v0.1.0](https://img.shields.io/badge/version-v0.1.0-blue.svg)
+![version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
 ### Describing a Dataset
 
