@@ -1,12 +1,19 @@
 <a id="top"></a>
-![documentation v1.0.0](https://img.shields.io/badge/documentation-v1.0.0-blue.svg)
+![version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
-# Using schema.org in the Sciences
-Provides guidance for publishing schema.org as JSON-LD for the sciences
+# Goal
 
-## Goals
+To provide a place for the scientific data community to work out how best to implement **schema.org** and other external vocabularies on web pages by publishing guidance documents. *[Pull requests](/pulls)* and *[Github Issues](/issues)* are welcome!
 
+<a id="approach"></a>
 ## Approach
 
-## Guides
+1. To be **pragmatic** instead of dogmatic.
+2. To **consider schema.org classes and properties first** before considering external vocabularies.
+3. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*. For more, see [Why JSON-LD?](/CONVENTIONS.md#why-jsonld) from the [Conventions](/CONVENTIONS.md) document.
+5. See [Governance](/GOVERNANCE.md) for how we will govern the project.
+6. See [Conventions](/CONVENTIONS.md) for guidance on creating/editing guidance documents.
+
+<a id="guides-toc"></a>
+## Guides - Table of Contents
 [Dataset](Dataset.md)
