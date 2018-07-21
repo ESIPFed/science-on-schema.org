@@ -62,3 +62,17 @@ Schema.org provides a property called [schema:additionalType](http://schema.org/
     </rdf:Property>
 </rdf:RDF>
 ```
+
+### rdfs:subPropertyOf rdf:type with range of schema:URL ###
+
+```
+...
+<schema:rangeIncludes rdf:resource="http://schema.org/URL"/>
+<rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+...
+```
+
+Publishers who have a ```@context``` with prefixes for external vocabularies cannot use the prefixed URL in schema:additionalType
+
+...add JSON-LD Playground example showing that additionalType does not expand the prefix nor generate an rdf:type triple...
+ 
