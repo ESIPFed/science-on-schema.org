@@ -5,6 +5,8 @@
 * [Approach](#approach)
 * [Guidance Documents](#guides)
 
+*This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance.*
+
 # Goals #
 
 To provide a place for the scientific data community to work out how best to implement **schema.org** and other external vocabularies on web pages by publishing guidance documents. *[Pull requests](/pulls)* and *[Github Issues](/issues)* are welcome!
