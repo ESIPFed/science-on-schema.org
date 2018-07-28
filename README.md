@@ -23,4 +23,5 @@ To provide a place for the scientific data community to work out how best to imp
 
 <a id="guides"></a>
 ## Guidance Documents - Table of Contents ##
-* [Dataset](/guides/Dataset.md)
+[Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
+* [Dataset](/guides/Dataset.md) - the scientific dataset
