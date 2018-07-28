@@ -26,14 +26,15 @@ This document explains the conventions used within this guide.
 </pre>
 
 <a id="syntax-figures"></a>
-4. ** Creating Figures ** can help explain certain topics with a visual reference. To create a figure, 
-    1. Save the image to the ```/assets``` directory within this guide,
-    2. Then, in the document, decide where the figure should be added,
-    3. Add a named anchor before the figure, ```<a id-"figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
-    4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
-    5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
-    6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
-    7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
+4. **Creating Figures**
+
+  1. Save the image to the ```/assets``` directory within this guide,
+  2. Then, in the document, decide where the figure should be added,
+  3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
+  4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
+  5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
+  6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
+  7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
 
 Figure example: 
 ```
@@ -44,7 +45,6 @@ Figure example:
     <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the field's description.</em>
   </p>
 ```
-
 
 <a id="versioning"></a>
 ## Versioning ##
