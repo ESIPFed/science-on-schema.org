@@ -1,6 +1,11 @@
 # Conventions #
 
+This document explains the conventions used within this guide.
+
 * [Syntax](#syntax)
+    * [General Rules](#syntax)
+    * [JSON-LD Snippets](#syntax-snippets)
+    * [Creating Figures](#syntax-figures)
 * [Versioning](#versioning)
 * [Why JSON-LD](#why-jsonld)
 * [Typing to External Vocabularies](#external-vocab-typing)
@@ -10,7 +15,8 @@
 
 1. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*.
 2. Documents should describe *how* and *why* for each class and property being recommended.
-3. JSON-LD snippets should be wrapped within a preformatted text block using **&lt;pre&gt;&lt;/pre&gt;** tags. To highlight a section of JSON-LD, use **&lt;strong&gt;&lt;/strong&gt;** tags.
+<a id="syntax-snippets"></a>
+3. **JSON-LD snippets** should be wrapped within a preformatted text block using **&lt;pre&gt;&lt;/pre&gt;** tags. To highlight a section of JSON-LD, use **&lt;strong&gt;&lt;/strong&gt;** tags.
 
 <pre>
 {
@@ -18,6 +24,27 @@
   <strong>"highlighted-property": "highlighted-value",</strong>
 }
 </pre>
+
+<a id="syntax-figures"></a>
+4. ** Creating Figures ** can help explain certain topics with a visual reference. To create a figure, 
+    1. Save the image to the ```/assets``` directory within this guide,
+    2. Then, in the document, decide where the figure should be added,
+    3. Add a named anchor before the figure, ```<a id-"figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
+    4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
+    5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
+    6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
+    7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
+
+Figure example: 
+```
+  <a id="figure-1"></a>
+  <p align="center">
+    <strong>Figure 1. schema.org field data types</strong><br/>
+    <img src="/assets/schemaorg-datatypes.png">
+    <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the field's description.</em>
+  </p>
+```
+
 
 <a id="versioning"></a>
 ## Versioning ##
