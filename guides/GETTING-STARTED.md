@@ -1,4 +1,6 @@
 <a id="top"></a>
+[Home](/) | Getting Started
+
 # Getting Started #
 
 If you are new to publishing schema.org, here are some general tips to getting started.
