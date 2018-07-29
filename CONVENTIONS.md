@@ -14,6 +14,12 @@ This document explains the conventions used within this guide.
 ## Syntax ##
 
 1. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*.
+2. Documents should start with:
+  1. An named anchor of 'top': ```<a id="top"></a>```
+  2. A breadcrumb trail respective to the level in the guide:  
+  
+     <pre>[Home](/README.md) | [Some directory](/guides/<dir-name>) | This Location in the guide</pre>
+
 2. Documents should describe *how* and *why* for each class and property being recommended.
 <a id="syntax-snippets"></a>
 3. **JSON-LD snippets** should be wrapped within a preformatted text block using **&lt;pre&gt;&lt;/pre&gt;** tags. To highlight a section of JSON-LD, use **&lt;strong&gt;&lt;/strong&gt;** tags.
