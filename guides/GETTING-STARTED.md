@@ -5,16 +5,35 @@
 
 If you are new to publishing schema.org, here are some general tips to getting started.
 
+* [Prerequisites](#prerequisites)
+* [Using schema.org](#using-schemaorg)
 * [Data Types](#data-types)
-  * [Literal data types](#data-types_literals)
-    * [Text](#data-types_Text)
-    * [Number](#data-types_Number)
-    * [URL](#data-types_URL)
-    * [Boolean](#data-types_Boolean)
-    * [Date](#data-types_Date)
-    * [DateTime](#data-types_DateTime)
-    * [Time](#data-types_Time)
-    * [HTML](#data-types_HTML)
+  * [Text](#data-types_Text)
+  * [Number](#data-types_Number)
+  * [URL](#data-types_URL)
+  * [Boolean](#data-types_Boolean)
+  * [Date](#data-types_Date)
+  * [DateTime](#data-types_DateTime)
+  * [Time](#data-types_Time)
+  * [HTML](#data-types_HTML)
+* [Classes](#classes)
+
+<a id="prerequisites"></a>
+## Prerequisites ##
+
+1. We assume a general uinderstanding of JSON. Go here.
+2. We assume a basic kowledge about JSON-LD. Go here.
+3. We assume that you've heard about schema.org and have already decided that it's useful to you. Go here.
+4. We assume that you have a general understanding of what may comprise a scientific dataset.
+
+Let's go!
+
+<a id="using-schemaorg"></a>
+## Using schema.org ##
+
+...
+
+
 
 <a id="data-types"></a>
 ## Data Types ##
@@ -42,9 +61,6 @@ Every data type is either a *resource* or a *literal*. Resources refer to other 
 </pre>
 
 In the JSON-LD above, the 'author' is a resource of type 'Person'. Fields that simply have a value are called literal data types. For examples, the 'Person' type above has a 'name' of "Jane Goodall" - a literal text value. 
-
-<a id="data-types_literals"></a>
-## Literal Data Types ##
 
 Schema.org defines six literal, or primitive,  data types: [Text](https://schema.org/Text), [Number](https://schema.org/Number), Boolean](https://schema.org/Boolean), [Date](https://schema.org/Date), [DateTime](https://schema.org/DateTime), and [Time](https://schema.org/Time). [Text](https://schema.org/Text) has two special variations: [URL](https://schema.org/URL) and how to specify when text is actually [HTML](#data-type_HTML).  
 
@@ -179,7 +195,7 @@ However, to specify that the ```description``` field should be *interpreted* as 
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -195,3 +211,37 @@ However, to specify that the ```description``` field should be *interpreted* as 
 </pre>
 
 *NOTE: As of 7/28/2018, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) understands the value of ```description``` to be `rdf:HTML`, but the tool specifies this type is unknown. However, you can see from the schema.org Github repository, that this method was discussed and implemented in [pull #1634: alias HTML to rdf:HTML](https://github.com/schemaorg/schemaorg/pull/1634)*
+
+<a id="resource=types"></a>
+## Resource Types ##
+
+All schema.org resources should make use of the ```@type``` property which 'classifies' the resources as a specific type. For example, an un-typed resource would look like:
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "name": "My Dataset"
+}
+</pre>
+
+Even though the above resource has a name of 'My Dataset' harvesters are unaware that your *intent* was to classify it as a Dataset. Un-typed resources are not valid schema.org resources, and so they require the ```@type``` property:
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  <strong>"@type": "Dataset",</strong>
+  "name": "My Dataset"
+}
+</pre>
+
+In some cases, it useful to multi-type a resource. One example of this may be a data repository. A data repositotry is typically functioning as noth an 'Organization' that employs people and has an address, but it also functions as a 'Service' to its user community. To multi-type a resource, we use JSON arrays:
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  <strong>"@type": ["Organization", "Service"],</strong>
+  "name": "My Data Repository"
+}
+</pre>
+
+**All [schema.org types may be found here](https://schema.org/docs/full.html).**
