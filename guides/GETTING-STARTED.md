@@ -1,5 +1,5 @@
 <a id="top"></a>
-[Home](/) | Getting Started
+[Home](/README.md) | Getting Started
 
 # Getting Started #
 
