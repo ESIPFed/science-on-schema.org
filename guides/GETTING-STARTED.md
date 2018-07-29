@@ -16,7 +16,7 @@ If you are new to publishing schema.org, here are some general tips to getting s
   * [DateTime](#data-types_DateTime)
   * [Time](#data-types_Time)
   * [HTML](#data-types_HTML)
-* [Classes](#classes)
+* [Resource Types](#resource-types)
 
 <a id="prerequisites"></a>
 ## Prerequisites ##
