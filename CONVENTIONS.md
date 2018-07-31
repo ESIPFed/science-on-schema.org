@@ -32,7 +32,14 @@ This document explains the conventions used within this guide.
 </pre>
 
 <a id="syntax-figures"></a>
-4. **Creating Figures**
+4. **Creating Diagrams**
+
+  1. When recommending which properties of a schema.org class to use, creating a diagram of the connections between those resources and literal values can be helpful for visualizing the big picture.
+  2. Diagrams should follow the following convention:
+  [![Graphical Notation](/assets/diagrams/graphical-notation.png "Graphical Notation")](#)
+  3. 
+
+5. **Creating Figures**
 
   1. Save the image to the ```/assets``` directory within this guide,
   2. Then, in the document, decide where the figure should be added,
