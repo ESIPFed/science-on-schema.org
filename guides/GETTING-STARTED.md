@@ -51,7 +51,7 @@ Every data type is either a *resource* or a *literal*. Resources refer to other 
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   <strong>"author": {
     "@type": "Person",
@@ -72,7 +72,7 @@ Imagine we want to say the name of our Creative Work is "Passenger Manifest for 
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   <strong>"name": "Passenger Manifest for H.M.S. Titanic"</strong>
 }
@@ -84,7 +84,7 @@ Let's say we want to specify the version number of our manifest using the [versi
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   <strong>"version": 1</strong>
@@ -97,7 +97,7 @@ Now, let's specify the URL of our manifest using the [url](https://schema.org/ur
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -111,6 +111,7 @@ Using the Boolean value, we can speficy that our manifest is accessible for free
 
 <pre>
 {
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -126,7 +127,7 @@ To specify the [datePublished](https://schema.org/datePublished), which allows e
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -143,7 +144,7 @@ To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -161,7 +162,7 @@ To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
@@ -179,7 +180,7 @@ The HTML data type is a special variation of the ```Text``` data type. In some c
 
 <pre>
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "CreativeWork",
   "name": "Passenger Manifest for H.M.S. Titanic",
   "version": 1,
