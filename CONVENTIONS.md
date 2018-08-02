@@ -37,17 +37,16 @@ This document explains the conventions used within this guide.
   1. When recommending which properties of a schema.org class to use, creating a diagram of the connections between those resources and literal values can be helpful for visualizing the big picture.
   2. Diagrams should follow the following convention:
   [![Graphical Notation](/assets/diagrams/graphical-notation.png "Graphical Notation")](#)
-  3. 
+  3. Diagrams are currently being made using [Lucidchart](https://www.lucidchart.com), and are being shared to edit here: [schema.org diagrams on Lucidchart](https://www.lucidchart.com/documents#docs?folder_id=170151578&browser=icon&sort=saved-desc)
 
 5. **Creating Figures**
-
-  1. Save the image to the ```/assets``` directory within this guide,
-  2. Then, in the document, decide where the figure should be added,
-  3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
-  4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
-  5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
-  6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
-  7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
+    1. Save the image to the ```/assets``` directory within this guide,
+    2. Then, in the document, decide where the figure should be added,
+    3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
+    4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
+    5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
+    6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
+    7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
 
 Figure example: 
 ```
