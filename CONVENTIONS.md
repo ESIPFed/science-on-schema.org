@@ -5,6 +5,7 @@ This document explains the conventions used within this guide.
 * [Syntax](#syntax)
     * [General Rules](#syntax)
     * [JSON-LD Snippets](#syntax-snippets)
+    * [Creating Diagrams](#syntax-diagrams)
     * [Creating Figures](#syntax-figures)
 * [Versioning](#versioning)
 * [Why JSON-LD](#why-jsonld)
@@ -31,7 +32,7 @@ This document explains the conventions used within this guide.
 }
 </pre>
 
-<a id="syntax-figures"></a>
+<a id="syntax-diagrams"></a>
 4. **Creating Diagrams**
 
   1. When recommending which properties of a schema.org class to use, creating a diagram of the connections between those resources and literal values can be helpful for visualizing the big picture.
@@ -39,6 +40,7 @@ This document explains the conventions used within this guide.
   [![Graphical Notation](/assets/diagrams/graphical-notation.png "Graphical Notation")](#)
   3. Diagrams are currently being made using [Lucidchart](https://www.lucidchart.com), and are being shared to edit here: [schema.org diagrams on Lucidchart](https://www.lucidchart.com/documents#docs?folder_id=170151578&browser=icon&sort=saved-desc)
 
+<a id="syntax-figures"></a>
 5. **Creating Figures**
     1. Save the image to the ```/assets``` directory within this guide,
     2. Then, in the document, decide where the figure should be added,
