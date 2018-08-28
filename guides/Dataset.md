@@ -33,13 +33,9 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    "datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "http://schema.org/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
   <strong>"url": "https://www.sample-data-repository.org/dataset/472032",
@@ -64,12 +60,9 @@ In it's most basic form, the identifier as a [schema:PropertyValue](https://sche
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#"
+    "@vocab": "http://schema.org/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
   "url": "https://www.sample-data-repository.org/dataset/472032",
@@ -87,12 +80,9 @@ The Persistent Identifier, such as a DOI, ARK, URL, etc as a [schema:PropertyVal
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
   "url": "https://www.sample-data-repository.org/dataset/472032",
@@ -101,8 +91,7 @@ The Persistent Identifier, such as a DOI, ARK, URL, etc as a [schema:PropertyVal
   "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
   "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
-    "@type": "PropertyValue",
-    "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+    "@type": ["PropertyValue", "datacite:Identifier"],
     "propertyID": "http://purl.org/spar/datacite/doi",
     "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "value": "10.1575/1912/bco-dmo.665253"
@@ -118,12 +107,9 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
   "url": "https://www.sample-data-repository.org/dataset/472032",
@@ -133,8 +119,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "license": "http://creativecommons.org/licenses/by/4.0/",
   "identifier": {
     "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
-    "@type": "PropertyValue",
-    "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+    "@type": ["PropertyValue", "datacite:Identifier"],
     "propertyID": "http://purl.org/spar/datacite/doi",
     "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "value": "10.1575/1912/bco-dmo.665253"
@@ -157,18 +142,15 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
+    "datacite": "http://purl.org/spar/datacite/",
     <strong>"earthcollab": "https://library.ucar.edu/earthcollab/schema#"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"variableMeasured": [
     {
-      "@type": "PropertyValue",
-      "additionalType": "https://library.ucar.edu/earthcollab/schema#Parameter",
+      "@type": ["PropertyValue", "earthcollab:Parameter"],
       "name": "Bottle identifier",
       "description": "The bottle number for each associated measurement."
     },
@@ -183,18 +165,15 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
+    "datacite": "http://purl.org/spar/datacite/",
     <strong>"gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   "variableMeasured": [
     {
-      "@type": "PropertyValue",
-      <strong>"additionalType": "http://www.geoscienceontology.org/geo-lower/quantity#latitude",</strong>
+      <strong>"@type": ["PropertyValue", "gsn-quantity:latitude"],</strong>
       "name": "latitude",
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive.",
@@ -226,13 +205,9 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"includedInDataCatalog": {
@@ -256,13 +231,9 @@ For data available in multipe formats, there will be multiple values of the [sch
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"distribution": {
@@ -282,13 +253,9 @@ If access to the data requires some input parameters before a download can occur
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"potentialAction": {
@@ -351,13 +318,9 @@ To represent a single date and time:
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"temporalCoverage": "2018-01-22T14:51:12+00:00"</strong>
@@ -409,13 +372,9 @@ A point, or coordinate, would defined in this way:
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"spatialCoverage": {
@@ -509,26 +468,20 @@ People can be linked to datasets iusing three fields: author, creator, and contr
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"creator": [
     {
       "@id": "http://lod.bco-dmo.org/id/person-role/472036",
       "@type": "Role",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Principal Investigator",
       "url": "http://lod.bco-dmo.org/id/person-role/472036",
       "creator": {
         "@id": "https://www.bco-dmo.org/person/51317",
         "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/base/main#Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
@@ -538,16 +491,13 @@ People can be linked to datasets iusing three fields: author, creator, and contr
     {
       "@id": "http://lod.bco-dmo.org/id/person-role/472038",
       "@type": "Role",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Co-Principal Investigator",
       "url": "https://www.bco-dmo.org/person-role/472038",
       "creator": {
         "@id": "https://www.bco-dmo.org/person/50663",
         "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/base/main#Person",
         "identifier": {
-          "@type": "PropertyValue",
-          "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+          "@type": ["PropertyValue", "datacite:Identifier"],
           "propertyID": "http://purl.org/spar/datacite/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
           "value": "0000-0003-3432-2297"
@@ -572,13 +522,11 @@ NOTE that the Role inherits the property `creator` and `contributor` from the Da
     {
       "@id": "http://lod.bco-dmo.org/id/person-role/472036",
       <strong>"@type": "Role"</strong>,
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Principal Investigator",
       "url": "http://lod.bco-dmo.org/id/person-role/472036",
       <strong>"creator":</strong> {
         "@id": "https://www.bco-dmo.org/person/51317",
         "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/base/main#Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
@@ -594,26 +542,20 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   "creator": [
     {
       "@id": "http://lod.bco-dmo.org/id/person-role/472036",
       "@type": "Role",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Principal Investigator",
       "url": "http://lod.bco-dmo.org/id/person-role/472036",
       "creator": {
         <strong>"@id": "https://www.bco-dmo.org/person/51317"</strong>,
         "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/base/main#Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
@@ -623,7 +565,6 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
     <strong>{
       "@id": "https://www.bco-dmo.org/person-role/472037",
       "@type": "Role",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Contact",
       "url": "https://www.bco-dmo.org/person-role/472037",
       "creator": { "@id": "https://www.bco-dmo.org/person/51317" }
@@ -631,16 +572,13 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
     {
       "@id": "http://lod.bco-dmo.org/id/person-role/472038",
       "@type": "Role",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Participant",
       "roleName": "Co-Principal Investigator",
       "url": "https://www.bco-dmo.org/person-role/472038",
       "creator": {
         "@id": "https://www.bco-dmo.org/person/50663",
         "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/base/main#Person",
         "identifier": {
-          "@type": "PropertyValue",
-          "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+          "@type": ["PropertyValue", "datacite:Identifier"],
           "propertyID": "http://purl.org/spar/datacite/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
           "value": "0000-0003-3432-2297"
@@ -678,13 +616,9 @@ then you can reuse that `@id` here. Harvesters such as Google and Project418 wil
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
 <strong>"provider": {
@@ -702,19 +636,14 @@ Otherwise, you can define the organization inline in this way:
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
 <strong>"provider": {
     "@id": "https://www.sample-data-repository.org",
     "@type": "Organization",
-    "additionalType": "http://schema.geolink.org/1.0/base/main#Organization",
     "legalName": "Sample Data Repository Office",
     "name": "SDRO",
     "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
@@ -739,19 +668,15 @@ Datasets can have a number of policies and protocols attached to them - Terms of
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+    "datacite": "http://purl.org/spar/datacite/",
+    <strong>"gdx": "https://geodex.org/voc/"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
 <strong>"publishingPrinciples": {
     "@id": "http://creativecommons.org/licenses/by/4.0/",
-    "@type": "DigitalDocument",
-    "additionalType": "https://geodex.org/voc/Protocol-License",
+    "@type": ["DigitalDocument", "gdx:Protocol-License"],
     "name": "Dataset Usage License",
     "url": "http://creativecommons.org/licenses/by/4.0/"
   }</strong>
@@ -770,42 +695,37 @@ Schema.org's most recent communication with P418 recommended that the award be s
 #### Describing a Dataset's Funding
 ![Funding](html/voc/static/schema/diagrams/dataset-funding.png "Dataset - Funding")
 
-* [schema:name]() - The award title
-* [schema:description]() - The award description/abstract
-* [schema:identifier]() - The award identifier,number,etc.
-* [schema:validFrom]() - The award start date
-* [schema:validThrough]() - The award end date
+* [schema:name](https://schema.org/name) - The award title
+* [schema:description](https://schema.org/description) - The award description/abstract
+* [schema:identifier](https://schema.org/identifier) - The award identifier,number,etc.
+* [schema:validFrom](https://schema.org/validFrom) - The award start date
+* [schema:validThrough](https://schema.org/validThrough) - The award end date
 
 <pre>
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "geolink": "http://schema.geolink.org/1.0/base/main#",
-    "vivo": "http://vivoweb.org/ontology/core#",
-    earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-    "geo-upper": "http://www.geoscienceontology.org/geo-upper#",
-    "geolink-vocab": "http://schema.geolink.org/1.0/voc/local#"
+    "datacite": "http://purl.org/spar/datacite/",
+    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
+    "geolinkvoc": "http://schema.geolink.org/1.0/voc/local#"</strong>
   },
   "@type": "Dataset",
-  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
 <strong>"funder": {
     "@type": "Organization",
-    "additionalType": "http://schema.geolink.org/1.0/base/main#Organization",
     "legalName": "National Science Foundation",
     "name": "NSF",
     "url": "https://www.nsf.gov",
     "identifier": {
-      "@type": "PropertyValue",
+      "@type": ["PropertyValue", "datacite:Identifier"],
       "propertyID": "http://purl.org/spar/datacite/doi",
       "value": "10.13039/100000141",
       "url": "https://doi.org/10.13039/100000001"
     },
     "makesOffer": {
-      "@type": "Offer",
+      "@type": ["Offer", "geolink:Award"],
       "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1623751",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#Award",
       "name": "EarthCube Science Support Office (ESSO)",
       "description": "EarthCube is a community-driven effort with the goal of transforming the conduct of geoscience research and education by creating a well-integrated and facile environment to share scientific data, information tools and services, and knowledge in an open, transparent, and inclusive manner....[truncated]",
       "identifier": {
@@ -817,16 +737,20 @@ Schema.org's most recent communication with P418 recommended that the award be s
       "validFrom": "2016-05-01",
       "validThrough": "2019-04-30",
       "offeredBy": {
-        "@type": "Person",
-        "additionalType": "http://schema.geolink.org/1.0/voc/local#roletype_program_manager",
-        "name": "Eva E. Zanzerkia"
+        "@type": ["Role", "geolinkvoc:roletype_program_manager"],
+        "roleName": "Program Manager",
+        "offeredBy": {
+          "@id": "https://www.bco-dmo.org/person/51317",
+          "@type": "Person",
+          "name": "Eva E. Zanzerkia"
+        },        
       }
     },
     "parentOrganization": {
       "@type": "Organization",
       "legalName": "Directorate for Geosciences",
       "identifier": {
-        "@type": "PropertyValue",
+        "@type": ["PropertyValue", "datacite:Identifier"],
         "propertyID": "http://purl.org/spar/datacite/doi",
         "value": "10.13039/100000085",
         "url": "https://doi.org/10.13039/100000085"
@@ -836,7 +760,7 @@ Schema.org's most recent communication with P418 recommended that the award be s
         "legalName": "National Science Foundation",
         "url": "http://www.nsf.gov",
         "identifier": {
-          "@type": "PropertyValue",
+          "@type": ["PropertyValue", "datacite:Identifier"],
           "propertyID": "http://purl.org/spar/datacite/doi",
           "value": "10.13039/100000001",
           "url": "https://doi.org/10.13039/100000001"
@@ -890,8 +814,7 @@ The SWEET ontology defines a number of science disciplines and a repository coul
     <strong>"sweet-rel": "http://sweetontology.net/rela/",
     "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
   },
-  "@type": ["Service", "Organization"],
-  "additionalType": "https://geodex.org/voc/ResearchRepositoryService",
+  "@type": ["Service", "Organization", "gdx:ResearchRepositoryService"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -921,11 +844,9 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
   ...,
   <strong>"hasPart": [
     { 
-      "@type": "CreativeWork",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#PhysicalSample",
+      "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": "PropertyValue",
-        "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+        "@type": ["PropertyValue", "datacite:Identifier"],
         "propertyID": "IGSN",
         "url": "https://app.geosamples.org/sample/igsn/WHO000A53",
         "value": "WHO000A53"
@@ -942,11 +863,9 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
       ...
     },
     { 
-      "@type": "CreativeWork",
-      "additionalType": "http://schema.geolink.org/1.0/base/main#PhysicalSample",
+      "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": "PropertyValue",
-        "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+        "@type": ["PropertyValue", "datacite:Identifier"],
         "propertyID": "IGSN",
         "url": "https://app.geosamples.org/sample/igsn/WHO000A67",
         "value": "WHO000A67"
@@ -957,7 +876,7 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
 }
 </pre>
 
-Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the [schema:additionalType](https://schema.org/additionalType) field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
+Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
 
 **NOTE:** We use "IGSN" as the [schema:propertyID](https://schema.org/propertyID) until a canonical URI is defined by IGSN governance.
 
