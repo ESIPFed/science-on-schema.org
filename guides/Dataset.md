@@ -30,6 +30,8 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
+![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.svg "Dataset - Basic Fields")
+
 <pre>
 {
   "@context": {
