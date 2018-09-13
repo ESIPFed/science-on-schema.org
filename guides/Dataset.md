@@ -55,7 +55,7 @@ Back to [top](#top)
 Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue) as the use of text or url does not get indexed properly by Google and other JSON-LD testing tools due to an issue with the properties definition.
 
 #### Describing a Dataset Identifier
-![Identifiers](html/voc/static/schema/diagrams/dataset-identifier.png "Dataset - Identifiers")
+![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
 In it's most basic form, the identifier as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
 
@@ -72,11 +72,14 @@ In it's most basic form, the identifier as a [schema:PropertyValue](https://sche
   "version": "2013-11-21",
   "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
   "license": "http://creativecommons.org/licenses/by/4.0/",
-  <strong>"identifier": "urn:sdro:dataset:472032"</strong>
+  <strong>"identifier": { 
+    "@type": "PropertyValue",
+    "value": "urn:sdro:dataset:472032"
+  }</strong>
 }
 </pre>
 
-The Persistent Identifier, such as a DOI, ARK, URL, etc as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published using the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to define the identifier as:
+A DOI, ARK, URL, etc as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published using the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to define the identifier as:
 
 <pre>
 {
@@ -94,7 +97,8 @@ The Persistent Identifier, such as a DOI, ARK, URL, etc as a [schema:PropertyVal
   "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
     "@type": ["PropertyValue", "datacite:Identifier"],
-    "propertyID": "http://purl.org/spar/datacite/doi",
+    "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
+    "propertyID": "DOI",
     "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "value": "10.1575/1912/bco-dmo.665253"
   }</strong>
@@ -136,23 +140,21 @@ Back to [top](#top)
 Adding the [schema:variableMeasured](https://schema.org/variableMeasured) field can be done in two ways - a text description of each variable or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue).
 
 #### Describing a Dataset's Variables
-![Variables](html/voc/static/schema/diagrams/dataset-variables.png "Dataset - Variables")
+![Variables](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Variables")
 
 In it's most basic form, the variable as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
-    <strong>"earthcollab": "https://library.ucar.edu/earthcollab/schema#"</strong>
+    "@vocab": "http://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"variableMeasured": [
     {
-      "@type": ["PropertyValue", "earthcollab:Parameter"],
+      "@type": ["PropertyValue"],
       "name": "Bottle identifier",
       "description": "The bottle number for each associated measurement."
     },
