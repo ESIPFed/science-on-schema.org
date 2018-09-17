@@ -29,3 +29,6 @@ As views on certain topics change over time, it will be difficult without ADRs t
 * **Context**: what is the issue that we're seeing that is motivating this decision or change.
 
 * **Consequences**: what becomes easier or more difficult to do because of this change.
+
+### Template ###
+[/decisions/ADR_TEMPLATE.md](/decisions/ADR_TEMPLATE.md)
