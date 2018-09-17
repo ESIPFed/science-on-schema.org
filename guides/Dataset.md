@@ -14,7 +14,7 @@
   * [Point/Coordinates](#spatial_point)
   * [Shapes](#spatial_shape)
   * [Multiple geometries](#spatial_multiple-geometries)
-* [Authors, Creators, and Contributors](#author-creator-contributor)
+* [People Roles](#people-roles)
 * [Publisher/Provider](#publisher-provider)
 * [Protocols](#protocols)
 * [Funding](#funding)
@@ -496,12 +496,12 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 
 Back to [top](#top)
 
-<a id="author-creator-contributor"></a>
-#### Describing a Dataset's Creators/Contributors
+<a id="people-roles"></a>
+#### Describing a Dataset's People
 
 People can be linked to datasets iusing three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
-![Variables](html/voc/static/schema/diagrams/dataset-creator_contributor.png "Dataset - Creator/Contributor")
+![People Roles](asset/diagram/dataset_people-roles.svg "Dataset - People Roles)
 
 <pre>
 {
@@ -517,7 +517,6 @@ People can be linked to datasets iusing three fields: author, creator, and contr
       "@id": "http://lod.bco-dmo.org/id/person-role/472036",
       "@type": "Role",
       "roleName": "Principal Investigator",
-      "url": "http://lod.bco-dmo.org/id/person-role/472036",
       "creator": {
         "@id": "https://www.bco-dmo.org/person/51317",
         "@type": "Person",
