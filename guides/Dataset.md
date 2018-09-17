@@ -283,6 +283,8 @@ For data available in multipe formats, there will be multiple values of the [sch
 
 If access to the data requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction) in this way:
 
+![Service Endpoint](/assets/diagrams/dataset/dataset_service-endpoint.svg "Dataset - Service Endpoint")
+
 <pre>
 {
   "@context": {
@@ -345,7 +347,7 @@ Back to [top](#top)
 
 Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue] queue(https://github.com/schemaorg/schemaorg/issues/242)
 
-![Temporal](html/voc/static/schema/diagrams/dataset-temporal.png "Dataset - Temporal")
+![Temporal](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Temporal")
 
 To represent a single date and time:
 <pre>
@@ -385,7 +387,7 @@ Back to [top](#top)
 <a id="spatial"></a>
 #### Describing a Dataset's Spatial Coverage
 
-![Spatial](html/voc/static/schema/diagrams/dataset-spatial.png "Dataset - Spatial")
+![Spatial](html/voc/static/schema/diagrams/dataset_spatial-coverage.png "Dataset - Spatial")
 
 The types of spatial coverages in schema.org are
 
