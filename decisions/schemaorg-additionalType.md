@@ -1,10 +1,10 @@
 # What do we do with the schema.org/additionalType field? #
 
-## Context ##
+## Status ##
 
 ## Decision ##
 
-## Status ##
+## Context ##
 
 ## Consequences ##
 
