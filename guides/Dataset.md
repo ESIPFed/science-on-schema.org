@@ -17,8 +17,8 @@
 * [Publisher/Provider](#publisher-provider)
 * [Protocols](#protocols)
 * [Funding](#funding)
-* [Advanced Publishing Tehcniques(#advanced-publishing)
-  * [Linking Physical Samples to Datasets(#physical-sample-igsn)
+* [Advanced Publishing Techniques](#advanced-publishing)
+  * [Linking Physical Samples to Datasets](#physical-sample-igsn)
     
 
 Google has drafted a [guide to help publishers](https://developers.google.com/search/docs/data-types/dataset). The guide describes the only required fields as - name and description.
