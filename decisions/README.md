@@ -1,4 +1,4 @@
-# Lightweight Architecture Decision Records #
+# Using Architectural Decision Records #
 
 ## Status ##
 *Proposed*
