@@ -1,7 +1,25 @@
 <a id="top"></a>
 ![version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
-### Describing a Dataset
+# Describing a Dataset
+
+* [Identifier](#identifiers)
+* [Variables](#variables)
+  * [Using External Vocabularies for Describing Variables](#variables_external-vocab-example)
+* [DataCatalog](#catalog)
+* [Distributions](#distributions)
+   * [Accessing Data through a Service Endpoint](#service-endpoint)
+* [Temporal](#temporal)
+* [Spatial](#spatial)
+  * [Point/Coordinates](#spatial_point)
+  * [Multiple geometries](#spatial_multiple-geometries)
+* [Authors, Creators, and Contributors](#author-creator-contributor)
+* [Publisher/Provider](#publisher-provider)
+* [Protocols](#protocols)
+* [Funding](#funding)
+* [Advanced Publishing Tehcniques(#advanced-publishing)
+  * [Linking Physical Samples to Datasets(#physical-sample-igsn)
+    
 
 Google has drafted a [guide to help publishers](https://developers.google.com/search/docs/data-types/dataset). The guide describes the only required fields as - name and description.
 * [name](https://schema.org/name) - A descriptive name of a dataset (e.g., “Snow depth in Northern Hemisphere”)
@@ -51,7 +69,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 
 Back to [top](#top)
 
-<a id="dataset-identifiers"></a>
+<a id="identifiers"></a>
 Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail.
 
 #### Describing a Dataset Identifier
@@ -148,7 +166,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 Back to [top](#top)
 
-<a id="dataset-variables"></a>
+<a id="variables"></a>
 Adding the [schema:variableMeasured](https://schema.org/variableMeasured) field can be done in two ways - a text description of each variable or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue).
 
 #### Describing a Dataset's Variables
@@ -174,7 +192,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
   ]</strong>
 }
 </pre>
-<a id="gsn-example"></a>
+<a id="variables_external-vocab-example"></a>
 A fully-fleshed out example that uses a vocabulary to describe the variable can be published as:
 
 <pre>
@@ -204,7 +222,7 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
 
 Back to [top](#top)
 
-<a id="dataset-catalog"></a>
+<a id="catalog"></a>
 #### Describing a Dataset's Catalog
 
 For some repositories, defining a one or many data collections helps contextualize the datasets. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
@@ -234,7 +252,7 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 
 Back to [top](#top)
 
-<a id="dataset-distros"></a>
+<a id="distributions"></a>
 #### Describing a Dataset's Distributions
 
 Where the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data in a specific format is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
@@ -260,7 +278,7 @@ For data available in multipe formats, there will be multiple values of the [sch
 }
 </pre>
 
-<a id="dataset-service-endpoint"></a>
+<a id="service-endpoint"></a>
 ##### Accessing Data through a Service Endpoint
 
 If access to the data requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction) in this way:
@@ -322,7 +340,7 @@ Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type bec
 
 Back to [top](#top)
 
-<a id="dataset-temporal"></a>
+<a id="temporal"></a>
 #### Describing a Dataset's Temporal Coverage
 
 Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue] queue(https://github.com/schemaorg/schemaorg/issues/242)
@@ -364,7 +382,7 @@ Schema.org also lets you provide date ranges and other temporal coverages throug
 
 Back to [top](#top)
 
-<a id="dataset-spatial"></a>
+<a id="spatial"></a>
 #### Describing a Dataset's Spatial Coverage
 
 ![Spatial](html/voc/static/schema/diagrams/dataset-spatial.png "Dataset - Spatial")
@@ -381,7 +399,7 @@ The following shapes use the [schema:GeoShape](https://schema.org/GeoShape) type
 
 These spatial definitiosn were added to schema.org very early on in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) where they decided to follow the [GeoRSS specification](http://www.georss.org/simple). While this is not ideal, there are ongoing conversations about improving this in schema.org.
 
-<a id="dataset-spatial-point"></a>
+<a id="spatial_point"></a>
 A point, or coordinate, would defined in this way:
 
 <pre>
@@ -445,7 +463,7 @@ To alleviate some of the pain of converting spatial information into these defin
 
 We also recognize that there is no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned.
 
-<a id="dataset-multiple-geometries"></a>
+<a id="spatial_multiple-geometries"></a>
 If you have multiple geometries, you can publish those by making the [schema:geo](https://schema.org/geo) field an array of [GeoShape](https://schema.org/GeoShape) or [GeoCoordinates](https://schema.org/GeoCoordinates) like so:
 
 <pre>
@@ -473,7 +491,7 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 
 Back to [top](#top)
 
-<a id="dataset-creator_contributor"></a>
+<a id="author-creator-contributor"></a>
 #### Describing a Dataset's Creators/Contributors
 
 People can be linked to datasets iusing three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
@@ -610,7 +628,7 @@ Notice that since Uta Passow has already been defined in the document with `"@id
 
 Back to [top](#top)
 
-<a id="dataset-publisher_provider"></a>
+<a id="publisher-provider"></a>
 #### Describing a Dataset's Publisher/Provider
 
 ![Publisher/Provider](html/voc/static/schema/diagrams/dataset-publisher_provider.png "Dataset - Publisher/Provider")
@@ -673,7 +691,7 @@ Otherwise, you can define the organization inline in this way:
 
 Back to [top](#top)
 
-<a id="dataset-protocols"></a>
+<a id="protocols"></a>
 #### Describing a Dataset's Protocols
 
 Datasets can have a number of policies and protocols attached to them - Terms of Use, access restrictions, certain licenses, etc. If you want to represent one or more of these protocols and there is a URL at which a user can read that protocol, we can use the [schema:DigitalDocument](https://schema.org/DigitalDocument) to describe the protocol using the [schema:publishingPrinciples](https://schema.org/publishingPrinciples) field.
@@ -703,7 +721,7 @@ P418 has created some class names for some common protocol document types. These
 
 Back to [top](#top)
 
-<a id="dataset-funding"></a>
+<a id="funding"></a>
 
 Trying to describe a Dataset's funding award is one area of schema.org that doesn't fit all that well. There is a lot of [discussion](https://github.com/schemaorg/schemaorg/issues/383) on this topic already happening with schema.org governance.
 Schema.org's most recent communication with P418 recommended that the award be something generated from the [schema:funder](https://schema.org/funder). We feel the best class to classify as an Award **until this is addressed by schema.org** is the [schema:Offer](https://schema.org/Offer). If you specify an Award, you **should** also use the `gdx:fundedBy` property to directly link the Dataset to the Award in this way.
@@ -791,57 +809,8 @@ Schema.org's most recent communication with P418 recommended that the award be s
 
 Back to [top](#top)
 
-<a id="examples"></a>
-### Examples
-
-All examples can be found at: https://github.com/earthcubearchitecture-project418/p418Vocabulary/tree/master/html/voc/static/schema/examples/
-
-* [Repository Examples](https://github.com/earthcubearchitecture-project418/p418Vocabulary/tree/master/html/voc/static/schema/examples/repository)
-  * [Full Example by BCO-DMO](https://github.com/earthcubearchitecture-project418/p418Vocabulary/blob/master/html/voc/static/schema/examples/repository/full.jsonld)
-  * [Minimal Example by BCO-DMO](https://github.com/earthcubearchitecture-project418/p418Vocabulary/blob/master/html/voc/static/schema/examples/repository/minimal.jsonld)
-  * See [BCO-DMO homepage](https://www.bco-dmo.org) (view source of the page to see the schema.org JSON-LD)
-* [Dataset Examples](https://github.com/earthcubearchitecture-project418/p418Vocabulary/tree/master/html/voc/static/schema/examples/resource)
-  * [Full Example by BCO-DMO](https://github.com/earthcubearchitecture-project418/p418Vocabulary/blob/master/html/voc/static/schema/examples/resource/dataset-full.jsonld)
-  * [Minimal Example by BCO-DMO](https://github.com/earthcubearchitecture-project418/p418Vocabulary/blob/master/html/voc/static/schema/examples/resource/dataset-minimal.jsonld)
-
-Back to [top](#top)
-
-<a id="issues"></a>
-#### Issues
-
-https://stackoverflow.com/questions/38243521/schema-org-contacttype-validation-issue-the-value-provided-for-office-must-be
-
-Back to [top](#top)
-
 <a id="advanced-publishing"></a>
 ### Advanced Publishing Techniques
-
-<a id="advanced-publishing-category"></a>
-#### How to publish resources for the categories/disciplines at repository services.
-#### & How to use external vocabularies
-
-The SWEET ontology defines a number of science disciplines and a repository could reference those, or another vocabuary's resources, by adding the vocabular to the `@context` attribute of the JSON-LD markup.
-
-<pre>
-{
-  "@context": {
-    "@vocab": "http://schema.org/",
-    "gdx": "https://geodex.org/voc/",
-    <strong>"sweet-rel": "http://sweetontology.net/rela/",
-    "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
-  },
-  "@type": ["Service", "Organization", "gdx:ResearchRepositoryService"],
-  "legalName": "Sample Data Repository Office",
-  "name": "SDRO",
-  "url": "https://www.sample-data-repository.org",
-  "description": "The Sample Data Repository Service provides access to data from an imaginary domain accessible from this website.",
-  <strong>"sweet-rel:hasRealm": [
-    { "@id": "sweet-kd:Biogeochemistry" },
-    { "@id": "sweet-kd:Oceanography" }
-  ]
-  </strong>
-}
-</pre>
 
 <a id="physical-sample-igsn"></a>
 #### Attaching Physical Samples to a Dataset
@@ -862,7 +831,7 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
     { 
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": ["PropertyValue", "datacite:Identifier"],
+        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
         "propertyID": "IGSN",
         "url": "https://app.geosamples.org/sample/igsn/WHO000A53",
         "value": "WHO000A53"
@@ -881,7 +850,7 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
     { 
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": ["PropertyValue", "datacite:Identifier"],
+        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
         "propertyID": "IGSN",
         "url": "https://app.geosamples.org/sample/igsn/WHO000A67",
         "value": "WHO000A67"
@@ -894,8 +863,4 @@ Currently, there isn't a breat semantic property for a Dataset to distinguish th
 
 Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
 
-**NOTE:** We use "IGSN" as the [schema:propertyID](https://schema.org/propertyID) until a canonical URI is defined by IGSN governance.
-
-## Examples ##
-
-[Dataset Identifier](https://json-ld.org/playground/?startTab=tab-table&json-ld=%7B%22%40context%22%3A%7B%22%40vocab%22%3A%22http%3A%2F%2Fschema.org%2F%22%2C%22datacite%22%3A%22http%3A%2F%2Fpurl.org%2Fspar%2Fdatacite%2F%22%7D%2C%22%40type%22%3A%22Dataset%22%2C%22identifier%22%3A%7B%22%40type%22%3A%5B%22PropertyValue%22%2C%22datacite%3AResourceIdentifier%22%5D%2C%22name%22%3A%22doi%3A10.13039%2F100000141%22%2C%22value%22%3A%2210.13039%2F100000141%22%2C%22propertyID%22%3A%22http%3A%2F%2Fpurl.org%2Fspar%2Fdatacite%2Fdoi%22%2C%22datacite%3AusesIdentifierScheme%22%3A%7B%22%40id%22%3A%22datacite%3Adoi%22%7D%2C%22url%22%3A%22https%3A%2F%2Fdoi.org%2F10.13039%2F100000141%22%7D%7D&context=%7B%7D)
+**NOTE:** We use "IGSN" as the [schema:propertyID](https://schema.org/propertyID) until a canonical URI is defined by IGSN governance to where we can use [datacite:usesIdentifierScheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e239) to link to a well-defined identifier type definition such as other [persistent identifiers](https://sparontologies.github.io/datacite/current/datacite.html#d4e638).
