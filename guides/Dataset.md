@@ -16,7 +16,6 @@
   * [Multiple geometries](#spatial_multiple-geometries)
 * [People Roles](#people-roles)
 * [Publisher/Provider](#publisher-provider)
-* [Protocols](#protocols)
 * [Funding](#funding)
 * [Advanced Publishing Techniques](#advanced-publishing)
   * [Linking Physical Samples to Datasets](#physical-sample-igsn)
@@ -695,121 +694,9 @@ Otherwise, you can define the organization inline in this way:
 
 Back to [top](#top)
 
-<a id="protocols"></a>
-#### Describing a Dataset's Protocols
-
-Datasets can have a number of policies and protocols attached to them - Terms of Use, access restrictions, certain licenses, etc. If you want to represent one or more of these protocols and there is a URL at which a user can read that protocol, we can use the [schema:DigitalDocument](https://schema.org/DigitalDocument) to describe the protocol using the [schema:publishingPrinciples](https://schema.org/publishingPrinciples) field.
-
-![Protocols](html/voc/static/schema/diagrams/dataset-protocols.png "Dataset - Protocols")
-
-<pre>
-{
-  "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
-    <strong>"gdx": "https://geodex.org/voc/"</strong>
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-<strong>"publishingPrinciples": {
-    "@id": "http://creativecommons.org/licenses/by/4.0/",
-    "@type": ["DigitalDocument", "gdx:Protocol-License"],
-    "name": "Dataset Usage License",
-    "url": "http://creativecommons.org/licenses/by/4.0/"
-  }</strong>
-}
-</pre>
-
-P418 has created some class names for some common protocol document types. These will help make it clear to users what types of policies you have. If you would like us to add more, please let us know by creating an [Issue](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues/new).
-
-Back to [top](#top)
-
 <a id="funding"></a>
 
-Trying to describe a Dataset's funding award is one area of schema.org that doesn't fit all that well. There is a lot of [discussion](https://github.com/schemaorg/schemaorg/issues/383) on this topic already happening with schema.org governance.
-Schema.org's most recent communication with P418 recommended that the award be something generated from the [schema:funder](https://schema.org/funder). We feel the best class to classify as an Award **until this is addressed by schema.org** is the [schema:Offer](https://schema.org/Offer). If you specify an Award, you **should** also use the `gdx:fundedBy` property to directly link the Dataset to the Award in this way.
-
-#### Describing a Dataset's Funding
-![Funding](html/voc/static/schema/diagrams/dataset-funding.png "Dataset - Funding")
-
-* [schema:name](https://schema.org/name) - The award title
-* [schema:description](https://schema.org/description) - The award description/abstract
-* [schema:identifier](https://schema.org/identifier) - The award identifier,number,etc.
-* [schema:validFrom](https://schema.org/validFrom) - The award start date
-* [schema:validThrough](https://schema.org/validThrough) - The award end date
-
-<pre>
-{
-  "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
-    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
-    "geolinkvoc": "http://schema.geolink.org/1.0/voc/local#"</strong>
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-<strong>"funder": {
-    "@type": "Organization",
-    "legalName": "National Science Foundation",
-    "name": "NSF",
-    "url": "https://www.nsf.gov",
-    "identifier": {
-      "@type": ["PropertyValue", "datacite:Identifier"],
-      "propertyID": "http://purl.org/spar/datacite/doi",
-      "value": "10.13039/100000141",
-      "url": "https://doi.org/10.13039/100000001"
-    },
-    "makesOffer": {
-      "@type": ["Offer", "geolink:Award"],
-      "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1623751",
-      "name": "EarthCube Science Support Office (ESSO)",
-      "description": "EarthCube is a community-driven effort with the goal of transforming the conduct of geoscience research and education by creating a well-integrated and facile environment to share scientific data, information tools and services, and knowledge in an open, transparent, and inclusive manner....[truncated]",
-      "identifier": {
-        "@type": "PropertyValue",
-        "name": "NSF Award Number",
-        "value": "1623751",
-        "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1623751"
-      },
-      "validFrom": "2016-05-01",
-      "validThrough": "2019-04-30",
-      "offeredBy": {
-        "@type": ["Role", "geolinkvoc:roletype_program_manager"],
-        "roleName": "Program Manager",
-        "offeredBy": {
-          "@id": "https://www.bco-dmo.org/person/51317",
-          "@type": "Person",
-          "name": "Eva E. Zanzerkia"
-        },        
-      }
-    },
-    "parentOrganization": {
-      "@type": "Organization",
-      "legalName": "Directorate for Geosciences",
-      "identifier": {
-        "@type": ["PropertyValue", "datacite:Identifier"],
-        "propertyID": "http://purl.org/spar/datacite/doi",
-        "value": "10.13039/100000085",
-        "url": "https://doi.org/10.13039/100000085"
-       },
-      "parentOrganization": {
-        "@type": "Organization",
-        "legalName": "National Science Foundation",
-        "url": "http://www.nsf.gov",
-        "identifier": {
-          "@type": ["PropertyValue", "datacite:Identifier"],
-          "propertyID": "http://purl.org/spar/datacite/doi",
-          "value": "10.13039/100000001",
-          "url": "https://doi.org/10.13039/100000001"
-        }
-      }
-    }
-  },
-  "gdx:fundedBy": { "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1623751" }</strong>
- }
-</pre>
-
+Project 418 made an attempt to reuse schema.org classes to directly link a [Dataset to a Funding Award](https://github.com/earthcubearchitecture-project418/p418Vocabulary#describing-a-datasets-funding), but this work needs revision.
 
 Back to [top](#top)
 
