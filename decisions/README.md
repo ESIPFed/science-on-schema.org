@@ -6,8 +6,8 @@
 ## Context ##
 *Lightweight Architecture Decision Records (ADRs)* are a technique for capturing important architectural decisions along with their context and consequences stored in a version control system for the benefit of future team members as well as for external oversight. Storing ADRs in version control systems are recommended as opposed to Wikis or a website so that they remain in sync with the code itself. 
 
-See: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
-See: https://github.com/joelparkerhenderson/architecture_decision_record
+* See: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
+* See: https://github.com/joelparkerhenderson/architecture_decision_record
 
 ## Decision ##
 When a design decision is made about how to implement schema.org properly, an ADR will be stored in this repository in the decisions directory. Discussion may happen across pull requests and Github Issues, but these will be boiled down to the essentials of the decision and its context to expedite onboarding of new members.
@@ -18,7 +18,7 @@ As views on certain topics change over time, it will be difficult without ADRs t
 
 ------------
 
-##Sections of an ADR:##
+### Sections of an ADR: ###
 
 * **Title**: short present tense imperative phrase, less than 50 characters, like a git commit message.
 
