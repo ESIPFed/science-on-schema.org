@@ -170,7 +170,7 @@ Back to [top](#top)
 Adding the [schema:variableMeasured](https://schema.org/variableMeasured) field can be done in two ways - a text description of each variable or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue).
 
 #### Describing a Dataset's Variables
-![Variables](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Variables")
+![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
 In it's most basic form, the variable as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
 
@@ -227,7 +227,7 @@ Back to [top](#top)
 
 For some repositories, defining a one or many data collections helps contextualize the datasets. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
 
-![DataCatalog](html/voc/static/schema/diagrams/dataset-catalog.png "Dataset - Catalog")
+![DataCatalog](/assets/diagrams/dataset/dataset_datacatalog.svg "Dataset - Data Catalog")
 
 The most optimal way to use these DataCatalogs for a repository is to define these catalogs as an ["offering" of your repository](#repository-offercatalog) and including the `@id` property to be reused in the dataset JSON-LD. For example, the repository JSON-LD defines a [schema:DataCatalog](https://schema.org/DataCatalog) with the
 
@@ -257,7 +257,7 @@ Back to [top](#top)
 
 Where the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data in a specific format is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
 
-![Distributions](html/voc/static/schema/diagrams/dataset-distribution.png "Dataset - Distributions")
+![Distributions](/assets/diagrams/dataset/dataset_distribution.svg "Dataset - Distributions")
 
 For data available in multipe formats, there will be multiple values of the [schema:DataDownload](https://schema.org/DataDownload):
 
