@@ -4,10 +4,10 @@
 *Proposed*
 
 ## Decision ##
-Store all design decision using an ADR record in the [/decisions](/decisions) directory. Discussion may happen across Githubissues and pull requests, but these will be boiled down to the essentials of the decision and its context to expedite onboarding of new members.
+Store all design decisions using an ADR record in the [/decisions](/decisions) directory. Discussion may happen across Github issues and pull requests related to documentation, code and ADRs themselves, but these discussions will be boiled down to the essentials of the decision and its context to expedite onboarding of future members.
 
 ## Context ##
-*Lightweight Architecture Decision Records (ADRs)* are a technique for capturing important architectural decisions along with their context and consequences stored in a version control system for the benefit of future team members as well as for external oversight. Storing ADRs in version control systems are recommended as opposed to Wikis or a website so that they remain in sync with the code itself. 
+*Architecture Decision Records (ADRs)* are a technique for capturing important architectural decisions along with their context and consequences stored in a version control system for the benefit of future team members as well as for external oversight. Storing ADRs in version control systems are recommended as opposed to Wikis or a website so that they remain in sync with the code itself. 
 
 * See: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 * See: https://github.com/joelparkerhenderson/architecture_decision_record
