@@ -3,14 +3,14 @@
 ## Status ##
 *Proposed*
 
+## Decision ##
+Store all design decision using an ADR record in the [/decisions](/decisions) directory. Discussion may happen across Githubissues and pull requests, but these will be boiled down to the essentials of the decision and its context to expedite onboarding of new members.
+
 ## Context ##
 *Lightweight Architecture Decision Records (ADRs)* are a technique for capturing important architectural decisions along with their context and consequences stored in a version control system for the benefit of future team members as well as for external oversight. Storing ADRs in version control systems are recommended as opposed to Wikis or a website so that they remain in sync with the code itself. 
 
 * See: https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
 * See: https://github.com/joelparkerhenderson/architecture_decision_record
-
-## Decision ##
-When a design decision is made about how to implement schema.org properly, an ADR will be stored in this repository in the decisions directory. Discussion may happen across pull requests and Github Issues, but these will be boiled down to the essentials of the decision and its context to expedite onboarding of new members.
 
 ## Consequences ##
 
@@ -24,8 +24,8 @@ As views on certain topics change over time, it will be difficult without ADRs t
 
 * **Status**: Proposed, Accepted, Rejected, Deprecated, Superseded, etc.
 
-* **Context**: what is the issue that we're seeing that is motivating this decision or change.
-
 * **Decision**: what is the change that we're actually proposing or doing.
+
+* **Context**: what is the issue that we're seeing that is motivating this decision or change.
 
 * **Consequences**: what becomes easier or more difficult to do because of this change.
