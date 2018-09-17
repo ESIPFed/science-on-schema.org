@@ -52,12 +52,12 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 Back to [top](#top)
 
 <a id="dataset-identifiers"></a>
-Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue) as the use of text or url does not get indexed properly by Google and other JSON-LD testing tools due to an issue with the properties definition.
+Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail.
 
 #### Describing a Dataset Identifier
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
-In it's most basic form, the identifier as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
+In it's most basic form, the identifier as text can be published as:
 
 <pre>
 {
@@ -72,14 +72,26 @@ In it's most basic form, the identifier as a [schema:PropertyValue](https://sche
   "version": "2013-11-21",
   "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
   "license": "http://creativecommons.org/licenses/by/4.0/",
-  <strong>"identifier": { 
-    "@type": "PropertyValue",
-    "value": "urn:sdro:dataset:472032"
-  }</strong>
+  <strong>"identifier": "urn:sdro:dataset:472032"</strong>
 }
 </pre>
 
-A DOI, ARK, URL, etc as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published using the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to define the identifier as:
+Or as a URL:
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+  <strong>"identifier": "http://id.sampledatarepository.org/dataset/472032/version/1"</strong>
+}
+</pre>
+
+However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types. 
+
+For identifiers that do have a well-defined scheme that scopes the identifier value, such as DOI, ARK, ISBN, etc, we can use the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to specify this identifier scheme:
 
 <pre>
 {
@@ -96,7 +108,7 @@ A DOI, ARK, URL, etc as a [schema:PropertyValue](https://schema.org/PropertyValu
   "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
   "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
-    "@type": ["PropertyValue", "datacite:Identifier"],
+    "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
     "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
     "propertyID": "DOI",
     "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
