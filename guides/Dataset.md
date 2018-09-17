@@ -12,6 +12,7 @@
 * [Temporal](#temporal)
 * [Spatial](#spatial)
   * [Point/Coordinates](#spatial_point)
+  * [Shapes](#spatial_shape)
   * [Multiple geometries](#spatial_multiple-geometries)
 * [Authors, Creators, and Contributors](#author-creator-contributor)
 * [Publisher/Provider](#publisher-provider)
@@ -402,7 +403,7 @@ Back to [top](#top)
 <a id="spatial"></a>
 #### Describing a Dataset's Spatial Coverage
 
-![Spatial](html/voc/static/schema/diagrams/dataset_spatial-coverage.png "Dataset - Spatial")
+![Spatial](assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
 The types of spatial coverages in schema.org are
 
@@ -439,7 +440,7 @@ A point, or coordinate, would defined in this way:
 }
 </pre>
 
-<a id="dataset-spatial-shape"></a>
+<a id="spatial_shape"></a>
 All other shapes, are defined using the [schema:GeoShape](https://schema.org/GeoShape):
 
 <pre>
@@ -463,20 +464,7 @@ A box where 'lower-left' corner is 39.3280/120.1633 and 'upper-right' corner is 
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
 
-For Project418, we feel the defined spatial coverages are inadequate for the needs of our community, but we also recognize that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
-
-To alleviate some of the pain of converting spatial information into these defined shapes, Project418 offers support for GeoJSON by using the [schema:subjectOf](https://schema.org/subjectOf) property of the [schema:Place](https://schema.org/Place) type. The [schema:fileFormat](https://schema.org/fileFormat) property should have the value of the GeoJSON mime type `application\/vnd.geo+json` and the [schema:text](https://schema.org/text) property should be the encoded value of the GeoJSON itself:
-
-<pre>
-"spatialCoverage": {
-    "@type": "Place",
-    <strong>"subjectOf": {
-      "@type": "CreativeWork",
-      "fileFormat": "application\/vnd.geo+json",
-      "text":"{\u0022type\u0022:\u0022Feature\u0022,\u0022geometry\u0022: {\u0022type\u0022:\u0022Polygon\u0022,\u0022coordinates\u0022:[[[-64.6353,34.407],[-149.8727,34.407],[-149.8727,-17.45],[-64.6353,-17.45],[-64.6353,34.407]]],\u0022properties\u0022:[]}}"
-    }</strong>
-  }
-</pre>
+The defined spatial coverages are inadequate for the needs of our community, but we also recognize that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
 
 We also recognize that there is no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned.
 
