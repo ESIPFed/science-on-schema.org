@@ -37,7 +37,7 @@ This document explains the conventions used within this guide.
 
   1. When recommending which properties of a schema.org class to use, creating a diagram of the connections between those resources and literal values can be helpful for visualizing the big picture.
   2. Diagrams should follow the following convention:
-  [![Graphical Notation](/assets/diagrams/graphical-notation.png "Graphical Notation")](#)
+  [![Graphical Notation](/assets/diagrams/graphical-notation.svg "Graphical Notation")](#)
   3. Diagrams are currently being made using [Lucidchart](https://www.lucidchart.com), and are being shared to edit here: [schema.org diagrams on Lucidchart](https://www.lucidchart.com/documents#docs?folder_id=170151578&browser=icon&sort=saved-desc)
 
 <a id="syntax-figures"></a>
