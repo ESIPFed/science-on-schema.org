@@ -389,8 +389,7 @@ One example of a URL temporal coverage might be for named periods in time:
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
-    "sweet-ptime": "http://sweetontology.net/stateTimeGeologic/"
+    "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -399,6 +398,11 @@ One example of a URL temporal coverage might be for named periods in time:
 }
 </pre>
 
+Even though `http://sweetontology.net/stateTimeGeologic/Paleocene` is a valid RDF resource, and the natural tendency would be to use it as such:
+```
+"temporalCoverage": { "@id": "http://sweetontology.net/stateTimeGeologic/Paleocene" }
+```
+Because [schema:URL (rdf)](https://schema.org/URL.rdf) is defined as an rdfs:Class, these URLs can be interepreted by harvesters as an RDF resource, but that is a decision left to the harvester, not the publisher. So here, the publisher simply uses the resources URL.
 
 Back to [top](#top)
 
