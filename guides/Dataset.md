@@ -395,7 +395,7 @@ One example of a URL temporal coverage might be for named periods in time:
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
-  <strong>"temporalCoverage": { "@id": "sweet-ptime:Paleocene" }</strong>
+  <strong>"temporalCoverage": "http://sweetontology.net/stateTimeGeologic/"</strong>
 }
 </pre>
 
