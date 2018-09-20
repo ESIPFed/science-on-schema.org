@@ -389,12 +389,13 @@ One example of a URL temporal coverage might be for named periods in time:
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "datacite": "http://purl.org/spar/datacite/",
+    "sweet-ptime": "http://sweetontology.net/stateTimeGeologic/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
-  <strong>"temporalCoverage": "http://sweetontology.net/stateTimeGeologic/Paleocene"</strong>
+  <strong>"temporalCoverage": { "@id": "sweet-ptime:Paleocene" }</strong>
 }
 </pre>
 
