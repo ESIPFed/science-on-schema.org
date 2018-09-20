@@ -24,5 +24,5 @@ To provide a place for the scientific data community to work out how best to imp
 <a id="guides"></a>
 ## Guidance Documents - Table of Contents ##
 [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
-* [Data Repository](/guides/Repository.md) - the research data repository
+* [Data Repository](/guides/DataRepository.md) - the research data repository
 * [Dataset](/guides/Dataset.md) - the scientific dataset
