@@ -500,6 +500,32 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 }
 </pre>
 
+A coordinate reference system can be added in this way:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/",
+    <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoShape",
+      "line": "39.3280,120.1633 40.445,123.7878"
+    },
+    <strong>"additionalProperty": {
+      "@type": ["PropertyValue", "dbpedia:Coordinate_reference_system"],
+      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+    }</strong>
+  }
+}
+</pre>
+
 Back to [top](#top)
 
 <a id="people-roles"></a>
