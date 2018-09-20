@@ -404,7 +404,7 @@ Back to [top](#top)
 <a id="spatial"></a>
 #### Describing a Dataset's Spatial Coverage
 
-![Spatial](assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
+![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
 The types of spatial coverages in schema.org are
 
