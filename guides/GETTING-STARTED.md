@@ -6,37 +6,84 @@
 If you are new to publishing schema.org, here are some general tips to getting started.
 
 * [Prerequisites](#prerequisites)
+* [Introduction](#introduction)
 * [Using schema.org](#using-schemaorg)
-* [Data Types](#data-types)
-  * [Text](#data-types_Text)
-  * [Number](#data-types_Number)
-  * [URL](#data-types_URL)
-  * [Boolean](#data-types_Boolean)
-  * [Date](#data-types_Date)
-  * [DateTime](#data-types_DateTime)
-  * [Time](#data-types_Time)
-  * [HTML](#data-types_HTML)
-* [Resource Types](#resource-types)
+  * [Modifying web pages to include schema.org as JSON-LD](#using-schemaorg_adding-jsonld-webpages)
+  * [Data Types](#data-types)
+    * [Text](#data-types_Text)
+    * [Number](#data-types_Number)
+    * [URL](#data-types_URL)
+    * [Boolean](#data-types_Boolean)
+    * [Date](#data-types_Date)
+    * [DateTime](#data-types_DateTime)
+    * [Time](#data-types_Time)
+    * [HTML](#data-types_HTML)
+  * [Resource Types](#resource-types)
 
 <a id="prerequisites"></a>
 ## Prerequisites ##
 
-1. We assume a general uinderstanding of JSON. Go here.
-2. We assume a basic kowledge about JSON-LD. Go here.
-3. We assume that you've heard about schema.org and have already decided that it's useful to you. Go here.
-4. We assume that you have a general understanding of what may comprise a scientific dataset.
+1. We assume a general understanding of [JSON](http://www.json.org/). 
+2. We assume a basic knowledge about [JSON-LD](https://json-ld.org).
+
+  JSON-LD is valid JSON, so standard developer tools that support JSON can be used. For some specific JSON-LD and schema.org help though, there are some other resources.
+
+  ##### JSON-LD resources  https://json-ld.org
+  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.  
+  There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go.  While JSON-LD is just
+  JSON and can be generated many ways, these libraries 
+  can generate valid JSON-LD spec output.   
+
+  ##### JSON-LD playground https://json-ld.org/playground/
+  The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You 
+  can explore examples of JSON-LD and view how they convert to RDF, flatten, etc.   Note, that JSON-LD
+  is not associated with schema.org.  It can be used for much more and so most examples here don't 
+  use schema.org and this site will NOT look to see if you are using schema.org types and properties
+  correctly.  Only that your JSON-LD is well formed.  
+
+3. We assume that you've heard about [schema.org](https://schema.org) and have already decided that it's useful to you.
+4. We assume that you have a general understanding of what may describe a scientific dataset.
 
 Let's go!
+
+<a id="introduction"></a>
+## Introduction ##
+There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this 
+work is taking place in the context (no pun intended) of schema.org.  This approach has extended to the resource type Dataset. 
+This page will present approaches, tools and references that will aid in the understanding and development of schema.org in 
+JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry 
+of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-of-public.html .
 
 <a id="using-schemaorg"></a>
 ## Using schema.org ##
 
-...
+<a id="using-schemaorg_adding-jsonld-webpages"></a>
+### Modifying web pages to include schema.org as JSON-LD ###
+JSON-LD should be incorporated into the landing page html inside the `<head></head>` as a `<script>` element.  
 
-
-
+```
+<html>
+  <head>
+    ...
+    <script id="schemaorg" type="application/ld+json">
+    {
+      "@context": {
+        "@vocab": "http://schema.org/"
+       },
+       "@id": "http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816",
+       "@type": "Dataset",
+       "description": "Janus Thermal Conductivity for ocean drilling ...",
+       ...
+    }
+    </script>
+    ...
+  </head>
+  ...
+</html>
+ ```
+ 
 <a id="data-types"></a>
-## Data Types ##
+### Data Types ###
 
 For each schema.org type, such as Person or Event, there are fields that let you specify more information about that type. Each of these fields has an expected data type that is defined in the documentation as you can see from [Figure 1.](#figure-1).
 
@@ -67,7 +114,7 @@ Schema.org defines six literal, or primitive,  data types: [Text](https://schema
 When using schema.org, literal data types are not not specified using curly brackets ```{}``` as these are resrved for specifying 'objects' or 'resources' such as other schema.org types like ```Person```, ```Organization```, etc. First, let's see how to use a primitive data type by using fields of [CreativeWork](https://schema.org/CreativeWork), the superclass for [Dataset](https://schema.org/Dataset). 
 
 <a id="data-types_Text"></a>
-### Text ###
+#### Text ####
 Imagine we want to say the name of our Creative Work is "Passenger Manifest for H.M.S. Titanic". The [name](https://schema.org/name) field of CreativeWork specifies that it expects Text as the data type. We would use it in this way:
 
 <pre>
@@ -79,7 +126,7 @@ Imagine we want to say the name of our Creative Work is "Passenger Manifest for 
 </pre>
 
 <a id="data-types_Number"></a>
-### Number ###
+#### Number ####
 Let's say we want to specify the version number of our manifest using the [version](https://schema.org/version) field of CreativeWork which expects a Number. To specify numbers in JSON-LD, we omit the quotations surrounding the value:
 
 <pre>
@@ -92,7 +139,7 @@ Let's say we want to specify the version number of our manifest using the [versi
 </pre>
 
 <a id="data-types_URL"></a>
-### URL ###
+#### URL ####
 Now, let's specify the URL of our manifest using the [url](https://schema.org/url) field of CreativeWork, an inheritied field from [Thing](https://schema.org/Thing). This fields expects a valid URL represented as Text:
 
 <pre>
@@ -106,7 +153,7 @@ Now, let's specify the URL of our manifest using the [url](https://schema.org/ur
 </pre>
 
 <a id="data-types_Boolean"></a>
-### Boolean ###
+#### Boolean ####
 Using the Boolean value, we can speficy that our manifest is accessible for free using the field [isAccessibleForFree](https://schema.org/isAccessibleForFree) by using the text ```true``` or ```false``` and omitting the quotes:
 
 <pre>
@@ -121,7 +168,7 @@ Using the Boolean value, we can speficy that our manifest is accessible for free
 </pre>
 
 <a id="data-types_Date"></a>
-### Date ###
+#### Date ####
 
 To specify the [datePublished](https://schema.org/datePublished), which allows either a Date or DateTime, as a Date, we can use any [ISO 8601 date format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) by wrapping the date in double-quotes:
 
@@ -138,7 +185,7 @@ To specify the [datePublished](https://schema.org/datePublished), which allows e
 </pre>
 
 <a id="data-types_DateTime"></a>
-### DateTime ###
+#### DateTime ####
 
 To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as a Date, we must follow the [ISO 8601  format for combining date and time representations](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) using the form ```[-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] ```:
 
@@ -156,7 +203,7 @@ To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as
 </pre>
 
 <a id="data-types_Time"></a>
-### Time ###
+#### Time ####
 
 [Time](https://schema.org/Time) is a rarely-used data type because it must represent a point in time recurring on multiple days following the [XML Schema definition](https://www.w3.org/TR/xmlschema-2/#time) using the form ```hh:mm:ss[Z|(+|-)hh:mm]``` (see XML schema for details).
 
@@ -174,7 +221,7 @@ To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as
 </pre>
 
 <a id="data-types_HTML"></a>
-### HTML ###
+#### HTML ####
 
 The HTML data type is a special variation of the ```Text``` data type. In some cases where `Text` is the expected data type, our actual data type may be HTML (because we are dealing with web pages). In this case, the [schema.org JSON-LD context](https://schema.org/docs/jsonldcontext.json) defines ```HTML``` to mean [rdf:HTML](http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML), the data type for specifying that a string of text should be interpreted as HTML. Let's say that we have a description of our manifest and want to use the [description](https://schema.org/description) field, but we have HTML inside that text. Using the text field as we did above for the ```name``` field, we would specify the ```description``` as: 
 
@@ -214,7 +261,7 @@ However, to specify that the ```description``` field should be *interpreted* as 
 *NOTE: As of 7/28/2018, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) understands the value of ```description``` to be `rdf:HTML`, but the tool specifies this type is unknown. However, you can see from the schema.org Github repository, that this method was discussed and implemented in [pull #1634: alias HTML to rdf:HTML](https://github.com/schemaorg/schemaorg/pull/1634)*
 
 <a id="resource=types"></a>
-## Resource Types ##
+### Resource Types ###
 
 All schema.org resources should make use of the ```@type``` property which 'classifies' the resources as a specific type. For example, an un-typed resource would look like:
 
