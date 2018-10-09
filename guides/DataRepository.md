@@ -17,14 +17,14 @@
 
 [![Repository  - Overview](/assets/diagrams/repository/repository-overview.svg "Repository - Overview")](#)
 
-In schema.org, we model a repository as both an [schema:Organization](https://schema.org/Organization) and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization. 
+In schema.org, we model a repository as both an [schema:ResearchProject](https://schema.org/ResearchProject), a sub-class of an Organization, and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization. 
 
 <pre>
 {
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  <strong>"@type": ["Service", "Organization"],
+  <strong>"@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO"
   </strong>
@@ -49,7 +49,7 @@ The other fields you can use to describe the Organziation and the Service are:
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   <strong>"url": "https://www.sample-data-repository.org",
@@ -74,7 +74,7 @@ If you are using the "@id" attribute for your Repository, and the provider of th
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   <strong>"@id": "https://www.sample-data-repository.org",</strong>
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -97,7 +97,7 @@ However, if your repository has a situation where multiple organizations act as 
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -108,13 +108,13 @@ However, if your repository has a situation where multiple organizations act as 
   ],
   <strong>"provider": [
     {
-      "@type": "Organization",
+      "@type": "ResearchProject",
       "name": "SDRO Technical Office",
       "description": "We provide all the infrastructure for the SDRO"
       ...
     },
     {
-      "@type": "Organization",
+      "@type": "ResearchProject",
       "name": "SDRO Science Support Office",
       "description": "We provide all the science support functionality for the SDRO"
       ...
@@ -123,14 +123,14 @@ However, if your repository has a situation where multiple organizations act as 
 }
 </pre>
 
-Adding additional fields of [schema:Organization](https://schema.org/Organization):
+Adding additional fields of [schema:ResearchProject](https://schema.org/ResearchProject):
 
 <pre>
 {
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -165,14 +165,14 @@ Adding additional fields of [schema:Organization](https://schema.org/Organizatio
 }
 </pre>
 
-If this Organization has a parent entity such as a college, university or research center, that information can be provided using the [schema:parentOrganization](https://schema.org/parentOrganization) property:
+If this ResearchProject, or Organization, has a parent entity such as a college, university or research center, that information can be provided using the [schema:parentOrganization](https://schema.org/parentOrganization) property:
 
 <pre>
 {
   "@context": {
     "@vocab": "http://schema.org/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -218,7 +218,7 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
     "@vocab": "http://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -270,7 +270,7 @@ To describe the funding source of a repository, you use the [schema:funder](http
     "@vocab": "http://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/",</strong>
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -355,7 +355,7 @@ For repositories might offer services for accessing data as opposed to directly 
     "@vocab": "http://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -400,7 +400,7 @@ If your repository has a concept of a data collection, some grouping of a number
     "@vocab": "http://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
@@ -452,7 +452,7 @@ The SWEET ontology defines a number of science disciplines and a repository coul
     <strong>"sweet-rel": "http://sweetontology.net/rela/",
     "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
   },
-  "@type": ["Service", "Organization"],
+  "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
   "url": "https://www.sample-data-repository.org",
