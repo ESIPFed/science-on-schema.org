@@ -728,8 +728,103 @@ Otherwise, you can define the organization inline in this way:
 Back to [top](#top)
 
 <a id="funding"></a>
+### Dataset Funding ###
+![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
 
-Project 418 made an attempt to reuse schema.org classes to directly link a [Dataset to a Funding Award](https://github.com/earthcubearchitecture-project418/p418Vocabulary#describing-a-datasets-funding), but this work needs revision.
+Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object on your webpage. In order to do this, we have to modify the structure of our JSON-LD to include multiple top-level items, and make sure that our Dataset uses the `@id` to identify its URI. This `@id` will be used by the MonetaryGrant to say it funded the Dataset. First, we add the `@id` to our Dataset:
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/"
+  },
+  <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+}
+</pre>
+
+Next, we must make our JSON-LD allow multiple top-level items by using the `@graph` property.
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/"
+  },
+  <strong>"@graph":[{</strong>
+      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@type": "Dataset",
+      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+      ...
+    <strong>}
+  ]</strong>
+}
+</pre>
+
+You can now see that the Dataset object `{}` is now the first element in the `@graph` array. Next, we add our [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object.
+
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/"
+  },
+  "@graph":[{
+      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@type": "Dataset",
+      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+      ...
+    }<strong>,
+    {
+      "@type": "MonetaryGrant",
+      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
+      "name": "NSF Award# 143211",
+      "funder": {
+        "@type": "Organization",
+        "name": "National Science Foundation",
+        "url": "http://www.nsf.gov"
+      },
+      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
+      "identifier": "143211"
+    }
+  ]</strong>
+}
+</pre>
+
+Now, because there are two top-level items on this webpage, harvesters will be unsure which element is the main resource. But, we can specify this by using the [schema:mainEntityOfPage](https://schema.org/mainEntityOfPage) property.
+
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/"
+  },
+  "@graph":[{
+      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@type": "Dataset",
+      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+      <strong>"mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http://www.sample-data-repository.org/dataset/123"
+      },</strong>
+      ...
+    },
+    {
+      "@type": "MonetaryGrant",
+      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
+      "name": "NSF Award# 143211",
+      "funder": {
+        "@type": "Organization",
+        "name": "National Science Foundation",
+        "url": "http://www.nsf.gov"
+      },
+      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
+      "identifier": "143211"
+    }
+  ]
+}
+</pre>
 
 Back to [top](#top)
 
