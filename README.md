@@ -1,5 +1,5 @@
 <a id="top"></a>
-![version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![version 0.2.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
 *This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*
 
