@@ -1,8 +1,6 @@
 <a id="top"></a>
 [Home](/README.md) | Dataset
 
-![version 0.1.0](https://img.shields.io/badge/version-0.1.0-blue.svg)
-
 # Describing a Dataset
 
 * [Identifier](#identifiers)
