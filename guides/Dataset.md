@@ -62,7 +62,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "isAccessibleForFree": true,
-  "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": "http://creativecommons.org/licenses/by/4.0/"</strong>
 }
 </pre>
@@ -88,7 +88,7 @@ In it's most basic form, the identifier as text can be published as:
   "url": "https://www.sample-data-repository.org/dataset/472032",
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
-  "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": "urn:sdro:dataset:472032"</strong>
 }
@@ -123,7 +123,7 @@ For identifiers that do have a well-defined scheme that scopes the identifier va
   "url": "https://www.sample-data-repository.org/dataset/472032",
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
-  "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
     "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
@@ -151,7 +151,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "url": "https://www.sample-data-repository.org/dataset/472032",
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
-  "keywords": "ocean acidification, Dissolved Organic Carbon, bacterioplankton respiration, pCO2, carbon dioxide, oceans",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": "http://creativecommons.org/licenses/by/4.0/",
   "identifier": {
     "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
