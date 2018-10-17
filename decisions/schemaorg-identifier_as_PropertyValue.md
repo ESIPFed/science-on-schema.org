@@ -1,4 +1,4 @@
-# schema.org/identifier as schema.org/PropertyValue over Text or URL #
+# schema.org/identifier as schema.org/PropertyValue over Text/URL #
 
 ## Status ##
 _Proposed_
