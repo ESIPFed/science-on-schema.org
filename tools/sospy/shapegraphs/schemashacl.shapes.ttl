@@ -1,0 +1,398 @@
+# baseURI: http://topbraid.org/examples/schemashacl
+# imports: http://datashapes.org/dash
+# imports: http://datashapes.org/schema
+# prefix: schemashacl
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix schemashacl: <http://topbraid.org/examples/schemashacl#> .
+@prefix schemax: <http://topbraid.org/schemax/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix swa: <http://topbraid.org/swa#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:DatedMoneySpecification
+  rdf:type sh:NodeShape ;
+  sh:closed "true"^^xsd:boolean ;
+  sh:ignoredProperties (
+      rdf:type
+    ) ;
+  sh:property [
+      sh:path schema:amount ;
+      sh:datatype xsd:float ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+    ] ;
+  sh:property [
+      sh:path schema:currency ;
+      rdfs:comment "The currency code (here) is a mandatory property consisting of three upper-case letters" ;
+      sh:datatype xsd:string ;
+      sh:flags "i" ;
+      sh:maxCount 1 ;
+      sh:minCount 1 ;
+      sh:pattern "^[A-Z]{3}$" ;
+    ] ;
+  sh:property [
+      sh:path schema:endDate ;
+      sh:maxCount 1 ;
+      sh:or dash:DateOrDateTime ;
+    ] ;
+  sh:property [
+      sh:path schema:startDate ;
+      rdfs:comment "Start date must be before end date" ;
+      sh:lessThanOrEquals schema:endDate ;
+      sh:maxCount 1 ;
+      sh:or dash:DateOrDateTime ;
+    ] ;
+.
+schema:GeoCoordinates
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:latitude ;
+      sh:maxCount 1 ;
+      sh:maxInclusive 90 ;
+      sh:minInclusive -90 ;
+    ] ;
+  sh:property [
+      sh:path schema:longitude ;
+      sh:maxCount 1 ;
+      sh:maxInclusive 180 ;
+      sh:minInclusive -180 ;
+    ] ;
+.
+schema:Hotel
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:starRating ;
+      rdfs:comment "Produce a warning if there is not at least one starRating that actually has a ratingValue." ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedValueShape [
+          rdf:type sh:NodeShape ;
+          sh:property [
+              sh:path schema:ratingValue ;
+              sh:minCount 1 ;
+            ] ;
+        ] ;
+      sh:severity sh:Warning ;
+    ] ;
+  sh:sparql [
+      sh:message "Hotel has been rated by {?author} more than once" ;
+      sh:prefixes <http://topbraid.org/examples/schemashacl> ;
+      sh:select """SELECT DISTINCT $this ?author
+WHERE {
+    $this schema:starRating ?rating1 .
+	?rating1 schema:author ?author .
+	$this schema:starRating ?rating2 .
+	?rating2 schema:author ?author .
+	FILTER (?rating1 != ?rating2) .
+}""" ;
+      sh:severity sh:Warning ;
+    ] ;
+.
+schema:ItemList
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:numberOfItems ;
+      rdfs:comment "The number of items in this list is derived by counting the values of schema:itemListElement." ;
+      sh:derivedValues [
+          rdf:type sh:SPARQLValuesDeriver ;
+          sh:select """SELECT (COUNT(?element) AS ?value)
+WHERE {
+    $this schema:itemListElement ?element .
+}""" ;
+        ] ;
+    ] ;
+.
+schema:Person
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:birthDate ;
+      rdfs:comment "Birth date must be before death date (in this example)" ;
+      sh:datatype xsd:date ;
+      sh:lessThan schema:deathDate ;
+      sh:maxCount 1 ;
+      sh:name "birth date" ;
+    ] ;
+  sh:property [
+      sh:path schema:deathDate ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+      sh:name "death date" ;
+    ] ;
+  sh:property [
+      sh:path schema:familyName ;
+      sh:datatype xsd:string ;
+      sh:name "family name" ;
+    ] ;
+  sh:property [
+      sh:path schema:gender ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "female"
+          "male"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "gender" ;
+    ] ;
+  sh:property [
+      sh:path schema:givenName ;
+      sh:datatype xsd:string ;
+      sh:name "given name" ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:class schema:Person ;
+      sh:disjoint schema:sibling ;
+      sh:maxCount 2 ;
+      sh:name "parent" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape schemashacl:FemalePerson ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape schemashacl:MalePerson ;
+    ] ;
+  sh:property [
+      sh:path [
+          sh:inversePath schema:parent ;
+        ] ;
+      rdfs:comment "Children are represented by using the schema:parent relationship in the inverse direction." ;
+      sh:class schema:Person ;
+      sh:name "child" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.
+schema:PriceSpecification
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:baseSalary ;
+      rdfs:comment "There must be a base salary of more than 0, but less than 1 billion (slightly artificial example of sh:maxExclusive)." ;
+      sh:maxExclusive "1000000000"^^xsd:float ;
+      sh:minExclusive "0"^^xsd:float ;
+    ] ;
+.
+schema:Vehicle
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:fuelConsumption ;
+      sh:node [
+          rdf:type sh:NodeShape ;
+          rdfs:comment "The fuel consumption must be either stated in Liter per 100 km accompanied by a km/h speed, or in gallons per 100 miles accompanied by a miles/h speed." ;
+          sh:or (
+              [
+                sh:and (
+                    [
+                      sh:property [
+                          sh:path schema:unitText ;
+                          sh:hasValue "L/100 km" ;
+                        ] ;
+                    ]
+                    [
+                      sh:property [
+                          sh:path rdfs:comment ;
+                          sh:pattern "^at [0-9]* km/h$" ;
+                        ] ;
+                    ]
+                  ) ;
+              ]
+              [
+                sh:and (
+                    [
+                      sh:property [
+                          sh:path schema:unitText ;
+                          sh:hasValue "gal/100 mi" ;
+                        ] ;
+                    ]
+                    [
+                      sh:property [
+                          sh:path rdfs:comment ;
+                          sh:pattern "^at [0-9]* mi/h$" ;
+                        ] ;
+                    ]
+                  ) ;
+              ]
+            ) ;
+        ] ;
+    ] ;
+.
+<http://topbraid.org/examples/schemashacl>
+  rdf:type owl:Ontology ;
+  rdfs:comment "This SHACL file contains a small selection of hand-crafted shapes on classes and properties from the schema.org namespace. In addition to illustrating possible use cases of SHACL and helping with test cases, the goal of this file is cover all of the features of SHACL for demos and tests." ;
+  rdfs:label "Schema.org SHACL example shapes" ;
+  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://datashapes.org/schema> ;
+  sh:declare [
+      rdf:type sh:PrefixDeclaration ;
+      sh:namespace "http://schema.org/"^^xsd:anyURI ;
+      sh:prefix "schema" ;
+    ] ;
+.
+schemashacl:AustralianAddressShape
+  rdf:type sh:NodeShape ;
+  rdfs:comment "This shape constrains those instances of schema:PostalAddress that have \"au\" as their country." ;
+  rdfs:label "Australian address shape" ;
+  sh:or (
+      sh:not
+      [
+        sh:property [
+            sh:path schema:addressCountry ;
+            sh:hasValue "au" ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path schema:addressRegion ;
+            sh:in (
+                "ACT"
+                "NSW"
+                "NT"
+                "QLD"
+                "SA"
+                "TAS"
+                "VIC"
+                "WA"
+              ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+        sh:property [
+            sh:path schema:postalCode ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:maxLength 4 ;
+            sh:minCount 1 ;
+            sh:minLength 4 ;
+            sh:name "postal code" ;
+            sh:pattern "^\\d{4}$" ;
+          ] ;
+      ]
+    ) ;
+  sh:targetClass schema:PostalAddress ;
+.
+schemashacl:FemalePerson
+  rdf:type sh:NodeShape ;
+  rdfs:label "Female person" ;
+  sh:property [
+      sh:path schema:gender ;
+      sh:hasValue "female" ;
+    ] ;
+.
+schemashacl:MalePerson
+  rdf:type sh:NodeShape ;
+  rdfs:label "Male person" ;
+  sh:property [
+      sh:path schema:gender ;
+      sh:hasValue "male" ;
+    ] ;
+.
+schemashacl:USAddressShape
+  rdf:type sh:NodeShape ;
+  rdfs:comment "This shape constrains those instances of schema:PostalAddress that have \"us\" as their country." ;
+  rdfs:label "US address shape" ;
+  sh:or (
+      sh:not
+      [
+        sh:property [
+            sh:path schema:addressCountry ;
+            sh:hasValue "us" ;
+          ] ;
+      ]
+      [
+        sh:property [
+            sh:path schema:addressRegion ;
+            sh:in (
+                "AK"
+                "AL"
+                "AR"
+                "AZ"
+                "CA"
+                "CO"
+                "CT"
+                "DC"
+                "DE"
+                "FL"
+                "GA"
+                "GU"
+                "HI"
+                "IA"
+                "ID"
+                "IL"
+                "IN"
+                "KS"
+                "KY"
+                "LA"
+                "MA"
+                "MD"
+                "ME"
+                "MH"
+                "MI"
+                "MN"
+                "MO"
+                "MS"
+                "MT"
+                "NC"
+                "ND"
+                "NE"
+                "NH"
+                "NJ"
+                "NM"
+                "NV"
+                "NY"
+                "OH"
+                "OK"
+                "OR"
+                "PA"
+                "PR"
+                "PW"
+                "RI"
+                "SC"
+                "SD"
+                "TN"
+                "TX"
+                "UT"
+                "VA"
+                "VI"
+                "VT"
+                "WA"
+                "WI"
+                "WV"
+                "WY"
+              ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+          ] ;
+        sh:property [
+            sh:path schema:postalCode ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "zip code" ;
+            sh:pattern "^\\d{5}(?:[-\\s]\\d{4})?$" ;
+          ] ;
+      ]
+    ) ;
+  sh:targetClass schema:PostalAddress ;
+.
+schemashacl:nameShape
+  rdf:type sh:NodeShape ;
+  rdfs:comment "This shape applies to all subject that have at least one value for schema:name." ;
+  rdfs:label "name shape" ;
+  sh:property [
+      sh:path schema:name ;
+      rdfs:comment "Ensures that the values of schema:name are either strings or strings with a language tag, but no language tag can be used more than once." ;
+      sh:name "name" ;
+      sh:or dash:StringOrLangString ;
+      sh:uniqueLang "true"^^xsd:boolean ;
+    ] ;
+  sh:targetSubjectsOf schema:name ;
+.

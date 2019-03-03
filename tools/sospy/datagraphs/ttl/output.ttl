@@ -1,0 +1,24 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+[ a       <http://www.w3.org/ns/shacl#ValidationReport> ;
+  <http://www.w3.org/ns/shacl#conforms>
+          false ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    <http://example.com/id/1> ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "More than 1^^http://www.w3.org/2001/XMLSchema#integer values" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    <http://schema.org/url> ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#MaxCountConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    [] 
+          ]
+] .

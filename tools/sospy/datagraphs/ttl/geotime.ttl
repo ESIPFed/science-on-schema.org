@@ -1,0 +1,25 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.earthcube.org/schema#> .
+@prefix family: <http://example.org/family#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:GeoShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://www.exaple.org/geoTime> ;
+	    sh:maxCount 1 ;
+	    sh:minCount 1 ;
+    ] ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:TimeInterval    
+    a sh:NodeShape ;
+    sh:property [
+        sh:path  <time:hasBeginning> ;
+	    sh:maxCount 1 ;
+	    sh:minCount 1 ;
+    ] ;
+    sh:targetClass <time:ProperInterval> .

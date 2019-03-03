@@ -1,0 +1,23 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.example.org/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+ex:CitationShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/citation>;
+	    sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:KeywordsShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/keywords> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:targetClass <http://schema.org/Dataset> .
+

@@ -1,0 +1,215 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816>
+    <http://schema.org/description> "Janus Thermal Conductivity for ocean drilling expedition 208 site 1262 hole A" ;
+    <http://schema.org/distribution> [
+        <http://schema.org/contentUrl> "http://opencoredata.org/api/v1/documents/download/208_1262A_JanusThermalConductivity_VyaMsepM.csv" ;
+        a <http://schema.org/DataDownload>
+    ] ;
+    <http://schema.org/keywords> "Leg Site Hole Core Core_type Section_number Section_type Top_cm Bot_cm Depth_mbsf Probe_type Thermcon_value System_id Probe_number Thermcon_comment Janus Thermal Conductivity DSDP, OPD, IODP, JanusThermalConductivity" ;
+    <http://schema.org/license> "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    <http://schema.org/name> "208_1262A_JanusThermalConductivity_VyaMsepM.csv" ;
+    <http://schema.org/publisher> [
+        <http://schema.org/description> "NSF funded International Ocean Discovery Program operated by JRSO" ;
+        <http://schema.org/name> "International Ocean Discovery Program" ;
+        <http://schema.org/url> "http://iodp.org" ;
+        a <http://schema.org/Organization>
+    ] ;
+    <http://schema.org/spatialCoverage> [
+        <http://schema.org/geo> [
+            <http://schema.org/latitude> "-27.19" ;
+            <http://schema.org/longitude> "1.58" ;
+            a <http://schema.org/GeoCoordinates>
+        ] ;
+        a <http://schema.org/Place>
+    ] ;
+    <http://schema.org/url> "http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816" ;
+    <http://schema.org/variableMeasured> [
+        <http://schema.org/description> "Type of a section C=Core Catcher, S=Core." ;
+        <http://schema.org/name> "Section_type" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/7" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Identifier ID of a section of a core." ;
+        <http://schema.org/name> "Section_id" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/8" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Top value of an interval of a section in cm." ;
+        <http://schema.org/name> "Top_cm" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/9" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Bottom value of an interval of a section in cm." ;
+        <http://schema.org/name> "Bot_cm" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/10" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf." ;
+        <http://schema.org/name> "Depth_mbsf" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/11" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with compression applied." ;
+        <http://schema.org/name> "Depth_mbsf_c" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/12" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with voids removed." ;
+        <http://schema.org/name> "Depth_mbsf_v" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/13" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with voids removed and compression applied." ;
+        <http://schema.org/name> "Depth_mbsf_vc" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/14" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with exotics removed." ;
+        <http://schema.org/name> "Depth_mbsf_e" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/15" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with exotics removed and compression applied." ;
+        <http://schema.org/name> "Depth_mbsf_ec" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/16" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with voids and exotics removed." ;
+        <http://schema.org/name> "Depth_mbsf_ve" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/17" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters below sea floor mbsf with voids and exotics removed and compression applied." ;
+        <http://schema.org/name> "Depth_mbsf_vec" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/18" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd." ;
+        <http://schema.org/name> "Depth_mcd" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/19" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with compression applied." ;
+        <http://schema.org/name> "Depth_mcd_c" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/20" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with voids removed." ;
+        <http://schema.org/name> "Depth_mcd_v" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/21" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with voids removed and compression applied." ;
+        <http://schema.org/name> "Depth_mcd_vc" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/22" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with exotics removed." ;
+        <http://schema.org/name> "Depth_mcd_e" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/23" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with exotics removed and compression applied." ;
+        <http://schema.org/name> "Depth_mcd_ec" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/24" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with voids and exotics removed." ;
+        <http://schema.org/name> "Depth_mcd_ve" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/25" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Depth in meters composite depth mcd with voids and exotics removed and compression applied." ;
+        <http://schema.org/name> "Depth_mcd_vec" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/26" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Name of system instrument used for measurement." ;
+        <http://schema.org/name> "System_name" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/27" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Type of needle probe: full-space FULL; insertion into soft material or half-space HALF; contact with flat surface." ;
+        <http://schema.org/name> "Probe_type" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/28" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Measurement value of thermal conductivity." ;
+        <http://schema.org/name> "Thermcon_value" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/29" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Number that uniquely identifies a probe of a manufacturers instrument for associating measurements." ;
+        <http://schema.org/name> "Probe_number" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/30" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Remark on a thermal conductivity measurement." ;
+        <http://schema.org/name> "Thermcon_comment" ;
+        <http://schema.org/unitText> "sql.NullString" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/31" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Number identifying the cruise." ;
+        <http://schema.org/name> "Leg" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/1" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled." ;
+        <http://schema.org/name> "Site" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/2" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Letter identifying the hole at a site from which a core was retrieved or data was collected." ;
+        <http://schema.org/name> "Hole" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/3" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Sequential numbers identifying the cores retrieved from a particular hole." ;
+        <http://schema.org/name> "Core" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/4" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Letter code identifying the drill bit/coring method used to retrieve the core." ;
+        <http://schema.org/name> "Core_type" ;
+        <http://schema.org/unitText> "string" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/5" ;
+        a <http://schema.org/PropertyValue>
+    ], [
+        <http://schema.org/description> "Sequential number of a section of a core." ;
+        <http://schema.org/name> "Section_number" ;
+        <http://schema.org/unitText> "int64" ;
+        <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/6" ;
+        a <http://schema.org/PropertyValue>
+    ] ;
+    a <http://schema.org/Dataset> .
+

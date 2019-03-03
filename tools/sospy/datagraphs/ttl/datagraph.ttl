@@ -1,0 +1,15 @@
+@prefix ex: <http://www.example.org/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Alice
+	a ex:Person ;
+	ex:ssn "987-65-4329" .
+  
+ex:Thing1
+	a ex:Fictional ;
+	ex:sibling "Thing2". 
+
+ex:Bob
+	a ex:Person ;
+	ex:ssn "987-65-4321" .
+  

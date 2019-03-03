@@ -1,0 +1,207 @@
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/description> "Janus Thermal Conductivity for ocean drilling expedition 208 site 1262 hole A" .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/distribution> _:b0 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/keywords> "Leg Site Hole Core Core_type Section_number Section_type Top_cm Bot_cm Depth_mbsf Probe_type Thermcon_value System_id Probe_number Thermcon_comment Janus Thermal Conductivity DSDP, OPD, IODP, JanusThermalConductivity" .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/license> "https://creativecommons.org/publicdomain/zero/1.0/" .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/name> "208_1262A_JanusThermalConductivity_VyaMsepM.csv" .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/publisher> _:b1 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/spatialCoverage> _:b2 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/url> "http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816" .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b10 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b11 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b12 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b13 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b14 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b15 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b16 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b17 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b18 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b19 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b20 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b21 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b22 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b23 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b24 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b25 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b26 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b27 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b28 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b29 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b30 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b31 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b32 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b33 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b34 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b4 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b5 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b6 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b7 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b8 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://schema.org/variableMeasured> _:b9 .
+<http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Dataset> .
+_:b0 <http://schema.org/contentUrl> "http://opencoredata.org/api/v1/documents/download/208_1262A_JanusThermalConductivity_VyaMsepM.csv" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/DataDownload> .
+_:b1 <http://schema.org/description> "NSF funded International Ocean Discovery Program operated by JRSO" .
+_:b1 <http://schema.org/name> "International Ocean Discovery Program" .
+_:b1 <http://schema.org/url> "http://iodp.org" .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Organization> .
+_:b10 <http://schema.org/description> "Type of a section C=Core Catcher, S=Core." .
+_:b10 <http://schema.org/name> "Section_type" .
+_:b10 <http://schema.org/unitText> "string" .
+_:b10 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/7" .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b11 <http://schema.org/description> "Identifier ID of a section of a core." .
+_:b11 <http://schema.org/name> "Section_id" .
+_:b11 <http://schema.org/unitText> "int64" .
+_:b11 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/8" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b12 <http://schema.org/description> "Top value of an interval of a section in cm." .
+_:b12 <http://schema.org/name> "Top_cm" .
+_:b12 <http://schema.org/unitText> "string" .
+_:b12 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/9" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b13 <http://schema.org/description> "Bottom value of an interval of a section in cm." .
+_:b13 <http://schema.org/name> "Bot_cm" .
+_:b13 <http://schema.org/unitText> "sql.NullString" .
+_:b13 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/10" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b14 <http://schema.org/description> "Depth in meters below sea floor mbsf." .
+_:b14 <http://schema.org/name> "Depth_mbsf" .
+_:b14 <http://schema.org/unitText> "sql.NullString" .
+_:b14 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/11" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b15 <http://schema.org/description> "Depth in meters below sea floor mbsf with compression applied." .
+_:b15 <http://schema.org/name> "Depth_mbsf_c" .
+_:b15 <http://schema.org/unitText> "sql.NullString" .
+_:b15 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/12" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b16 <http://schema.org/description> "Depth in meters below sea floor mbsf with voids removed." .
+_:b16 <http://schema.org/name> "Depth_mbsf_v" .
+_:b16 <http://schema.org/unitText> "sql.NullString" .
+_:b16 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/13" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b17 <http://schema.org/description> "Depth in meters below sea floor mbsf with voids removed and compression applied." .
+_:b17 <http://schema.org/name> "Depth_mbsf_vc" .
+_:b17 <http://schema.org/unitText> "sql.NullString" .
+_:b17 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/14" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b18 <http://schema.org/description> "Depth in meters below sea floor mbsf with exotics removed." .
+_:b18 <http://schema.org/name> "Depth_mbsf_e" .
+_:b18 <http://schema.org/unitText> "sql.NullString" .
+_:b18 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/15" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b19 <http://schema.org/description> "Depth in meters below sea floor mbsf with exotics removed and compression applied." .
+_:b19 <http://schema.org/name> "Depth_mbsf_ec" .
+_:b19 <http://schema.org/unitText> "sql.NullString" .
+_:b19 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/16" .
+_:b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b2 <http://schema.org/geo> _:b3 .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Place> .
+_:b20 <http://schema.org/description> "Depth in meters below sea floor mbsf with voids and exotics removed." .
+_:b20 <http://schema.org/name> "Depth_mbsf_ve" .
+_:b20 <http://schema.org/unitText> "sql.NullString" .
+_:b20 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/17" .
+_:b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b21 <http://schema.org/description> "Depth in meters below sea floor mbsf with voids and exotics removed and compression applied." .
+_:b21 <http://schema.org/name> "Depth_mbsf_vec" .
+_:b21 <http://schema.org/unitText> "sql.NullString" .
+_:b21 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/18" .
+_:b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b22 <http://schema.org/description> "Depth in meters composite depth mcd." .
+_:b22 <http://schema.org/name> "Depth_mcd" .
+_:b22 <http://schema.org/unitText> "sql.NullString" .
+_:b22 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/19" .
+_:b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b23 <http://schema.org/description> "Depth in meters composite depth mcd with compression applied." .
+_:b23 <http://schema.org/name> "Depth_mcd_c" .
+_:b23 <http://schema.org/unitText> "sql.NullString" .
+_:b23 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/20" .
+_:b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b24 <http://schema.org/description> "Depth in meters composite depth mcd with voids removed." .
+_:b24 <http://schema.org/name> "Depth_mcd_v" .
+_:b24 <http://schema.org/unitText> "sql.NullString" .
+_:b24 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/21" .
+_:b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b25 <http://schema.org/description> "Depth in meters composite depth mcd with voids removed and compression applied." .
+_:b25 <http://schema.org/name> "Depth_mcd_vc" .
+_:b25 <http://schema.org/unitText> "sql.NullString" .
+_:b25 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/22" .
+_:b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b26 <http://schema.org/description> "Depth in meters composite depth mcd with exotics removed." .
+_:b26 <http://schema.org/name> "Depth_mcd_e" .
+_:b26 <http://schema.org/unitText> "sql.NullString" .
+_:b26 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/23" .
+_:b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b27 <http://schema.org/description> "Depth in meters composite depth mcd with exotics removed and compression applied." .
+_:b27 <http://schema.org/name> "Depth_mcd_ec" .
+_:b27 <http://schema.org/unitText> "sql.NullString" .
+_:b27 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/24" .
+_:b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b28 <http://schema.org/description> "Depth in meters composite depth mcd with voids and exotics removed." .
+_:b28 <http://schema.org/name> "Depth_mcd_ve" .
+_:b28 <http://schema.org/unitText> "sql.NullString" .
+_:b28 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/25" .
+_:b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b29 <http://schema.org/description> "Depth in meters composite depth mcd with voids and exotics removed and compression applied." .
+_:b29 <http://schema.org/name> "Depth_mcd_vec" .
+_:b29 <http://schema.org/unitText> "sql.NullString" .
+_:b29 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/26" .
+_:b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b3 <http://schema.org/latitude> "-27.19" .
+_:b3 <http://schema.org/longitude> "1.58" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/GeoCoordinates> .
+_:b30 <http://schema.org/description> "Name of system instrument used for measurement." .
+_:b30 <http://schema.org/name> "System_name" .
+_:b30 <http://schema.org/unitText> "sql.NullString" .
+_:b30 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/27" .
+_:b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b31 <http://schema.org/description> "Type of needle probe: full-space FULL; insertion into soft material or half-space HALF; contact with flat surface." .
+_:b31 <http://schema.org/name> "Probe_type" .
+_:b31 <http://schema.org/unitText> "string" .
+_:b31 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/28" .
+_:b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b32 <http://schema.org/description> "Measurement value of thermal conductivity." .
+_:b32 <http://schema.org/name> "Thermcon_value" .
+_:b32 <http://schema.org/unitText> "string" .
+_:b32 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/29" .
+_:b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b33 <http://schema.org/description> "Number that uniquely identifies a probe of a manufacturers instrument for associating measurements." .
+_:b33 <http://schema.org/name> "Probe_number" .
+_:b33 <http://schema.org/unitText> "int64" .
+_:b33 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/30" .
+_:b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b34 <http://schema.org/description> "Remark on a thermal conductivity measurement." .
+_:b34 <http://schema.org/name> "Thermcon_comment" .
+_:b34 <http://schema.org/unitText> "sql.NullString" .
+_:b34 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/31" .
+_:b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b4 <http://schema.org/description> "Number identifying the cruise." .
+_:b4 <http://schema.org/name> "Leg" .
+_:b4 <http://schema.org/unitText> "int64" .
+_:b4 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/1" .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b5 <http://schema.org/description> "Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled." .
+_:b5 <http://schema.org/name> "Site" .
+_:b5 <http://schema.org/unitText> "int64" .
+_:b5 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/2" .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b6 <http://schema.org/description> "Letter identifying the hole at a site from which a core was retrieved or data was collected." .
+_:b6 <http://schema.org/name> "Hole" .
+_:b6 <http://schema.org/unitText> "string" .
+_:b6 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/3" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b7 <http://schema.org/description> "Sequential numbers identifying the cores retrieved from a particular hole." .
+_:b7 <http://schema.org/name> "Core" .
+_:b7 <http://schema.org/unitText> "int64" .
+_:b7 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/4" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b8 <http://schema.org/description> "Letter code identifying the drill bit/coring method used to retrieve the core." .
+_:b8 <http://schema.org/name> "Core_type" .
+_:b8 <http://schema.org/unitText> "string" .
+_:b8 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/5" .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b9 <http://schema.org/description> "Sequential number of a section of a core." .
+_:b9 <http://schema.org/name> "Section_number" .
+_:b9 <http://schema.org/unitText> "int64" .
+_:b9 <http://schema.org/url> "http://opencoredata/id/resource/janus/janusthermalconductivity/6" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+

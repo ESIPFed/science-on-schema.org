@@ -1,0 +1,21 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.com/id/1>
+    <http://schema.org/author> [
+        <http://schema.org/description> "NSF funded operator for International Ocean Discvery Project" ;
+        <http://schema.org/name> "Joides Resolution Science Office" ;
+        <http://schema.org/url> "http://iodp.org" ;
+        a <http://schema.org/Organization>
+    ] ;
+    <http://schema.org/description> "Data set for measurement JanusVcdImage and leg 202" ;
+    <http://schema.org/name> "JanusVcdImage202" ;
+    <http://schema.org/url> "http://opencoredata.org/collections/measurement/JanusVcdImage/202" ;
+    <http://www.exaple.org/geoTime> [
+        <http://schema.org/label> "Carbon data ..."@en ;
+        a <time:ProperInterval> ;
+        <time:hasBeginning> "isc:BaseBathonian" ;
+        <time:hasEnd> "isc:BaseCallovian"
+    ] ;
+    <http://schema.org/url> "http://opencoredata.org/id/dataset/9da3fa14-8feb-4de2-b62a-cb761a4ec9be" ;
+        a <http://schema.org/Dataset> .
+
