@@ -73,3 +73,20 @@ pyshacl -s ./shapegraphs/recomendShape.ttl  -m  -f human -df json-ld ./datagraph
 
 ```
 
+Example output
+```
+pyshacl -s ./shapegraphs/recomendShape.ttl  -m  -f human -df json-ld ./datagraphs/dataset-full.json-ld
+Validation Report
+Conforms: True
+
+pyshacl -s ./shapegraphs/recomendShape.ttl  -m  -f human -df json-ld ./datagraphs/dataset-minimal.json-ld
+Validation Report
+Conforms: False
+Results (1):
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+Severity: sh:Violation
+Source Shape: [ sh:maxCount Literal("1", datatype=xsd:integer) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path <http://schema.org/citation>  ]
+Focus Node: [  ]
+Result Path: <http://schema.org/citation>
+```
+
