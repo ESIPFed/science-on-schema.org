@@ -1,0 +1,13 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.example.org/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<> owl:imports <https://raw.githubusercontent.com/ESIPFed/science-on-schema.org/master/tools/sospy/shapegraphs/recomendShape.ttl> .
+
+ex:MyCitationShape a sh:NodeShape;
+    sh:targetClass <http://schema.org/Dataset> ;
+    sh:node ex:CitationShape ;
+.
+
