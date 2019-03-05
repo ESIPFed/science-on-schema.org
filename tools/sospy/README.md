@@ -57,6 +57,14 @@ Conforms: True
 ![alt install](./media/venvSetup.png "Install example")
 
 
+## On owl:imports
+
+I was hoping to leverage some import method to allow us to have various shape graphs we could composite 
+into a collection of constraints easily.  While this may still be possible, my initial pattern is not 
+and the reqrec.ttl file in the shapes directory will not work.   
+
+Ref: https://github.com/RDFLib/pySHACL/issues/18
+
 ## References
 
 * https://www.w3.org/TR/shacl/
