@@ -498,6 +498,12 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 }
 </pre>
 
+
+| Spatial Reference System | IRI                                          |
+|--------------------------|----------------------------------------------|
+| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
+| CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
+
 A coordinate reference system can be added in this way:
 
 <pre>
@@ -517,7 +523,7 @@ A coordinate reference system can be added in this way:
       "line": "39.3280,120.1633 40.445,123.7878"
     },
     <strong>"additionalProperty": {
-      "@type": ["PropertyValue", "dbpedia:Coordinate_reference_system"],
+      "@type": ["PropertyValue", "dbpedia:Spatial_reference_system"],
       "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
     }</strong>
   }
