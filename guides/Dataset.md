@@ -14,6 +14,7 @@
   * [Point/Coordinates](#spatial_point)
   * [Shapes](#spatial_shape)
   * [Multiple geometries](#spatial_multiple-geometries)
+  * [Spatial Reference System](#spatial_reference-system)
 * [People Roles](#people-roles)
 * [Publisher/Provider](#publisher-provider)
 * [Funding](#funding)
@@ -499,12 +500,15 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 </pre>
 
 
+<a id="spatial_reference-system"></a>
+A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](http://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](http://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
 | WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
 | CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
 
-A coordinate reference system can be added in this way:
+A spatial reference system can be added in this way:
 
 <pre>
 {
