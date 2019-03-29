@@ -380,6 +380,14 @@ Or a date range:
 }
 </pre>
 
+Or an open-ended date range _(thanks to @lewismc for this example from [NASA PO.DAAC](https://github.com/lewismc/podaac.geosci.schema.org/blob/master/Dataset.jsonld))_ :
+<pre>
+{
+  ...
+  <strong>"temporalCoverage": "2012-09-20/.."</strong>
+}
+</pre>
+
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](http://schema.org/DateTime) data type and [URL](http://schema.org/URL). For more granular temporal coverages go here: [http://schema.org/DateTime](http://schema.org/DateTime).
 
 One example of a URL temporal coverage might be for named periods in time:
