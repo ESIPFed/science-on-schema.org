@@ -380,7 +380,7 @@ Or a date range:
 }
 </pre>
 
-Or an open-ended date range _(thanks to @lewismc for this example from [NASA PO.DAAC](https://github.com/lewismc/podaac.geosci.schema.org/blob/master/Dataset.jsonld))_ :
+Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) for this example from [NASA PO.DAAC](https://github.com/lewismc/podaac.geosci.schema.org/blob/master/Dataset.jsonld))_ :
 <pre>
 {
   ...
