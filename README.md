@@ -15,4 +15,5 @@
 
 | Version | DOI |
 | ------------- | ------------- |
+|_most current_|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755)|
 |1.0.0|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
