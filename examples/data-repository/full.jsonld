@@ -1,0 +1,247 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "datacite": "http://purl.org/spar/datacite/"
+    },
+    "@type": ["Service", "ResearchProject", "WebSite", "WebPage"],
+    "@id": "http://lod.bco-dmo.org/id/affiliation/191",
+    "legalName": "Biological and Chemical Data Management Office",
+    "name": "BCO-DMO",
+    "url": "https://www.bco-dmo.org",
+    "category": ["Biological Oceanography", "Chemical Oceanography"],
+    "description": "The BCO-DMO resource catalog offers free and open access to publicly funded research products whose field of study are biological and chemical oceanography.",
+    "sameAs": [
+        "http://www.re3data.org/repository/r3d100000012",
+        "https://twitter.com/BCODMO",
+        "https://www.linkedin.com/company/6378439/"
+    ],
+    "identifier": {
+        "@type": ["PropertyValue","datacite:ResourceIdentifier"],
+        "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
+        "propertyID": "DOI",
+        "value": "10.17616/R37P4C",
+        "url": "https://doi.org/10.17616/R37P4C"
+    },
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bco-dmo.org/files/bcodmo/images/bco-dmo-words-BLUE.jpg"
+    },
+    "foundingDate": "2006-09-01",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "WHOI, MS#36, Shiverick House 11 School St.",
+      "addressLocality": "Woods Hole",
+      "addressRegion": "MA",
+      "postalCode": "02543",
+      "addressCountry": "USA"
+    },
+    "contactPoint": {
+      "@id": "https://www.bco-dmo.org/about-us",
+      "@type": "ContactPoint",
+      "name": "Support",
+      "email": "info@bco-dmo.org",
+      "url": "https:/www.bco-dmo.org/about-us",
+      "contactType": "customer support"
+    },
+    "provider": {
+        "@id": "http://lod.bco-dmo.org/id/affiliation/191"
+    },
+    "funder": {
+      "@type": "FundingAgency",
+      "@id": "https://dx.doi.org/10.13039/100000141",
+      "legalName": "Division of Ocean Sciences",
+      "alternateName": "OCE",
+      "url": "https://www.nsf.gov/div/index.jsp?div=OCE",
+      "identifier": {
+        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
+        "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
+        "propertyID": "DOI",
+        "value": "10.13039/100000141",
+        "url": "https://doi.org/10.13039/100000141"
+      },
+      "parentOrganization": {
+        "@type": "FundingAgency",
+        "@id": "http://dx.doi.org/10.13039/100000085",
+        "legalName": "Directorate for Geosciences",
+        "alternateName": "NSF-GEO",
+        "url": "http://www.nsf.gov",
+        "identifier": {
+          "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
+          "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
+          "propertyID": "DOI",
+          "value": "10.13039/100000085",
+          "url": "https://doi.org/10.13039/100000085"
+         },
+        "parentOrganization": {
+          "@type": "FundingAgency",
+          "@id": "http://dx.doi.org/10.13039/100000001",
+          "legalName": "National Science Foundation",
+          "alternateName": "NSF",
+          "url": "http://www.nsf.gov",
+          "identifier": {
+            "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
+            "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
+            "propertyID": "DOI",
+            "value": "10.13039/100000001",
+            "url": "https://doi.org/10.13039/100000001"
+          }
+        }
+      }
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "http://www.whoi.edu",
+      "name": "Woods Hole Oceanographic Institution",
+      "url": "http://www.whoi.edu",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "266 Woods Hole Road",
+        "addressLocality": "Woods Hole",
+        "addressRegion": "MA",
+        "postalCode": "02543",
+        "addressCountry": "USA"
+      }
+    },
+    "publishingPrinciples": [
+      {
+        "@type": "DigitalDocument",
+        "name": "Terms of Use",
+        "url": "https://www.bco-dmo.org/terms-use",
+        "fileFormat": "text/html"
+      },
+      {
+        "@type": "DigitalDocument",
+        "name": "How to Get Started Contributing Data",
+        "url": "https://www.bco-dmo.org/how-get-started",
+        "fileFormat": "text/html"
+      }
+    ],
+    "availableChannel": [
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.bco-dmo.org/search",
+            "providesService": {
+                "@type": "Service",
+                "name": "BCO-DMO Website Search",
+                "description": "Search for webpages, datasets, people, projects, funding awards, deployments, instrumentation and measurements",
+                "potentialAction": { "@id": "https://www.bco-dmo.org/search" }
+            }
+        },
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "http://lod.bco-dmo.org/sparql",
+            "providesService": {
+                "@type": "Service",
+                "@id": "http://lod.bco-dmo.org/sparql",
+                "name": "SPARQL Endpoint",
+                "description": "Investigate BCO-DMO structured data for discovering datasets, people, projects, funding awards, deployments, instrumentation and measurements, their properties and relationships to internal and external resources",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "contentType": ["application/sparql-results+json", "application/sparql-results+xml"],
+                        "urlTemplate": "http://lod.bco-dmo.org/sparql?default-graph-uri={graph_iri}&query={sparql_query}&output={format}&timeout={timeout_sec}&debug={on_or_off}",
+                        "description": "Search BCO-DMO RDF through its SPARQL Endpoint",
+                        "httpMethod": ["GET", "POST"]
+                    },
+                    "query-input": [
+                        {
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": true,
+                            "valueName": "sparql_query"
+                        },{
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": false,
+                            "valueName": "format"
+                        },{
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": false,
+                            "valueName": "timeout_sec"
+                        },{
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": false,
+                            "valueName": "on_or_off"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.bco-dmo.org/sitemap.xml",
+            "providesService": {
+                "@type": "Service",
+                "@id": "https://www.bco-dmo.org/sitemap.xml",
+                "name": "Sitemap XML",
+                "description": "A Sitemap XML providing access to all of the resources for harvesting",
+                "potentialAction": {
+                    "@type": "ConsumeAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "url": "https://www.bco-dmo.org/sitemap.xml",
+                        "urlTemplate": "https://www.bco-dmo.org/sitemap.xml?page={page}"
+                    },
+                    "object": {
+                        "@type": "DigitalDocument",
+                        "url": "https://www.bco-dmo.org/sitemap.xml",
+                        "fileFormat": "application/xml"
+                    }
+                }
+            }
+        }
+    ],
+    "potentialAction": {
+        "@id": "https://www.bco-dmo.org/search",
+        "@type": "SearchAction",
+        "target": "https://www.bco-dmo.org/search?keywords={query_string}",
+        "query-input": {
+            "@type": "PropertyValueSpecification",
+            "valueRequired": true,
+            "valueName": "query_string"
+        }
+    },
+    "mainContentOfPage": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Search",
+          "description": "Search the BCO-DMO catalog.",
+          "url": "https://www.bco-dmo.org/search"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Contribute Data",
+          "description": "Contribute metadata and data from appropriate NSF OCE funded projects.",
+          "url": "https://www.bco-dmo.org/how-get-started"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Data Management Plans",
+          "description": "Develop your data management plan.",
+          "url": "https://www.bco-dmo.org/nsf-two-page-data-management-plan"
+        },
+        {
+            "@type":"SiteNavigationElement",
+            "position": 4,
+            "name": "Datasets",
+            "description": "Browse Datasets.",
+          "url": "https://www.bco-dmo.org/datasets"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "About Us",
+          "description": "Learn about BCO-DMO.",
+          "url": "https://www.bco-dmo.org/about-us"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Resources",
+          "description": "Information about Data Management and BCO-DMO.",
+          "url": "https://www.bco-dmo.org/how-get-started"
+        }
+    ]
+}
