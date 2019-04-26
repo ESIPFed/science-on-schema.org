@@ -3,7 +3,7 @@
         "@vocab": "http://schema.org/",
         "datacite": "http://purl.org/spar/datacite/"
     },
-    "@type": ["Service", "ResearchProject", "WebSite", "WebPage"],
+    "@type": ["Service", "ResearchProject", "WebSite"],
     "@id": "http://lod.bco-dmo.org/id/affiliation/191",
     "legalName": "Biological and Chemical Data Management Office",
     "name": "BCO-DMO",
