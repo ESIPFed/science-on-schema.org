@@ -1,0 +1,29 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/"
+    },
+    "@type": ["Service", "ResearchProject"],
+    "legalName": "Example Data Repository",
+    "name": "ExDaRepo",
+    "url": "https://www.example-data-repository.org",
+    "description": "The BCO-DMO resource catalog offers free and open access to publicly funded research products whose field of study are biological and chemical oceanography.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.example-data-repository.org/logo.jpg"
+    },
+    "contactPoint": {
+      "@id": "https://www.example-data-repository.org/about-us",
+      "@type": "ContactPoint",
+      "name": "Support",
+      "email": "info@example-data-repository.org",
+      "url": "https://www.example-data-repository.org/about-us",
+      "contactType": "customer support"
+    },
+    "funder": {
+      "@type": "FundingAgency",
+      "@id": "https://dx.doi.org/10.13039/10000001",
+      "legalName": "National Science Foundation",
+      "alternateName": "NSF",
+      "url": "https://www.nsf.gov/"
+    }
+}
