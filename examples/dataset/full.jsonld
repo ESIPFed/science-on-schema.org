@@ -46,21 +46,27 @@
       "box": "-68.4817,-75.8183 -65.08,-68.5033",
       "polygon": "-68.4817,-75.8183 -65.08,-75.8183 -65.08,-68.5033 -68.4817,-68.5033 -68.4817,-75.8183"
     },
-    "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "alternateName": "SRS",
-        "name": "Spatial Reference System",
-        "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
-      },
-      {
-        "@type": "PropertyValue",
-        "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))",
-        "propertyID": "http://www.opengis.net/ont/geosparql#wktLiteral",
-        "name": "Well-Known Text",
-        "alternateName": "WKT"
-      }
-    ]
+    "additionalProperty": {
+      "@type": "PropertyValue",
+      "additionalType": "http://www.wikidata.org/entity/Q4018860",
+      "name": "WKT",
+      "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))",
+      "valueReference": [
+        {
+          "@type": "PropertyValue",
+          "name": "datatype",
+          "additionalType": "http://www.wikidata.org/entity/Q31385480",
+          "value": "http://www.opengis.net/ont/geosparql#wktLiteral"
+        },
+        {
+          "@type": "PropertyValue",
+          "additionalType": "http://www.wikidata.org/entity/Q161779",
+          "name": "SRS",
+          "alternateName": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+        }
+      ]
+    }
   },
   "publisher": {
     "@id": "https://www.example-data-repository.org",
