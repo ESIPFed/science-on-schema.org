@@ -3,6 +3,24 @@
 
 # Describing a Dataset
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Describing a Dataset](#describing-a-dataset)
+	- [Common Properties](#common-properties)
+		- [Identifier](#identifier)
+		- [Variables](#variables)
+		- [Catalog](#catalog)
+		- [Distributions](#distributions)
+			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
+		- [Temporal Coverage](#temporal-coverage)
+		- [Spatial Coverage](#spatial-coverage)
+		- [People](#people)
+		- [Publisher / Provider](#publisher-provider)
+		- [Funding](#funding)
+	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
+		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
+
+<!-- /TOC -->
 
 ---
 
