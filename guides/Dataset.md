@@ -10,11 +10,12 @@
 		- [Identifier](#identifier)
 		- [Variables](#variables)
 		- [Catalog](#catalog)
+		- [Metadata](#metadata)
 		- [Distributions](#distributions)
 			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
 		- [Temporal Coverage](#temporal-coverage)
 		- [Spatial Coverage](#spatial-coverage)
-		- [People](#people)
+		- [Roles of People](#roles-of-people)
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
 	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
@@ -249,6 +250,25 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
   }</strong>
 }
 </pre>
+
+
+Back to [top](#top)
+
+### Metadata
+
+A copy of metadata expressed in another standards compliant format may be available and may provide a richer description of the dataset. The location of the metadata can be provided with the `encoding` property.
+
+<pre>
+"encoding":{
+  "@type":"MediaObject",
+  "contentUrl":"https://example.org/link/to/metadata.xml"
+  "encodingFormat":"http://www.isotc211.org/2005/gmd",
+  "description":"ISO TC211 XML rendering of metadata.",
+  "dateModified":"2019-06-12T14:44:15Z"
+}
+</pre>
+
+The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
 
 Back to [top](#top)
 
@@ -540,7 +560,7 @@ A spatial reference system can be added in this way:
 
 Back to [top](#top)
 
-### People
+### Roles of People
 
 People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
