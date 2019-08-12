@@ -256,19 +256,80 @@ Back to [top](#top)
 
 ### Metadata
 
-A copy of metadata expressed in another standards compliant format may be available and may provide a richer description of the dataset. The location of the metadata can be provided with the `encoding` property.
+Alternative forms of the metadata describing the dataset may be available in other standards compliant formats that may be useful to consumers. The location of the alternative forms of the metadata can be provided with the [`schema:encoding`](https://schema.org/encoding) property which is an instance of [`MediaObject`](https://schema.org/MediaObject).
 
-<pre>
+An example of a MediaObject reference to an instance of ISO TC211 structured metadata:
+
+```json
 "encoding":{
   "@type":"MediaObject",
-  "contentUrl":"https://example.org/link/to/metadata.xml"
+  "contentUrl":"https://example.org/link/to/metadata.xml",
   "encodingFormat":"http://www.isotc211.org/2005/gmd",
   "description":"ISO TC211 XML rendering of metadata.",
   "dateModified":"2019-06-12T14:44:15Z"
 }
-</pre>
+```
 
 The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
+
+A SHACL shape graph for verifying the presence and structure of a MediaObject:
+
+```turtle
+# Shape to evaluate schema:MediaObject instances that provide the value of
+# schema:encoding for an instance of schema:Dataset
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
+
+d1:rdfPrefix
+  sh:declare [
+    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:prefix "rdf" ;
+  ] .
+
+d1:schemaPrefix
+  sh:declare [
+    sh:namespace "http://schema.org/"^^xsd:anyURI ;
+    sh:prefix "schema" ;
+  ] .
+
+d1:MediaObjectShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:prefixes d1:rdfPrefix, d1:schemaPrefix ;
+        sh:select """
+            SELECT ?this
+            WHERE {
+                ?DF rdf:type schema:Dataset .
+                ?DF schema:encoding ?this .
+                ?this rdf:type schema:MediaObject .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:contentUrl ;
+        sh:minCount 1 ;
+        sh:message "schema:contentUrl is required for the encoding property of a Dataset"
+    ] ;
+    sh:property [
+        sh:path schema:encodingFormat ;
+        sh:minCount 1 ;
+        sh:message "schema:encodingFormat should provide the format of the encoding of the referenced resource" ;
+        sh:severity sh:Warning ;
+    ] ;
+    sh:property [
+        sh:path schema:dateModified ;
+        sh:minCount 1 ;
+        sh:message "schema:dateModified should indicate when the referenced resource was last modified" ;
+        sh:severity sh:Warning ;
+    ]
+.
+```
+*Note:* The aforementioned SHACL shape uses capabilities from the
+[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL). 
 
 Back to [top](#top)
 
