@@ -3,29 +3,31 @@
 
 # Describing a Dataset
 
-* [Identifier](#identifiers)
-* [Variables](#variables)
-  * [Using External Vocabularies for Describing Variables](#variables_external-vocab-example)
-* [DataCatalog](#catalog)
-* [Distributions](#distributions)
-   * [Accessing Data through a Service Endpoint](#service-endpoint)
-* [Temporal](#temporal)
-* [Spatial](#spatial)
-  * [Point/Coordinates](#spatial_point)
-  * [Shapes](#spatial_shape)
-  * [Multiple geometries](#spatial_multiple-geometries)
-  * [Spatial Reference System](#spatial_reference-system)
-* [People Roles](#people-roles)
-* [Publisher/Provider](#publisher-provider)
-* [Funding](#funding)
-* [Advanced Publishing Techniques](#advanced-publishing)
-  * [Linking Physical Samples to Datasets](#physical-sample-igsn)
-    
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Describing a Dataset](#describing-a-dataset)
+	- [Common Properties](#common-properties)
+		- [Identifier](#identifier)
+		- [Variables](#variables)
+		- [Catalog](#catalog)
+		- [Metadata](#metadata)
+		- [Distributions](#distributions)
+			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
+		- [Temporal Coverage](#temporal-coverage)
+		- [Spatial Coverage](#spatial-coverage)
+		- [Roles of People](#roles-of-people)
+		- [Publisher / Provider](#publisher-provider)
+		- [Funding](#funding)
+	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
+		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
+
+<!-- /TOC -->
+
+## Common Properties
 
 Google has drafted a [guide to help publishers](https://developers.google.com/search/docs/data-types/dataset). The guide describes the only required fields as - name and description.
 * [name](https://schema.org/name) - A descriptive name of a dataset (e.g., “Snow depth in Northern Hemisphere”)
 * [description](https://schema.org/description) - A short summary describing a dataset.
-
 
 <pre>
 {
@@ -67,13 +69,12 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "license": "http://creativecommons.org/licenses/by/4.0/"</strong>
 }
 </pre>
-
 Back to [top](#top)
 
-<a id="identifiers"></a>
+### Identifier
+
 Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail.
 
-#### Describing a Dataset Identifier
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
 In it's most basic form, the identifier as text can be published as:
@@ -108,7 +109,7 @@ Or as a URL:
 }
 </pre>
 
-However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types. 
+However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
 
 For identifiers that do have a well-defined scheme that scopes the identifier value, such as DOI, ARK, ISBN, etc, we can use the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to specify this identifier scheme:
 
@@ -167,10 +168,10 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 Back to [top](#top)
 
-<a id="variables"></a>
+### Variables
+
 Adding the [schema:variableMeasured](https://schema.org/variableMeasured) field can be done in two ways - a text description of each variable or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue).
 
-#### Describing a Dataset's Variables
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
 In it's most basic form, the variable as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
@@ -223,8 +224,7 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
 
 Back to [top](#top)
 
-<a id="catalog"></a>
-#### Describing a Dataset's Catalog
+### Catalog
 
 For some repositories, defining a one or many data collections helps contextualize the datasets. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
 
@@ -251,10 +251,89 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 }
 </pre>
 
+
 Back to [top](#top)
 
-<a id="distributions"></a>
-#### Describing a Dataset's Distributions
+### Metadata
+
+Alternative forms of the metadata describing the dataset may be available in other standards compliant formats that may be useful to consumers. The location of the alternative forms of the metadata can be provided with the [`schema:encoding`](https://schema.org/encoding) property which is an instance of [`MediaObject`](https://schema.org/MediaObject).
+
+An example of a MediaObject reference to an instance of ISO TC211 structured metadata:
+
+```json
+"encoding":{
+  "@type":"MediaObject",
+  "contentUrl":"https://example.org/link/to/metadata.xml",
+  "encodingFormat":"http://www.isotc211.org/2005/gmd",
+  "description":"ISO TC211 XML rendering of metadata.",
+  "dateModified":"2019-06-12T14:44:15Z"
+}
+```
+
+The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
+
+A SHACL shape graph for verifying the presence and structure of a MediaObject:
+
+```turtle
+# Shape to evaluate schema:MediaObject instances that provide the value of
+# schema:encoding for an instance of schema:Dataset
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
+
+d1:rdfPrefix
+  sh:declare [
+    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:prefix "rdf" ;
+  ] .
+
+d1:schemaPrefix
+  sh:declare [
+    sh:namespace "http://schema.org/"^^xsd:anyURI ;
+    sh:prefix "schema" ;
+  ] .
+
+d1:MediaObjectShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:prefixes d1:rdfPrefix, d1:schemaPrefix ;
+        sh:select """
+            SELECT ?this
+            WHERE {
+                ?DF rdf:type schema:Dataset .
+                ?DF schema:encoding ?this .
+                ?this rdf:type schema:MediaObject .
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path schema:contentUrl ;
+        sh:minCount 1 ;
+        sh:message "schema:contentUrl is required for the encoding property of a Dataset"
+    ] ;
+    sh:property [
+        sh:path schema:encodingFormat ;
+        sh:minCount 1 ;
+        sh:message "schema:encodingFormat should provide the format of the encoding of the referenced resource" ;
+        sh:severity sh:Warning ;
+    ] ;
+    sh:property [
+        sh:path schema:dateModified ;
+        sh:minCount 1 ;
+        sh:message "schema:dateModified should indicate when the referenced resource was last modified" ;
+        sh:severity sh:Warning ;
+    ]
+.
+```
+*Note:* The aforementioned SHACL shape uses capabilities from the
+[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL). 
+
+Back to [top](#top)
+
+### Distributions
 
 Where the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data in a specific format is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
 
@@ -279,8 +358,8 @@ For data available in multipe formats, there will be multiple values of the [sch
 }
 </pre>
 
-<a id="service-endpoint"></a>
-##### Accessing Data through a Service Endpoint
+
+#### Accessing Data through a Service Endpoint
 
 If access to the data requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction) in this way:
 
@@ -343,8 +422,7 @@ Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type bec
 
 Back to [top](#top)
 
-<a id="temporal"></a>
-#### Describing a Dataset's Temporal Coverage
+### Temporal Coverage
 
 Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
 
@@ -413,8 +491,7 @@ Because [schema:URL (rdf)](https://schema.org/URL.rdf) is defined as an rdfs:Cla
 
 Back to [top](#top)
 
-<a id="spatial"></a>
-#### Describing a Dataset's Spatial Coverage
+### Spatial Coverage
 
 ![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
@@ -544,10 +621,9 @@ A spatial reference system can be added in this way:
 
 Back to [top](#top)
 
-<a id="people-roles"></a>
-#### Describing a Dataset's People
+### Roles of People
 
-People can be linked to datasets iusing three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
@@ -680,8 +756,7 @@ Notice that since Uta Passow has already been defined in the document with `"@id
 
 Back to [top](#top)
 
-<a id="publisher-provider"></a>
-#### Describing a Dataset's Publisher/Provider
+### Publisher / Provider
 
 ![Publisher/Provider](/assets/diagrams/dataset/dataset_publisher-provider.svg "Dataset - Publisher/Provider")
 
@@ -743,8 +818,8 @@ Otherwise, you can define the organization inline in this way:
 
 Back to [top](#top)
 
-<a id="funding"></a>
-### Dataset Funding ###
+
+### Funding
 ![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
 
 Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object on your webpage. In order to do this, we have to modify the structure of our JSON-LD to include multiple top-level items, and make sure that our Dataset uses the `@id` to identify its URI. This `@id` will be used by the MonetaryGrant to say it funded the Dataset. First, we add the `@id` to our Dataset:
@@ -844,11 +919,11 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 
 Back to [top](#top)
 
-<a id="advanced-publishing"></a>
-### Advanced Publishing Techniques
 
-<a id="physical-sample-igsn"></a>
-#### Attaching Physical Samples to a Dataset
+## Advanced Publishing Techniques
+
+
+### Attaching Physical Samples to a Dataset
 
 Currently, there isn't a great semantic property for a Dataset to distinguish the related physical samples. However, we can use the [schema:hasPart](https://schema.org/hasPart) property to accomplish this without too much compromise. A [GitHub issue](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues/16) has been setup to follow this scenario. Here is the best way, so far, to link physical samples to a Dataset:
 
@@ -863,7 +938,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
   "@type": "Dataset",
   ...,
   <strong>"hasPart": [
-    { 
+    {
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
         "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
@@ -882,7 +957,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
       }
       ...
     },
-    { 
+    {
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
         "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
