@@ -260,15 +260,24 @@ Alternative forms of the metadata describing the dataset may be available in oth
 
 An example of a MediaObject reference to an instance of ISO TC211 structured metadata:
 
-```json
-"encoding":{
-  "@type":"MediaObject",
-  "contentUrl":"https://example.org/link/to/metadata.xml",
-  "encodingFormat":"http://www.isotc211.org/2005/gmd",
-  "description":"ISO TC211 XML rendering of metadata.",
-  "dateModified":"2019-06-12T14:44:15Z"
+<pre>
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+  <strong>"encoding":{
+    "@type":"MediaObject",
+    "contentUrl":"https://example.org/link/to/metadata.xml",
+    "encodingFormat":"http://www.isotc211.org/2005/gmd",
+    "description":"ISO TC211 XML rendering of metadata.",
+    "dateModified":"2019-06-12T14:44:15Z"
+  }</strong>
 }
-```
+</pre>
 
 The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
 
