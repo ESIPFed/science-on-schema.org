@@ -246,7 +246,8 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"includedInDataCatalog": {
-    "@id": "https://www.sample-data-repository.org/collection/biological-data"
+    "@id": "https://www.sample-data-repository.org/collection/biological-data",
+    "@type": "DataCatalog"
   }</strong>
 }
 </pre>
