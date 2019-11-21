@@ -76,9 +76,9 @@ Figure example:
   ... } """
   >>> g = ConjunctiveGraph().parse(data=json, format="json-ld", publicID="https://my.data/")
   >>> for s,p,o in g:
-  ...     print(f"{str(s)}, {str(p)}, {str(o)}")
+  ...     print(f'"{str(s)}", "{str(p)}", "{str(o)}"')
   ...
-  https://my.data/demo, http://www.w3.org/1999/02/22-rdf-syntax-ns#type, https://schema.orgDataset/
+  "https://my.data/demo", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "https://schema.orgDataset/"
   ```
   Including the trailing slash will make the literal representation of terms align with the Internet location of the term definition, and so be clearer for readers and other processors.
 
