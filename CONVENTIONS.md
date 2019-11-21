@@ -42,6 +42,7 @@ This document explains the conventions used within this guide.
 
 <a id="syntax-figures"></a>
 5. **Creating Figures**
+
     1. Save the image to the ```/assets``` directory within this guide,
     2. Then, in the document, decide where the figure should be added,
     3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
@@ -59,6 +60,25 @@ Figure example:
     <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the field's description.</em>
   </p>
 ```
+
+6. **Namespace for `schema.org`.** Use "`https://schema.org/`". Consistent representation of namespaces simplifies programmatic processing of markup. For example, even though conceptually it is clear the terms "`http://schema.org/Dataset`" and "`https://schema.org/Dataset`" are referring to [https://schema.org/Dataset/](https://schema.org/Dataset), these are programmatically treated as different entities. The [schema.org guidelines](https://schema.org/docs/faq.html#19) are somewhat ambivalent on the topic, with perhaps emphasis on "`https`". The trailing slash (`/`) is important. Without it, common RDF processing libraries such as [rdflib](https://rdflib.readthedocs.io/en/stable/) will construct a term like "`https://schema.orgDataset`". e.g.:
+
+```
+>>> from rdflib import ConjunctiveGraph
+INFO:rdflib:RDFLib Version: 4.2.2
+>>> json = """{
+...    "@context": {"@vocab": "https://schema.org"},
+...    "@id":"demo",
+...    "@type":"Dataset"
+... }
+... """
+>>> g = ConjunctiveGraph().parse(data=json, format="json-ld", publicID="https://my.data/")
+>>> for s,p,o in g:
+...     print(f"{str(s)}, {str(p)}, {str(o)}")
+...
+https://my.data/demo, http://www.w3.org/1999/02/22-rdf-syntax-ns#type, https://schema.orgDataset/
+```
+
 
 <a id="versioning"></a>
 ## Versioning ##
