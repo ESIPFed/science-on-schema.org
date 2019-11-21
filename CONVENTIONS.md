@@ -82,6 +82,8 @@ Figure example:
   ```
   Including the trailing slash will make the literal representation of terms align with the Internet location of the term definition, and so be clearer for readers and other processors.
 
+  It is further recommended that the prefix `SO:` is used in documentation and other locations when specifically referring to `https://schema.org/`.
+
 <a id="versioning"></a>
 ## Versioning ##
 
