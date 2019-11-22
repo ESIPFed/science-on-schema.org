@@ -42,13 +42,14 @@ This document explains the conventions used within this guide.
 
 <a id="syntax-figures"></a>
 5. **Creating Figures**
-    1. Save the image to the ```/assets``` directory within this guide,
-    2. Then, in the document, decide where the figure should be added,
-    3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
-    4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
-    5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
-    6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
-    7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
+
+  1. Save the image to the ```/assets``` directory within this guide,
+  2. Then, in the document, decide where the figure should be added,
+  3. Add a named anchor before the figure, ```<a id="figure-(x)"></a>```, where ```(x)``` is a unique, incremental number.
+  4. Center the figure by wrapping it and it's text with: ```<p align="center">...</p>```
+  5. The first element in the section should be the figure title: ```Figure (x). The figure title goes here...```
+  6. Next, insert the image with: ```<img src="/assets/<path-to-image-file e.g. schemaorg-datatypes.png>">```
+  7. Optionally, add an italicized description with: ```<em>optional description goes here...</em>```
 
 Figure example: 
 ```
@@ -59,6 +60,29 @@ Figure example:
     <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the field's description.</em>
   </p>
 ```
+
+6. **Namespace for `schema.org`.** Use `https://schema.org/`. 
+
+  Consistent representation of namespaces simplifies programmatic processing of markup. For example, even though conceptually it is clear the terms `http://schema.org/Dataset` and `https://schema.org/Dataset` (note the protocol difference) are referring to [https://schema.org/Dataset](https://schema.org/Dataset), these are programmatically treated as different entities. The [schema.org guidelines](https://schema.org/docs/faq.html#19) are somewhat ambivalent on the topic, with perhaps emphasis on `"https"`. 
+
+  The trailing slash (`/`) is also important. Without it, common RDF processing libraries such as [rdflib](https://rdflib.readthedocs.io/en/stable/) will construct a term like `"https://schema.orgDataset"`. For example:
+
+  ``` python console
+  >>> from rdflib import ConjunctiveGraph
+  >>> json = """{
+  ...    "@context": {"@vocab": "https://schema.org"},
+  ...    "@id":"demo",
+  ...    "@type":"Dataset"
+  ... } """
+  >>> g = ConjunctiveGraph().parse(data=json, format="json-ld", publicID="https://my.data/")
+  >>> for s,p,o in g:
+  ...     print(f'"{str(s)}", "{str(p)}", "{str(o)}"')
+  ...
+  "https://my.data/demo", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "https://schema.orgDataset/"
+  ```
+  Including the trailing slash will make the literal representation of terms align with the Internet location of the term definition, and so be clearer for readers and other processors.
+
+  It is further recommended that the prefix `SO:` is used in documentation and other locations when specifically referring to `https://schema.org/`.
 
 <a id="versioning"></a>
 ## Versioning ##
