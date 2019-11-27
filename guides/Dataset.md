@@ -32,7 +32,7 @@ Google has drafted a [guide to help publishers](https://developers.google.com/se
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   <strong>"name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -56,7 +56,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -66,7 +66,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "version": "2013-11-21",
   "isAccessibleForFree": true,
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/"</strong>
+  "license": "https://creativecommons.org/licenses/by/4.0/"</strong>
 }
 </pre>
 Back to [top](#top)
@@ -82,7 +82,7 @@ In it's most basic form, the identifier as text can be published as:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -91,7 +91,7 @@ In it's most basic form, the identifier as text can be published as:
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": "urn:sdro:dataset:472032"</strong>
 }
 </pre>
@@ -100,12 +100,12 @@ Or as a URL:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
-  <strong>"identifier": "http://id.sampledatarepository.org/dataset/472032/version/1"</strong>
+  <strong>"identifier": "https://id.sampledatarepository.org/dataset/472032/version/1"</strong>
 }
 </pre>
 
@@ -116,8 +116,8 @@ For identifiers that do have a well-defined scheme that scopes the identifier va
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "https://schema.org/",
+    <strong>"datacite": "https://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -126,7 +126,7 @@ For identifiers that do have a well-defined scheme that scopes the identifier va
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
     "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
     "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
@@ -144,8 +144,8 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "https://schema.org/",
+    <strong>"datacite": "https://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -154,11 +154,11 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
   "identifier": {
     "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "@type": ["PropertyValue", "datacite:Identifier"],
-    "propertyID": "http://purl.org/spar/datacite/doi",
+    "propertyID": "https://purl.org/spar/datacite/doi",
     "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "value": "10.1575/1912/bco-dmo.665253"
    },
@@ -179,7 +179,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -200,8 +200,8 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/",
     <strong>"gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"</strong>
   },
   "@type": "Dataset",
@@ -239,8 +239,8 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -264,8 +264,8 @@ An example of a MediaObject reference to an instance of ISO TC211 structured met
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -273,7 +273,7 @@ An example of a MediaObject reference to an instance of ISO TC211 structured met
   <strong>"encoding":{
     "@type":"MediaObject",
     "contentUrl":"https://example.org/link/to/metadata.xml",
-    "encodingFormat":"http://www.isotc211.org/2005/gmd",
+    "encodingFormat":"https://www.isotc211.org/2005/gmd",
     "description":"ISO TC211 XML rendering of metadata.",
     "dateModified":"2019-06-12T14:44:15Z"
   }</strong>
@@ -287,21 +287,21 @@ A SHACL shape graph for verifying the presence and structure of a MediaObject:
 ```turtle
 # Shape to evaluate schema:MediaObject instances that provide the value of
 # schema:encoding for an instance of schema:Dataset
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <http://schema.org/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
+@prefix rdf: <https://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <https://www.w3.org/ns/shacl#> .
+@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix d1: <https://ns.dataone.org/schema/2019/08/SO/Dataset#> .
 
 d1:rdfPrefix
   sh:declare [
-    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:namespace "https://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
     sh:prefix "rdf" ;
   ] .
 
 d1:schemaPrefix
   sh:declare [
-    sh:namespace "http://schema.org/"^^xsd:anyURI ;
+    sh:namespace "https://schema.org/"^^xsd:anyURI ;
     sh:prefix "schema" ;
   ] .
 
@@ -339,7 +339,7 @@ d1:MediaObjectShape
 .
 ```
 *Note:* The aforementioned SHACL shape uses capabilities from the
-[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL). 
+[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL).
 
 Back to [top](#top)
 
@@ -354,8 +354,8 @@ For data available in multipe formats, there will be multiple values of the [sch
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -378,8 +378,8 @@ If access to the data requires some input parameters before a download can occur
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -442,8 +442,8 @@ To represent a single date and time:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -476,15 +476,15 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 }
 </pre>
 
-Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](http://schema.org/DateTime) data type and [URL](http://schema.org/URL). For more granular temporal coverages go here: [http://schema.org/DateTime](http://schema.org/DateTime).
+Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
 One example of a URL temporal coverage might be for named periods in time:
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -523,8 +523,8 @@ A point, or coordinate, would defined in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -596,21 +596,21 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](http://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](http://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](https://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
 
-| Spatial Reference System | IRI                                          |
-|--------------------------|----------------------------------------------|
-| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
-| CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
+| Spatial Reference System | IRI                                           |
+|--------------------------|-----------------------------------------------|
+| WGS84                    | https://www.w3.org/2003/01/geo/wgs84_pos#     |
+| CRS84                    | https://www.opengis.net/def/crs/OGC/1.3/CRS84 |
 
 A spatial reference system can be added in this way:
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
-    <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/",
+    <strong>"dbpedia": "https://dbpedia.org/resource/"</strong>
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -623,7 +623,7 @@ A spatial reference system can be added in this way:
     },
     <strong>"additionalProperty": {
       "@type": ["PropertyValue", "dbpedia:Spatial_reference_system"],
-      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      "@id": "https://www.opengis.net/def/crs/OGC/1.3/CRS84"
     }</strong>
   }
 }
@@ -633,22 +633,22 @@ Back to [top](#top)
 
 ### Roles of People
 
-People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](https://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"creator": [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://lod.bco-dmo.org/id/person-role/472036",
       "@type": "Role",
       "roleName": "Principal Investigator",
       "creator": {
@@ -661,7 +661,7 @@ People can be linked to datasets using three fields: author, creator, and contri
       }
     },
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472038",
+      "@id": "https://lod.bco-dmo.org/id/person-role/472038",
       "@type": "Role",
       "roleName": "Co-Principal Investigator",
       "url": "https://www.bco-dmo.org/person-role/472038",
@@ -670,7 +670,7 @@ People can be linked to datasets using three fields: author, creator, and contri
         "@type": "Person",
         "identifier": {
           "@type": ["PropertyValue", "datacite:Identifier"],
-          "propertyID": "http://purl.org/spar/datacite/orcid",
+          "propertyID": "https://purl.org/spar/datacite/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
           "value": "0000-0003-3432-2297"
         },
@@ -685,17 +685,17 @@ NOTE that the Role inherits the property `creator` and `contributor` from the Da
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     ...
   },
   <strong>"@type": "Dataset"</strong>,
   ...
   <strong>"creator"</strong>: [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://lod.bco-dmo.org/id/person-role/472036",
       <strong>"@type": "Role"</strong>,
       "roleName": "Principal Investigator",
-      "url": "http://lod.bco-dmo.org/id/person-role/472036",
+      "url": "https://lod.bco-dmo.org/id/person-role/472036",
       <strong>"creator":</strong> {
         "@id": "https://www.bco-dmo.org/person/51317",
         "@type": "Person",
@@ -713,18 +713,18 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   "creator": [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://lod.bco-dmo.org/id/person-role/472036",
       "@type": "Role",
       "roleName": "Principal Investigator",
-      "url": "http://lod.bco-dmo.org/id/person-role/472036",
+      "url": "https://lod.bco-dmo.org/id/person-role/472036",
       "creator": {
         <strong>"@id": "https://www.bco-dmo.org/person/51317"</strong>,
         "@type": "Person",
@@ -742,7 +742,7 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
       "creator": { "@id": "https://www.bco-dmo.org/person/51317" }
     }</strong>,
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472038",
+      "@id": "https://lod.bco-dmo.org/id/person-role/472038",
       "@type": "Role",
       "roleName": "Co-Principal Investigator",
       "url": "https://www.bco-dmo.org/person-role/472038",
@@ -751,7 +751,7 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
         "@type": "Person",
         "identifier": {
           "@type": ["PropertyValue", "datacite:Identifier"],
-          "propertyID": "http://purl.org/spar/datacite/orcid",
+          "propertyID": "https://purl.org/spar/datacite/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
           "value": "0000-0003-3432-2297"
         },
@@ -786,8 +786,8 @@ then you can reuse that `@id` here. Harvesters such as Google and Project418 wil
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -806,8 +806,8 @@ Otherwise, you can define the organization inline in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -817,7 +817,7 @@ Otherwise, you can define the organization inline in this way:
     "@type": "Organization",
     "legalName": "Sample Data Repository Office",
     "name": "SDRO",
-    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
+    "sameAs": "https://www.re3data.org/repository/r3dxxxxxxxxx",
     "url": "https://www.sample-data-repository.org"
   },
   "publisher": {
@@ -836,10 +836,10 @@ Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGra
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
-  <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
+  <strong>"@id": "https://www.sample-data-repository.org/dataset/123",</strong>
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -850,11 +850,11 @@ Next, we must make our JSON-LD allow multiple top-level items by using the `@gra
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   <strong>"@graph":[{</strong>
-      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@id": "https://www.sample-data-repository.org/dataset/123",
       "@type": "Dataset",
       "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
       ...
@@ -868,23 +868,23 @@ You can now see that the Dataset object `{}` is now the first element in the `@g
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@id": "https://www.sample-data-repository.org/dataset/123",
       "@type": "Dataset",
       "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
       ...
     }<strong>,
     {
       "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
+      "fundedItem": { "@id": "https://www.sample-data-repository.org/dataset/123" },
       "name": "NSF Award# 143211",
       "funder": {
         "@type": "Organization",
         "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
+        "url": "https://www.nsf.gov"
       },
       "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
       "identifier": "143211"
@@ -898,27 +898,27 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
+      "@id": "https://www.sample-data-repository.org/dataset/123",
       "@type": "Dataset",
       "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
       <strong>"mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "http://www.sample-data-repository.org/dataset/123"
+         "@id": "https://www.sample-data-repository.org/dataset/123"
       },</strong>
       ...
     },
     {
       "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
+      "fundedItem": { "@id": "https://www.sample-data-repository.org/dataset/123" },
       "name": "NSF Award# 143211",
       "funder": {
         "@type": "Organization",
         "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
+        "url": "https://www.nsf.gov"
       },
       "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
       "identifier": "143211"
@@ -940,10 +940,10 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "gdx": "https://geodex.org/voc/",
-    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
-    "igsn": "http://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>
+    <strong>"geolink": "https://schema.geolink.org/1.0/base/main#",
+    "igsn": "https://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>
   },
   "@type": "Dataset",
   ...,

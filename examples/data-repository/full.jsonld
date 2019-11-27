@@ -1,17 +1,17 @@
 {
     "@context": {
-        "@vocab": "http://schema.org/",
-        "datacite": "http://purl.org/spar/datacite/"
+        "@vocab": "https://schema.org/",
+        "datacite": "https://purl.org/spar/datacite/"
     },
     "@type": ["Service", "ResearchProject", "WebSite"],
-    "@id": "http://lod.bco-dmo.org/id/affiliation/191",
+    "@id": "https://lod.bco-dmo.org/id/affiliation/191",
     "legalName": "Biological and Chemical Data Management Office",
     "name": "BCO-DMO",
     "url": "https://www.bco-dmo.org",
     "category": ["Biological Oceanography", "Chemical Oceanography"],
     "description": "The BCO-DMO resource catalog offers free and open access to publicly funded research products whose field of study are biological and chemical oceanography.",
     "sameAs": [
-        "http://www.re3data.org/repository/r3d100000012",
+        "https://www.re3data.org/repository/r3d100000012",
         "https://twitter.com/BCODMO",
         "https://www.linkedin.com/company/6378439/"
     ],
@@ -44,7 +44,7 @@
       "contactType": "customer support"
     },
     "provider": {
-        "@id": "http://lod.bco-dmo.org/id/affiliation/191"
+        "@id": "https://lod.bco-dmo.org/id/affiliation/191"
     },
     "funder": {
       "@type": "FundingAgency",
@@ -61,10 +61,10 @@
       },
       "parentOrganization": {
         "@type": "FundingAgency",
-        "@id": "http://dx.doi.org/10.13039/100000085",
+        "@id": "https://dx.doi.org/10.13039/100000085",
         "legalName": "Directorate for Geosciences",
         "alternateName": "NSF-GEO",
-        "url": "http://www.nsf.gov",
+        "url": "https://www.nsf.gov",
         "identifier": {
           "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
           "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
@@ -74,10 +74,10 @@
          },
         "parentOrganization": {
           "@type": "FundingAgency",
-          "@id": "http://dx.doi.org/10.13039/100000001",
+          "@id": "https://dx.doi.org/10.13039/100000001",
           "legalName": "National Science Foundation",
           "alternateName": "NSF",
-          "url": "http://www.nsf.gov",
+          "url": "https://www.nsf.gov",
           "identifier": {
             "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
             "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
@@ -90,9 +90,9 @@
     },
     "parentOrganization": {
       "@type": "Organization",
-      "@id": "http://www.whoi.edu",
+      "@id": "https://www.whoi.edu",
       "name": "Woods Hole Oceanographic Institution",
-      "url": "http://www.whoi.edu",
+      "url": "https://www.whoi.edu",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "266 Woods Hole Road",
@@ -129,10 +129,10 @@
         },
         {
             "@type": "ServiceChannel",
-            "serviceUrl": "http://lod.bco-dmo.org/sparql",
+            "serviceUrl": "https://lod.bco-dmo.org/sparql",
             "providesService": {
                 "@type": "Service",
-                "@id": "http://lod.bco-dmo.org/sparql",
+                "@id": "https://lod.bco-dmo.org/sparql",
                 "name": "SPARQL Endpoint",
                 "description": "Investigate BCO-DMO structured data for discovering datasets, people, projects, funding awards, deployments, instrumentation and measurements, their properties and relationships to internal and external resources",
                 "potentialAction": {
@@ -140,7 +140,7 @@
                     "target": {
                         "@type": "EntryPoint",
                         "contentType": ["application/sparql-results+json", "application/sparql-results+xml"],
-                        "urlTemplate": "http://lod.bco-dmo.org/sparql?default-graph-uri={graph_iri}&query={sparql_query}&output={format}&timeout={timeout_sec}&debug={on_or_off}",
+                        "urlTemplate": "https://lod.bco-dmo.org/sparql?default-graph-uri={graph_iri}&query={sparql_query}&output={format}&timeout={timeout_sec}&debug={on_or_off}",
                         "description": "Search BCO-DMO RDF through its SPARQL Endpoint",
                         "httpMethod": ["GET", "POST"]
                     },

@@ -15,12 +15,12 @@
 
 [![Repository  - Overview](/assets/diagrams/repository/repository-overview.svg "Repository - Overview")](#)
 
-In schema.org, we model a repository as both an [schema:ResearchProject](https://schema.org/ResearchProject), a sub-class of an Organization, and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization. 
+In schema.org, we model a repository as both an [schema:ResearchProject](https://schema.org/ResearchProject), a sub-class of an Organization, and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization.
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   <strong>"@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -45,7 +45,7 @@ The other fields you can use to describe the Organziation and the Service are:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -53,7 +53,7 @@ The other fields you can use to describe the Organziation and the Service are:
   <strong>"url": "https://www.sample-data-repository.org",
   "description": "The Sample Data Repository Service provides access to data from an imaginary domain accessible from this website.",
   "sameAs": [
-        "http://www.re3data.org/repository/r3d1000000xx",
+        "https://www.re3data.org/repository/r3d1000000xx",
         "https://twitter.com/SDRO",
         "https://www.linkedin.com/company/123456789/"
     ],
@@ -70,7 +70,7 @@ If you are using the "@id" attribute for your Repository, and the provider of th
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   <strong>"@id": "https://www.sample-data-repository.org",</strong>
@@ -93,7 +93,7 @@ However, if your repository has a situation where multiple organizations act as 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -126,7 +126,7 @@ Adding additional fields of [schema:ResearchProject](https://schema.org/Research
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -168,7 +168,7 @@ If this ResearchProject, or Organization, has a parent entity such as a college,
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -184,10 +184,10 @@ If this ResearchProject, or Organization, has a parent entity such as a college,
   },
    <strong>"parentOrganization": {
      "@type": "Organization",
-     "@id": "http://www.someinstitute.edu",
+     "@id": "https://www.someinstitute.edu",
      "legalName": "Some Institute",
      "name": "SI",
-     "url": "http://www.someinstitute.edu",
+     "url": "https://www.someinstitute.edu",
      "address": {
        "@type": "PostalAddress",
        "streetAddress": "234 Main St.",
@@ -213,8 +213,8 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "https://schema.org/",
+    <strong>"datacite": "https://purl.org/spar/datacite/"</strong>
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -231,14 +231,14 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
   <strong>"identifier": {
     "@type": "PropertyValue",
     "name": "Re3data DOI for this repository",
-    "propertyID": "http://purl.org/spar/datacite/doi",
+    "propertyID": "https://purl.org/spar/datacite/doi",
     "value": "10.17616/R37P4C",
     "url": "https://doi.org/10.17616/R37P4C"
   }</strong>
 }
 </pre>
 
-We add the `datacite` vocabulary to the `@context` because the Datacite Ontology available at [http://purl.org/spar/datacite/](http://purl.org/spar/datacite/) has URIs to describe a DOI, ORCiD, ARK, URI, URN - all identifier scheme that help for disamiguating identifiers. To properly disambiguate a globally unique identifier, 2 pieces of information are needed - 1) the identifier value and 2) the scheme that on which that identifier exists. Some examples of this concept for common identifiers  are:
+We add the `datacite` vocabulary to the `@context` because the Datacite Ontology available at [https://purl.org/spar/datacite/](https://purl.org/spar/datacite/) has URIs to describe a DOI, ORCiD, ARK, URI, URN - all identifier scheme that help for disamiguating identifiers. To properly disambiguate a globally unique identifier, 2 pieces of information are needed - 1) the identifier value and 2) the scheme that on which that identifier exists. Some examples of this concept for common identifiers  are:
 
 | Scheme | Value |
 | ------ | ----- |
@@ -265,8 +265,8 @@ To describe the funding source of a repository, you use the [schema:funder](http
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/",</strong>
+    "@vocab": "https://schema.org/",
+    <strong>"datacite": "https://purl.org/spar/datacite/",</strong>
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -282,10 +282,10 @@ To describe the funding source of a repository, you use the [schema:funder](http
   },
    "parentOrganization": {
      "@type": "Organization",
-     "@id": "http://www.someinstitute.edu",
+     "@id": "https://www.someinstitute.edu",
      "legalName": "Some Institute",
      "name": "SI",
-     "url": "http://www.someinstitute.edu",
+     "url": "https://www.someinstitute.edu",
      "address": {
        "@type": "PostalAddress",
        "streetAddress": "234 Main St.",
@@ -308,10 +308,10 @@ To describe the funding source of a repository, you use the [schema:funder](http
       },
       "parentOrganization": {
         "@type": "Organization",
-        "@id": "http://doi.org/10.13039/100000085",
+        "@id": "https://doi.org/10.13039/100000085",
         "legalName": "Directorate for Geosciences",
         "alternateName": "NSF-GEO",
-        "url": "http://www.nsf.gov",
+        "url": "https://www.nsf.gov",
         "identifier": {
           "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
           "propertyID": "DOI",
@@ -320,10 +320,10 @@ To describe the funding source of a repository, you use the [schema:funder](http
          },
         "parentOrganization": {
           "@type": "Organization",
-          "@id": "http://dx.doi.org/10.13039/100000001",
+          "@id": "https://dx.doi.org/10.13039/100000001",
           "legalName": "National Science Foundation",
           "alternateName": "NSF",
-          "url": "http://www.nsf.gov",
+          "url": "https://www.nsf.gov",
           "identifier": {
             "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
             "propertyID": "DOI",
@@ -350,8 +350,8 @@ For repositories might offer services for accessing data as opposed to directly 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -395,8 +395,8 @@ If your repository has a concept of a data collection, some grouping of a number
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/",
+    "datacite": "https://purl.org/spar/datacite/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -446,7 +446,7 @@ The SWEET ontology defines a number of science disciplines and a repository coul
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"sweet-rel": "http://sweetontology.net/rela/",
     "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
   },

@@ -33,30 +33,30 @@ To provide a place for the scientific data community to work out how best to imp
 1. To be **pragmatic** with our use of schema.org and external vocabulary adoption.
 2. To **consider schema.org classes and properties first** before considering external vocabularies.
 3. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*. For more, see [Why JSON-LD?](/CONVENTIONS.md#why-jsonld) from the [Conventions](/CONVENTIONS.md) document.
-4. Presently, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) enforces use of [schema.org](http://schema.org) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](http://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
+4. Presently, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) enforces use of [schema.org](https://schema.org) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](https://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](https://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
 5. See [Governance](/GOVERNANCE.md) for how we will govern the project.
 6. See [Conventions](/CONVENTIONS.md) for guidance on creating/editing guidance documents.
 
 <a id="prerequisites"></a>
 ## Prerequisites ##
 
-1. We assume a general understanding of [JSON](http://www.json.org/). 
+1. We assume a general understanding of [JSON](https://www.json.org).
 2. We assume a basic knowledge about [JSON-LD](https://json-ld.org).
 
   JSON-LD is valid JSON, so standard developer tools that support JSON can be used. For some specific JSON-LD and schema.org help though, there are some other resources.
 
   ##### JSON-LD resources  https://json-ld.org
-  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.  
+  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.
   There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go.  While JSON-LD is just
-  JSON and can be generated many ways, these libraries 
-  can generate valid JSON-LD spec output.   
+  JSON and can be generated many ways, these libraries
+  can generate valid JSON-LD spec output.
 
   ##### JSON-LD playground https://json-ld.org/playground/
-  The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You 
+  The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You
   can explore examples of JSON-LD and view how they convert to RDF, flatten, etc.   Note, that JSON-LD
-  is not associated with schema.org.  It can be used for much more and so most examples here don't 
+  is not associated with schema.org.  It can be used for much more and so most examples here don't
   use schema.org and this site will NOT look to see if you are using schema.org types and properties
-  correctly.  Only that your JSON-LD is well formed.  
+  correctly.  Only that your JSON-LD is well formed.
 
 3. We assume that you've heard about [schema.org](https://schema.org) and have already decided that it's useful to you.
 4. We assume that you have a general understanding of what may describe a scientific dataset.
@@ -65,10 +65,10 @@ Let's go!
 
 <a id="introduction"></a>
 ## Introduction ##
-There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this 
-work is taking place in the context (no pun intended) of schema.org.  This approach has extended to the resource type Dataset. 
-This page will present approaches, tools and references that will aid in the understanding and development of schema.org in 
-JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry 
+There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this
+work is taking place in the context (no pun intended) of schema.org.  This approach has extended to the resource type Dataset.
+This page will present approaches, tools and references that will aid in the understanding and development of schema.org in
+JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry
 of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-of-public.html .
 
 <a id="using-schemaorg"></a>
@@ -76,7 +76,7 @@ of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-o
 
 <a id="using-schemaorg_adding-jsonld-webpages"></a>
 ### Modifying web pages to include schema.org as JSON-LD ###
-JSON-LD should be incorporated into the landing page html inside the `<head></head>` as a `<script>` element.  
+JSON-LD should be incorporated into the landing page html inside the `<head></head>` as a `<script>` element.
 
 ```
 <html>
@@ -85,9 +85,9 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
     <script id="schemaorg" type="application/ld+json">
     {
       "@context": {
-        "@vocab": "http://schema.org/"
+        "@vocab": "https://schema.org/"
        },
-       "@id": "http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816",
+       "@id": "https://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816",
        "@type": "Dataset",
        "description": "Janus Thermal Conductivity for ocean drilling ...",
        ...
@@ -98,7 +98,7 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
   ...
 </html>
  ```
- 
+
 <a id="data-types"></a>
 ### Data Types ###
 
@@ -124,11 +124,11 @@ Every data type is either a *resource* or a *literal*. Resources refer to other 
 }
 </pre>
 
-In the JSON-LD above, the 'author' is a resource of type 'Person'. Fields that simply have a value are called literal data types. For examples, the 'Person' type above has a 'name' of "Jane Goodall" - a literal text value. 
+In the JSON-LD above, the 'author' is a resource of type 'Person'. Fields that simply have a value are called literal data types. For examples, the 'Person' type above has a 'name' of "Jane Goodall" - a literal text value.
 
-Schema.org defines six literal, or primitive,  data types: [Text](https://schema.org/Text), [Number](https://schema.org/Number), [Boolean](https://schema.org/Boolean), [Date](https://schema.org/Date), [DateTime](https://schema.org/DateTime), and [Time](https://schema.org/Time). [Text](https://schema.org/Text) has two special variations: [URL](https://schema.org/URL) and how to specify when text is actually [HTML](#data-type_HTML).  
+Schema.org defines six literal, or primitive,  data types: [Text](https://schema.org/Text), [Number](https://schema.org/Number), [Boolean](https://schema.org/Boolean), [Date](https://schema.org/Date), [DateTime](https://schema.org/DateTime), and [Time](https://schema.org/Time). [Text](https://schema.org/Text) has two special variations: [URL](https://schema.org/URL) and how to specify when text is actually [HTML](#data-type_HTML).
 
-When using schema.org, literal data types are not not specified using curly brackets ```{}``` as these are resrved for specifying 'objects' or 'resources' such as other schema.org types like ```Person```, ```Organization```, etc. First, let's see how to use a primitive data type by using fields of [CreativeWork](https://schema.org/CreativeWork), the superclass for [Dataset](https://schema.org/Dataset). 
+When using schema.org, literal data types are not not specified using curly brackets ```{}``` as these are resrved for specifying 'objects' or 'resources' such as other schema.org types like ```Person```, ```Organization```, etc. First, let's see how to use a primitive data type by using fields of [CreativeWork](https://schema.org/CreativeWork), the superclass for [Dataset](https://schema.org/Dataset).
 
 <a id="data-types_Text"></a>
 #### Text ####
@@ -240,7 +240,7 @@ To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as
 <a id="data-types_HTML"></a>
 #### HTML ####
 
-The HTML data type is a special variation of the ```Text``` data type. In some cases where `Text` is the expected data type, our actual data type may be HTML (because we are dealing with web pages). In this case, the [schema.org JSON-LD context](https://schema.org/docs/jsonldcontext.json) defines ```HTML``` to mean [rdf:HTML](http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML), the data type for specifying that a string of text should be interpreted as HTML. Let's say that we have a description of our manifest and want to use the [description](https://schema.org/description) field, but we have HTML inside that text. Using the text field as we did above for the ```name``` field, we would specify the ```description``` as: 
+The HTML data type is a special variation of the ```Text``` data type. In some cases where `Text` is the expected data type, our actual data type may be HTML (because we are dealing with web pages). In this case, the [schema.org JSON-LD context](https://schema.org/docs/jsonldcontext.json) defines ```HTML``` to mean [rdf:HTML](https://www.w3.org/1999/02/22-rdf-syntax-ns#HTML), the data type for specifying that a string of text should be interpreted as HTML. Let's say that we have a description of our manifest and want to use the [description](https://schema.org/description) field, but we have HTML inside that text. Using the text field as we did above for the ```name``` field, we would specify the ```description``` as:
 
 <pre>
 {
@@ -268,9 +268,9 @@ However, to specify that the ```description``` field should be *interpreted* as 
   "isAccessibleForFree": true,
   "datePublished": "2018-07-29",
   "dateModified": "2018-07-30T14:30Z",
-  "description": { 
-    <strong>"@type": "HTML", 
-    "@value": "&lt;h3&gt;Acquisition&lt;/h3&gt;&lt;p&gt;The data was acquired from an office outside of &lt;a href\"https://en.wikipedia.org/wiki/New_York_City\"&gt;New York City&lt;/a&gt;."</strong> 
+  "description": {
+    <strong>"@type": "HTML",
+    "@value": "&lt;h3&gt;Acquisition&lt;/h3&gt;&lt;p&gt;The data was acquired from an office outside of &lt;a href\"https://en.wikipedia.org/wiki/New_York_City\"&gt;New York City&lt;/a&gt;."</strong>
   }
 }
 </pre>
