@@ -287,15 +287,15 @@ A SHACL shape graph for verifying the presence and structure of a MediaObject:
 ```turtle
 # Shape to evaluate schema:MediaObject instances that provide the value of
 # schema:encoding for an instance of schema:Dataset
-@prefix rdf: <https://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema: <https://schema.org/> .
-@prefix sh: <https://www.w3.org/ns/shacl#> .
-@prefix xsd: <https://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix d1: <https://ns.dataone.org/schema/2019/08/SO/Dataset#> .
 
 d1:rdfPrefix
   sh:declare [
-    sh:namespace "https://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
     sh:prefix "rdf" ;
   ] .
 
@@ -339,7 +339,7 @@ d1:MediaObjectShape
 .
 ```
 *Note:* The aforementioned SHACL shape uses capabilities from the
-[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL).
+[advanced SHACL specification](http://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL).
 
 Back to [top](#top)
 
@@ -600,7 +600,7 @@ A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are metho
 
 | Spatial Reference System | IRI                                           |
 |--------------------------|-----------------------------------------------|
-| WGS84                    | https://www.w3.org/2003/01/geo/wgs84_pos#     |
+| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
 | CRS84                    | https://www.opengis.net/def/crs/OGC/1.3/CRS84 |
 
 A spatial reference system can be added in this way:

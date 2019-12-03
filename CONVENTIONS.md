@@ -14,7 +14,7 @@ This document explains the conventions used within this guide.
 <a id="syntax"></a>
 ## Syntax ##
 
-1. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*.
+1. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](http://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*.
 2. Documents should start with:
   1. An named anchor of 'top': ```<a id="top"></a>```
   2. A breadcrumb trail respective to the level in the guide:
@@ -113,15 +113,15 @@ Schema.org provides a property called [schema:additionalType](https://schema.org
 
 ```
 <rdf:RDF
-  xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:rdfs="https://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:schema="https://schema.org/"
 >
     <rdf:Property rdf:about="https://schema.org/additionalType">
         <schema:rangeIncludes rdf:resource="https://schema.org/URL"/>
         <rdfs:comment>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</rdfs:comment>
         <schema:sameAs rdf:resource="https://schema.org/additionalType"/>
-        <rdfs:subPropertyOf rdf:resource="https://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
         <rdfs:label>additionalType</rdfs:label>
         <schema:domainIncludes rdf:resource="https://schema.org/Thing"/>
     </rdf:Property>
@@ -133,7 +133,7 @@ Schema.org provides a property called [schema:additionalType](https://schema.org
 ```
 ...
 <schema:rangeIncludes rdf:resource="https://schema.org/URL"/>
-<rdfs:subPropertyOf rdf:resource="https://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+<rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 ...
 ```
 
