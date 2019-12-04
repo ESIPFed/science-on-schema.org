@@ -942,7 +942,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
   "@context": {
     "@vocab": "https://schema.org/",
     "gdx": "https://geodex.org/voc/",
-    <strong>"geolink": "https://schema.geolink.org/1.0/base/main#",
+    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
     "igsn": "http://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>
   },
   "@type": "Dataset",
