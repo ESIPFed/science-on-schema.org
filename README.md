@@ -35,6 +35,7 @@
   * [Shape Constraint Language](https://www.w3.org/TR/shacl/) (SHACL)
   * [Comparison of SHACL tool implementations](https://w3c.github.io/data-shapes/data-shapes-test-suite/#validate-rdf-data-tests)
 * Tools
+  * [Gleaner](https://gleaner.io) EarthCube developed tools for working with structure data 
   * [`exstruct`](https://github.com/scrapinghub/extruct) python tool for extracting microdata
   * [Google structured data test tool](https://search.google.com/structured-data/testing-tool/u/0/)
   * [Google dataset search](https://toolbox.google.com/datasetsearch)
