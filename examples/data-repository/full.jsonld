@@ -1,6 +1,6 @@
 {
     "@context": {
-        "@vocab": "http://schema.org/",
+        "@vocab": "https://schema.org/",
         "datacite": "http://purl.org/spar/datacite/"
     },
     "@type": ["Service", "ResearchProject", "WebSite"],
