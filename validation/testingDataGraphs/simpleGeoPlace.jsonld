@@ -1,0 +1,33 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "re3data": "http://example.org/re3data/0.1/"
+    },
+    "@id": "http://opencoredata.org/pkg/id/8448c71edc22a06a26501a967223e5502dd4678be06c5761440167229ec9b715",
+    "@type": "Dataset",
+    "description": "A CSDCO data package for  project SOG (SOG)",
+    "distribution": {
+        "@type": "DataDownload",
+        "contentUrl": "http://opencoredata.org/pkg/id/8448c71edc22a06a26501a967223e5502dd4678be06c5761440167229ec9b715.zip",
+        "fileFormat": "application/vnd.datapackage+json"
+    },
+    "keywords": "CSDCO, Continental Scientific Drilling",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "name": "8448c71edc22a06a26501a967223e5502dd4678be06c5761440167229ec9b715.zip",
+    "publisher": {
+        "@type": "Organization",
+        "description": "Continental Scientific Drilling Coordination Office",
+        "name": "CSDCO",
+        "url": "https://csdco.umn.edu/"
+    },
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "23.7",
+            "longitude": "45.6"
+        }
+    },
+    "url": "http://opencoredata.org/pkg/id/8448c71edc22a06a26501a967223e5502dd4678be06c5761440167229ec9b715",
+    "variableMeasured": null
+}

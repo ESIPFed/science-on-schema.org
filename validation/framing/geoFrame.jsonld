@@ -1,0 +1,9 @@
+{
+     "@context": "http://schema.org/",
+     "@explicit": true,
+     "@type": "Dataset",
+     "spatialCoverage": {
+          "@type": "Place",
+          "geo": {}
+     }
+}

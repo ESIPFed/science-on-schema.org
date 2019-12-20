@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "datacite": "http://purl.org/spar/datacite/",
+    "earthcollab": "https://library.ucar.edu/earthcollab/schema#",
+    "geolink": "http://schema.geolink.org/1.0/base/main#",
+    "vivo": "http://vivoweb.org/ontology/core#",
+    "dbpedia": "http://dbpedia.org/resource/",
+    "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+  },
+  "@type": "Dataset",
+  "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. &amp;nbsp;Included in this dataset are; bacterial&amp;nbsp;abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. &amp;nbsp;The experiments were conducted between 2012 and 2016 during the R/V Kilo Moana cruise KM1416, at the Bermuda Institute for Ocean Sciences (BIOS), and the University of Santa Barbara.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Factors that affect the removal of organic carbon by heterotrophic bacterioplankton can impact the rate and magnitude of organic carbon loss in the ocean through the conversion of a portion of consumed organic carbon to CO2. Through enhanced rates of consumption, surface bacterioplankton communities can also reduce the amount of dissolved organic carbon (DOC) available for export from the surface ocean. The present study investigated the direct effects of elevated pCO2 on bacterioplankton removal of several forms of DOC ranging from glucose to complex phytoplankton exudate and lysate, and naturally occurring DOC. Elevated pCO2 (1000 &ndash; 1500 ppm) enhanced both the rate and magnitude of organic carbon removal by bacterioplankton communities compared to low (pre-industrial and ambient) pCO2 (250 &ndash; ~400 ppm). The increased removal was largely due to enhanced respiration, rather than enhanced production of bacterioplankton biomass.",
+  "url": "https://www.bco-dmo.org/dataset/472032",
+  "url": "https://www.bco-dmo.org/dataset/foo",
+  "version": "2013-11-21",
+  "keywords": "ocean acidification, OA, Dissolved Organic Carbon, DOC, bacterioplankton respiration, pCO2, carbon dioxide, elevated pCO2, oceans",
+  "variableMeasured": [
+    {
+      "@id": "https://www.bco-dmo.org/dataset-parameter/665785",
+      "@type": "PropertyValue",
+      "additionalType": "https://library.ucar.edu/earthcollab/schema#Parameter",
+      "value": "experiment",
+      "description": "Experiment identifier"
+    },
+    {
+      "@id": "https://www.bco-dmo.org/dataset-parameter/665787",
+      "@type": "PropertyValue",
+      "additionalType": "https://library.ucar.edu/earthcollab/schema#Parameter",
+      "description": "Latitude where water samples were collected; north is positive.",
+      "unitText": "decimal degrees",
+      "url": "https://www.bco-dmo.org/dataset-parameter/665787",
+      "value": "latitude",
+      "valueReference": {
+        "@id": "https://www.bco-dmo.org/parameter/730",
+        "@type": "PropertyValue",
+        "additionalType": "http://www.geoscienceontology.org/Variable",
+        "description": "latitude, in decimal degrees, North is positive, negative denotes South; Reported in some datasets as degrees, minutes",
+        "unitText": "decimal degrees",
+        "url": "https://www.bco-dmo.org/parameter/730",
+        "value": "latitude"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "identifier": {
+    "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
+    "@type": "PropertyValue",
+    "additionalType": ["http://schema.geolink.org/1.0/base/main#Identifier", "http://purl.org/spar/datacite/Identifier"],
+    "propertyID": "http://purl.org/spar/datacite/doi",
+    "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
+    "value": "10.1575/1912/bco-dmo.665253"
+  }
+}

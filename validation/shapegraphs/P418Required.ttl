@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.earthcube.org/schema#> .
+@prefix family: <http://example.org/family#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.earthcube.org/schema>
+  rdf:type owl:Ontology ;
+    owl:imports <http://datashapes.org/dash> ;
+    .
+
+ex:IDShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:message "Expect to see an ID for this resource"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:URLShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/url> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+      ] ;
+    sh:message "This needs to be a schema:URL"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+    
+ex:DescriptionShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/description>; 
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+    ] ;
+    sh:message "Needs to be Text"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:NameShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/name> ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+    ] ;
+    sh:message "Needs to be Text"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+

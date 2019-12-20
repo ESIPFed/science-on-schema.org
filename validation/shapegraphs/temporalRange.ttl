@@ -1,0 +1,49 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.earthcube.org/schema#> .
+@prefix family: <http://example.org/family#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosci-time: <http://geoschemas.org/contexts/temporal.jsonld> .
+@prefix schema: <https://schema.org/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+
+ex:TempCoverage
+    a sh:NodeShape ;
+    sh:targetClass <https://schema.org/Dataset> ;
+    sh:property [
+        sh:path geosci-time:temporalCoverage;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Check our temporal Coverage exist with an ending with a timestamp" ;
+        sh:property [
+            sh:path time:hasEnd ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:property [
+                sh:datatype xsd:dateTime ;
+                sh:path time:inXSDDateTimeStamp ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+            ]
+        ]
+    ] ;
+
+    sh:property [
+        sh:path geosci-time:temporalCoverage;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        rdfs:comment "Check our temporal Coverage exist with a beginning with a time stamp" ;
+        sh:property [
+            sh:path time:hasBeginning ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:property [
+                sh:datatype xsd:dateTime ;
+                sh:path time:inXSDDateTimeStamp ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+            ]
+        ]
+    ] .

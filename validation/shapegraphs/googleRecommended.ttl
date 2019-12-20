@@ -1,0 +1,191 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://www.example.org/schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix schema: <http://schema.org/> .
+
+
+ex:AltNameShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/alternateName>;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:not [
+           sh:nodeKind sh:IRI ;
+     ] ;
+    ] ;
+    sh:message "Testing the alt name is a literal and NOT an IRI"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:CreatorShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/creator> ;
+ sh:or (
+		[
+			sh:class schema:Person ;
+		]
+		[
+			sh:class schema:Organization ;
+		]
+	) ;
+        sh:minCount 1 ;
+
+    ] ;
+    sh:targetClass <http://schema.org/DataSet> .
+
+ex:CitationShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/citation>;
+	    sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:CreativeWork ;
+		]
+	) ;
+    ] ;
+    sh:message "Needs to be a Text or CreativeWork"@en ;
+
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:IdentifierShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/identifier>;
+	    sh:maxCount 1 ;
+        sh:minCount 1 ;
+          sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:URL ;
+		]
+        [
+			sh:class schema:PropertyValue ;
+		]
+          );
+    ] ;
+    sh:message "Needs to be a URL, Text or PropertyValue"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:KeywordsShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/keywords> ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+    sh:message "Needs to be Text"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:LicenseShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/license> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+          sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:URL ;
+		]
+          );
+    ] ;
+    sh:message "URL or Text"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:SameAsShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/sameAs> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+    ] ;
+    sh:message "URL"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:SpatialCoverageShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/spatialCoverage> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+         sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:Place ;
+		]
+          );
+    ] ;
+    sh:message "Text or Place"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:TemporalCoverageShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/temporalCoverage> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+    ] ;
+    sh:message "Text"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:VariableMeasuredShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/variableMeasured> ;
+        sh:minCount 1 ;
+        sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:PropertyValue ;
+		]
+          );
+    ] ;
+    sh:message "Text or PropertyValue"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:VersionShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/version> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+         sh:or (
+		[
+			sh:nodeKind sh:Literal ;
+		]
+		[
+			sh:class schema:Number ;
+		]
+          );
+    ] ;
+    sh:message "Text or Number"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
+ex:URLShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path <http://schema.org/url> ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+      ] ;
+    sh:message "This needs to be a schema:URL"@en ;
+    sh:targetClass <http://schema.org/Dataset> .
+
