@@ -9,12 +9,12 @@ The goal of science-on-schema.org is to foster community agreement on guidelines
 # Development and Release process
 Because people will review our guidance documents online, it will be helpful to be explicit about versioning and releases of the guidance and other documents.  In particular, in GitHub, users will normally see the `master` branch, which therefore should reflect the current stable release of the documentation (rather thanb confusing people with in-progress proposed changes that are not yet released).
 
-Consequently, we will use a [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/)-inspired release model in which the `master` branch always reflects the current stable release, a `develop` branch is used for merging finished proposals being prepared for release, and `feature` branches are used for creating changes to implement specific proposals that are reflected in an Architectural Decision Record. 
+Consequently, we will use a [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/)-inspired release model in which the `master` branch always reflects the current stable release, a `develop` branch is used for merging finished proposals being prepared for release, and `feature` branches are used for creating changes to implement specific proposals that are reflected in an Architectural Decision Record (ADR).  For changes that do not require a formal decision via and ADR, such as spelling corrections, grammatical rewording, etc., maintainers can commit changes directly to the `develop` branch, and other contributors can do a pull request directly against the `develop` branch.  The use of feature branches is really focused on managing proposals that need discussion, review, and a decision through an ADR. Maintainers will make judgement calls on whether an ADR is needed, and might convert contributed pull requests to a feature branch if they determine that an ADR is needed.
 
 In particular: 
 
 - The `master` branch of the GitHub repository always reflects the most current release
-- A `develop` branch is used for development work to extend the guidelines for each of the ADRs
+- A `develop` branch is used for development work to extend the guidelines for each of the ADRs and for other more minor changes 
 - Each ADR is associated with a pull request against the `develop` branch, and the PR should reference the issue number for the ADR in the template
     - Any PRs should be merged into the `develop` branch when they have been approved as a good implementation of the ADR
 - The `develop` branch is merged into master and tagged to create a new release when it has been approved for release
