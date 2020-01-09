@@ -84,4 +84,4 @@ Finally, the SPDX project provides structured data files of the [SPDX license da
 - We gain a comprehensive, maintained, unambiguous vocabulary for licenses, increasing consistency across repositories
 - We gain compatibility with the software packaging world like Debian and Python
 - Licenses that have well-known URIs (e.g., Creative Commons) may be less recognizable by their SPDX URI
-- SPDX license URIs only resolve to HTML pages, not machine-readable representations 
+- SPDX license URIs only resolve to HTML pages with machine-readable RDFa embedded, but machine-readable representations in other formats do not seem to be available through content negotiation
