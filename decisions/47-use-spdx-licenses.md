@@ -40,7 +40,7 @@ While many licenses are ambiguous about the license URI for the license, the Cre
 }
 </pre>
 
-One issue is that SPDX URIs currently resolve to a HTML landing page describing a license, rather than a machine-readable version of the license through content negotiation. However, the web page that is returned does contain structured markup in RDFa format indicating the structured license properties.  For example, the HTML page for the Apache-2.0 license contains property attributes for structured data for `spdx:License`, `spdx:deprecated`, `spdx:name`, `spdx:licenseId`, `rdfs:seeAlso`, `spdx:isOsiApproved`, and `spdx:licenseText`, among others. For example, here is the web snippet for the Apache-2.0 license:
+One issue is that SPDX URIs currently resolve to a HTML landing page describing a license, rather than a machine-readable version of the license through content negotiation. However, the web page that is returned does contain structured markup in RDFa format indicating the structured license properties.  For example, the HTML page for the [Apache-2.0 license](http://spdx.org/licenses/Apache-2.0) contains property attributes for structured data for `spdx:License`, `spdx:deprecated`, `spdx:name`, `spdx:licenseId`, `rdfs:seeAlso`, `spdx:isOsiApproved`, and `spdx:licenseText`, among others. For example, here is the web snippet for the Apache-2.0 license:
 
 <pre>
 &lt;h1 property="dc:title"&gt;Apache License 2.0&lt;/h1&gt;
