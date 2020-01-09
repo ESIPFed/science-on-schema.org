@@ -26,7 +26,7 @@ Link a Dataset to its license to document legal constraints by adding a [schema:
 }
 </pre>
 
-While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses are an exception in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is acceptable.  Here's an example using the traditional CC URI for the license.
+While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses are an exception in that they provide consistent URIs for each license, and these are in widespread use.  While we recommend using the SPDX URI, it is acceptable to use the CC license URIs directly if preferred.  Here's an example using the traditional CC URI for the license.
 <pre>
 {
   "@context": {
@@ -77,7 +77,7 @@ Version 2.0, January 2004
 ...
 </pre>
 
-Finally, the SPDX project provides structured data files of the [SPDX license data](https://github.com/spdx/license-list-data) in machine readable formats, including turtle and json-ld.  These could be imported into COR or other vocabulary servers if we want a queryable graph of the license data.
+Finally, the SPDX project provides structured data files of the [SPDX license data](https://github.com/spdx/license-list-data) in machine readable formats, including turtle and json-ld.  These could be imported into COR or other vocabulary servers to provide a queryable graph of the license data.
 
 ## Consequences ##
 
