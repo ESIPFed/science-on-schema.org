@@ -1,5 +1,7 @@
 # Title - Short present tense imperative phrase, less than 50 characters, like a git commit message #
 
+Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/30
+
 ## Status ##
 _Pick one of:_ Proposed, Accepted, Rejected, Deprecated, Superseded
 

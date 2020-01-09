@@ -1,5 +1,7 @@
 # Use Release Process Based on GitFlow
 
+Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/30
+
 ## Status ##
 Proposed
 
