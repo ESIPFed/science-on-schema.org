@@ -18,6 +18,7 @@
 		- [Roles of People](#roles-of-people)
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
+		- [License](#license)
 	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
 		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
 
@@ -929,6 +930,38 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 
 Back to [top](#top)
 
+### License
+
+Link a Dataset to its license to document legal constraints by adding a [schema:license](https://schema.org/license) property. The [guide](https://developers.google.com/search/docs/data-types/dataset) recommends providing a URL that unambiguously identifies a specific version of the license used, but for many licenses it is hard to determine what that URL should be. Thus, we recommend that the license URL be drawn from the [SPDX license list](https://spdx.org/licenses/), which provides a curated list of licenses and their properties that is well maintained. For each SPDX entry, SPDX provides a canonical URL for the license (e.g., `http://spdx.org/licenses/CC0-1.0`), a unique `licenseId` (e.g., `CC0-1.0`), and other metadata about the license. Here's an example using the SPDX license URI for the Creative Commons CC-0 license:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+  },
+  "@id": "http://www.sample-data-repository.org/dataset/123",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"license": "http://spdx.org/licenses/CC0-1.0"</strong>
+  ...
+}
+</pre>
+
+While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses are an exception in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is acceptable.  Here's an example using the traditional CC URI for the license.
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+  },
+  "@id": "http://www.sample-data-repository.org/dataset/123",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"license": "https://creativecommons.org/publicdomain/zero/1.0"</strong>
+  ...
+}
+</pre>
+
+Back to [top](#top)
 
 ## Advanced Publishing Techniques
 
