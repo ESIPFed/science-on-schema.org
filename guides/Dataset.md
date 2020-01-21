@@ -48,7 +48,6 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [version](https://schema.org/version) - The version number or identifier for this dataset (text or numeric).
 * [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) speficying if the dataset is accessible for free.
 * [keywords](https://schema.org/keywords) - Keywords summarizing the dataset.
-* [license](https://schema.org/license) - A license under which the dataset is distributed (text or URL).
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
@@ -66,8 +65,9 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "isAccessibleForFree": true,
-  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/"</strong>
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]
+  "license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]
+  </strong>
 }
 </pre>
 Back to [top](#top)
@@ -92,7 +92,6 @@ In it's most basic form, the identifier as text can be published as:
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": "urn:sdro:dataset:472032"</strong>
 }
 </pre>
@@ -127,7 +126,6 @@ For identifiers that do have a well-defined scheme that scopes the identifier va
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
   <strong>"identifier": {
     "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
     "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
@@ -155,7 +153,6 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
   "identifier": {
     "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
     "@type": ["PropertyValue", "datacite:Identifier"],
@@ -947,7 +944,9 @@ Link a Dataset to its license to document legal constraints by adding a [schema:
 }
 </pre>
 
-While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses are an exception in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is acceptable.  Here's an example using the traditional CC URI for the license.
+SPDX URIs for each license can be found by finding the appropriate license in the [SPDX license list](https://spdx.org/licenses/), and then remove the final `.html` extension from the filename.  For example, in the table one can find the license page for Apache at the URI `https://spdx.org/licenses/Apache-2.0.html`, which can be converted into the associated linked data URI by removing the `.html`, leaving us with `https://spdx.org/licenses/Apache-2.0`. Alternatively, one can find the license file in the [structured data listings](https://github.com/spdx/license-list-data/tree/master/rdfturtle) and copy the URL from the associated file. For example, the URL for the Apache-2.0 license is listed in the file at https://github.com/spdx/license-list-data/blob/master/rdfturtle/Apache-2.0.turtle.
+
+While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses and a few others are exceptions in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is helpful in recognizing the license.  In this case, we recommend that the SPDX URI still be used as described above, and the other URI also be provided as well in a list. Here's an example using the traditional Creative Commons URI along with the SPDX URI.
 <pre>
 {
   "@context": {
@@ -956,10 +955,25 @@ While many licenses are ambiguous about the license URI for the license, the Cre
   "@id": "http://www.sample-data-repository.org/dataset/123",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"license": "https://creativecommons.org/publicdomain/zero/1.0"</strong>
+  <strong>"license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]</strong>
   ...
 }
 </pre>
+
+The following table contains the SPDX URIs for some of the most common licenses.  Others can be looked up at the SPDX site as described above.
+
+|License          |  SPDX URI                                  |
+|-----------------|--------------------------------------------|
+|Apache-2.0       | https://spdx.org/licenses/Apache-2.0       |
+|BSD-3-Clause     | https://spdx.org/licenses/BSD-3-Clause     |
+|CC-BY-3.0        | https://spdx.org/licenses/CC-BY-3.0        |
+|CC-BY-4.0        | https://spdx.org/licenses/CC-BY-4.0        |
+|CC-BY-SA-4.0     | https://spdx.org/licenses/CC-BY-SA-4.0     |
+|CC0-1.0          | https://spdx.org/licenses/CC0-1.0          |
+|GPL-3.0-only     | https://spdx.org/licenses/GPL-3.0-only     |
+|GPL-3.0-or-later | https://spdx.org/licenses/GPL-3.0-or-later |
+|MIT              | https://spdx.org/licenses/MIT              |
+|MIT-0            | https://spdx.org/licenses/MIT-0            |
 
 Back to [top](#top)
 
