@@ -255,89 +255,42 @@ Back to [top](#top)
 
 ### Metadata
 
-Alternative forms of the metadata describing the dataset may be available in other standards compliant formats that may be useful to consumers. The location of the alternative forms of the metadata can be provided with the [`schema:encoding`](https://schema.org/encoding) property which is an instance of [`MediaObject`](https://schema.org/MediaObject).
+While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
-An example of a MediaObject reference to an instance of ISO TC211 structured metadata:
+Link metadata documents to a `schema:Dataset` by using `schema:subjectOf`. 
+    - Or if a schema.org snippet describes the metadata, link to the Dataset it describes using `schema:about`.
+
+![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
+
+Once the linkage has been made, further details about the metadata can be provided. We recommend using `schema:encodingFormat` to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
+We use the `schema:DataDownload` class for Metadata files so that we can use the `schema:MediaObject` properties for describing bytesize, encoding, etc. 
+
+It can also be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
+
+An example of a metadata reference to an instance of EML-formatted structured metadata, embedded within a `schema:Dataset` record:
 
 <pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-  <strong>"encoding":{
-    "@type":"MediaObject",
-    "contentUrl":"https://example.org/link/to/metadata.xml",
-    "encodingFormat":"http://www.isotc211.org/2005/gmd",
-    "description":"ISO TC211 XML rendering of metadata.",
-    "dateModified":"2019-06-12T14:44:15Z"
-  }</strong>
-}
-</pre>
+  {
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+    "distribution": {
+      "@type": "DataDownload",
+      ...
+    },
+    <strong>"subjectOf": {
+      "@type": "DataDownload",
+      "name": "eml-metadata.xml",
+      "description": "EML metadata describing the dataset",
+      "encodingFormat": ["application/xml", "https://eml.ecoinformatics.org/eml-2.2.0"],
+      "dateModified":"2019-06-12T14:44:15Z"
+    }</strong>
+  }
+<pre>
 
-The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
+Alternatively, if the schema.org record is meant to describe the metadata record, one could use the inverse property `schema:about` to indicate the linkage back to the Dataset that it describes.  This would be a more rare situation, as typically the schema.org record would be focused on the Dataset itself.
 
-A SHACL shape graph for verifying the presence and structure of a MediaObject:
-
-```turtle
-# Shape to evaluate schema:MediaObject instances that provide the value of
-# schema:encoding for an instance of schema:Dataset
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <https://schema.org/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
-
-d1:rdfPrefix
-  sh:declare [
-    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-    sh:prefix "rdf" ;
-  ] .
-
-d1:schemaPrefix
-  sh:declare [
-    sh:namespace "https://schema.org/"^^xsd:anyURI ;
-    sh:prefix "schema" ;
-  ] .
-
-d1:MediaObjectShape
-    a sh:NodeShape ;
-    sh:target [
-        a sh:SPARQLTarget ;
-        sh:prefixes d1:rdfPrefix, d1:schemaPrefix ;
-        sh:select """
-            SELECT ?this
-            WHERE {
-                ?DF rdf:type schema:Dataset .
-                ?DF schema:encoding ?this .
-                ?this rdf:type schema:MediaObject .
-            }
-        """ ;
-    ] ;
-    sh:property [
-        sh:path schema:contentUrl ;
-        sh:minCount 1 ;
-        sh:message "schema:contentUrl is required for the encoding property of a Dataset"
-    ] ;
-    sh:property [
-        sh:path schema:encodingFormat ;
-        sh:minCount 1 ;
-        sh:message "schema:encodingFormat should provide the format of the encoding of the referenced resource" ;
-        sh:severity sh:Warning ;
-    ] ;
-    sh:property [
-        sh:path schema:dateModified ;
-        sh:minCount 1 ;
-        sh:message "schema:dateModified should indicate when the referenced resource was last modified" ;
-        sh:severity sh:Warning ;
-    ]
-.
-```
-*Note:* The aforementioned SHACL shape uses capabilities from the
-[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL). 
+Note that the The `encodingFormat` property contains an array of formats to describe multiple formats to which the document conforms (in this example, the document is both conformant with XML and the EML metadata dialect).
 
 Back to [top](#top)
 
