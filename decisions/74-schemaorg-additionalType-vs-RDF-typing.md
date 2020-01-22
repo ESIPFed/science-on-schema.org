@@ -1,5 +1,7 @@
 # schema.org/additionalType vs. re-using '@type' #
 
+Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/74 
+
 ## Status ##
 *Proposed*
 

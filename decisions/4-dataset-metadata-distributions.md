@@ -1,5 +1,6 @@
 # Specific Recommendations for Metadata Distribution Information
-https://github.com/ESIPFed/science-on-schema.org/issues/4
+
+Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/4
 
 ## Status ##
 _Proposed_
