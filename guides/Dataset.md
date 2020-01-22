@@ -257,15 +257,15 @@ Back to [top](#top)
 
 While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
-Link metadata documents to a `schema:Dataset` by using `schema:subjectOf`. 
-    - Or if a schema.org snippet describes the metadata, link to the Dataset it describes using `schema:about`.
+Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf). 
+    - Or if a schema.org snippet describes the metadata, link to the Dataset it describes using [schema:about](https://schema.org/about).
 
 ![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
 
-Once the linkage has been made, further details about the metadata can be provided. We recommend using `schema:encodingFormat` to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
-We use the `schema:DataDownload` class for Metadata files so that we can use the `schema:MediaObject` properties for describing bytesize, encoding, etc. 
+Once the linkage has been made, further details about the metadata can be provided. We recommend using [schema:encodingFormat](https://schema.org/encodingFormat) to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
+We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc. 
 
-It can also be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
+It can be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
 
 An example of a metadata reference to an instance of EML-formatted structured metadata, embedded within a `schema:Dataset` record:
 
@@ -286,7 +286,7 @@ An example of a metadata reference to an instance of EML-formatted structured me
       "dateModified":"2019-06-12T14:44:15Z"
     }</strong>
   }
-<pre>
+</pre>
 
 Alternatively, if the schema.org record is meant to describe the metadata record, one could use the inverse property `schema:about` to indicate the linkage back to the Dataset that it describes.  This would be a more rare situation, as typically the schema.org record would be focused on the Dataset itself.
 
