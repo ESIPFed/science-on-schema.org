@@ -3,7 +3,7 @@
 Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/47
 
 ## Status ##
-_Proposed_
+_Accepted_
 
 ## Decision ##
 
