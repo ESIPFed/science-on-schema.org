@@ -195,7 +195,8 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 }
 </pre>
 <a id="variables_external-vocab-example"></a>
-A fully-fleshed out example that uses a vocabulary to describe the variable can be published as:
+If a URI is available that identifies the variable, it should be included as the 
+[PropertyID](https://schema.org/propertyID):
 
 <pre>
 {
@@ -209,8 +210,9 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
   ...
   "variableMeasured": [
     {
-      <strong>"@type": ["PropertyValue", "gsn-quantity:latitude"],</strong>
+      "@type": "PropertyValue",
       "name": "latitude",
+      <strong>"propertyID":"gsn-quantity:latitude"</strong>,
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive.",
       "unitText": "decimal degrees",
@@ -371,9 +373,14 @@ For data available in multipe formats, there will be multiple values of the [sch
 
 #### Accessing Data through a Service Endpoint
 
-If access to the data requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction) in this way:
+The [schema:distribution](https://schema.org/distribution) property is used to indicate mechanisms to access a described dataset. In some cases the data can be access via a WebAPI with request that include parameters that enable, for example, subsetting, filtering, selection of different format options.  The value expected for a [schema:distribution](https://schema.org/distribution) is [schema:DataDownload](https://schema.org/DataDownload) populated with a simple URL (see [Distribution](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions)) for simple file-download distributions. 
+
+If access to the data is via WebAPI request that requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction), which the [schema:DataDownload](https://schema.org/DataDownload) object inherits from [schema:Thing](https://schema.org/Thing). The value expected for a [schema:potentialAction](https://schema.org/potentialAction) is [schema:SearchAction](https://schema.org/SearchAction). In the simplest case, the search action target is a [schema:EntryPoint](https://schema.org/EntryPoint) that specifies a urlTemplate (see IETF RFC-6570
+[IETF RFC-6570](https://tools.ietf.org/html/rfc6570)), and a set of urlTemplate-input [schema:PropertyValueSpecification](https://schema.org/PropertyValueSpecification) objects that describe the template parameters. (Note there is discussion about an alternative approach that uses query-input as a separate element, see issues [#2340](https://github.com/schemaorg/schemaorg/issues/2340) and [#2342](https://github.com/schemaorg/schemaorg/issues/2342) in the schema.org github repository). The [schema:valueName](https://schema.org/valueName) in each property value specification matches one of the urlTemplate parameters, which are enclosed in curly braces ('{}'). 
 
 ![Service Endpoint](/assets/diagrams/dataset/dataset_service-endpoint.svg "Dataset - Service Endpoint")
+
+The basic pattern looks like this:
 
 <pre>
 {
@@ -391,44 +398,194 @@ If access to the data requires some input parameters before a download can occur
         "contentType": ["application/x-netcdf", "text/tab-separated-values"],
         "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
         "description": "Download dataset 1234 based on the requested format, start/end dates and bounding box",
-        "httpMethod": ["GET", "POST"]
-    },
-    "query-input": [
-      {
-        "@type": "PropertyValueSpecification",
-        "valueName": "format",
-        "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
-        "valueRequired": true,
-        "defaultValue": "application/x-netcdf",
-        "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
-      },
-      {
-        "@type": "PropertyValueSpecification",
-        "valueName": "start",
-        "description": "A UTC ISO DateTime",
-        "valueRequired": false,
-        "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
-      },
-      {
-        "@type": "PropertyValueSpecification",
-        "valueName": "end",
-        "description": "A UTC ISO DateTime",
-        "valueRequired": false,
-        "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
-      },
-      {
-        "@type": "PropertyValueSpecification",
-        "valueName": "bbox",
-        "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
-        "valueRequired": false,
-        "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
-      }
+        "httpMethod": ["GET", "POST"], 
+        "urlTemplate-input": [
+            {
+                "@type": "PropertyValueSpecification",
+                "valueName": "format",
+                "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+                "valueRequired": true,
+                "defaultValue": "application/x-netcdf",
+                "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+            },
+            {
+                "@type": "PropertyValueSpecification",
+                "valueName": "start",
+                "description": "A UTC ISO DateTime",
+                "valueRequired": false,
+                "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+            },
+            {
+                 "@type": "PropertyValueSpecification",
+                 "valueName": "end",
+                 "description": "A UTC ISO DateTime",
+                 "valueRequired": false,
+                 "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+            },
+            {
+                "@type": "PropertyValueSpecification",
+                "valueName": "bbox",
+                "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+                "valueRequired": false,
+                "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
+            }
     ]
   }</strong>
 }
 </pre>
 
-Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the query parameters and HTTP methods so that machines can build user interfaces to collect those query parmaeters and actuate a request to provide the user what they are looking for.
+Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the template parameters and HTTP methods so that machines can build user interfaces to collect those query parameters and actuate a request to provide the user what they are looking for.
+
+Note that the schema:PotentialAction object also includes a [schema:result](https://schema.org/result) property that can be used to provide information about the encoding format of the WebAPI response, and a [schema:object](https://schema.org/object) property that can be used to provide a more detailed description of the data type for the WebAPI response. A more detailed description of an API would be like this (elipses ... indicate where some of the template property specifications are omitted for brevity) :
+
+<pre>
+	"potentialAction": [
+			"@type": "SearchAction",
+			"name": "Query",
+			"description": "query service to obtain records of seismic events",
+			"result":
+				{
+					"@type": "DataDownload",
+					"encodingFormat": [
+						"application/xml+QuakeML",
+						"text/csv","QuakeML",
+						"text/csv+geocsv",
+						"GeoCSV-SeismicEvent"
+					],
+				"description": "XML, csv, or csv fromat for seismic event following EarthCube geoWs conventions."
+				},
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://service.iris.edu/fdsnws/event/1/query?{geographic-constraints}&{depth-constraints}&{temporal-constraints}&{magnitude-constraints}&{organization-constraints}&{misc-parameters}&{format-option}&{nodata=404}",
+				"description": "URL with multiple query paramters--geographic location, event depth, time period of event, event magnitude, source network, miscellaneous parameters, formt for returned data, and what flat to use for no data.  TBD-- how to handle POST request version; need to specify the format for the POST content",
+				"httpMethod":"GET",
+				"uriTemplate-input": [
+					{
+						"@id": "urn:iris:fsdn.starttime",
+						"@type": "PropertyValueSpecification",
+						"valueName": "start",
+						"defaultValue": "Any",
+						"description": "allowed: Any valid time. Limit to events on or after the specified start time; use UTC for time zone",
+						"valueRequired": true,
+						"valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?",
+						"xsd:type": "dateTime"
+					},
+					{
+						"@id": "urn:iris:fsdn.endtime",
+						"@type": "PropertyValueSpecification",
+						"valueName": "end",
+						"defaultValue": "Any",
+						"description": "allowed: Any valid time. Limit to events on or before the specified start time",
+						"valueRequired": true,
+						"valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
+					},
+					{
+						"@id": "urn:iris:fsdn.minlatitude",
+						"@type": "PropertyValueSpecification",
+						"valueName": "minlat",
+						"defaultValue": "-90.0",
+						"description": "Limit to events with a latitude larger than or equal to the specified minimum. Value must be less that maxlat",
+						"valueRequired": true,
+						"minValue": -90.0,
+						"maxValue": 90.0,
+						"xsd:type": "float",
+						"unitOfMeasure": "degrees"
+					},
+....
+					{
+						"@id": "urn:iris:fsdn.maxlongitude",
+						"@type": "PropertyValueSpecification",
+						"valueName": "maxlon",
+						"defaultValue": "180.0",
+						"description": "Limit to events with a longitude smaller than or equal to the specified maximum.",
+						"valueRequired": true,
+						"minValue":-180.0,
+						"maxValue": 180.0,
+						"xsd:type": "float",
+						"unitOfMeasure": "degrees"
+					},
+					{
+						"@id": "urn:iris:fsdn.latitude",
+						"@type": "PropertyValueSpecification",
+						"valueName": "lat",
+						"defaultValue": "0.0",
+						"description": "Specify the latitude to be used for a radius search.",
+						"valueRequired": false,
+						"minValue":-90.0,
+						"maxValue": 90.0,
+						"xsd:type": "float",
+						"unitOfMeasure": "degrees"
+					},
+					{
+						"@id": "urn:iris:fsdn.longitude",
+						"@type": "PropertyValueSpecification",
+						"valueName": "lon",
+						"defaultValue": "0.0",
+						"description": "Specify the longitude to be used for a radius search.",
+						"valueRequired": false,
+						"minValue":-180.0,
+						"maxValue": 180.0,
+						"xsd:type": "float",
+						"unitOfMeasure": "degrees"
+					},
+...
+					{
+						"@id": "urn:iris:fsdn.maxradius",
+						"@type": "PropertyValueSpecification",
+						"valueName": "maxradius",
+						"defaultValue": "180.0",
+						"description": "Limit to events within the specified maximum number of degrees from the geographic point defined by the latitude and longitude parameters.",
+						"valueRequired": false,
+						"minValue": 0.0,
+						"maxValue": 180.0,
+						"xsd:type": "float",
+						"unitOfMeasure": "degrees"
+					},
+...
+					{
+						"@id": "urn:iris:fsdn.maxdepth",
+						"@type": "PropertyValueSpecification",
+						"valueName": "maxdepth",
+						"defaultValue": "Any",
+						"description": "Limit to events with depth less than the specified minimum",
+						"valueRequired": true,
+						"minvalue":"0.0",
+						"maxvalue":"500.0",
+						"xsd:type": "float",
+						"unitOfMeasure": "kilometers"
+					},
+...
+					{
+						"@id": "urn:iris:fsdn.maxmagnitude",
+						"@type": "PropertyValueSpecification",
+						"valueName": "maxmag",
+						"defaultValue": "Any",
+						"description": "Limit to events with a magnitude smaller than the specified maximum.",
+						"valueRequired": true,
+						"minvalue":"",
+						"maxvalue":"",
+						"valuePattern": "Any valid magnitude",
+						"xsd:type": "float",
+						"unitOfMeasure": "determined by magtype"
+					}
+...
+			]
+			},
+			"object": {
+				"@type": "DataFeed",
+				"description": "list of properties  that are included in seismic event description in response documents. note this example does not include all the variable descriptions for the output object.",
+				"variableMeasured": [
+					{
+						"@type": "PropertyValue",
+						"name": "name of the variable",
+						"description": "example of documentation for a varible provided in the result object",
+						"propertyID": "URI for the property in some ontology",
+						"measurementTechnique": "URI for the measurement protocol, or text description of procedure and sensor"
+					}
+				]
+			}
+		}
+</pre>
 
 Back to [top](#top)
 
