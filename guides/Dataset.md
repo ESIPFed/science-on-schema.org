@@ -212,7 +212,7 @@ If a URI is available that identifies the variable, it should be included as the
     {
       "@type": "PropertyValue",
       "name": "latitude",
-      <strong>"propertyID":"gsn-quantity:latitude"</strong>,
+      <strong>"propertyID":"http://www.geoscienceontology.org/geo-lower/quantity#latitude"</strong>,
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive.",
       "unitText": "decimal degrees",
