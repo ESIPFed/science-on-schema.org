@@ -193,7 +193,8 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 }
 </pre>
 <a id="variables_external-vocab-example"></a>
-A fully-fleshed out example that uses a vocabulary to describe the variable can be published as:
+If a URI is available that identifies the variable, it should be included as the 
+[PropertyID](https://schema.org/propertyID):
 
 <pre>
 {
@@ -207,8 +208,9 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
   ...
   "variableMeasured": [
     {
-      <strong>"@type": ["PropertyValue", "gsn-quantity:latitude"],</strong>
+      "@type": "PropertyValue",
       "name": "latitude",
+      <strong>"propertyID":"http://www.geoscienceontology.org/geo-lower/quantity#latitude"</strong>,
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive.",
       "unitText": "decimal degrees",
