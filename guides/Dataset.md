@@ -260,7 +260,9 @@ Back to [top](#top)
 While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
 Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf). 
-    - Or if a schema.org snippet describes the metadata, link to the Dataset it describes using [schema:about](https://schema.org/about).
+    - Or if a schema.org snippet describes the metadata as the main resource, then link to the Dataset it describes using [schema:about](https://schema.org/about).
+
+These two approaches are equivalent, and which is used depends on the subject of the schema.org record.
 
 ![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
 
