@@ -78,9 +78,9 @@ Adding the [schema:identifier](https://schema.org/identifier) field can be done 
 
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
-**We _highly recommend_ using [schema:PropertyValue](https://schema.org/PropertyValue):**
+**We _highly recommend_ using [schema:PropertyValue](https://schema.org/PropertyValue).**
 
-**Q: Why are simple text or URLs not good enough?**
+**Q: Why are simple text or URLs not good enough?**  
 **A:** Identifiers have multiple properties that are useful when trying to find them across the web.
 
 Most identifiers have these properties:
@@ -97,7 +97,7 @@ For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.50
 - **url**: `https://doi.org/10.5066/F7VX0DMQ`
 - **prefix**: `doi`
 
-**Q: Can't we just say the scheme is a 'DOI'?**
+**Q: Can't we just say the scheme is a 'DOI'?**  
 **A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
 
 While the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, a better way to explicitly this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
@@ -112,10 +112,10 @@ Looking at the available fields from [schema:PropertyValue](https://schema.org/P
 - `schema:propertyID` is the registry.identifiers.org URI for the identifier scheme `https://registry.identifiers.org/registry/doi`,
 - `schema:url` is the resolvable url for that identifier `https://doi.org/10.5066/F7VX0DMQ`.
 
-**Q: Where should the prefix go?**
+**Q: Where should the prefix go?**  
 **A:** There is no ideal property for the prefix. But, we may include it as part of the `schema:value`.
 
-**Q: Why include `doi:` as part of the value? Doesn't the URL `https://doi.org/10.5066/F7VX0DMQ` acheive the same result?**
+**Q: Why include `doi:` as part of the value? Doesn't the URL `https://doi.org/10.5066/F7VX0DMQ` acheive the same result?**  
 **A:** While the actual value of the DOI is `10.5066/F7VX0DMQ`, we felt that this representation helps schema.org publishers specify an identifier value that is familiar to the research community. For example, in most citation styles such as APA, the DOI 10.5066/F7VX0DMQ is cited as `doi:10.5066/F7VX0DMQ`. Also, there can be many proper URLs for a specific identifier:
 
 - http://doi.org/10.5066/F7VX0DMQ
@@ -126,8 +126,8 @@ Looking at the available fields from [schema:PropertyValue](https://schema.org/P
 
 For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
 	
-**Q: How do I know if an Identifier has a known prefix?**
-**A:** Each Identifier in the identifiers.org Registry that has a known prefix  will be specified on the identifers.org resitry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
+**Q: How do I know if an Identifier has a known prefix?**  
+**A:** Each Identifier in the identifiers.org Registry that has a known prefix  will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
 
 An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to describe an Identifier:
 
@@ -154,6 +154,7 @@ An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to 
 </pre>
 
 Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI". 
+
 <pre>
 {
   "@context": {
