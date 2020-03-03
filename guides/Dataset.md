@@ -74,11 +74,145 @@ Back to [top](#top)
 
 ### Identifier
 
-Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail.
+Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field. 
 
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
-In it's most basic form, the identifier as text can be published as:
+**We _highly recommend_ using [schema:PropertyValue](https://schema.org/PropertyValue):**
+
+**Q: Why are simple text or URLs not good enough?**
+**A:** Identifiers have multiple properties that are useful when trying to find them across the web.
+
+Most identifiers have these properties:
+
+- a **value**, 
+- a **domain** or **scheme** (in which the value is guaranteed to be unique),
+- (optionally) a **resolvable URL** (where the thing being identified can be found),
+- (optionally) a **domain prefix** (a token string of characters succeeded by a colon ':' that represents the domain or scheme).
+
+For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.5066/F7VX0DMQ. To break it down into its properties, we arrive at:
+
+- **value**: `10.5066/F7VX0DMQ`
+- **scheme**: `Digital Object Identifier (DOI)`
+- **url**: `https://doi.org/10.5066/F7VX0DMQ`
+- **prefix**: `doi`
+
+**Q: Can't we just say the scheme is a 'DOI'?**
+**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
+
+While the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, a better way to explicitly this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
+
+We can specify the **scheme** as being a DOI with this identifiers.org Registry URI: 
+
+[https://registry.identifiers.org/registry/doi](https://registry.identifiers.org/registry/doi)
+
+Looking at the available fields from [schema:PropertyValue](https://schema.org/PropertyValue), we can map our identifier fields as such:
+
+- `schema:value` as the identifier value `10.5066/F7VX0DMQ`
+- `schema:propertyID` is the registry.identifiers.org URI for the identifier scheme `https://registry.identifiers.org/registry/doi`,
+- `schema:url` is the resolvable url for that identifier `https://doi.org/10.5066/F7VX0DMQ`.
+
+**Q: Where should the prefix go?**
+**A:** There is no ideal property for the prefix. But, we may include it as part of the `schema:value`.
+
+**Q: Why include `doi:` as part of the value? Doesn't the URL `https://doi.org/10.5066/F7VX0DMQ` acheive the same result?**
+**A:** While the actual value of the DOI is `10.5066/F7VX0DMQ`, we felt that this representation helps schema.org publishers specify an identifier value that is familiar to the research community. For example, in most citation styles such as APA, the DOI 10.5066/F7VX0DMQ is cited as `doi:10.5066/F7VX0DMQ`. Also, there can be many proper URLs for a specific identifier:
+
+- http://doi.org/10.5066/F7VX0DMQ
+- https://doi.org/10.5066/F7VX0DMQ
+- http://dx.doi.org/10.5066/F7VX0DMQ
+- https://dx.doi.org/10.5066/F7VX0DMQ
+- https://www.sciencebase.gov/catalog/item/56b3e649e4b0cc79997fb5ec
+
+For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
+	
+**Q: How do I know if an Identifier has a known prefix?**
+**A:** Each Identifier in the identifiers.org Registry that has a known prefix  will be specified on the identifers.org resitry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
+
+An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to describe an Identifier:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+  "version": "2013-11-21",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
+  <strong>"identifier":
+      {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ "
+      }</strong>
+}
+</pre>
+
+Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI". 
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+  <strong>"identifier":
+      {
+        "@type": "PropertyValue",
+	"name": "DOI: 10.5066/F7VX0DMQ",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ "
+      }</strong>
+}
+</pre>
+
+For more examples of using `schema:PropertyValue` for identifiers other than DOIs:
+
+- ARK: https://registry.identifiers.org/registry/ark
+- PubMed: https://registry.identifiers.org/registry/pubmed
+- PaleoDB: https://registry.identifiers.org/registry/paleodb
+- Protein Data Bank: https://registry.identifiers.org/registry/pdb
+
+<pre>
+"identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "name": "ARK: 13030/c7833mx7t",
+        "value": "ark:13030/c7833mx7t",
+        "url": "https://n2t.net/ark:13030/c7833mx7t"
+      },{
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/pubmed",
+        "name": "Pubmed ID #16333295",
+        "value": "pubmed:16333295",
+        "url": "http://www.ncbi.nlm.nih.gov/pubmed/16333295"
+      },
+     {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/paleodb",
+        "name": "Paleo Database ID #83088",
+        "value": "paleodb:83088",
+        "url": "https://identifiers.org/paleodb:83088"
+      },
+     {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/pdb",
+        "name": "Protein Data Bank 2gc4",
+        "value": "pdb:2gc4",
+        "url": "https://identifiers.org/pdb:2gc4"
+      }
+]
+</pre>
+
+While we strongly recommend using a [schema:PropertyValue](https://schema.org/PropertyValue), in it's most basic form, the `schema:identifier` as text can be published as:
 
 <pre>
 {
@@ -97,6 +231,7 @@ In it's most basic form, the identifier as text can be published as:
 </pre>
 
 Or as a URL:
+
 <pre>
 {
   "@context": {
