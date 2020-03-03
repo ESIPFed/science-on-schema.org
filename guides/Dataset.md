@@ -147,8 +147,8 @@ An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to 
       {
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/doi",
-        "value": "doi:10.5066/F7VX0DMQ ",
-        "url": "https://doi.org/10.5066/F7VX0DMQ "
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
       }</strong>
 }
 </pre>
@@ -169,7 +169,7 @@ Optionally, the `schema:name` field can be used to give this specific identifier
 	"name": "DOI: 10.5066/F7VX0DMQ",
         "propertyID": "https://registry.identifiers.org/registry/doi",
         "value": "doi:10.5066/F7VX0DMQ",
-        "url": "https://doi.org/10.5066/F7VX0DMQ "
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
       }</strong>
 }
 </pre>
