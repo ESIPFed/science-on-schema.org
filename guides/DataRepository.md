@@ -230,13 +230,15 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
   },
   <strong>"identifier": {
     "@type": "PropertyValue",
-    "name": "Re3data DOI for this repository",
-    "propertyID": "http://purl.org/spar/datacite/doi",
-    "value": "10.17616/R37P4C",
+    "name": "Re3data DOI: 10.17616/R37P4C",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.17616/R37P4C",
     "url": "https://doi.org/10.17616/R37P4C"
   }</strong>
 }
 </pre>
+
+For more information on describing identifiers, see the [Dataset - Identifier guide](/guides/Dataset.md#identifiers).
 
 We add the `datacite` vocabulary to the `@context` because the Datacite Ontology available at [http://purl.org/spar/datacite/](http://purl.org/spar/datacite/) has URIs to describe a DOI, ORCiD, ARK, URI, URN - all identifier scheme that help for disamiguating identifiers. To properly disambiguate a globally unique identifier, 2 pieces of information are needed - 1) the identifier value and 2) the scheme that on which that identifier exists. Some examples of this concept for common identifiers  are:
 
