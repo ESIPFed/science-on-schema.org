@@ -1,4 +1,4 @@
-# schema.org/identifier as schema.org/PropertyValue over Text/URL #
+# Represent persistent identifiers (schema:identifier) using schema:PropertyValue instead of Text or URL #
 
 Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/13
 
