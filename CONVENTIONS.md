@@ -115,7 +115,7 @@ While schema.org provides a property called [schema:additionalType](https://sche
 {
  "@context": "http://schema.org",
  "@type": "PropertyValue",
- "additionalType": "http://vocabulary.example.org/ScienntificInstrument",
+ "additionalType": "http://vocabulary.example.org/ScientificInstrument",
  "name": "My Property"
 }
 ```
@@ -125,7 +125,7 @@ would become:
 ```
 {
  "@context": "http://schema.org",
- "@type": ["PropertyValue", "http://vocabulary.example.org/ScienntificInstrument"],
+ "@type": ["PropertyValue", "http://vocabulary.example.org/ScientificInstrument"],
  "name": "My Property"
 }
 ```
@@ -138,18 +138,18 @@ or:
    "@vocab": "http://schema.org",
    "ex": "http://vocabulary.example.org/"
  },
- "@type": ["PropertyValue", "ex:ScienntificInstrument"],
+ "@type": ["PropertyValue", "ex:ScientificInstrument"],
  "name": "My Property"
 }
 ```
 
 **WHY?**
 
-When data is harvested using `schema:additionalType` the URLs in thes field are ont automatically converted into types as anything else in nthe `@type` field would be. Searching the results of that harvester for all data typed as `http://vocabulary.example.org/ScienntificInstrument` would not automatically work. We recommend followinng the JSON-LD best practice os using the `@type` field as shown above.
+When data is harvested using `schema:additionalType` the URLs in thes field are ont automatically converted into types as anything else in nthe `@type` field would be. Searching the results of that harvester for all data typed as `http://vocabulary.example.org/ScientificInstrument` would not automatically work. We recommend following the JSON-LD best practice os using the `@type` field as shown above.
 
 **Google Structured Data Testing Tool**
 
-One impact of this change is that the Google Structured Data Testing Tool presently considers all external vocabulary references as an error. This tool is ONLY checking for conformance to Google's interpretation of schema.org (see the [Google Dataset recommendations](https://developers.google.com/search/docs/data-types/dataset)). This might innfluence a publisher to thinkn their schema.org markup is wrong whenninn fact it is not. The errors simply mean that your schema.org markup doesn't conform to Google's preference. Conversely, Google still accepts, harvests, and makes available JSON-LD compliant schema.org markup that do not conform to their preference. Results have shown this to be evident at the [Google Dataset Search](https://datasetsearch.research.google.com/).
+One impact of this change is that the Google Structured Data Testing Tool presently considers all external vocabulary references as an error. This tool is ONLY checking for conformance to Google's interpretation of schema.org (see the [Google Dataset recommendations](https://developers.google.com/search/docs/data-types/dataset)). This might influence a publisher to thinkn their schema.org markup is wrong when in fact it is not. The errors simply mean that your schema.org markup doesn't conform to Google's preference. Conversely, Google still accepts, harvests, and makes available JSON-LD compliant schema.org markup that do not conform to their preference. Results have shown this to be evident at the [Google Dataset Search](https://datasetsearch.research.google.com/).
 
 ### rdfs:subPropertyOf rdf:type with range of schema:URL ###
 
