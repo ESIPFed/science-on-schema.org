@@ -1078,8 +1078,9 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
     {
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
+        "@id": "https://doi.org/10273/WHO000A67",
         "@type": "PropertyValue",
-        "propertyID": "IGSN",
+        "https://registry.identifiers.org/registry/doi",
         "url": "https://doi.org/10273/WHO000A67",
         "value": "IGSN:WHO000A67"
       }
