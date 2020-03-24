@@ -1,0 +1,25 @@
+{
+  "@context": "http://schema.org/",
+  "@id": "http://lod.example-data-repository.org/id/dataset/3300",
+  "@type": "Dataset",
+  "name": "Dataset Name",
+  "alternateName": "the alt name",
+  "creator": [
+    {"@type": "Person", "name": "Adam"},
+    {"@type": "Person", "name": "Doug"}
+  ],
+  "citation": "cite cite cite",
+  "description": "Ultra-mega cool data set",
+  "identifier": "urn:example:1",
+  "keywords": "data",
+  "license": { "@value": "CC BY 0" },
+  "sameAs": "http://example.org/dataset/123",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "somewhere"  
+  },
+  "temporalCoverage": "2009-06-01/2010-01-02",
+  "variableMeasured": ["temp", "lat", "lon", "datetime"],
+  "version": "1",
+  "url": "http://domain.org/dataset/123"
+}

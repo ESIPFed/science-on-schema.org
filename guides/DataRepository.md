@@ -20,7 +20,7 @@ In schema.org, we model a repository as both an [schema:ResearchProject](https:/
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   <strong>"@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -45,7 +45,7 @@ The other fields you can use to describe the Organziation and the Service are:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -70,7 +70,7 @@ If you are using the "@id" attribute for your Repository, and the provider of th
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   <strong>"@id": "https://www.sample-data-repository.org",</strong>
@@ -93,7 +93,7 @@ However, if your repository has a situation where multiple organizations act as 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -126,7 +126,7 @@ Adding additional fields of [schema:ResearchProject](https://schema.org/Research
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -168,7 +168,7 @@ If this ResearchProject, or Organization, has a parent entity such as a college,
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -213,7 +213,7 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
   "@type": ["Service", "ResearchProject"],
@@ -265,7 +265,7 @@ To describe the funding source of a repository, you use the [schema:funder](http
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/",</strong>
   },
   "@type": ["Service", "ResearchProject"],
@@ -350,7 +350,7 @@ For repositories might offer services for accessing data as opposed to directly 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": ["Service", "ResearchProject"],
@@ -395,7 +395,7 @@ If your repository has a concept of a data collection, some grouping of a number
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": ["Service", "ResearchProject"],
@@ -446,7 +446,7 @@ The SWEET ontology defines a number of science disciplines and a repository coul
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"sweet-rel": "http://sweetontology.net/rela/",
     "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
   },

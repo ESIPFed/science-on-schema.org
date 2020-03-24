@@ -32,7 +32,7 @@ Google has drafted a [guide to help publishers](https://developers.google.com/se
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   <strong>"name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -56,7 +56,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -82,7 +82,7 @@ In it's most basic form, the identifier as text can be published as:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -100,7 +100,7 @@ Or as a URL:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -116,7 +116,7 @@ For identifiers that do have a well-defined scheme that scopes the identifier va
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
@@ -144,7 +144,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
   },
   "@type": "Dataset",
@@ -179,7 +179,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -195,12 +195,13 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 }
 </pre>
 <a id="variables_external-vocab-example"></a>
-A fully-fleshed out example that uses a vocabulary to describe the variable can be published as:
+If a URI is available that identifies the variable, it should be included as the 
+[PropertyID](https://schema.org/propertyID):
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/",
     <strong>"gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"</strong>
   },
@@ -209,8 +210,9 @@ A fully-fleshed out example that uses a vocabulary to describe the variable can 
   ...
   "variableMeasured": [
     {
-      <strong>"@type": ["PropertyValue", "gsn-quantity:latitude"],</strong>
+      "@type": "PropertyValue",
       "name": "latitude",
+      <strong>"propertyID":"http://www.geoscienceontology.org/geo-lower/quantity#latitude"</strong>,
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive.",
       "unitText": "decimal degrees",
@@ -239,14 +241,15 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"includedInDataCatalog": {
-    "@id": "https://www.sample-data-repository.org/collection/biological-data"
+    "@id": "https://www.sample-data-repository.org/collection/biological-data",
+    "@type": "DataCatalog"
   }</strong>
 }
 </pre>
@@ -263,7 +266,7 @@ An example of a MediaObject reference to an instance of ISO TC211 structured met
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -287,7 +290,7 @@ A SHACL shape graph for verifying the presence and structure of a MediaObject:
 # Shape to evaluate schema:MediaObject instances that provide the value of
 # schema:encoding for an instance of schema:Dataset
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <http://schema.org/> .
+@prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
@@ -300,7 +303,7 @@ d1:rdfPrefix
 
 d1:schemaPrefix
   sh:declare [
-    sh:namespace "http://schema.org/"^^xsd:anyURI ;
+    sh:namespace "https://schema.org/"^^xsd:anyURI ;
     sh:prefix "schema" ;
   ] .
 
@@ -353,7 +356,7 @@ For data available in multipe formats, there will be multiple values of the [sch
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -377,7 +380,7 @@ If access to the data requires some input parameters before a download can occur
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -441,7 +444,7 @@ To represent a single date and time:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -475,14 +478,14 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 }
 </pre>
 
-Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](http://schema.org/DateTime) data type and [URL](http://schema.org/URL). For more granular temporal coverages go here: [http://schema.org/DateTime](http://schema.org/DateTime).
+Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
 One example of a URL temporal coverage might be for named periods in time:
 
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -522,7 +525,7 @@ A point, or coordinate, would defined in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -595,7 +598,7 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](http://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](http://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
@@ -607,7 +610,7 @@ A spatial reference system can be added in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/",
     <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
   },
@@ -639,7 +642,7 @@ People can be linked to datasets using three fields: author, creator, and contri
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -684,7 +687,7 @@ NOTE that the Role inherits the property `creator` and `contributor` from the Da
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     ...
   },
   <strong>"@type": "Dataset"</strong>,
@@ -712,7 +715,7 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -785,7 +788,7 @@ then you can reuse that `@id` here. Harvesters such as Google and Project418 wil
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -805,7 +808,7 @@ Otherwise, you can define the organization inline in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@type": "Dataset",
@@ -835,7 +838,7 @@ Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGra
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
@@ -849,7 +852,7 @@ Next, we must make our JSON-LD allow multiple top-level items by using the `@gra
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   <strong>"@graph":[{</strong>
@@ -867,7 +870,7 @@ You can now see that the Dataset object `{}` is now the first element in the `@g
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@graph":[{
@@ -897,7 +900,7 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "datacite": "http://purl.org/spar/datacite/"
   },
   "@graph":[{
@@ -939,7 +942,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 <pre>
 {
   "@context": {
-    "@vocab": "http://schema.org/",
+    "@vocab": "https://schema.org/",
     "gdx": "https://geodex.org/voc/",
     <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
     "igsn": "http://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>

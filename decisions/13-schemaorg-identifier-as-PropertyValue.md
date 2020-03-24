@@ -1,5 +1,7 @@
 # schema.org/identifier as schema.org/PropertyValue over Text/URL #
 
+Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/13
+
 ## Status ##
 _Proposed_
 
@@ -58,4 +60,4 @@ is the same as
 }
 </pre>
 
-Given a DOI, "10.1234/56789", a SPARQL query that resolves all three as the same  is difficult w/o pre-processing on harvest.
+Given a DOI, "10.1234/56789", a SPARQL query that resolves all three as the same is difficult w/o pre-processing on harvest.

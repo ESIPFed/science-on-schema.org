@@ -1,0 +1,23 @@
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <http://geoschemas.org/contexts/temporal.jsonldtemporalCoverage> _:b0 .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/description> "Single time dimension: for each forecast time, use GRIB record with smallest offset from reference time NCEP Wave Watch III (WW3): US National Weather Service gridded forecasts of sensible weather elements. 301 by 331 points, resolution 10 minute. Models are run daily at 0Z, 6Z, 12Z and 18Z. Forecasts every 3 hours from 0 to 72, every 6 hours from 72 to 180 hours." .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/distribution> _:b3 .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/name> "Best Wave Watch III Regional US East Coast Time Series" .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/spatialCoverage> _:b4 .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/temporalCoverage> "2019-04-26T00:00:00Z/2019-06-02T18:00:00Z" .
+<https://json-ld.org/playground/grib/NCEP/WW3/Regional_US_East_Coast/Best> <https://schema.org/url> "https://thredds-test.unidata.ucar.edu/thredds/catalog/grib/NCEP/WW3/Regional_US_East_Coast/catalog.html" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalEntity> .
+_:b0 <http://www.w3.org/2006/time#hasBeginning> _:b1 .
+_:b0 <http://www.w3.org/2006/time#hasEnd> _:b2 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#Instant> .
+_:b1 <http://www.w3.org/2006/time#inXSDDateTimeStamp> "2019-04-26T00:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#Instant> .
+_:b2 <http://www.w3.org/2006/time#inXSDDateTimeStamp> "2019-06-02T18:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataDownload> .
+_:b3 <https://schema.org/contentUrl> "https://thredds-test.unidata.ucar.edu/thredds/catalog/grib/NCEP/WW3/Regional_US_East_Coast/catalog.xml?dataset=grib/NCEP/WW3/Regional_US_East_Coast/Best" .
+_:b3 <https://schema.org/encodingFormat> "text/xml" .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b4 <https://schema.org/geo> _:b5 .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/GeoShape> .
+_:b5 <https://schema.org/box> "-1.0982155799865723E-4 -100.0 55.0 -49.99990016222" .
+

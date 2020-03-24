@@ -1,0 +1,237 @@
+<http://creativecommons.org/licenses/by/4.0/> <http://schema.org/additionalType> "https://geodex.org/voc/Protocol-License" .
+<http://creativecommons.org/licenses/by/4.0/> <http://schema.org/name> "Dataset Usage License" .
+<http://creativecommons.org/licenses/by/4.0/> <http://schema.org/url> "http://creativecommons.org/licenses/by/4.0/" .
+<http://creativecommons.org/licenses/by/4.0/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/DigitalDocument> .
+<https://www.bco-dmo.org/award/55220> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Award" .
+<https://www.bco-dmo.org/award/55220> <http://schema.org/name> "OCE-1260164" .
+<https://www.bco-dmo.org/award/55220> <http://schema.org/offeredBy> <https://www.bco-dmo.org/person/50534> .
+<https://www.bco-dmo.org/award/55220> <http://schema.org/sameAs> "http://www.nsf.gov/awardsearch/showAward?AWD_ID=1260164&HistoricalAwards=false" .
+<https://www.bco-dmo.org/award/55220> <http://schema.org/url> "https://www.bco-dmo.org/award/55220" .
+<https://www.bco-dmo.org/award/55220> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Offer> .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://schema.org/description> "Cruise identifier\n" .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://schema.org/name> "Cruise_ID" .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723429" .
+<https://www.bco-dmo.org/dataset-parameter/723429> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://schema.org/description> "Hawaiian Ocean Time-Series cruise identifier\n" .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://schema.org/name> "HOT_cruise" .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723430" .
+<https://www.bco-dmo.org/dataset-parameter/723430> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://schema.org/description> "Latitude\n" .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://schema.org/name> "Latitude" .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723431" .
+<https://www.bco-dmo.org/dataset-parameter/723431> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://schema.org/description> "Longitude\n" .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://schema.org/name> "Longitude" .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723432" .
+<https://www.bco-dmo.org/dataset-parameter/723432> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://schema.org/description> "Station number\n" .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://schema.org/name> "Station" .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723433" .
+<https://www.bco-dmo.org/dataset-parameter/723433> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://schema.org/description> "Cast number\n" .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://schema.org/name> "Cast" .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723434" .
+<https://www.bco-dmo.org/dataset-parameter/723434> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://schema.org/description> "Bottle number\n" .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://schema.org/name> "Bottle" .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723435" .
+<https://www.bco-dmo.org/dataset-parameter/723435> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://schema.org/description> "Sample pressure\n" .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://schema.org/name> "Press" .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://schema.org/unitText> "decibars" .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723436" .
+<https://www.bco-dmo.org/dataset-parameter/723436> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://schema.org/description> "Local date (HST) in format yyyy-mm-dd\n" .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://schema.org/name> "Date_HST" .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723437" .
+<https://www.bco-dmo.org/dataset-parameter/723437> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://schema.org/description> "Local time (HST) in format HH:MM\n" .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://schema.org/name> "Time_HST" .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723438" .
+<https://www.bco-dmo.org/dataset-parameter/723438> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://schema.org/description> "ISO timestamp based on the ISO 8601:2004(E) standard in format YYYY-mm-ddTHH:MMZ (UTC)\n" .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://schema.org/name> "ISO_DateTime_UTC" .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://schema.org/unitText> "unitless" .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723439" .
+<https://www.bco-dmo.org/dataset-parameter/723439> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://schema.org/description> "Temperature from CTD\n" .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://schema.org/name> "Temp" .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://schema.org/unitText> "degrees Celsius" .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723440" .
+<https://www.bco-dmo.org/dataset-parameter/723440> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://schema.org/description> "Salinity\n" .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://schema.org/name> "Salinity" .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://schema.org/unitText> "Practical Salinity Units (PSU)" .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723441" .
+<https://www.bco-dmo.org/dataset-parameter/723441> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://schema.org/description> "Density\n" .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://schema.org/name> "Density" .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://schema.org/unitText> "kilograms per meter cubed (kg/m3)" .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723442" .
+<https://www.bco-dmo.org/dataset-parameter/723442> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://schema.org/description> "Dissolved oxygen\n" .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://schema.org/name> "O2" .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://schema.org/unitText> "micromoles per kilogram (umol/kg)" .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723443" .
+<https://www.bco-dmo.org/dataset-parameter/723443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://schema.org/description> "Nitrous oxide (N2O) (atmospheric) MLO flask\n" .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://schema.org/name> "Atmos_N2O" .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://schema.org/unitText> "mole fraction (ppb)" .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723444" .
+<https://www.bco-dmo.org/dataset-parameter/723444> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://schema.org/description> "Nitrous oxide (N2O) (equilibrium)\n" .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://schema.org/name> "N2O_equilib" .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://schema.org/unitText> "nanomoles per kilogram (nmol/kg)" .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723445" .
+<https://www.bco-dmo.org/dataset-parameter/723445> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Parameter" .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://schema.org/description> "Nitrous oxide (N2O) (measured)\n" .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://schema.org/name> "N2O_measured" .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://schema.org/unitText> "nanomoles per kilogram (nmol/kg)" .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://schema.org/url> "https://www.bco-dmo.org/dataset-parameter/723446" .
+<https://www.bco-dmo.org/dataset-parameter/723446> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+<https://www.bco-dmo.org/dataset/713977/data/download> <http://schema.org/contentUrl> "https://www.bco-dmo.org/dataset/713977/data/download" .
+<https://www.bco-dmo.org/dataset/713977/data/download> <http://schema.org/datePublished> "2017-08-28" .
+<https://www.bco-dmo.org/dataset/713977/data/download> <http://schema.org/fileFormat> "text/tab-separated-values" .
+<https://www.bco-dmo.org/dataset/713977/data/download> <http://schema.org/inLanguage> "en-US" .
+<https://www.bco-dmo.org/dataset/713977/data/download> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/DataDownload> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Dataset" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/additionalType> "http://vivoweb.org/ontology/core#Dataset" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/alternateName> "Nitrous oxide concentrations at Station ALOHA" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/citation> "Karl, David (2017) Nitrous oxide concentrations (depths of 5-175 m) at Station ALOHA collected during Hawaii Ocean Time-Series cruises between 2008 and 2016 (HOT project). Biological and Chemical Oceanography Data Management Office (BCO-DMO). Dataset version 2017-08-28 [if applicable, indicate subset used]. http://lod.bco-dmo.org/id/dataset/713977 [access date]" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/creator> _:b0 .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/creator> _:b2 .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/datePublished> "2017-08-28" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/description> "&lt;p&gt;Nitrous oxide concentrations (depths of 5-175 m) at Station ALOHA (2008-2016).&amp;nbsp; This dataset includes pressure, temperature, salinity, density, dissolved oxygen, N2O (atmospheric), N2O (equilibrium), and N2O (measured).&lt;/p&gt;\r\n\r\n&lt;p&gt;Related dataset:&amp;nbsp;&amp;nbsp;&lt;a href=&quot;https://www.bco-dmo.org/dataset/713965&quot; target=&quot;_blank&quot;&gt;Methane concentrations at Station ALOHA&lt;/a&gt;&lt;/p&gt;" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/distribution> <https://www.bco-dmo.org/dataset/713977/data/download> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/distribution> _:b3 .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/funder> _:b4 .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/identifier> "http://lod.bco-dmo.org/id/dataset/713977" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/includedInDataCatalog> <http://www.bco-dmo.org/datasets> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/isPartOf> <https://www.bco-dmo.org/project/2101> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/keywords> "oceans" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/license> "http://creativecommons.org/licenses/by/4.0/" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/measurementTechnique> "CTD Sea-Bird SBE 911plus" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/measurementTechnique> "Gas Chromatograph" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/name> "Nitrous oxide concentrations (depths of 5-175 m) at Station ALOHA collected during Hawaii Ocean Time-Series cruises between 2008 and 2016 (HOT project)" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/provider> <https://www.bco-dmo.org> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/publisher> <https://www.bco-dmo.org> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/publishingPrinciples> <http://creativecommons.org/licenses/by/4.0/> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/spatialCoverage> _:b5 .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/temporalCoverage> "2008-12-01/2016-11-27" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/url> "https://www.bco-dmo.org/dataset/713977" .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723429> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723430> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723431> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723432> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723433> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723434> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723435> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723436> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723437> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723438> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723439> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723440> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723441> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723442> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723443> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723444> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723445> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/variableMeasured> <https://www.bco-dmo.org/dataset-parameter/723446> .
+<https://www.bco-dmo.org/dataset/713977> <http://schema.org/version> "2017-08-28" .
+<https://www.bco-dmo.org/dataset/713977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Dataset> .
+<https://www.bco-dmo.org/dataset/713977> <https://geodex.org/voc/fundedBy> <https://www.bco-dmo.org/award/55220> .
+<https://www.bco-dmo.org/person/50534> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/voc/local#roletype_program_manager" .
+<https://www.bco-dmo.org/person/50534> <http://schema.org/name> "Dr David  L. Garrison" .
+<https://www.bco-dmo.org/person/50534> <http://schema.org/url> "https://www.bco-dmo.org/person/50534" .
+<https://www.bco-dmo.org/person/50534> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<https://www.bco-dmo.org/person/50750> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Person" .
+<https://www.bco-dmo.org/person/50750> <http://schema.org/identifier> _:b1 .
+<https://www.bco-dmo.org/person/50750> <http://schema.org/name> "Dr David  M. Karl" .
+<https://www.bco-dmo.org/person/50750> <http://schema.org/url> "https://www.bco-dmo.org/person/50750" .
+<https://www.bco-dmo.org/person/50750> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<https://www.bco-dmo.org/person/51733> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Person" .
+<https://www.bco-dmo.org/person/51733> <http://schema.org/name> "Dr Samuel Wilson" .
+<https://www.bco-dmo.org/person/51733> <http://schema.org/url> "https://www.bco-dmo.org/person/51733" .
+<https://www.bco-dmo.org/person/51733> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<https://www.bco-dmo.org/project/2101> <http://schema.org/additionalType> "https://library.ucar.edu/earthcollab/schema#Project" .
+<https://www.bco-dmo.org/project/2101> <http://schema.org/alternateName> "HOT" .
+<https://www.bco-dmo.org/project/2101> <http://schema.org/name> "Hawaii Ocean Time-series (HOT): Sustaining ocean ecosystem and climate observations in the North Pacific Subtropical Gyre" .
+<https://www.bco-dmo.org/project/2101> <http://schema.org/url> "https://www.bco-dmo.org/project/2101" .
+<https://www.bco-dmo.org/project/2101> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/CreativeWork> .
+<https://www.bco-dmo.org> <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Organization" .
+<https://www.bco-dmo.org> <http://schema.org/identifier> "http://lod.bco-dmo.org/id/affiliation/191" .
+<https://www.bco-dmo.org> <http://schema.org/legalName> "Biological and Chemical Data Management Office" .
+<https://www.bco-dmo.org> <http://schema.org/name> "BCO-DMO" .
+<https://www.bco-dmo.org> <http://schema.org/sameAs> "http://www.re3data.org/repository/r3d100000012" .
+<https://www.bco-dmo.org> <http://schema.org/url> "https://www.bco-dmo.org" .
+<https://www.bco-dmo.org> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Organization> .
+_:b0 <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Participant" .
+_:b0 <http://schema.org/creator> <https://www.bco-dmo.org/person/50750> .
+_:b0 <http://schema.org/roleName> "Principal Investigator" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Role> .
+_:b1 <http://schema.org/additionalType> "http://purl.org/spar/datacite/Identifier" .
+_:b1 <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Identifier" .
+_:b1 <http://schema.org/propertyID> "http://purl.org/spar/datacite/orcid" .
+_:b1 <http://schema.org/url> "https://orcid.org/0000-0002-6660-6721" .
+_:b1 <http://schema.org/value> "0000-0002-6660-6721" .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b2 <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Participant" .
+_:b2 <http://schema.org/creator> <https://www.bco-dmo.org/person/51733> .
+_:b2 <http://schema.org/roleName> "Contact" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Role> .
+_:b3 <http://schema.org/contentUrl> "https://www.bco-dmo.org/dataset/713977/datapackage.json" .
+_:b3 <http://schema.org/fileFormat> "application/vnd.datapackage+json" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/DataDownload> .
+_:b4 <http://schema.org/additionalType> "http://schema.geolink.org/1.0/base/main#Organization" .
+_:b4 <http://schema.org/legalName> "NSF Division of Ocean Sciences" .
+_:b4 <http://schema.org/makesOffer> <https://www.bco-dmo.org/award/55220> .
+_:b4 <http://schema.org/name> "NSF OCE" .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Organization> .
+_:b5 <http://schema.org/additionalProperty> _:b6 .
+_:b5 <http://schema.org/additionalProperty> _:b7 .
+_:b5 <http://schema.org/geo> _:b8 .
+_:b5 <http://schema.org/subjectOf> _:b9 .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Place> .
+_:b6 <http://schema.org/alternateName> "CRS" .
+_:b6 <http://schema.org/name> "Coordinate Reference System" .
+_:b6 <http://schema.org/value> "http://www.opengis.net/def/crs/OGC/1.3/CRS84" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b7 <http://schema.org/alternateName> "WKT" .
+_:b7 <http://schema.org/name> "Well-Known Text" .
+_:b7 <http://schema.org/propertyID> "http://www.opengis.net/ont/geosparql#wktLiteral" .
+_:b7 <http://schema.org/value> "POLYGON ((-158 22.75, -158 22.75, -158 22.75, -158 22.75, -158 22.75))" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/PropertyValue> .
+_:b8 <http://schema.org/box> "22.75,-158 22.75,-158" .
+_:b8 <http://schema.org/polygon> "22.75,-158 22.75,-158 22.75,-158 22.75,-158 22.75,-158" .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/GeoShape> .
+_:b9 <http://schema.org/fileFormat> "application/vnd.geo+json" .
+_:b9 <http://schema.org/text> "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[-158,22.75],[-158,22.75],[-158,22.75],[-158,22.75],[-158,22.75]]],\"properties\":[]}}" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/CreativeWork> .
+

@@ -1,0 +1,54 @@
+{
+  "temporalCoverage": {"@value": "2019-04-26T00:00:00Z/2019-06-02T18:00:00Z"},
+    "@type": "Dataset",
+      "name": "Best Wave Watch III Regional US East Coast Time Series",
+        "description": "Single time dimension: for each forecast time, use GRIB record with smallest offset from reference time NCEP Wave Watch III (WW3): US National Weather Service gridded forecasts of sensible weather elements. 301 by 331 points, resolution 10 minute. Models are run daily at 0Z, 6Z, 12Z and 18Z. Forecasts every 3 hours from 0 to 72, every 6 hours from 72 to 180 hours.",
+          "@id": "grib/NCEP/WW3/Regional_US_East_Coast/Best",
+          "spatialCoverage": {
+              "geo": {
+                    "@type": "GeoShape",
+                          "box": "-1.0982155799865723E-4 -100.0 55.0 -49.99990016222"
+                              
+              },
+                  "@type": "Place"
+                    
+          },
+          "distribution": {
+              "contentUrl": "https://thredds-test.unidata.ucar.edu/thredds/catalog/grib/NCEP/WW3/Regional_US_East_Coast/catalog.xml?dataset=grib/NCEP/WW3/Regional_US_East_Coast/Best",
+                  "@type": "DataDownload",
+                      "encodingFormat": "text/xml"
+                        
+          },
+          "@context": {
+              "@vocab": "https://schema.org/",
+                  "geosci-time": "http://geoschemas.org/contexts/temporal.jsonld",
+                      "xsd": "http://www.w3.org/2001/XMLSchema#",
+                          "time": "http://www.w3.org/2006/time#"
+                            
+          },
+            "url": "https://thredds-test.unidata.ucar.edu/thredds/catalog/grib/NCEP/WW3/Regional_US_East_Coast/catalog.html",
+            "geosci-time:temporalCoverage": {
+                "time:hasBeginning": {
+                      "@type": "time:Instant",
+                      "time:inXSDDateTimeStamp": {
+                              "@value": "2019-04-26T00:00:00Z",
+                                      "@type": "xsd:dateTime"
+                                            
+                      }
+                          
+                },
+                "time:hasEnd": {
+                      "@type": "time:Instant",
+                      "time:inXSDDateTimeStamp": {
+                              "@value": "2019-06-02T18:00:00Z",
+                                      "@type": "xsd:dateTime"
+                                            
+                      }
+                          
+                },
+                    "@type": "time:TemporalEntity"
+                      
+            }
+
+}
+

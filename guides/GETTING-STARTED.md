@@ -33,7 +33,7 @@ To provide a place for the scientific data community to work out how best to imp
 1. To be **pragmatic** with our use of schema.org and external vocabulary adoption.
 2. To **consider schema.org classes and properties first** before considering external vocabularies.
 3. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*. For more, see [Why JSON-LD?](/CONVENTIONS.md#why-jsonld) from the [Conventions](/CONVENTIONS.md) document.
-4. Presently, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) enforces use of [schema.org](http://schema.org) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](http://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
+4. Presently, the [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/) enforces use of [schema.org](https://schema.org/) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](https://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
 5. See [Governance](/GOVERNANCE.md) for how we will govern the project.
 6. See [Conventions](/CONVENTIONS.md) for guidance on creating/editing guidance documents.
 
@@ -58,7 +58,7 @@ To provide a place for the scientific data community to work out how best to imp
   use schema.org and this site will NOT look to see if you are using schema.org types and properties
   correctly.  Only that your JSON-LD is well formed.  
 
-3. We assume that you've heard about [schema.org](https://schema.org) and have already decided that it's useful to you.
+3. We assume that you've heard about [schema.org](https://schema.org/) and have already decided that it's useful to you.
 4. We assume that you have a general understanding of what may describe a scientific dataset.
 
 Let's go!
@@ -85,7 +85,7 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
     <script id="schemaorg" type="application/ld+json">
     {
       "@context": {
-        "@vocab": "http://schema.org/"
+        "@vocab": "https://schema.org/"
        },
        "@id": "http://opencoredata.org/id/dataset/bcd15975-680c-47db-a062-ac0bb6e66816",
        "@type": "Dataset",
