@@ -1,7 +1,6 @@
 {
     "@context": {
-        "@vocab": "https://schema.org/",
-        "datacite": "http://purl.org/spar/datacite/"
+        "@vocab": "https://schema.org/"
     },
     "@type": ["Service", "ResearchProject", "WebSite"],
     "@id": "http://lod.bco-dmo.org/id/affiliation/191",
@@ -16,10 +15,9 @@
         "https://www.linkedin.com/company/6378439/"
     ],
     "identifier": {
-        "@type": ["PropertyValue","datacite:ResourceIdentifier"],
-        "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-        "propertyID": "DOI",
-        "value": "10.17616/R37P4C",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.17616/R37P4C",
         "url": "https://doi.org/10.17616/R37P4C"
     },
     "logo": {
@@ -53,10 +51,9 @@
       "alternateName": "OCE",
       "url": "https://www.nsf.gov/div/index.jsp?div=OCE",
       "identifier": {
-        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-        "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-        "propertyID": "DOI",
-        "value": "10.13039/100000141",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.13039/100000141",
         "url": "https://doi.org/10.13039/100000141"
       },
       "parentOrganization": {
@@ -66,10 +63,9 @@
         "alternateName": "NSF-GEO",
         "url": "http://www.nsf.gov",
         "identifier": {
-          "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-          "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-          "propertyID": "DOI",
-          "value": "10.13039/100000085",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/doi",
+          "value": "doi:10.13039/100000085",
           "url": "https://doi.org/10.13039/100000085"
          },
         "parentOrganization": {
@@ -79,10 +75,9 @@
           "alternateName": "NSF",
           "url": "http://www.nsf.gov",
           "identifier": {
-            "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-            "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-            "propertyID": "DOI",
-            "value": "10.13039/100000001",
+            "@type": "PropertyValue",
+            "propertyID": "https://registry.identifiers.org/registry/doi",
+            "value": "doi:10.13039/100000001",
             "url": "https://doi.org/10.13039/100000001"
           }
         }

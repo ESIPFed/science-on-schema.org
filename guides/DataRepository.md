@@ -213,8 +213,7 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -230,29 +229,15 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
   },
   <strong>"identifier": {
     "@type": "PropertyValue",
-    "name": "Re3data DOI for this repository",
-    "propertyID": "http://purl.org/spar/datacite/doi",
-    "value": "10.17616/R37P4C",
+    "name": "Re3data DOI: 10.17616/R37P4C",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.17616/R37P4C",
     "url": "https://doi.org/10.17616/R37P4C"
   }</strong>
 }
 </pre>
 
-We add the `datacite` vocabulary to the `@context` because the Datacite Ontology available at [http://purl.org/spar/datacite/](http://purl.org/spar/datacite/) has URIs to describe a DOI, ORCiD, ARK, URI, URN - all identifier scheme that help for disamiguating identifiers. To properly disambiguate a globally unique identifier, 2 pieces of information are needed - 1) the identifier value and 2) the scheme that on which that identifier exists. Some examples of this concept for common identifiers  are:
-
-| Scheme | Value |
-| ------ | ----- |
-| DOI    | 10.17616/R37P4C |
-| ORCiD  | 0000-0002-6059-4651 |
-
-When describing PIDs, it's important to include both of these pieces for downstream activities like searching and linking resources. FOor example, a user may want to query for all repositories with a DOI identifier or all Datasets authored by a researcher with an ORCiD. These types of filters become more difficult when only the URL to these identifiers are provided. The reason here is that there are multiple URLs for an persistent identifier. On example is the DOI:
-
-* http://doi.org/10.17616/R37P4C
-* https://doi.org/10.17616/R37P4C
-* http://dx.doi.org/10.17616/R37P4C
-* https://dx.doi.org/10.17616/R37P4C
-
-So, the best practice is to provide the scheme and value for an identifier, but you can also provide a URL representation using the [schema:url](https://schema.org/url) property.
+For more information on describing identifiers, see the [Dataset - Identifier guide](/guides/Dataset.md#identifier).
 
 <a id="funding-source"></a>
 ### Describing a Repository's Funding Source
@@ -265,8 +250,7 @@ To describe the funding source of a repository, you use the [schema:funder](http
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/",</strong>
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -301,9 +285,9 @@ To describe the funding source of a repository, you use the [schema:funder](http
       "alternateName": "OCE",
       "url": "https://www.nsf.gov/div/index.jsp?div=OCE",
       "identifier": {
-        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-        "propertyID": "DOI",
-        "value": "10.13039/100000141",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.13039/100000141",
         "url": "https://doi.org/10.13039/100000141"
       },
       "parentOrganization": {
@@ -313,9 +297,9 @@ To describe the funding source of a repository, you use the [schema:funder](http
         "alternateName": "NSF-GEO",
         "url": "http://www.nsf.gov",
         "identifier": {
-          "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-          "propertyID": "DOI",
-          "value": "10.13039/100000085",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/doi",
+          "value": "doi:10.13039/100000085",
           "url": "https://doi.org/10.13039/100000085"
          },
         "parentOrganization": {
@@ -325,9 +309,9 @@ To describe the funding source of a repository, you use the [schema:funder](http
           "alternateName": "NSF",
           "url": "http://www.nsf.gov",
           "identifier": {
-            "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-            "propertyID": "DOI",
-            "value": "10.13039/100000001",
+            "@type": "PropertyValue",
+            "propertyID": "https://registry.identifiers.org/registry/doi",
+            "value": "doi:10.13039/100000001",
             "url": "https://doi.org/10.13039/100000001"
           }
         }
@@ -350,8 +334,7 @@ For repositories might offer services for accessing data as opposed to directly 
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
@@ -395,8 +378,7 @@ If your repository has a concept of a data collection, some grouping of a number
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
