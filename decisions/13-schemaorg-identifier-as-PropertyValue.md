@@ -37,12 +37,12 @@ With almost 700 different registered URIs, identifiers.org does a great job of e
 - **resolvable URL** - `schema:url` as a resolvable url for that identifier,
 - no good standalone field for the **prefix**.
 
-### 4) Include the **prefix** of an identifier in `schema:value` to help disambiguate the identifier inn a single field. ###
+### 4) Include the **prefix** of an identifier in `schema:value` to help disambiguate the identifier in a single field. ###
 
 2a) Most researchers recognize identifiers that are preceeded by its well known prefix
 - a DOI of value `10.5066/F7VX0DMQ` is more readily recognized as `doi:10.5066/F7VX0DMQ`. 
 
-2b) URLs do nnot do a good job of unnqieuly disambiguating an identifier - multiple working variants from the resolving service, annd publishers may mistakenly use the resultinng redirect URL instead of the desired resolving URL..
+2b) URLs do not do a good job of uniquely disambiguating an identifier - multiple working variants from the resolving service, and publishers may mistakenly use the resulting redirect URL instead of the desired resolving URL.
 
 ### Example ###
 

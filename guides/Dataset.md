@@ -100,7 +100,7 @@ For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.50
 **Q: Can't we just say the scheme is a 'DOI'?**  
 **A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
 
-While the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, a better way to explicitly this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
+Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
 
 We can specify the **scheme** as being a DOI with this identifiers.org Registry URI: 
 
@@ -127,7 +127,7 @@ Looking at the available fields from [schema:PropertyValue](https://schema.org/P
 For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
 	
 **Q: How do I know if an Identifier has a known prefix?**  
-**A:** Each Identifier in the identifiers.org Registry that has a known prefix  will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
+**A:** Each Identifier in the identifiers.org Registry that has a known prefix will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
 
 An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to describe an Identifier:
 
@@ -168,7 +168,7 @@ Optionally, the `schema:name` field can be used to give this specific identifier
       {
         "@id": "https://doi.org/10.5066/F7VX0DMQ",
         "@type": "PropertyValue",
-	"name": "DOI: 10.5066/F7VX0DMQ",
+	    "name": "DOI: 10.5066/F7VX0DMQ",
         "propertyID": "https://registry.identifiers.org/registry/doi",
         "value": "doi:10.5066/F7VX0DMQ",
         "url": "https://doi.org/10.5066/F7VX0DMQ"
@@ -185,37 +185,38 @@ For more examples of using `schema:PropertyValue` for identifiers other than DOI
 
 <pre>
 "identifier": [
-      {
+    {
         "@id": "https://n2t.net/ark:13030/c7833mx7t",
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/ark",
         "name": "ARK: 13030/c7833mx7t",
         "value": "ark:13030/c7833mx7t",
         "url": "https://n2t.net/ark:13030/c7833mx7t"
-      },{
+    },
+    {
         "@id": "http://www.ncbi.nlm.nih.gov/pubmed/16333295",
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/pubmed",
         "name": "Pubmed ID #16333295",
         "value": "pubmed:16333295",
         "url": "http://www.ncbi.nlm.nih.gov/pubmed/16333295"
-      },
-     {
+    },
+    {
         "@id": "https://identifiers.org/paleodb:83088",
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/paleodb",
         "name": "Paleo Database ID #83088",
         "value": "paleodb:83088",
         "url": "https://identifiers.org/paleodb:83088"
-      },
-     {
+    },
+    {
         "@id": "https://identifiers.org/pdb:2gc4",
-	"@type": "PropertyValue",
+	    "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/pdb",
         "name": "Protein Data Bank 2gc4",
         "value": "pdb:2gc4",
         "url": "https://identifiers.org/pdb:2gc4"
-      }
+    }
 ]
 </pre>
 
