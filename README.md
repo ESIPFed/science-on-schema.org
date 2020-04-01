@@ -1,6 +1,6 @@
 <a id="top"></a>
-[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235) 
 ![version 1.1.0](https://img.shields.io/badge/version-1.1.0-orange.svg) 
+[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755) 
 <!--[![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema)-->
 
 *This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*
@@ -20,10 +20,7 @@ v1.2 ([issues](/milestone/5), [develop branch](/tree/develop))
 
 | Version | DOI |
 | ------------- | ------------- |
-
-|_most current_|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
 |[1.1.0](/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
-
 |[1.0.0](/releases/tag/1.0.0)|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
 
 ## Resources
