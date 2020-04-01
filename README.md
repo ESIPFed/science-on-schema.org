@@ -5,9 +5,6 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ESIPFed/science-on-schema.org)
 ![GitHub contributors](https://img.shields.io/github/contributors/ESIPFed/science-on-schema.org)
-![GitHub forks](https://img.shields.io/github/forks/ESIPFed/science-on-schema.org?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/ESIPFed/science-on-schema.org?style=social)
-![GitHub stars](https://img.shields.io/github/stars/ESIPFed/science-on-schema.org?style=social)
 
 
 *This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*
