@@ -113,35 +113,50 @@ Schema.org allows can be described using Microdata, RDFa, and JSON-LD. In this g
 <a id="external-vocab-typing"></a>
 ## Typing to External Vocabularies ##
 
-Schema.org provides a property called [schema:additionalType](https://schema.org/additionalType) for typing resources in a data graph to external vocabularies. Here is the RDF that defines this property:
+While schema.org provides a property called [schema:additionalType](https://schema.org/additionalType) for specifying additional classes from vocabularies outside schema.org, this technique does not follow best practices of typing using JSON-LD. Instead, we __highly recommend__ using the `@type` field. For example:
 
 ```
-<rdf:RDF
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:schema="https://schema.org/"
->
-    <rdf:Property rdf:about="https://schema.org/additionalType">
-        <schema:rangeIncludes rdf:resource="https://schema.org/URL"/>
-        <rdfs:comment>An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</rdfs:comment>
-        <schema:sameAs rdf:resource="https://schema.org/additionalType"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-        <rdfs:label>additionalType</rdfs:label>
-        <schema:domainIncludes rdf:resource="https://schema.org/Thing"/>
-    </rdf:Property>
-</rdf:RDF>
+{
+ "@context": "http://schema.org",
+ "@type": "PropertyValue",
+ "additionalType": "http://vocabulary.example.org/ScientificInstrument",
+ "name": "My Property"
+}
 ```
 
-### rdfs:subPropertyOf rdf:type with range of schema:URL ###
+would become:
 
 ```
-...
-<schema:rangeIncludes rdf:resource="https://schema.org/URL"/>
-<rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-...
+{
+ "@context": "http://schema.org",
+ "@type": ["PropertyValue", "http://vocabulary.example.org/ScientificInstrument"],
+ "name": "My Property"
+}
 ```
 
-Publishers who have a ```@context``` with prefixes for external vocabularies cannot use the prefixed URL in schema:additionalType
+or:
 
-...add JSON-LD Playground example showing that additionalType does not expand the prefix nor generate an rdf:type triple...
- 
+```
+{
+ "@context": {
+   "@vocab": "http://schema.org",
+   "ex": "http://vocabulary.example.org/"
+ },
+ "@type": ["PropertyValue", "ex:ScientificInstrument"],
+ "name": "My Property"
+}
+```
+
+**WHY?**
+
+When data is harvested using `schema:additionalType` the URLs in these fields are not automatically converted into types as content in the `@type` field would be. Searching the results of that harvester for all data typed as `http://vocabulary.example.org/ScientificInstrument` would not automatically work. We recommend following the JSON-LD best practice of using the `@type` field as shown above.
+
+**Google Structured Data Testing Tool**
+
+One impact of this change is that the Google Structured Data Testing Tool presently considers all external vocabulary references as an error. This tool is ONLY checking for conformance to Google's interpretation of schema.org (see the [Google Dataset recommendations](https://developers.google.com/search/docs/data-types/dataset)). This might influence a publisher to think that their schema.org markup is wrong when in fact it is not. The errors simply mean that your schema.org markup doesn't conform to Google's preference. Nevertheless, Google still accepts, harvests, and makes available JSON-LD compliant schema.org markup that does not conform to their preference; the additional types and content are simply ignored by Google, but can be used by other applications. Results have shown this to be evident at the [Google Dataset Search](https://datasetsearch.research.google.com/).
+
+**Using external vocabulary prefixes**
+In addition, if one uses [schema:additionalType](https://schema.org/additionalType), then one can not use prefixes defined in the `@context` section when referencing these external concepts.  Instead, the concept must be specified with its full URL. This is illustrated in the example above, where we have to use `"additionalType": "http://vocabulary.example.org/ScientificInstrument"`  rather than the more compact prefixed version `"@type": ["ex:ScientificInstrument"]`.
+
+If one does decide to use `additionalType`, then opening the example in the JSON-LD Playground will show how the element type is nnot expanded and there is no triple generated for the additionalType.  Thus, we recommend using the `@type` field directly for associating fields with types so that they become part of the knowledge graph for the Dataset.
+

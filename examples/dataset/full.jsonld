@@ -1,16 +1,13 @@
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
-      "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-      "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-      "propertyID": "DOI",
-      "value": "10.1234/1234567890",
+      "propertyID": "https://registry.identifiers.org/registry/doi",
+      "value": "doi:10.1234/1234567890",
       "url": "https://doi.org/10.1234/1234567890"
-    },
+  },
   "url": "https://www.example-data-repository.org/dataset/3300",
   "@type": "Dataset",
   "name": "Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project)",
@@ -47,20 +44,17 @@
       "polygon": "-68.4817,-75.8183 -65.08,-75.8183 -65.08,-68.5033 -68.4817,-68.5033 -68.4817,-75.8183"
     },
     "additionalProperty": {
-      "@type": "PropertyValue",
-      "additionalType": "http://www.wikidata.org/entity/Q4018860",
+      "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q4018860"],
       "name": "WKT",
       "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))",
       "valueReference": [
         {
-          "@type": "PropertyValue",
+          "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q31385480"],
           "name": "datatype",
-          "additionalType": "http://www.wikidata.org/entity/Q31385480",
           "value": "http://www.opengis.net/ont/geosparql#wktLiteral"
         },
         {
-          "@type": "PropertyValue",
-          "additionalType": "http://www.wikidata.org/entity/Q161779",
+          "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q161779"],
           "name": "SRS",
           "alternateName": "Spatial Reference System",
           "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
