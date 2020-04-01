@@ -1,9 +1,7 @@
 <a id="top"></a>
+![version 1.1.0](https://img.shields.io/badge/version-1.1.0-orange.svg) 
 [<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755) 
-![version 1.0.0](https://img.shields.io/badge/version-1.0.0-orange.svg) 
-[![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema) 
-
-
+[![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema)
 
 *This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*
 
@@ -13,12 +11,17 @@
 * [Data Repository](/guides/DataRepository.md) - the research data repository
 * [Dataset](/guides/Dataset.md) - the scientific dataset
 
+## Upcoming Work
+
+v1.2 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/5), [develop branch](https://github.com/ESIPFed/science-on-schema.org/tree/develop))
+
+
 ## Version DOIs
 
 | Version | DOI |
 | ------------- | ------------- |
-|_most current_|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755)|
-|1.0.0|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
+|[1.1.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
+|[1.0.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.0.0)|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
 
 ## Resources
 
