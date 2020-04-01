@@ -13,15 +13,15 @@
 
 ## Upcoming Work
 
-v1.2 ([issues](/milestone/5), [develop branch](/tree/develop))
+v1.2 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/5), [develop branch](https://github.com/ESIPFed/science-on-schema.org/tree/develop))
 
 
 ## Version DOIs
 
 | Version | DOI |
 | ------------- | ------------- |
-|[1.1.0](/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
-|[1.0.0](/releases/tag/1.0.0)|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
+|[1.1.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
+|[1.0.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.0.0)|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
 
 ## Resources
 
