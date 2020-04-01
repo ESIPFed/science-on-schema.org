@@ -18,6 +18,7 @@
 		- [Roles of People](#roles-of-people)
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
+		- [License](#license)
 	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
 		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
 
@@ -47,7 +48,6 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [version](https://schema.org/version) - The version number or identifier for this dataset (text or numeric).
 * [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) speficying if the dataset is accessible for free.
 * [keywords](https://schema.org/keywords) - Keywords summarizing the dataset.
-* [license](https://schema.org/license) - A license under which the dataset is distributed (text or URL).
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
@@ -65,19 +65,71 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "isAccessibleForFree": true,
-  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/"</strong>
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]
+  "license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]
+  </strong>
 }
 </pre>
 Back to [top](#top)
 
 ### Identifier
 
-Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the identifier in more detail.
+Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field. 
 
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
-In it's most basic form, the identifier as text can be published as:
+**We _highly recommend_ using [schema:PropertyValue](https://schema.org/PropertyValue).**
+
+**Q: Why are simple text or URLs not good enough?**  
+**A:** Identifiers have multiple properties that are useful when trying to find them across the web.
+
+Most identifiers have these properties:
+
+- a **value**, 
+- a **domain** or **scheme** (in which the value is guaranteed to be unique),
+- (optionally) a **resolvable URL** (where the thing being identified can be found),
+- (optionally) a **domain prefix** (a token string of characters succeeded by a colon ':' that represents the domain or scheme).
+
+For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.5066/F7VX0DMQ. To break it down into its properties, we arrive at:
+
+- **value**: `10.5066/F7VX0DMQ`
+- **scheme**: `Digital Object Identifier (DOI)`
+- **url**: `https://doi.org/10.5066/F7VX0DMQ`
+- **prefix**: `doi`
+
+**Q: Can't we just say the scheme is a 'DOI'?**  
+**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
+
+Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
+
+We can specify the **scheme** as being a DOI with this identifiers.org Registry URI: 
+
+[https://registry.identifiers.org/registry/doi](https://registry.identifiers.org/registry/doi)
+
+Looking at the available fields from [schema:PropertyValue](https://schema.org/PropertyValue), we can map our identifier fields as such:
+
+- `schema:value` as the identifier value `10.5066/F7VX0DMQ`
+- `schema:propertyID` is the registry.identifiers.org URI for the identifier scheme `https://registry.identifiers.org/registry/doi`,
+- `schema:url` is the resolvable url for that identifier `https://doi.org/10.5066/F7VX0DMQ`.
+
+**Q: Where should the prefix go?**  
+**A:** There is no ideal property for the prefix. But, we may include it as part of the `schema:value`.
+
+**Q: Why include `doi:` as part of the value? Doesn't the URL `https://doi.org/10.5066/F7VX0DMQ` acheive the same result?**  
+**A:** While the actual value of the DOI is `10.5066/F7VX0DMQ`, we felt that this representation helps schema.org publishers specify an identifier value that is familiar to the research community. For example, in most citation styles such as APA, the DOI 10.5066/F7VX0DMQ is cited as `doi:10.5066/F7VX0DMQ`. Also, there can be many proper URLs for a specific identifier:
+
+- http://doi.org/10.5066/F7VX0DMQ
+- https://doi.org/10.5066/F7VX0DMQ
+- http://dx.doi.org/10.5066/F7VX0DMQ
+- https://dx.doi.org/10.5066/F7VX0DMQ
+- https://www.sciencebase.gov/catalog/item/56b3e649e4b0cc79997fb5ec
+
+For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
+	
+**Q: How do I know if an Identifier has a known prefix?**  
+**A:** Each Identifier in the identifiers.org Registry that has a known prefix will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
+
+An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to describe an Identifier:
 
 <pre>
 {
@@ -91,12 +143,103 @@ In it's most basic form, the identifier as text can be published as:
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
+  <strong>"identifier":
+      {
+        "@id": "https://doi.org/10.5066/F7VX0DMQ",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
+      }</strong>
+}
+</pre>
+
+Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI". 
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  ...
+  <strong>"identifier":
+      {
+        "@id": "https://doi.org/10.5066/F7VX0DMQ",
+        "@type": "PropertyValue",
+	    "name": "DOI: 10.5066/F7VX0DMQ",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
+      }</strong>
+}
+</pre>
+
+For more examples of using `schema:PropertyValue` for identifiers other than DOIs:
+
+- ARK: https://registry.identifiers.org/registry/ark
+- PubMed: https://registry.identifiers.org/registry/pubmed
+- PaleoDB: https://registry.identifiers.org/registry/paleodb
+- Protein Data Bank: https://registry.identifiers.org/registry/pdb
+
+<pre>
+"identifier": [
+    {
+        "@id": "https://n2t.net/ark:13030/c7833mx7t",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "name": "ARK: 13030/c7833mx7t",
+        "value": "ark:13030/c7833mx7t",
+        "url": "https://n2t.net/ark:13030/c7833mx7t"
+    },
+    {
+        "@id": "http://www.ncbi.nlm.nih.gov/pubmed/16333295",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/pubmed",
+        "name": "Pubmed ID #16333295",
+        "value": "pubmed:16333295",
+        "url": "http://www.ncbi.nlm.nih.gov/pubmed/16333295"
+    },
+    {
+        "@id": "https://identifiers.org/paleodb:83088",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/paleodb",
+        "name": "Paleo Database ID #83088",
+        "value": "paleodb:83088",
+        "url": "https://identifiers.org/paleodb:83088"
+    },
+    {
+        "@id": "https://identifiers.org/pdb:2gc4",
+	    "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/pdb",
+        "name": "Protein Data Bank 2gc4",
+        "value": "pdb:2gc4",
+        "url": "https://identifiers.org/pdb:2gc4"
+    }
+]
+</pre>
+
+While we strongly recommend using a [schema:PropertyValue](https://schema.org/PropertyValue), in it's most basic form, the `schema:identifier` as text can be published as:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+  "version": "2013-11-21",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   <strong>"identifier": "urn:sdro:dataset:472032"</strong>
 }
 </pre>
 
 Or as a URL:
+
 <pre>
 {
   "@context": {
@@ -111,32 +254,6 @@ Or as a URL:
 
 However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
 
-For identifiers that do have a well-defined scheme that scopes the identifier value, such as DOI, ARK, ISBN, etc, we can use the [DataCite Ontology Resource Identifier Scheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e638) to specify this identifier scheme:
-
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
-  "url": "https://www.sample-data-repository.org/dataset/472032",
-  "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
-  "version": "2013-11-21",
-  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
-  <strong>"identifier": {
-    "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-    "datacite:usesIdentifierScheme": { "@id": "datacite:doi" },
-    "propertyID": "DOI",
-    "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
-    "value": "10.1575/1912/bco-dmo.665253"
-  }</strong>
-}
-</pre>
-
 [schema:Dataset](https://schema.org/Dataset) also defines a field for the [schema:citation](https://schema.org/citation) as either text or a [schema:CreativeWork](https://schema.org/CreativeWork). To provide citation text:
 
 NOTE: If you have a DOI, the citation text can be [automatically generated](https://citation.crosscite.org/docs.html#sec-4-1) for you by querying a DOI URL with the Accept Header of 'text/x-bibliography'.
@@ -144,8 +261,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    <strong>"datacite": "http://purl.org/spar/datacite/"</strong>
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -154,15 +270,15 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
-  "license": "http://creativecommons.org/licenses/by/4.0/",
   "identifier": {
-    "@id": "https://doi.org/10.1575/1912/bco-dmo.665253",
-    "@type": ["PropertyValue", "datacite:Identifier"],
-    "propertyID": "http://purl.org/spar/datacite/doi",
-    "url": "https://doi.org/10.1575/1912/bco-dmo.665253",
-    "value": "10.1575/1912/bco-dmo.665253"
-   },
-   <strong>"citation": "J.Smith 'How I created an awesome dataset’, Journal of Data Science, 1966"</strong>
+    "@id": "https://doi.org/10.5066/F7VX0DMQ",
+    "@type": "PropertyValue",
+    "name": "DOI: 10.5066/F7VX0DMQ",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.5066/F7VX0DMQ",
+    "url": "https://doi.org/10.5066/F7VX0DMQ"
+  },
+  <strong>"citation": "J.Smith 'How I created an awesome dataset’, Journal of Data Science, 1966"</strong>
 }
 </pre>
 
@@ -186,7 +302,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
   ...
   <strong>"variableMeasured": [
     {
-      "@type": ["PropertyValue"],
+      "@type": "PropertyValue",
       "name": "Bottle identifier",
       "description": "The bottle number for each associated measurement."
     },
@@ -201,8 +317,7 @@ If a URI is available that identifies the variable, it should be included as the
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
+    "@vocab": "https://schema.org/"
     <strong>"gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"</strong>
   },
   "@type": "Dataset",
@@ -241,8 +356,7 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -259,89 +373,44 @@ Back to [top](#top)
 
 ### Metadata
 
-Alternative forms of the metadata describing the dataset may be available in other standards compliant formats that may be useful to consumers. The location of the alternative forms of the metadata can be provided with the [`schema:encoding`](https://schema.org/encoding) property which is an instance of [`MediaObject`](https://schema.org/MediaObject).
+While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
-An example of a MediaObject reference to an instance of ISO TC211 structured metadata:
+Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf). 
+    - Or if a schema.org snippet describes the metadata as the main resource, then link to the Dataset it describes using [schema:about](https://schema.org/about).
+
+These two approaches are equivalent, and which is used depends on the subject of the schema.org record.
+
+![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
+
+Once the linkage has been made, further details about the metadata can be provided. We recommend using [schema:encodingFormat](https://schema.org/encodingFormat) to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
+We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc. 
+
+It can be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
+
+An example of a metadata reference to an instance of EML-formatted structured metadata, embedded within a `schema:Dataset` record:
 
 <pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-  <strong>"encoding":{
-    "@type":"MediaObject",
-    "contentUrl":"https://example.org/link/to/metadata.xml",
-    "encodingFormat":"http://www.isotc211.org/2005/gmd",
-    "description":"ISO TC211 XML rendering of metadata.",
-    "dateModified":"2019-06-12T14:44:15Z"
-  }</strong>
-}
+  {
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+    "distribution": {
+      "@type": "DataDownload",
+      ...
+    },
+    <strong>"subjectOf": {
+      "@type": "DataDownload",
+      "name": "eml-metadata.xml",
+      "description": "EML metadata describing the dataset",
+      "encodingFormat": ["application/xml", "https://eml.ecoinformatics.org/eml-2.2.0"],
+      "dateModified":"2019-06-12T14:44:15Z"
+    }</strong>
+  }
 </pre>
 
-The `encoding` property may contain an array of `MediaObject` instances to describe multiple alternate forms of metadata available.
+Alternatively, if the schema.org record is meant to describe the metadata record, one could use the inverse property `schema:about` to indicate the linkage back to the Dataset that it describes.  This would be a more rare situation, as typically the schema.org record would be focused on the Dataset itself.
 
-A SHACL shape graph for verifying the presence and structure of a MediaObject:
-
-```turtle
-# Shape to evaluate schema:MediaObject instances that provide the value of
-# schema:encoding for an instance of schema:Dataset
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <https://schema.org/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix d1: <http://ns.dataone.org/schema/2019/08/SO/Dataset#> .
-
-d1:rdfPrefix
-  sh:declare [
-    sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-    sh:prefix "rdf" ;
-  ] .
-
-d1:schemaPrefix
-  sh:declare [
-    sh:namespace "https://schema.org/"^^xsd:anyURI ;
-    sh:prefix "schema" ;
-  ] .
-
-d1:MediaObjectShape
-    a sh:NodeShape ;
-    sh:target [
-        a sh:SPARQLTarget ;
-        sh:prefixes d1:rdfPrefix, d1:schemaPrefix ;
-        sh:select """
-            SELECT ?this
-            WHERE {
-                ?DF rdf:type schema:Dataset .
-                ?DF schema:encoding ?this .
-                ?this rdf:type schema:MediaObject .
-            }
-        """ ;
-    ] ;
-    sh:property [
-        sh:path schema:contentUrl ;
-        sh:minCount 1 ;
-        sh:message "schema:contentUrl is required for the encoding property of a Dataset"
-    ] ;
-    sh:property [
-        sh:path schema:encodingFormat ;
-        sh:minCount 1 ;
-        sh:message "schema:encodingFormat should provide the format of the encoding of the referenced resource" ;
-        sh:severity sh:Warning ;
-    ] ;
-    sh:property [
-        sh:path schema:dateModified ;
-        sh:minCount 1 ;
-        sh:message "schema:dateModified should indicate when the referenced resource was last modified" ;
-        sh:severity sh:Warning ;
-    ]
-.
-```
-*Note:* The aforementioned SHACL shape uses capabilities from the
-[advanced SHACL specification](https://www.w3.org/TR/shacl-af/#SPARQLTarget) which are not implemented by many SHACL validation libraries (including [pySHACL as of this writing](https://github.com/RDFLib/pySHACL/blob/49650b0c483d3fa5e9ab133df5694b739421a8f9/FEATURES.md)). The [TopBraid SHACL commandline validator](https://github.com/TopQuadrant/shacl) implements the required functionality. A simple wrapper in Python is available, see [pyTBSHACL](https://github.com/datadavev/pyTBSHACL). 
+Note that the The `encodingFormat` property contains an array of formats to describe multiple formats to which the document conforms (in this example, the document is both conformant with XML and the EML metadata dialect).
 
 Back to [top](#top)
 
@@ -356,8 +425,7 @@ For data available in multipe formats, there will be multiple values of the [sch
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -380,8 +448,7 @@ If access to the data requires some input parameters before a download can occur
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -444,8 +511,7 @@ To represent a single date and time:
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -485,8 +551,7 @@ One example of a URL temporal coverage might be for named periods in time:
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -525,8 +590,7 @@ A point, or coordinate, would defined in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -611,7 +675,6 @@ A spatial reference system can be added in this way:
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/",
     <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
   },
   "@type": "Dataset",
@@ -642,42 +705,42 @@ People can be linked to datasets using three fields: author, creator, and contri
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   <strong>"creator": [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://www.sample-data-repository.org/person-role/472036",
       "@type": "Role",
       "roleName": "Principal Investigator",
       "creator": {
-        "@id": "https://www.bco-dmo.org/person/51317",
+        "@id": "https://www.sample-data-repository.org/person/51317",
         "@type": "Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
-        "url": "https://www.bco-dmo.org/person/51317"
+        "url": "https://www.sample-data-repository.org/person/51317"
       }
     },
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472038",
+      "@id": "https://www.sample-data-repository.org/person-role/472038",
       "@type": "Role",
       "roleName": "Co-Principal Investigator",
-      "url": "https://www.bco-dmo.org/person-role/472038",
+      "url": "https://www.sample-data-repository.org/person-role/472038",
       "creator": {
-        "@id": "https://www.bco-dmo.org/person/50663",
+        "@id": "https://www.sample-data-repository.org/person/50663",
         "@type": "Person",
         "identifier": {
-          "@type": ["PropertyValue", "datacite:Identifier"],
-          "propertyID": "http://purl.org/spar/datacite/orcid",
+	  "@id": "https://orcid.org/0000-0003-3432-2297",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
-          "value": "0000-0003-3432-2297"
+          "value": "orcid:0000-0003-3432-2297"
         },
         "name": "Dr Mark Brzezinski",
-        "url": "https://www.bco-dmo.org/person/50663"
+        "url": "https://www.sample-data-repository.org/person/50663"
       }
     }</strong>
 }
@@ -694,17 +757,17 @@ NOTE that the Role inherits the property `creator` and `contributor` from the Da
   ...
   <strong>"creator"</strong>: [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://www.sample-data-repository.org/person-role/472036",
       <strong>"@type": "Role"</strong>,
       "roleName": "Principal Investigator",
-      "url": "http://lod.bco-dmo.org/id/person-role/472036",
+      "url": "https://www.sample-data-repository.org/person-role/472036",
       <strong>"creator":</strong> {
-        "@id": "https://www.bco-dmo.org/person/51317",
+        "@id": "https://www.sample-data-repository.org/person/51317",
         "@type": "Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
-        "url": "https://www.bco-dmo.org/person/51317"
+        "url": "https://www.sample-data-repository.org/person/51317"
       }
     }
 }
@@ -715,56 +778,56 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
   "creator": [
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472036",
+      "@id": "https://www.sample-data-repository.org/person-role/472036",
       "@type": "Role",
       "roleName": "Principal Investigator",
-      "url": "http://lod.bco-dmo.org/id/person-role/472036",
+      "url": "https://www.sample-data-repository.org/person-role/472036",
       "creator": {
-        <strong>"@id": "https://www.bco-dmo.org/person/51317"</strong>,
+        <strong>"@id": "https://www.sample-data-repository.org/person/51317"</strong>,
         "@type": "Person",
         "name": "Dr Uta Passow",
         "givenName": "Uta",
         "familyName": "Passow",
-        "url": "https://www.bco-dmo.org/person/51317"
+        "url": "https://www.sample-data-repository.org/person/51317"
       }
     },
     <strong>{
-      "@id": "https://www.bco-dmo.org/person-role/472037",
+      "@id": "https://www.sample-data-repository.org/person-role/472037",
       "@type": "Role",
       "roleName": "Contact",
-      "url": "https://www.bco-dmo.org/person-role/472037",
-      "creator": { "@id": "https://www.bco-dmo.org/person/51317" }
+      "url": "https://www.sample-data-repository.org/person-role/472037",
+      "creator": { "@id": "https://www.sample-data-repository.org/person/51317" }
     }</strong>,
     {
-      "@id": "http://lod.bco-dmo.org/id/person-role/472038",
+      "@id": "https://www.sample-data-repository.org/person-role/472038",
       "@type": "Role",
       "roleName": "Co-Principal Investigator",
-      "url": "https://www.bco-dmo.org/person-role/472038",
+      "url": "https://www.sample-data-repository.org/person-role/472038",
       "creator": {
-        "@id": "https://www.bco-dmo.org/person/50663",
+        "@id": "https://www.sample-data-repository.org/person/50663",
         "@type": "Person",
         "identifier": {
-          "@type": ["PropertyValue", "datacite:Identifier"],
-          "propertyID": "http://purl.org/spar/datacite/orcid",
+	  "@id": "https://orcid.org/0000-0003-3432-2297",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
-          "value": "0000-0003-3432-2297"
+          "value": "orcid:0000-0003-3432-2297"
         },
         "name": "Dr Mark Brzezinski",
-        "url": "https://www.bco-dmo.org/person/50663"
+        "url": "https://www.sample-data-repository.org/person/50663"
       }
     }
 }
 </pre>
 
-Notice that since Uta Passow has already been defined in the document with `"@id": "https://www.bco-dmo.org/person/51317"` for her role as Principal Investigator, the `@id` can be used for her role as Contact by defining the Role's creator as `"creator": { "@id": "https://www.bco-dmo.org/person/51317" }`.
+Notice that since Uta Passow has already been defined in the document with `"@id": "https://www.sample-data-repository.org/person/51317"` for her role as Principal Investigator, the `@id` can be used for her role as Contact by defining the Role's creator as `"creator": { "@id": "https://www.sample-data-repository.org/person/51317" }`.
 
 Back to [top](#top)
 
@@ -788,8 +851,7 @@ then you can reuse that `@id` here. Harvesters such as Google and Project418 wil
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -808,8 +870,7 @@ Otherwise, you can define the organization inline in this way:
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -838,8 +899,7 @@ Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGra
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
   "@type": "Dataset",
@@ -852,8 +912,7 @@ Next, we must make our JSON-LD allow multiple top-level items by using the `@gra
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   <strong>"@graph":[{</strong>
       "@id": "http://www.sample-data-repository.org/dataset/123",
@@ -870,8 +929,7 @@ You can now see that the Dataset object `{}` is now the first element in the `@g
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@graph":[{
       "@id": "http://www.sample-data-repository.org/dataset/123",
@@ -900,8 +958,7 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@graph":[{
       "@id": "http://www.sample-data-repository.org/dataset/123",
@@ -931,6 +988,55 @@ Now, because there are two top-level items on this webpage, harvesters will be u
 
 Back to [top](#top)
 
+### License
+
+Link a Dataset to its license to document legal constraints by adding a [schema:license](https://schema.org/license) property. The [guide](https://developers.google.com/search/docs/data-types/dataset) recommends providing a URL that unambiguously identifies a specific version of the license used, but for many licenses it is hard to determine what that URL should be. Thus, we recommend that the license URL be drawn from the [SPDX license list](https://spdx.org/licenses/), which provides a curated list of licenses and their properties that is well maintained. For each SPDX entry, SPDX provides a canonical URL for the license (e.g., `http://spdx.org/licenses/CC0-1.0`), a unique `licenseId` (e.g., `CC0-1.0`), and other metadata about the license. Here's an example using the SPDX license URI for the Creative Commons CC-0 license:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+  },
+  "@id": "http://www.sample-data-repository.org/dataset/123",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"license": "http://spdx.org/licenses/CC0-1.0"</strong>
+  ...
+}
+</pre>
+
+SPDX URIs for each license can be found by finding the appropriate license in the [SPDX license list](https://spdx.org/licenses/), and then remove the final `.html` extension from the filename.  For example, in the table one can find the license page for Apache at the URI `https://spdx.org/licenses/Apache-2.0.html`, which can be converted into the associated linked data URI by removing the `.html`, leaving us with `https://spdx.org/licenses/Apache-2.0`. Alternatively, one can find the license file in the [structured data listings](https://github.com/spdx/license-list-data/tree/master/rdfturtle) and copy the URL from the associated file. For example, the URL for the Apache-2.0 license is listed in the file at https://github.com/spdx/license-list-data/blob/master/rdfturtle/Apache-2.0.turtle.
+
+While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses and a few others are exceptions in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is helpful in recognizing the license.  In this case, we recommend that the SPDX URI still be used as described above, and the other URI also be provided as well in a list. Here's an example using the traditional Creative Commons URI along with the SPDX URI.
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+  },
+  "@id": "http://www.sample-data-repository.org/dataset/123",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]</strong>
+  ...
+}
+</pre>
+
+The following table contains the SPDX URIs for some of the most common licenses.  Others can be looked up at the SPDX site as described above.
+
+|License          |  SPDX URI                                  |
+|-----------------|--------------------------------------------|
+|Apache-2.0       | https://spdx.org/licenses/Apache-2.0       |
+|BSD-3-Clause     | https://spdx.org/licenses/BSD-3-Clause     |
+|CC-BY-3.0        | https://spdx.org/licenses/CC-BY-3.0        |
+|CC-BY-4.0        | https://spdx.org/licenses/CC-BY-4.0        |
+|CC-BY-SA-4.0     | https://spdx.org/licenses/CC-BY-SA-4.0     |
+|CC0-1.0          | https://spdx.org/licenses/CC0-1.0          |
+|GPL-3.0-only     | https://spdx.org/licenses/GPL-3.0-only     |
+|GPL-3.0-or-later | https://spdx.org/licenses/GPL-3.0-or-later |
+|MIT              | https://spdx.org/licenses/MIT              |
+|MIT-0            | https://spdx.org/licenses/MIT-0            |
+
+Back to [top](#top)
 
 ## Advanced Publishing Techniques
 
@@ -953,10 +1059,11 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
     {
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-        "propertyID": "IGSN",
-        "url": "https://app.geosamples.org/sample/igsn/WHO000A53",
-        "value": "WHO000A53"
+        "@id": "https://doi.org/10273/WHO000A53",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "url": "https://doi.org/10273/WHO000A53",
+        "value": "IGSN:WHO000A53"
       },
       "spatialCoverage": {
         "@type": "Place",
@@ -972,10 +1079,11 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
     {
       "@type": ["CreativeWork", "geolink:PhysicalSample"],
       "identifier": {
-        "@type": ["PropertyValue", "datacite:ResourceIdentifier"],
-        "propertyID": "IGSN",
-        "url": "https://app.geosamples.org/sample/igsn/WHO000A67",
-        "value": "WHO000A67"
+        "@id": "https://doi.org/10273/WHO000A67",
+        "@type": "PropertyValue",
+        "https://registry.identifiers.org/registry/doi",
+        "url": "https://doi.org/10273/WHO000A67",
+        "value": "IGSN:WHO000A67"
       }
       ...
     }
@@ -984,5 +1092,3 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 </pre>
 
 Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
-
-**NOTE:** We use "IGSN" as the [schema:propertyID](https://schema.org/propertyID) until a canonical URI is defined by IGSN governance to where we can use [datacite:usesIdentifierScheme](https://sparontologies.github.io/datacite/current/datacite.html#d4e239) to link to a well-defined identifier type definition such as other [persistent identifiers](https://sparontologies.github.io/datacite/current/datacite.html#d4e638).

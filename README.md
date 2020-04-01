@@ -1,6 +1,8 @@
 <a id="top"></a>
-[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755)
-</br>![version 1.0.0](https://img.shields.io/badge/version-1.0.0-orange.svg)
+[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628755.svg"/>](https://doi.org/10.5281/zenodo.2628755) 
+![version 1.0.0](https://img.shields.io/badge/version-1.0.0-orange.svg) 
+[![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema) 
+
 
 
 *This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*

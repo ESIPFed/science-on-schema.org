@@ -3,7 +3,7 @@
 Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/74 
 
 ## Status ##
-*Proposed*
+*Adopted*
 
 ## Decision ##
 We will recommend the use of '@type' (or rdf:type) when typing resources to classes outside of the core schema.org vocabulary.
