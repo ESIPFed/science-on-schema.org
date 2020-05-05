@@ -1,4 +1,5 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix soso: <http://science-on-schema.org/1.1.0/validation/shacl#> .
 @prefix SO: <https://schema.org/> .
@@ -114,7 +115,7 @@ soso:isAccessibleForFreeDatasetProperty
     sh:path SO:isAccessibleForFree ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-    sh:nodeKind sh:Boolean ;
+    sh:dataType xsd:boolean ;
     sh:severity sh:Warning ;
     sh:message "It is recommended that a Dataset indicates accessibility for free or otherwise"@en ;
     sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
