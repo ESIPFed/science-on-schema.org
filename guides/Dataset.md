@@ -607,7 +607,7 @@ A point, or coordinate, would defined in this way:
 </pre>
 
 <a id="spatial_shape"></a>
-All other shapes, are defined using the [schema:GeoShape](https://schema.org/GeoShape):
+All other shapes, are defined using the [schema:GeoShape](https://schema.org/GeoShape). Be aware that the coordinate ordering used by Google -- <strong>Y (lat), X (long)</strong> is the reverse of various other commonly used conventions for listing geospatial coordinates.
 
 <pre>
   <strong>"spatialCoverage": {
@@ -625,14 +625,20 @@ A polygon
   <strong>"polygon": "39.3280 120.1633 40.445 123.7878 41 121 39.77 122.42 39.3280 120.1633"</strong>
 </pre>
 
-A box where 'lower-left' corner is 39.3280/120.1633 and 'upper-right' corner is 40.445/123.7878
+<a id="geoshape-box"></a>
+A GeoShape box defines a rectangular area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. The coordinate reference system is assumed to be WGS 84. Point locations are comma-delimited tuples of {latitude, east longitude} (y, x), following WKT and GeoSparQL conventions; the two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' corner is 39.3280/120.1633 and 'upper-right' corner is 40.445/123.7878
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
 
-The defined spatial coverages are inadequate for the needs of our community, but we also recognize that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
+NOTES: Special care must be taken for bounding boxes that cross the 180 longitude meridian (the antimeridian); many spatial data processors will not correctly interpret the bounding coordinates even if they follow the southwest, northeast corner convention, resulting in boxes that span the circumference of the Earth, excluding the actual area of interest. For applications operating with data in the vicinity of longitude 180, testing is strongly recommended to determine if it works for bounding boxes crossing the antimeridian (+/- 180); an alternative is to define two bounding boxes, one on each side of 180.
 
-We also recognize that there is no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned.
+East longitude values can be reported 0 <= X <= 360 or -180 <= X <= 180. Some applications will fail under one or the other of these conventions. Recommendation is to use -180 <= X <= 180.  Following this recommendation, bounding boxes that cross the antimeridian at ±180° longitude, the West longitude value will be numerically greater than the East longitude value. For example, to describe Fiji the box might be
+<pre>
+  <strong>"box": "-19,176 -15,-178"</strong>
+</pre>
+
+We recognize that the defined spatial coverages are inadequate in some cases for the needs of our community, but that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
 
 <a id="spatial_multiple-geometries"></a>
 If you have multiple geometries, you can publish those by making the [schema:geo](https://schema.org/geo) field an array of [GeoShape](https://schema.org/GeoShape) or [GeoCoordinates](https://schema.org/GeoCoordinates) like so:
@@ -662,7 +668,9 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). Schema.org has no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned. 
+
+In the mean time, to represent an SRS in schema.org, we recommend using the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
