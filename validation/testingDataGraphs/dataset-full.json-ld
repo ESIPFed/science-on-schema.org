@@ -1,6 +1,6 @@
 {
    "@context":{
-      "@vocab":"https://schema.org/",
+      "@vocab":"http://schema.org/",
       "gdx":"https://geodex.org/voc/",
       "datacite":"http://purl.org/spar/datacite/",
       "earthcollab":"https://library.ucar.edu/earthcollab/schema#",
