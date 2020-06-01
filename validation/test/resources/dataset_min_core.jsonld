@@ -1,0 +1,112 @@
+{
+  "@context":{
+    "@vocab":"http://schema.org/",
+    "@base": "https://science-on-schema.org/test/data/"
+  },
+  "@graph": [
+    {
+      "@id": "./ds-min-01",
+      "@type": "Dataset",
+      "name": "Bad version",
+      "description": "Fails because version not provided",
+      "identifier": "dataset_min.json-ld",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/ds-min-01.jsonld",
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-01.jsonld"
+    },
+    {
+      "@id": "./ds-min-02",
+      "@type": "Dataset",
+      "xname": "No name",
+      "description": "Fails because dataset should have a name property",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/ds-min-02.jsonld",
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-02.jsonld"
+    },
+    {
+      "@id": "./ds-min-03",
+      "@type": "Dataset",
+      "name": "No description",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/ds-min-03.jsonld",
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-03.jsonld"
+    },
+    {
+      "@id": "./ds-min-04",
+      "@type": "Dataset",
+      "name": "No keywords",
+      "description": "Fails because there is not keywords property",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/ds-min-04.jsonld",
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-04.jsonld"
+    },
+    {
+      "@id": "./ds-min-05",
+      "@type": "Dataset",
+      "name": "No isAccessibleForFree",
+      "description": "Fails because there is no isAccessibleForFree property",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "url": "https://science-on-schema.org/test/data/ds-min-04.jsonld",
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-04.jsonld"
+    },
+    {
+      "@id": "./ds-min-06",
+      "@type": "Dataset",
+      "name": "No url",
+      "description": "Fails because there is no url property",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "keywords": ["test", "dataset"],
+      "sameAs": "https://science-on-schema.org/test/data/ds-min-06.jsonld"
+    },
+    {
+      "@id": "./ds-min-07",
+      "@type": "Dataset",
+      "name": "No sameAs",
+      "description": "Fails because there is no sameAs property",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "keywords": ["test", "dataset"],
+      "url": "https://science-on-schema.org/test/data/ds-min-04.jsonld"
+    },
+    {
+      "@id": "./ds-min-08",
+      "@type": "Dataset",
+      "name": "No identifier",
+      "description": "Fails because there is no identifier",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/dataset_min.json-ld",
+      "sameAs": "https://science-on-schema.org/test/data/dataset_min.json-ld"
+    },
+    {
+      "@id": "./ds-min-09",
+      "@type": "Dataset",
+      "name": "Wrong identifier type",
+      "description": "Fails because identifier is not a Literal, URL, or PropertyValue",
+      "identifier": {
+        "@id": "https://science-on-schema.org/test/data/dataset_min.json-ld",
+        "@type": "@id"
+      },
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/data/dataset_min.json-ld",
+      "sameAs": "https://science-on-schema.org/test/data/dataset_min.json-ld"
+    }
+  ]
+}
