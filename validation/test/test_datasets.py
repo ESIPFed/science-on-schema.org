@@ -44,7 +44,7 @@ SH_failureCount = pyshacl.consts.SH.term("failureCount")
 SH_shapesApplied = pyshacl.consts.SH.term("shapesApplied")
 
 SO = rdflib.namespace.Namespace("http://schema.org/")
-SOSOT = rdflib.namespace.Namespace("https://science-on-schema.org/test/data/")
+SOSOT = rdflib.namespace.Namespace("https://science-on-schema.org/test/resources/")
 
 # The structure of the shape graph is such that it describes the class hierarchy
 # needed for some of the tests
@@ -62,44 +62,44 @@ TESTCASES = [
     ),
     (
         "shapegraphs/soso_common_v1.2.0.ttl",
-        "test/resources/dataset_min_ns.jsonld",
+        "test/resources/dataset_ns.jsonld",
         {
             "failures": [
                 {
-                    "focusNode": SOSOT.term("ds-min-ns-01"),
-                    "resultPV": SOSOT.term("ds-min-ns-01"),
+                    "focusNode": SOSOT.term("dataset_ns.jsonld#ds-ns-01"),
+                    "resultPV": SOSOT.term("dataset_ns.jsonld#ds-ns-01"),
                 },
                 {
-                    "focusNode": SOSOT.term("ds-min-ns-02"),
-                    "resultPV": SOSOT.term("ds-min-ns-02"),
+                    "focusNode": SOSOT.term("dataset_ns.jsonld#ds-ns-02"),
+                    "resultPV": SOSOT.term("dataset_ns.jsonld#ds-ns-02"),
                 },
                 {
-                    "focusNode": SOSOT.term("ds-min-ns-03"),
-                    "resultPV": SOSOT.term("ds-min-ns-03"),
+                    "focusNode": SOSOT.term("dataset_ns.jsonld#ds-ns-03"),
+                    "resultPV": SOSOT.term("dataset_ns.jsonld#ds-ns-03"),
                 },
             ]
         },
     ),
     (
         "shapegraphs/soso_common_v1.2.0.ttl",
-        "test/resources/dataset_min_core.jsonld",
+        "test/resources/dataset_core.jsonld",
         {
             "failures": [
-                {"focusNode": SOSOT.term("ds-min-01"), "resultPV": SO.term("version")},
-                {"focusNode": SOSOT.term("ds-min-02"), "resultPV": SO.term("name")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-01"), "resultPV": SO.term("version")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-02"), "resultPV": SO.term("name")},
                 {
-                    "focusNode": SOSOT.term("ds-min-03"),
+                    "focusNode": SOSOT.term("dataset_core.jsonld#ds-core-03"),
                     "resultPV": SO.term("description"),
                 },
-                {"focusNode": SOSOT.term("ds-min-04"), "resultPV": SO.term("keywords")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-04"), "resultPV": SO.term("keywords")},
                 {
-                    "focusNode": SOSOT.term("ds-min-05"),
+                    "focusNode": SOSOT.term("dataset_core.jsonld#ds-core-05"),
                     "resultPV": SO.term("isAccessibleForFree"),
                 },
-                {"focusNode": SOSOT.term("ds-min-06"), "resultPV": SO.term("url")},
-                {"focusNode": SOSOT.term("ds-min-07"), "resultPV": SO.term("sameAs")},
-                {"focusNode": SOSOT.term("ds-min-08"), "resultPV": SO.term("identifier")},
-                {"focusNode": SOSOT.term("ds-min-09"), "resultPV": SO.term("identifier")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-06"), "resultPV": SO.term("url")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-07"), "resultPV": SO.term("sameAs")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-08"), "resultPV": SO.term("identifier")},
+                {"focusNode": SOSOT.term("dataset_core.jsonld#ds-core-09"), "resultPV": SO.term("identifier")},
             ]
         },
     ),
@@ -147,6 +147,7 @@ def _loadGraph(fname):
 # ===========
 # Tests
 
+
 # pytest will run this test with each of the tuples in TESTCASES
 @pytest.mark.parametrize("shacl_source, data_source, expected", TESTCASES)
 def test_shacl(shacl_source, data_source, expected):
@@ -169,6 +170,7 @@ def test_shacl(shacl_source, data_source, expected):
     expected_failures = expected.get("failures", [])
     assert failure_count.value == len(expected_failures)
     for result in result_graph.objects(None, SH_result):
+        print(f"RESULT: {result}")
         is_expected = False
         # get the sourceShape
         ss = next(result_graph.objects(result, SH_sourceShape))
@@ -179,6 +181,8 @@ def test_shacl(shacl_source, data_source, expected):
             tr = next(result_graph.objects(result, SH_resultPath))
         except StopIteration:
             tr = next(result_graph.objects(result, SH_value))
+        print(f"RESULT: {result}  SS: {ss}  FN: {fn}")
+
         for failure in expected_failures:
             if failure["resultPV"] == tr and failure["focusNode"] == fn:
                 is_expected = True

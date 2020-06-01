@@ -1,0 +1,52 @@
+{
+  "@context":{
+    "@vocab":"http://schema.org/",
+    "@base": "https://science-on-schema.org/test/resources/dataset_ns.jsonld"
+  },
+  "@graph": [
+    {
+      "@context": {
+        "@vocab": "https://schema.org/"
+      },
+      "@id": "#ds-ns-01",
+      "@type": "Dataset",
+      "name": "Bad namespace",
+      "description": "Fails because Dataset is not in schema.org namespace (https)",
+      "identifier": "dataset_min.json-ld",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_ns.jsonld#ds-ns-01",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_ns.jsonld#ds-ns-01"
+    },
+    {
+      "@context": {
+        "@vocab": "http://schema.org"
+      },
+      "@id": "#ds-ns-02",
+      "@type": "Dataset",
+      "xname": "No name",
+      "description": "Fails because Dataset is not in schema.org namespace (no trailing slash)",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_ns.jsonld#ds-ns-02",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_ns.jsonld#ds-ns-02"
+    },
+    {
+      "@context": {
+        "@vocab": "https://schema.org"
+      },
+      "@id": "#ds-ns-03",
+      "@type": "Dataset",
+      "name": "No description",
+      "description": "Fails because Dataset is not in schema.org namespace (https, no trailing slash)",
+      "identifier": "dataset_min.json-ld",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_ns.jsonld#ds-ns-03",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_ns.jsonld#ds-ns-03"
+    }
+  ]
+}
