@@ -614,7 +614,7 @@ All other shapes, are defined using the [schema:GeoShape](https://schema.org/Geo
     "@type": "Place",
     "geo": {
       "@type": "GeoShape",
-      "line": "39.3280,120.1633 40.445,123.7878"
+      "line": "39.3280 120.1633 40.445 123.7878"
     }
   }</strong>
 }
@@ -626,7 +626,7 @@ A polygon
 </pre>
 
 <a id="geoshape-box"></a>
-A GeoShape box defines a rectangular area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. The coordinate reference system is assumed to be WGS 84. Point locations are comma-delimited tuples of {latitude, east longitude} (y, x), following WKT and GeoSparQL conventions; the two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' corner is 39.3280/120.1633 and 'upper-right' corner is 40.445/123.7878
+A GeoShape box defines a rectangular area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. The coordinate reference system is assumed to be WGS 84. Point locations are tuples of {latitude  east-longitude} (y, x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
@@ -635,7 +635,7 @@ NOTES: Special care must be taken for bounding boxes that cross the 180 longitud
 
 East longitude values can be reported 0 <= X <= 360 or -180 <= X <= 180. Some applications will fail under one or the other of these conventions. Recommendation is to use -180 <= X <= 180.  Following this recommendation, bounding boxes that cross the antimeridian at ±180° longitude, the West longitude value will be numerically greater than the East longitude value. For example, to describe Fiji the box might be
 <pre>
-  <strong>"box": "-19,176 -15,-178"</strong>
+  <strong>"box": "-19 176 -15 -178"</strong>
 </pre>
 
 We recognize that the defined spatial coverages are inadequate in some cases for the needs of our community, but that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
@@ -674,7 +674,7 @@ In the mean time, to represent an SRS in schema.org, we recommend using the `[sc
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
-| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
+| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#lat_long     |
 | CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
 
 A spatial reference system can be added in this way:
@@ -692,15 +692,17 @@ A spatial reference system can be added in this way:
     "@type": "Place",
     "geo": {
       "@type": "GeoShape",
-      "line": "39.3280,120.1633 40.445,123.7878"
+      "line": "39.3280 120.1633 40.445 123.7878"
     },
     <strong>"additionalProperty": {
       "@type": ["PropertyValue", "dbpedia:Spatial_reference_system"],
-      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      "@id": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
     }</strong>
   }
 }
 </pre>
+
+Note that only GeoCoordinates representation should be used with CRS84 to avoid confusion, because that reference system specifies longitude/latitude coordinate ordering. 
 
 Back to [top](#top)
 
