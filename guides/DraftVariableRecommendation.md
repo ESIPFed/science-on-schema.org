@@ -17,7 +17,8 @@ The framework for this discussion is a data object ('type', 'entity', 'object', 
 
 A attribute is anchored by a primary observed property, typically a phenomenon concept, and might be more narrowly scoped by concepts such as its value type (e.g. numeric or categorical) and range, feature-of-interest, unit of measurement for reported values, aggregate functions (e.g. average, maximum), or measurement method (Including sensor or device used). Reported values are commonly indirectly linked to a feature of interest through a sampling feature, which has a location that might be defined by geospatial coordinates and/or relationship to the feature of interest (e.g. 10 m above ground surface). Individual result values are obtained by some agent at a particular time.  Examples of attributes are ‘Methane mass, daily formation rate per unit of sediment mass’, ‘Practical salinity of water body by CTD and computation using UNESCO 1983 algorithm’.
 
-Current Science on schema.org recommendation is to document variables like this:
+Current Science on schema.org recommendation.
+A schema:Dataset can have 0 to many schema:variableMeasured property elements. Each field in a table, or element in an object can be considered a variableMeasure.  The range of variableMeasured is text or [schema:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [schema:Thing](https://schema.org/Thing), and adds these: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example variable descriptions:
 
 **Example 1**
 ```
@@ -47,13 +48,26 @@ Current Science on schema.org recommendation is to document variables like this:
 ``` 
 
 ## How are attributes (variables) defined
-CF standard name structure:
-[surface][component]base_quantity [at surface][in medium][due to process][assuming condition].
-
-[Scientific Variables Ontology (SVO)](http://www.geoscienceontology.org/svo/1.0.0/) is a blueprint outlining the required and optional components for creating a machine-interpretable scientific variable concept, similar to the structure for a CF standard name. SVO does not provide a vocabulary of measured variables based on this ontology. 
 
 
-From ENVO (Via Kai Blumberg)
+### CF standard name structure:
+
+Based on [Guidelines for Construction of CF Standard Names](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html).  A standard name is constructed by joining a base standard name to  qualifiers using underscores.
+[surface] [component] standard_name [at surface] [in medium] [due to process] [assuming condition]
+
+[surface](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#surface). A surface is defined as a function of horizontal position.
+[component](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#component). The direction of the spatial component of a vector is indicated by one of the words upward, downward, northward, southward, eastward, westward, x, y.
+base_quantity. a standard name from the [CF standard names table](https://cfconventions.org/standard-names.html).
+at [surface](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#surface).
+in [medium](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#medium). A medium indicates the local medium or layer within which an intensive quantity applies
+due to [process](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#process). The specification of a physical process. 
+assuming [condition](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#condition). The named quantity is the value which would obtain if all aspects of the system were unaltered except for the assumption of the circumstances specified by the condition
+
+### [Scientific Variables Ontology (SVO)](http://www.geoscienceontology.org/svo/1.0.0/)
+A blueprint outlining the required and optional components for creating a machine-interpretable scientific variable concept, similar to the structure for a CF standard name. SVO does not provide a vocabulary of measured variables based on this ontology. 
+
+### ENVO 
+from Kai Blumberg
 - Entity: e.g., sediment or rock [Feature of interest]
 - Characteristic/Quality: e.g., depth of sediment (we can create entity quality pairings like this in ENVO using sediment and PATO:depth in the axiom). [Property]
 - Standard/Unit: e.g., meter
@@ -67,7 +81,7 @@ From ENVO (Via Kai Blumberg)
 The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. Categorical, ordinal, boolean, and unstructured (text, audio, video, image) values need to be described.  
 
 ## Range for categorical property value
-For non-numeric values, there is no mechanism to express the domain of allowed values. 
+For non-numeric values, there is no mechanism to express the domain of allowed values, e.g. an identifier for a controlled vocabulary used to populate a variable's values.
 
 ## Source for property URIs to use in the sdo:propertyID field. 
 ### CF names 
