@@ -1,5 +1,28 @@
 # Describing variables in datasets using schema.org
 
+## Goal:
+Describe datasets for discovery, evaluation, and access
+### For discovery 
+- basic dataset name, description and keywords are a good start.
+- Goal is to add information about the variables that are specified for data items in the dataset to support deeper search, tier 1 is variable name and a URI referencing some authority.
+### For evaluation
+Need to know something about
+- Measurement technique
+- Data quality (precision, accuracy, validation procedures…)
+- Value range in data
+- Units of measure
+- Value Types—data types including e.g. simple literals (integer, decimal, float, text), links, structured objects, binary objects (image, audio, video)
+- Observation context -- many datasets can benefit from some environmental contextualization. Some relevant properties include:
+  - biome (arctic tundra) where the dataset was collected
+  - habitat (thermokarst) where the dataset was collected;
+  - environmental feature that was sampled (thaw lake) [sampling feature and feature of interest?]
+  - environmental material that was sampled (talik).
+These might be Properties that apply to the entire Dataset, or to a specific variableMeasured within a Dataset as environmental feature and environmental materials may vary across measurements within a dataset.  
+The properties specifying context should have values of (at least?) name and URL
+
+### For Access
+Distribution information to access the data is out of scope for this discussion. 
+
 ## Background
 The description of measured variables for a dataset is an outstanding problem. A first order issue is the name of the property in schema.org. The label  'schema:variableMeasured' has the connotation of a quantitative (numeric) value. In the spectrum of scientific activity, the fields (for lack of a better term...) in a dataset might represent the result of any kind of observation, ranging from the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a recording of an interview with a human subject or the sounds made by a bird or whale...   In this broader interpretation of what the records in a dataset might contain, a different label for this property would be appropriate.  'attribute' is the the label that will be used in this discussion. 
 
@@ -9,16 +32,18 @@ In the schema.org description of a dataset, the sdo:Dataset typically represents
 Issues include:
 
 - What level of granularity? Variables can be described at a conceptual level, a logical level, or an implementation (physical level).  Each of these description approaches addresses different use cases.
-- How much of the conceptual model for a variable instance should be explicitly included in a schema.org dataset description? 
-- What ontologies should be recommended to link variables for semantically precise description?
-- How to deal with datasets that contain recorded interviews, sound recordings (e.g. whale song), other 'unstructured' content. 
+- How much of the conceptual model for a variable instance (see How are attributes (variables) defined, below) should be explicitly included in a schema.org dataset description? 
+- What ontologies should be recommended to link variables (schema:PropertyValue/schema/propertyID) for semantically precise description?
+- How to deal with datasets that contain recorded interviews, sound recordings (e.g. whale song), other unstructured (blob) or structured (object, relational, KVP...) content. 
 
-The framework for this discussion is a data object ('type', 'entity', 'object', etc.) that has a collection of attributes, each representing an observation result for some property. Each attribute has a range for valid values, and a cardinality that constrains the number of values associated with each data object instance. The atributes have a conceptual level definition that might be a complex object, and can have one or more implementations in particular representations. Description and documentation of the conceptual level is important for interfaces through which domain practitioners interact with data. Search at this level might involve criteria 'find data that report calcium ion concentration in river water', or 'data that contain soil porosity measurements'. Description and documentation of the implementation level is important for software systems that automate operations on the data.  
+The framework for this discussion is a data object ('type', 'entity', 'object', etc.) that has a collection of attributes, each representing an observation result for some property. A typical dataset is a collection of instance descriptions of particular data objects. Ideally all the attributes in a data object instance are about that data object. In practice we see attributes that are metadata about other attributes, e.g. units of measure, observation context, measurement method. 
 
-A attribute is anchored by a primary observed property, typically a phenomenon concept, and might be more narrowly scoped by concepts such as its value type (e.g. numeric or categorical) and range, feature-of-interest, unit of measurement for reported values, aggregate functions (e.g. average, maximum), or measurement method (Including sensor or device used). Reported values are commonly indirectly linked to a feature of interest through a sampling feature, which has a location that might be defined by geospatial coordinates and/or relationship to the feature of interest (e.g. 10 m above ground surface). Individual result values are obtained by some agent at a particular time.  Examples of attributes are ‘Methane mass, daily formation rate per unit of sediment mass’, ‘Practical salinity of water body by CTD and computation using UNESCO 1983 algorithm’.
+In a data schema, each attribute has a range for valid values, and a cardinality that constrains the number of values associated with each data object instance. The atributes have a conceptual level definition that might be a complex object (see How are attributes (variables) defined, below), and can have one or more physical implementations in different datasets. Description and documentation of the conceptual level is important for interfaces through which domain practitioners interact with data. Search at this level might involve criteria 'find data that report calcium ion concentration in river water', or 'data that contain soil porosity measurements'. Description and documentation of the implementation level is important for software systems that automate operations on the data. Evaluation of fitness for use at this level might involve criteria like 'temperatures are reported as decimal numbers in degrees Kelvin'.  
+
+A attribute is anchored by a primary observed property, typically a property concept that might be identified in a resource like [SWEET](http://sweetontology.net/prop/Property) or [CF standard name table]( https://cfconventions.org/Data/cf-standard-names/73/src/cf-standard-name-table.xml).  In a registry, variables for a property might be more narrowly scoped by concepts such as its value type (e.g. numeric or categorical) and range, feature-of-interest, unit of measurement for reported values, aggregate functions (e.g. average, maximum), or measurement method (Including sensor or device used). Reported values are commonly indirectly linked to a feature of interest through a sampling feature, which has a location that might be defined by geospatial coordinates and/or relationship to the feature of interest (e.g. 10 m above ground surface). Individual result values are obtained by some agent at a particular time.  Examples of attributes are ‘Methane mass, daily formation rate per unit of sediment mass’, ‘Practical salinity of water body by CTD and computation using UNESCO 1983 algorithm’.
 
 Current Science on schema.org recommendation.
-A schema:Dataset can have 0 to many schema:variableMeasured property elements. Each field in a table, or element in an object can be considered a variableMeasure.  The range of variableMeasured is text or [schema:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [schema:Thing](https://schema.org/Thing), and adds these: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example variable descriptions:
+A [schema:Dataset](https://schema.org/Dataset) can have 0 to many [schema:variableMeasured](https://schema.org/variableMeasured) property elements. Each field in a table, or element in an object can be considered a variableMeasure.  The range of schema:variableMeasured is text or [schema:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [schema:Thing](https://schema.org/Thing), and adds these properties: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example variable descriptions:
 
 **Example 1**
 ```
@@ -49,7 +74,6 @@ A schema:Dataset can have 0 to many schema:variableMeasured property elements. E
 
 ## How are attributes (variables) defined
 
-
 ### CF standard name structure:
 
 Based on [Guidelines for Construction of CF Standard Names](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html).  A standard name is constructed by joining a base standard name to  qualifiers using underscores.
@@ -64,7 +88,7 @@ due to [process](http://cfconventions.org/Data/cf-standard-names/docs/guidelines
 assuming [condition](http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#condition). The named quantity is the value which would obtain if all aspects of the system were unaltered except for the assumption of the circumstances specified by the condition
 
 ### [Scientific Variables Ontology (SVO)](http://www.geoscienceontology.org/svo/1.0.0/)
-A blueprint outlining the required and optional components for creating a machine-interpretable scientific variable concept, similar to the structure for a CF standard name. SVO does not provide a vocabulary of measured variables based on this ontology. 
+A blueprint outlining the required and optional components for creating a machine-interpretable scientific variable concept, similar to the structure for a CF standard name. The fundamental premise of the ontology is that both a Phenomenon and a Property are needed to fully describe a variable.  
 
 ### ENVO 
 from Kai Blumberg
@@ -74,14 +98,13 @@ from Kai Blumberg
 - Measurement technique or protocol
 - Additional environmental context concept to describe the environment where the measurement was made e.g., tundra biome, mine
 
-
 # Issues:
 
 ## Data type for PropertyValue
-The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. Categorical, ordinal, boolean, and unstructured (text, audio, video, image) values need to be described.  
+The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. Categorical, ordinal, boolean, structured (object, relational), and unstructured (text, audio, video, image) values need to be in scope.  
 
 ## Range for categorical property value
-For non-numeric values, there is no mechanism to express the domain of allowed values, e.g. an identifier for a controlled vocabulary used to populate a variable's values.
+For non-numeric values, there is no mechanism to express the range of allowed values, e.g. an identifier for a controlled vocabulary used to populate a variable's values.
 
 ## Source for property URIs to use in the sdo:propertyID field. 
 ### CF names 
@@ -93,20 +116,23 @@ SWEET has a set of property labels with some hierarchical structure providing we
 ### LTER Measurements
 https://vocab.lternet.edu/vocab/vocab/index.php?tema=667&/measurements. A word net, similar to SWEET, but doesn't provide URI or definition.  All term URIs are query fragments on the 'vocab/index.php' resource.
 
+### Structured Variable ontology (SVO)
+SVO does not provide a vocabulary of measured variables based on its model.
+
 
 # Recommendations
 
 schema.org is not designed as an ontology to describe scientific data. It is intended to support basic data discovery and initial evaluation. The PropertyValue entity in schema.org provides a basic framework for  description of variables. For many purposes, the PropertyID specified in a schema:ProperyValue instance can be a URI that references an in-depth property description such as that included with CF names, or a Scientific Variables Ontology instance. Communities can define standard reference resources that provide variable definitions to be used for information interchange. 
 
 For situations where it is not practical to have a registry of variable definitions, there are two options. 
-1. Other schema.org properties like measurementTechnique and valueReference. If standard measurement protocols are defined an registered, these can be identified via http URI's in the measurementTechnique.  Other properties of the measurement could be included as valueReference/PropertyValue instances in the variableMeasured property. 
+1. Use other schema.org properties like measurementTechnique and valueReference. If standard measurement protocols are defined an registered, these can be identified via http URI's in the measurementTechnique.  Other properties of the measurement could be included as valueReference/PropertyValue instances in the variableMeasured property. 
 1. Take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other vocabulary, e.g. SVO, SSN, DDI in the PropertyValue instance.
 
-Either of these extension mechanisms would only be interoperable in the context of a profile that is known to clients parsing the schema.org instance. The dcat:conformsTo property should be asserted in the schema:Dataset to identify the profile used for extending the PropertyValue description. 
+Either of these extension mechanisms would only be interoperable in the context of a profile that is known to clients parsing the schema.org instance. The dcat:conformsTo property should be asserted in the schema:Dataset to identify the profile (if any) used for extending the PropertyValue description. 
 
 Do we need to allow for different profiles used on different variables....??? I don't think so, but if so the dcat:conforms to would need to be asserted on each PropertyValue that is extended.  This might be a recommended extension pattern for any element.
 
 ## Suggested updates to schema.org
 - schema:variableMeasured should be renamed schema:attribute to clarify that narrow interpretation as a numeric result is not intended. 
-- Add a rangeConstraint property on schema:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for. Categorical ranges could be expressed as a URI for the vocabualary used to populate values. Other more complex range constraints might need to be expressed as text or via URI.
+- Add a rangeConstraint property on schema:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for. Categorical ranges could be expressed as a URI for the vocabualary used to populate values. Other more complex range constraints might need to be expressed as text or via URI. Could define hasDefinedTermSet with [schema:DefinedTermSet](https://schema.org/DefinedTermSet) as the value
 - Add a valueType property on schema:PropertyValue; controlled vocabulary (or URI) that specifies the kind of value-- numeric, text, categorical, audio, video, boolean, object, binary....
