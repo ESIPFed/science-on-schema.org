@@ -1,10 +1,10 @@
 # Describing variables in datasets using schema.org
 
 ## Goal:
-Describe datasets for discovery, evaluation, and access
+Goal is to add information about the variables that are specified for data items in the dataset to enhance discovery and evaluation of the dataset.
 ### For discovery 
-- basic dataset name, description and keywords are a good start.
-- Goal is to add information about the variables that are specified for data items in the dataset to support deeper search, tier 1 is variable name and a URI referencing some authority.
+- Variable name, and description are basic information that should always be included.
+- A URI from some known authority that uniquely identifies the variable can greatly improve interoperability and avoid ambiguity in identifying the variable.
 ### For evaluation
 Need to know something about
 - Measurement technique
@@ -12,26 +12,24 @@ Need to know something about
 - Value range in data
 - Units of measure
 - Value Types—data types including e.g. simple literals (integer, decimal, float, text), links, structured objects, binary objects (image, audio, video)
-- Observation context -- many datasets can benefit from some environmental contextualization. Some relevant properties include:
-  - biome (arctic tundra) where the dataset was collected
-  - habitat (thermokarst) where the dataset was collected;
-  - environmental feature that was sampled (thaw lake) [sampling feature and feature of interest?]
-  - environmental material that was sampled (talik).
-These might be Properties that apply to the entire Dataset, or to a specific variableMeasured within a Dataset as environmental feature and environmental materials may vary across measurements within a dataset.  
-The properties specifying context should have values of (at least?) name and URL
+- Observation context -- many datasets can benefit from some context information. These might be Properties that apply to the entire Dataset, or to a specific variableMeasured within a Dataset as environmental feature and environmental materials may vary across measurements within a dataset.  The properties specifying context should have values of (at least?) name and URL. Some relevant property examples:
+  - biome (e.g. arctic tundra) where the dataset was collected
+  - habitat (e.g. thermokarst) where the dataset was collected;
+  - the feature that was sampled (e.g.thaw lake) [sampling feature and feature of interest?]
+  - material that was sampled (talik).
 
-### For Access
-Distribution information to access the data is out of scope for this discussion. 
+
 
 ## Background
 
 Description of the variables measured within a dataset is essential for finding and retrieving measurements of interest.  How to best do this within the schema.org vocabulary using the "schema:variableMeasured" property, however, remains an outstanding problem. 
 
-The label 'schema:variableMeasured' has the connotation of a quantitative (numeric) value. In the spectrum of scientific activity, however, the fields (for lack of a better term...) in a dataset might represent the result of any kind of observation, ranging from the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a recording of an interview with a human subject or the sounds made by a bird or whale...In this broader interpretation of what the records in a dataset might represent, there may also be a need for a more generic label for this property, that differentiates "attributes" that are "measured" in a conventional sense, from those whose values result from "assignment" or "classification".  'attribute' is the generic label that will be used in this discussion, recognizing that 'attributes' themselves rarely are sufficient to understand a 'value'-- as there is some 'entity' or 'phenomenon' {person | plot | leaf_litter | climate_change} that is carrying that 'attribute' { ORCID_ID | spatial_area | dry_weight | global_mean_air_temperature}. 
+The label 'schema:variableMeasured' has the connotation of a quantitative (numeric) value. In the spectrum of scientific activity, however, the fields (for lack of a better term...) in a dataset might represent the result of any kind of observation, ranging from the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a recording of an interview with a human subject or the sounds made by a bird or whale...  In this broader interpretation of what the variables in a dataset might represent, there may also be a need for a more generic label for this property, that differentiates "attributes" that are "measured" in a conventional sense, from those whose values result from "assignment" or "classification".  'attribute' is the generic label that will be used in this discussion, recognizing that 'attributes' themselves rarely are sufficient to understand a 'value'-- as there is some 'entity' or 'phenomenon' {person | plot | leaf_litter | climate_change} that is carrying that 'attribute' { ORCID_ID | spatial_area | dry_weight | global_mean_air_temperature}. 
 
-In the schema.org description of a dataset, the sdo:Dataset (https://schema.org/Dataset)typically represents the data object, usually with a strong but non-absolute assumption that it is a "set" of data, rather than a singular instance or datum. The attributes of this sdo:Dataset can be described using sdo:variableMeasured/[sdo:PropertyValue](https://schema.org/PropertyValue). Each record in the dataset (e.g. in the case of a table) describes an instance or individual observation of an "observable property" of a "feature of interest" (to use terminology from W3C's SSN/SOSA ontology for Observations and Measurements) .  Or as noted above, the "observable property" might result from a category assignment ("Chinook salmon"; "Kuskokwim River"), be a researcher's name, or consist of an arbitrarily-assigned ('Specimen 23') or deterministic identifier (e.g. value of a SHA-2 hash)
+A [schema:Dataset](https://schema.org/Dataset) typically represents a data object, usually with a strong but non-absolute assumption that it is a "set" of records, rather than a singular instance or datum. We will used the term 'record' to refer to the individual items that are members of a dataset. Each record in the dataset  describes an instance of some entity. These records might be rows in a table, objects in an object store, or graph fragments. There is a great deal of variability in how records in a dataset are constructed, i.e. what is the unifying entity the motivates grouping a set of attributes in a record. Commonly this unifying entity is a sampled feature, a particular location (in space or time), or some individual.  In simple cases the attributes might each specify a property that inheres in the entity that the record is about. A dataset record commonly includes some attributes that are about the record, e.g. a primary key, creation date/time, who created the record. Complex data records might also include attributes that are about other attributes, e.g. units of measure, instrument used, observer name, or context information specific to a particular attribute value. 
+Attribute values might be the result from a category assignment ("Chinook salmon"; "Kuskokwim River"), be a researcher's name, or consist of an arbitrarily-assigned ('Specimen 23') or deterministic identifier (e.g. value of a SHA-2 hash)
 
-Issues include:
+Some of the characteristics of attributes of an sdo:Dataset can be described using sdo:variableMeasured/[sdo:PropertyValue](https://schema.org/PropertyValue).  There a number of issues:
 
 - What level of granularity/detail of 'variableMeasured' is necessary or sufficient for effective discovery and re-use of those data? Variables can be described at a conceptual level, a logical level, or an implementation (physical level).  Each of these description approaches addresses different use cases.
 - How much of the conceptual model for a variable instance should be explicitly included in a schema.org dataset description? 
