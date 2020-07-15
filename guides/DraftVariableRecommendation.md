@@ -24,10 +24,11 @@ The properties specifying context should have values of (at least?) name and URL
 Distribution information to access the data is out of scope for this discussion. 
 
 ## Background
-The description of measured variables for a dataset is an outstanding problem. A first order issue is the name of the property in schema.org. The label  'schema:variableMeasured' has the connotation of a quantitative (numeric) value. In the spectrum of scientific activity, the fields (for lack of a better term...) in a dataset might represent the result of any kind of observation, ranging from the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a recording of an interview with a human subject or the sounds made by a bird or whale...   In this broader interpretation of what the records in a dataset might contain, a different label for this property would be appropriate.  'attribute' is the the label that will be used in this discussion. 
+schema.org is intended to support basic data discovery and initial evaluation; it is not designed as an ontology to describe scientific data. The schema:variableMeasured/schema:PropertyValue entity provides a basic framework for  description of variables. The description of measured variables for a dataset is an outstanding problem. A first order issue is the name of the property in schema.org. The label  'schema:variableMeasured' has the connotation of a quantitative (numeric) value. In the spectrum of scientific activity, the fields (for lack of a better term...) in a dataset might represent the result of any kind of observation, ranging from the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a recording of an interview with a human subject or the sounds made by a bird or whale...   In this broader interpretation of what the records in a dataset might contain, a different label for this property would be appropriate.  'attribute' is the the label that will be used in this discussion. 
 
 In the schema.org description of a dataset, the sdo:Dataset typically represents the data object, and the attributes are described using sdo:variableMeasured/
-[sdo:PropertyValue](https://schema.org/PropertyValue). Each record in the dataset describes an instance or individual observation of a feature of interest.
+[sdo:PropertyValue](https://schema.org/PropertyValue). Each record in the dataset describes an instance or individual observation of some entity. 
+
 
 Issues include:
 
@@ -122,7 +123,7 @@ SVO does not provide a vocabulary of measured variables based on its model.
 
 # Recommendations
 
-schema.org is not designed as an ontology to describe scientific data. It is intended to support basic data discovery and initial evaluation. The PropertyValue entity in schema.org provides a basic framework for  description of variables. For many purposes, the PropertyID specified in a schema:ProperyValue instance can be a URI that references an in-depth property description such as that included with CF names, or a Scientific Variables Ontology instance. Communities can define standard reference resources that provide variable definitions to be used for information interchange. 
+For many purposes, the PropertyID specified in a schema:ProperyValue instance can be a URI that references an in-depth property description such as that included with CF names, or a Scientific Variables Ontology instance. Communities can define standard reference resources that provide variable definitions to be used for information interchange. 
 
 For situations where it is not practical to have a registry of variable definitions, there are two options. 
 1. Use other schema.org properties like measurementTechnique and valueReference. If standard measurement protocols are defined an registered, these can be identified via http URI's in the measurementTechnique.  Other properties of the measurement could be included as valueReference/PropertyValue instances in the variableMeasured property. 
