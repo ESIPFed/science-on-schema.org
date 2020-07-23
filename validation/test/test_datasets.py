@@ -170,7 +170,6 @@ def test_shacl(shacl_source, data_source, expected):
     expected_failures = expected.get("failures", [])
     assert failure_count.value == len(expected_failures)
     for result in result_graph.objects(None, SH_result):
-        print(f"RESULT: {result}")
         is_expected = False
         # get the sourceShape
         ss = next(result_graph.objects(result, SH_sourceShape))
@@ -181,8 +180,6 @@ def test_shacl(shacl_source, data_source, expected):
             tr = next(result_graph.objects(result, SH_resultPath))
         except StopIteration:
             tr = next(result_graph.objects(result, SH_value))
-        print(f"RESULT: {result}  SS: {ss}  FN: {fn}")
-
         for failure in expected_failures:
             if failure["resultPV"] == tr and failure["focusNode"] == fn:
                 is_expected = True
