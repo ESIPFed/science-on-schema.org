@@ -75,7 +75,7 @@ Back to [top](#top)
 
 ### Identifier
 
-Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field. 
+Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field.
 
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
@@ -86,7 +86,7 @@ Adding the [schema:identifier](https://schema.org/identifier) field can be done 
 
 Most identifiers have these properties:
 
-- a **value**, 
+- a **value**,
 - a **domain** or **scheme** (in which the value is guaranteed to be unique),
 - (optionally) a **resolvable URL** (where the thing being identified can be found),
 - (optionally) a **domain prefix** (a token string of characters succeeded by a colon ':' that represents the domain or scheme).
@@ -99,11 +99,11 @@ For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.50
 - **prefix**: `doi`
 
 **Q: Can't we just say the scheme is a 'DOI'?**  
-**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
+**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data).
 
-Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
+Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry).
 
-We can specify the **scheme** as being a DOI with this identifiers.org Registry URI: 
+We can specify the **scheme** as being a DOI with this identifiers.org Registry URI:
 
 [https://registry.identifiers.org/registry/doi](https://registry.identifiers.org/registry/doi)
 
@@ -126,7 +126,7 @@ Looking at the available fields from [schema:PropertyValue](https://schema.org/P
 - https://www.sciencebase.gov/catalog/item/56b3e649e4b0cc79997fb5ec
 
 For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
-	
+
 **Q: How do I know if an Identifier has a known prefix?**  
 **A:** Each Identifier in the identifiers.org Registry that has a known prefix will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
 
@@ -155,7 +155,7 @@ An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to 
 }
 </pre>
 
-Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI". 
+Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI".
 
 <pre>
 {
@@ -312,7 +312,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 }
 </pre>
 <a id="variables_external-vocab-example"></a>
-If a URI is available that identifies the variable, it should be included as the 
+If a URI is available that identifies the variable, it should be included as the
 [PropertyID](https://schema.org/propertyID):
 
 <pre>
@@ -376,7 +376,7 @@ Back to [top](#top)
 
 While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
-Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf). 
+Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf).
     - Or if a schema.org snippet describes the metadata as the main resource, then link to the Dataset it describes using [schema:about](https://schema.org/about).
 
 These two approaches are equivalent, and which is used depends on the subject of the schema.org record.
@@ -384,7 +384,7 @@ These two approaches are equivalent, and which is used depends on the subject of
 ![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
 
 Once the linkage has been made, further details about the metadata can be provided. We recommend using [schema:encodingFormat](https://schema.org/encodingFormat) to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
-We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc. 
+We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc.
 
 It can be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
 
@@ -1049,9 +1049,9 @@ We recommend providing provenance information about data processing workflows, d
 
 #### Indicating an earlier version: `prov:wasRevisionOf`
 
-- TODO: Create figure showing version relationsips
+![Prov_versions](/assets/diagrams/dataset/dataset_prov_revision.png "Dataset - Revisions")
 
-Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifer for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
+Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifier for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
 
 <pre>
 {
@@ -1075,9 +1075,7 @@ To indicate that a Dataset has been derived from a source Dataset, use the [`pro
 
 In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn`](https://schema.org/isBasedOn) property, which should be considered to be an equivalent property to `prov:wasDerivedFrom`. For compatibility with schema.org, we recommend that producers use `schema:isBasedOn` in addition to or instead of `prov:wasDerivedFrom` to indicate derivation relationships.
 
-- TODO: Create figure showing derivation relationsips
-- TODO: Add example SO entry
-
+![Prov_derived](/assets/diagrams/dataset/dataset_prov_derived.png "Dataset - Derivations")
 
 <pre>
 {
@@ -1096,9 +1094,10 @@ In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn
 
 #### Indicating a software workflow or processing activity: `prov:used` and `prov:wasGeneratedBy`
 
-- [ProvONE](https://purl.dataone.org/provone-v1-dev), which specializes PROV for reproducible software workflows, can be used to specify `provone:Program` and `provone:Execution` classes that result in derived products. This enables specification of a full software workflow, potentially in multiple steps, in which the execution of a `provone:Program` uses one or more `schema:Dataset`s as source data, and generates one or more `schema:Datasets` as derived outputs (which can be linked with `prov:wasDerivedFrom` as described above). The `prov:used` predicate links the source data to the `provone:Program` that used it, and the `prov:wasGeneratedBy` links the derived data to that same program that generated it. 
+![Prov_program](/assets/diagrams/dataset/dataset_prov_program.png "Dataset - Workflow")
 
-- TODO: Figure showing software workflow
+- [ProvONE](https://purl.dataone.org/provone-v1-dev), which specializes PROV for reproducible software workflows, can be used to specify `provone:Program` and `provone:Execution` classes that result in derived products. This enables specification of a full software workflow, potentially in multiple steps, in which the execution of a `provone:Program` uses one or more `schema:Dataset`s as source data, and generates one or more `schema:Datasets` as derived outputs (which can be linked with `prov:wasDerivedFrom` as described above). The `prov:used` predicate links the source data to the `provone:Program` that used it, and the `prov:wasGeneratedBy` links the derived data to that same program that generated it.
+
 - TODO: Add example SO entry
 
 Back to [top](#top)
