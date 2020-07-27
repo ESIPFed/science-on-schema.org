@@ -1049,7 +1049,7 @@ We recommend providing provenance information about data processing workflows, d
 
 #### Indicating an earlier version: `prov:wasRevisionOf`
 
-![Prov_versions](/assets/diagrams/dataset/dataset_prov_revision.png "Dataset - Revisions")
+![Prov_versions](/assets/diagrams/dataset/dataset_prov_revision.svg "Dataset - Revisions")
 
 Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifier for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
 
@@ -1075,7 +1075,7 @@ To indicate that a Dataset has been derived from a source Dataset, use the [`pro
 
 In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn`](https://schema.org/isBasedOn) property, which should be considered to be an equivalent property to `prov:wasDerivedFrom`. For compatibility with schema.org, we recommend that producers use `schema:isBasedOn` in addition to or instead of `prov:wasDerivedFrom` to indicate derivation relationships.
 
-![Prov_derived](/assets/diagrams/dataset/dataset_prov_derived.png "Dataset - Derivations")
+![Prov_derived](/assets/diagrams/dataset/dataset_prov_derived.svg "Dataset - Derivations")
 
 <pre>
 {
@@ -1094,7 +1094,7 @@ In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn
 
 #### Indicating a software workflow or processing activity: `prov:used` and `prov:wasGeneratedBy`
 
-![Prov_program](/assets/diagrams/dataset/dataset_prov_program.png "Dataset - Workflow")
+![Prov_program](/assets/diagrams/dataset/dataset_prov_program.svg "Dataset - Workflow")
 
 - [ProvONE](https://purl.dataone.org/provone-v1-dev), which specializes PROV for reproducible software workflows, can be used to specify `provone:Program` and `provone:Execution` classes that result in derived products. This enables specification of a full software workflow, potentially in multiple steps, in which the execution of a `provone:Program` uses one or more `schema:Dataset`s as source data, and generates one or more `schema:Datasets` as derived outputs (which can be linked with `prov:wasDerivedFrom` as described above). The `prov:used` predicate links the source data to the `provone:Program` that used it, and the `prov:wasGeneratedBy` links the derived data to that same program that generated it.
 
