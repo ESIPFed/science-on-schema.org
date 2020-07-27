@@ -1051,7 +1051,7 @@ We recommend providing provenance information about data processing workflows, d
 
 - TODO: Create figure showing version relationsips
 
-Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated. The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifer for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
+Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifer for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
 
 <pre>
 {
@@ -1059,20 +1059,40 @@ Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisio
     "@vocab": "https://schema.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "https://doi.org/10.xxxx/Dataset.v2",
+  "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"prov:wasRevisionOf": "https://doi.org/10.xxxx/Dataset.v1"</strong>
+  <strong>"prov:wasRevisionOf": "https://doi.org/10.xxxx/Dataset-2.v1"</strong>
   ...
 }
 </pre>
 
 #### Indicating a source dataset: `schema:isBasedOn` and `prov:wasDerivedFrom`
+
+A derived Dataset is one in which the values in the data are somehow related or created from the values in one or more source datasets. For example, raw voltage values from a sensor might be recorded in a raw data file, which is then processed through calibration functions to produce a derived dataset with values in scientific units. Other examples of derived data include data that has been error corrected, gap-filled, or integrated with other sources.
+
+To indicate that a Dataset has been derived from a source Dataset, use the [`prov:wasDerivedFrom`](https://www.w3.org/TR/prov-o/#wasDerivedFrom) property. This indicates that the current `schema:Dataset` was created in whole or in part from content in the source Dataset, and therefore does not represent an independent set of measurements.  The value of the `prov:wasDerivedFrom` should be the canonical IRI for the identifer for the source dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used. In addition, if a persistent identifier for a digital object within a Dataset is available, the `prov:wasDerivedFrom` may also be used to indicate that that digital object was derived from that particular source object, rather than the overall Dataset. This allows one to be more specific about the exact relationship between the source and derived data objects.
+
+In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn`](https://schema.org/isBasedOn) property, which should be considered to be an equivalent property to `prov:wasDerivedFrom`. For compatibility with schema.org, we recommend that producers use `schema:isBasedOn` in addition to or instead of `prov:wasDerivedFrom` to indicate derivation relationships.
+
 - TODO: Create figure showing derivation relationsips
-- [`schema:isBasedOn`](https://schema.org/isBasedOn).
-- `PROV-O` (http://www.w3.org/ns/prov#) predicate: `prov:wasRevisionOf`
-- `PROV-O` (http://www.w3.org/ns/prov#) predicate: including `prov:wasDerivedFrom`
 - TODO: Add example SO entry
+
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1.v1"</strong>
+  <strong>"schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1.v1"</strong>
+  ...
+}
+</pre>
 
 #### Indicating a software workflow or processing activity: `prov:used` and `prov:wasGeneratedBy`
 
