@@ -1041,9 +1041,9 @@ Back to [top](#top)
 
 ### Provenance Relationships
 
-High level relationships that link datasets based on their processing workflows and versioning relationships are critical for data consumers and search engines to link different versions of a [schema:Dataset](https://schema.org/Dataset), to clarify when a dataset is derived from one or more source Datasets, and to specify linkages to the software and activities that created these derived datasets.
+High level relationships that link datasets based on their processing workflows and versioning relationships are critical for data consumers and search engines to link different versions of a [schema:Dataset](https://schema.org/Dataset), to clarify when a dataset is derived from one or more source Datasets, and to specify linkages to the software and activities that created these derived datasets for reproducibility. Collectively, this is provenance information.
 
-The [PROV-O](https://www.w3.org/TR/prov-o/) recommendation provides the widely-adopted vocabulary for representing this type of information, and should be used within Dataset descriptions, as most of the necessary provenance properties are missing from schema.org. The main exception is [`schema:isBasedOn`](https://schema.org/isBasedOn), which provides a predicate for indicating that a Dataset was derived from one or more source Datasets. Producers and consumers should interpret `schema:isBasedOn` to be an equivalent property to `prov:wasDerivedFrom` (in the `owl:equivalentProperty` sense). Either is acceptable for representing derivation relationships, but there is utility in expressing the relationship with both predicates for consumers that might only be looking for one or the other. When other `PROV` predicates are used, it is preferred to use `prov:wasDerivedFrom` for consistency.
+The [PROV-O](https://www.w3.org/TR/prov-o/) recommendation provides the widely-adopted vocabulary for representing this type of provenance information, and should be used within Dataset descriptions, as most of the necessary provenance properties are currently missing from schema.org. The main exception is [`schema:isBasedOn`](https://schema.org/isBasedOn), which provides a predicate for indicating that a Dataset was derived from one or more source Datasets. Producers and consumers should interpret `schema:isBasedOn` to be an equivalent property to `prov:wasDerivedFrom` (in the `owl:equivalentProperty` sense). Either is acceptable for representing derivation relationships, but there is utility in expressing the relationship with both predicates for consumers that might only be looking for one or the other. When other `PROV` predicates are used, it is preferred to use `prov:wasDerivedFrom` for consistency.
 
 We recommend providing provenance information about data processing workflows, data derivation relationships, and versioning information using PROV-O and schema.org predicates, and describe the structures to do this in the following subsections. Aggregators and search systems should use these properties to cluster and cross-link versions of Datasets, and to provide bi-directional linkages to source and derived data products.
 
@@ -1051,7 +1051,7 @@ We recommend providing provenance information about data processing workflows, d
 
 ![Prov_versions](/assets/diagrams/dataset/dataset_prov_revision.svg "Dataset - Revisions")
 
-Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifier for the dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
+Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifier for the original dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
 
 <pre>
 {
@@ -1063,7 +1063,6 @@ Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisio
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   <strong>"prov:wasRevisionOf": "https://doi.org/10.xxxx/Dataset-2.v1"</strong>
-  ...
 }
 </pre>
 
@@ -1083,22 +1082,44 @@ In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn
     "@vocab": "https://schema.org/",
     "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
+  "@id": "https://doi.org/10.xxxx/Dataset-2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1.v1"</strong>
-  <strong>"schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1.v1"</strong>
-  ...
+  <strong>"prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1"</strong>,
+  <strong>"schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1"</strong>
 }
 </pre>
 
 #### Indicating a software workflow or processing activity: `prov:used` and `prov:wasGeneratedBy`
 
+Frequently data are processed to create derived Datasets or other products using software programs that use some source data, transform it in various ways, and create the derived products. Understanding these software workflows promotes understanding of the products, and facilitates reproducibility. Describing a software workflow is really just a mechanism to provide more detail about how derived products were created when software was executed. The [ProvONE](https://purl.dataone.org/provone-v1-dev) vocabulary extends PROV to define a specific concept for an execution event (`provone:Execution`) during which a software program (`provone:Program`) is executed. During this execution, the software can use source data (`prov:used`) and generate outputs (`prov:wasGeneratedBy`), which then can be inferred to have been derived from the source data.
+
 ![Prov_program](/assets/diagrams/dataset/dataset_prov_program.svg "Dataset - Workflow")
 
-- [ProvONE](https://purl.dataone.org/provone-v1-dev), which specializes PROV for reproducible software workflows, can be used to specify `provone:Program` and `provone:Execution` classes that result in derived products. This enables specification of a full software workflow, potentially in multiple steps, in which the execution of a `provone:Program` uses one or more `schema:Dataset`s as source data, and generates one or more `schema:Datasets` as derived outputs (which can be linked with `prov:wasDerivedFrom` as described above). The `prov:used` predicate links the source data to the `provone:Program` that used it, and the `prov:wasGeneratedBy` links the derived data to that same program that generated it.
+Any portion of the software workflow can be described to increase information about derived datasets. For example, use `prov:used` to link an execution to one or more source datasets, and use `prov:wasGeneratedBy` to link an execution to one or more derived products. When information about the execution event itself is known, use `provone:Execution` to describe that event, and link it to the source and derived products, as well as the program. The program is often a software script that is itself dereferenceable, and may be part of the archived Dataset itself if it has an accessible IRI.
 
-- TODO: Add example SO entry
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+  },
+  "@id": "https://doi.org/10.xxxx/Dataset-2",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1",
+  "schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1",
+  <strong>"prov:wasGeneratedBy": 
+      {
+        "@id": "https://example.org/executions/execution-42",
+        "@type": "provone:Execution",
+        "prov:hadPlan": "https://somerepository.org/datasets/10.xxxx/Dataset-2.v2/process-script.R",
+        "prov:used": "https://doi.org/10.xxxx/Dataset-1"
+      }</strong>
+}
+</pre>
+
 
 Back to [top](#top)
 
