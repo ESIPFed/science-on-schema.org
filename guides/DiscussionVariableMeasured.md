@@ -97,7 +97,7 @@ The PropertyValue entity in schema.org provides a basic framework for  descripti
 
 Two elements are needed: 
  
-- Add a **valueType** property on so:PropertyValue; controlled vocabulary (or URI) that specifies the kind of value-- numeric, text, categorical, audio, video, boolean, object, binary.... (need to recommend a vocabulary with URIs to use).  The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. To deal with data objects that are recorded interviews, sound recordings (e.g. whale song), and other 'unstructured' content the valueType could be a MIME type.  Simple literal data types could use the [primitive data types defined by xml schema](https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes).  Object types would need to be defined in a data type registry (e.g. see [RDA Data Type Registries WG](https://www.rd-alliance.org/groups/data-type-registries-wg.html)).  Options: use [rdf:type](https://www.w3.org/TR/rdf-schema/#ch_type). 
+- Recommend use of **rdf:dataType** property on soPropertyValue, with range as defined in https://www.w3.org/TR/rdf11-concepts/#section-Datatypes.   The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. To deal with data objects that are recorded interviews, sound recordings (e.g. whale song), and other 'unstructured' content the valueType could be a MIME type.   Object types would need to be defined in a data type registry (e.g. see [RDA Data Type Registries WG](https://www.rd-alliance.org/groups/data-type-registries-wg.html)).   
 
 - Add a **rangeConstraint** property on so:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for by so:minValue and so:maxValue. SOSO recommends that these be used to represent the range of actual values in the described dataset. Categorical ranges could be expressed as a URI for the vocabulary used to populate values. Other more complex range constraints might need to be expressed as text or via URI.  The interpretation of the rangeConstraint might vary depending on the valueType. Options: use [rdfs:range](https://www.w3.org/TR/rdf-schema/#ch_range)
 
@@ -120,4 +120,16 @@ Two elements are needed:
   - **LTER Measurements**   Provides [A word net, similar to SWEET, but doesn't provide URI or definition](https://vocab.lternet.edu/vocab/vocab/index.php?tema=667&/measurements).  All term URIs are query fragments on the 'vocab/index.php' resource.
   - **Structured Variable ontology** (SVO) SVO provides a [vocabulary of measured variables based on its model](http://geoscienceontology.org/svo/svl/variable/1.0.0/), it is apparently only accessible on a web page with URIs that are html fragment identifiers.
 
- 
+
+# Some data type vocabularies
+
+QUDT http://www.qudt.org/2.1/catalog/qudt-catalog.html
+
+RDF datatypes https://www.w3.org/TR/rdf11-concepts/#section-Datatypes
+
+XML schema datatypes https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes 
+
+linked data modle datatypes http://www.linkedmodel.org/doc/2015/SCHEMA_dtype-v1.2
+
+ The FHIR specification defines a set of data types that are used for the resource elements.  
+ https://www.hl7.org/fhir/datatypes.html.  FHIR is a standard for health care data exchange, published by HL7®
