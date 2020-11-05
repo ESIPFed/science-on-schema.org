@@ -123,13 +123,12 @@ Two elements are needed:
 
 # Some data type vocabularies
 
-QUDT http://www.qudt.org/2.1/catalog/qudt-catalog.html
+[QUDT](http://www.qudt.org/2.1/catalog/qudt-catalog.html). Focus on units and quantity kinds.
 
-RDF datatypes https://www.w3.org/TR/rdf11-concepts/#section-Datatypes
+[Linked data model (Used by QUDT) datatypes](http://www.linkedmodel.org/doc/2015/SCHEMA_dtype-v1.2)
 
-XML schema datatypes https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes 
+[RDF datatypes](https://www.w3.org/TR/rdf11-concepts/#section-Datatypes)
 
-linked data modle datatypes http://www.linkedmodel.org/doc/2015/SCHEMA_dtype-v1.2
+[XML schema datatypes](https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes)
 
- The FHIR specification defines a set of data types that are used for the resource elements.  
- https://www.hl7.org/fhir/datatypes.html.  FHIR is a standard for health care data exchange, published by HL7®
+[FHIR specification]( https://www.hl7.org/fhir/datatypes.html) defines a set of data types that are used for the resource elements.  FHIR is a standard for health care data exchange, published by HL7®
