@@ -572,21 +572,16 @@ Back to [top](#top)
 
 ![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
-The types of spatial coverages in schema.org are
+Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees. 
 
-* [point](https://schema.org/GeoCoordinates) - specify the [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties of the schema:GeoCoordinates]() type.
+Google states no convention for the coordinate reference system, recommended practice is to use WGS84 for at least one spatial coverage description if applicable. Spatial coverage location using other coordinate systems can be included, see recommendation for specifying coordinate reference systems, [below](#spatial_reference-system).  
 
-The following shapes use the [schema:GeoShape](https://schema.org/GeoShape) type where a 'point' is defined as a latitude/longitude pair separated by a comma.
+* A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties. 
+*Not Recommended* the schema:Place definition allows the latitude and longitude of a point location to be specified as properties directly of place; although this is more succinct, it makes parsing the metadata more complex and should be avoided.
 
-* [line](https://schema.org/line) - a series of two or more point objects separated by space.
-* [polygon](https://schema.org/polygon) - a series of four or more space delimited points where the first and final points are identical.
-* [box](https://schema.org/polboxygon) - two points separated by a space character where the first point is the lower corner and the second point is the upper corner.
+Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location. 
 
-These spatial definitiosn were added to schema.org very early on in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) where they decided to follow the [GeoRSS specification](http://www.georss.org/simple). While this is not ideal, there are ongoing conversations about improving this in schema.org.
-
-<a id="spatial_point"></a>
-A point, or coordinate, would defined in this way:
-
+<a id="spatial_point"></a> A point spatial coverage would documented in this way:
 <pre>
 {
   "@context": {
@@ -607,7 +602,19 @@ A point, or coordinate, would defined in this way:
 </pre>
 
 <a id="spatial_shape"></a>
-All other shapes, are defined using the [schema:GeoShape](https://schema.org/GeoShape). Be aware that the coordinate ordering used by Google -- <strong>Y (lat), X (long)</strong> is the reverse of various other commonly used conventions for listing geospatial coordinates.
+A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g. a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.  
+
+Be aware that some client applications might only index or display bounding box extents. 
+
+* [line](https://schema.org/line) - a series of two or more points.
+* [polygon](https://schema.org/polygon) - a series of four or more points where the first and final points are identical.
+* [box](https://schema.org/box) - A rectangular (in lat-long space) extent specified by two points, the first in the lower left (southwest) corner and the second in the upper right (northeast) corner.
+* [circle](https://schema.org/circle) - A circular region of a specified radius centered at a specified latitude and longitude, represented as a coordinate pair followed by a radius in meters. *Not recommended for use*.
+
+
+Examples
+<a id="geoshape-line">Linear spatial location</a>
+A line spatial location. Useful for data that were collected along a travers, ship track, flight line or other linear sampling feature. 
 
 <pre>
   <strong>"spatialCoverage": {
@@ -620,27 +627,31 @@ All other shapes, are defined using the [schema:GeoShape](https://schema.org/Geo
 }
 </pre>
 
-A polygon
+<a id="geoshape-polygon">Polygon spatial location</a>
+A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications. 
+
 <pre>
   <strong>"polygon": "39.3280 120.1633 40.445 123.7878 41 121 39.77 122.42 39.3280 120.1633"</strong>
 </pre>
 
-<a id="geoshape-box"></a>
-A GeoShape box defines a rectangular area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. The coordinate reference system is assumed to be WGS 84. Point locations are tuples of {latitude  east-longitude} (y, x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
+<a id="geoshape-box">Bounding Boxes</a>
+A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
 
-NOTES: Special care must be taken for bounding boxes that cross the 180 longitude meridian (the antimeridian); many spatial data processors will not correctly interpret the bounding coordinates even if they follow the southwest, northeast corner convention, resulting in boxes that span the circumference of the Earth, excluding the actual area of interest. For applications operating with data in the vicinity of longitude 180, testing is strongly recommended to determine if it works for bounding boxes crossing the antimeridian (+/- 180); an alternative is to define two bounding boxes, one on each side of 180.
+NOTE-- see [discussion in GitHub issue 101](https://github.com/ESIPFed/science-on-schema.org/issues/101#issuecomment-720808142) on what works with Google Dataset search to display spatial locatation in their search results.
 
-East longitude values can be reported 0 <= X <= 360 or -180 <= X <= 180. Some applications will fail under one or the other of these conventions. Recommendation is to use -180 <= X <= 180.  Following this recommendation, bounding boxes that cross the antimeridian at ±180° longitude, the West longitude value will be numerically greater than the East longitude value. For example, to describe Fiji the box might be
+East longitude values can be reported 0 <= X <= 360 or -180 <= X <= 180. Some applications will fail under one or the other of these conventions. Recommendation is to use -180 <= X <= 180, consistent with the [WKT specification](https://docs.opengeospatial.org/is/18-010r7/18-010r7.html#33).  Following this recommendation, bounding boxes that cross the antimeridian at ±180° longitude, the West longitude value will be numerically greater than the East longitude value. For example, to describe Fiji the box might be
 <pre>
   <strong>"box": "-19 176 -15 -178"</strong>
 </pre>
 
-We recognize that the defined spatial coverages are inadequate in some cases for the needs of our community, but that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
+NOTES: Some spatial data processors will not correctly interpret the bounding coordinates across the antimeridian even if they follow the recommended southwest, northeast corner convention, resulting in boxes that span the circumference of the Earth, excluding the actual area of interest. For applications operating with data in the vicinity of longitude 180, testing is strongly recommended to determine if it works for bounding boxes crossing the antimeridian (+/- 180); an alternative is to define two bounding boxes, one on each side of 180.
 
-<a id="spatial_multiple-geometries"></a>
+For bounding boxes that include the north or south pole, schema:box will not work. Recommended practice is to use a schema:polygon to describe spatial locatation extents that include the poles.  
+
+<a id="spatial_multiple-geometries">Multiple geometries</a>
 If you have multiple geometries, you can publish those by making the [schema:geo](https://schema.org/geo) field an array of [GeoShape](https://schema.org/GeoShape) or [GeoCoordinates](https://schema.org/GeoCoordinates) like so:
 
 <pre>
@@ -666,16 +677,22 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 }
 </pre>
 
+Be aware that some client application might not index or display multiple geometries.
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). Schema.org has no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned. 
+A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees. 
 
-In the mean time, to represent an SRS in schema.org, we recommend using the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of 
+[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are: 
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
 | WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#lat_long     |
 | CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
+| EPSG:26911               | https://spatialreference.org/ref/epsg/nad83-utm-zone-11n/  |
+| EPSG:3413                | https://spatialreference.org/ref/epsg/wgs-84-nsidc-sea-ice-polar-stereographic-north/ |
+
+NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified. 
 
 A spatial reference system can be added in this way:
 
@@ -695,14 +712,13 @@ A spatial reference system can be added in this way:
       "line": "39.3280 120.1633 40.445 123.7878"
     },
     <strong>"additionalProperty": {
-      "@type": ["PropertyValue", "dbpedia:Spatial_reference_system"],
-      "@id": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+      "@type": "PropertyValue",
+      "propertyID":"dbpedia:Spatial_reference_system",
+      "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
     }</strong>
   }
 }
 </pre>
-
-Note that only GeoCoordinates representation should be used with CRS84 to avoid confusion, because that reference system specifies longitude/latitude coordinate ordering. 
 
 Back to [top](#top)
 
