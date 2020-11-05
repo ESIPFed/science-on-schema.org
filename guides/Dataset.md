@@ -313,7 +313,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 `schema:sameAs` is used here for the following reasons:
 
-1. It doesn't add too many more statements that might the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
+1. It doesn't add too many more statements that might increase the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
 2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself: 
 
 `curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
