@@ -4,9 +4,11 @@
   },
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
+      "@type": "PropertyValue",
       "propertyID": "https://registry.identifiers.org/registry/doi",
       "value": "doi:10.1234/1234567890",
-      "url": "https://doi.org/10.1234/1234567890"
+      "url": "https://doi.org/10.1234/1234567890",
+      "sameAs: "http://doi.org/abcd"
   },
   "url": "https://www.example-data-repository.org/dataset/3300",
   "@type": "Dataset",
