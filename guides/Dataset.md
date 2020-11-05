@@ -285,7 +285,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 #### How to reference Short DOIs
 
-[Short DOIs](http://shortdoi.org/) is a redirect service offered by the International DOI Foundation that provides a shorter version of an orginial DOI. For example, the original DOI `doi:10.5066/F7VX0DMQ` has a short DOI of `doi.org/csgf`. Short DOIs are resolvable using standard DOI URLS such as `http://doi.org/fg5v`. These short DOIs are treated identically to the original DOI. If you are using the short DOI service, we recommend publishing a short DOI URL using the `schema:sameAs` property of the `schema:PropertyValue` which is describing the original DOI:
+[Short DOIs](http://shortdoi.org/) is a redirect service offered by the International DOI Foundation that provides a shorter version of an orginial DOI. For example, the original DOI `doi:10.5066/F7VX0DMQ` has a short DOI of `doi.org/csgf`. Short DOIs are resolvable using standard DOI URLS such as `http://doi.org/fg5v`. These short DOIs are treated identically to the original DOI. If you are using the short DOI service, we recommend publishing a short DOI URL using the `schema:sameAs` property of the `schema:Dataset`:
 
 <pre>
 {
@@ -296,7 +296,10 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
   "url": "https://www.sample-data-repository.org/dataset/472032",
-  "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+  "sameAs": [
+    "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+    <strong>"http://doi.org/fg5v"</strong>
+  ],
   "version": "2013-11-21",
   "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "identifier":
@@ -305,8 +308,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/doi",
         "value": "doi:10.5066/F7VX0DMQ",
-        "url": "https://doi.org/10.5066/F7VX0DMQ",
-	<strong>"sameAs: "http://doi.org/fg5v"</strong>
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
       }
 }
 </pre>
