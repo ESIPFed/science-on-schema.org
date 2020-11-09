@@ -3,6 +3,12 @@
 ## Goal:
 Goal is to add information about the variables that are specified for data items in a dataset to enhance discovery and evaluation of the dataset.
 
+### Approach
+- Use relevant schema.org terms in describing variables whenever possible
+- Determine what new extensions to schema.org may be necessary to effectively describe variables
+--  There are some well-established and maintained ontologies available to clarify the contents of a variable description, these need to be accessible online to use. Developing and adopting these is out of scope for schema.org.
+
+
 ### For discovery 
 - Variable name, and description are basic information that should always be included.
 - A URI from some known authority that uniquely identifies the variable can greatly improve interoperability and avoid ambiguity in identifying the variable.
@@ -20,25 +26,16 @@ Need to know something about
   - material that was sampled (talik).
 **Note**  these context properties are likely to be quite domain specific.
 
-## Terminology
-This discussion can be confusing if there is not some clarity on how terms are being used. Here are some definitions used in this discussion:
-- Dataset:  A collection of data items unified by some criteria.
-- Data item: a digital representation of some individual of interest, typically a structured set of attributes, but might include unstructured components like images, audio or video recording, or other documents.
-- Attribute:  An individual element in a data item. Construed broadly to include those are "measured" in a conventional sense, and those whose values result from "assignment" or "classification". This corresponds to 'variable' or 'field', but we are using a different term to avoid connotation of a quantitative value.
-- Type: A specification of the attibutes associated with a data item, along with rules for allowed low-level data types, formatting, value range, and cardinality. The schema for a data item. 
-- Entity: a kind of thing in the world.
 
 **so:** prefix to identify schema.org namespace elements
 
 ## Background
 
-For our purposes, [so:Dataset](https://schema.org/Dataset) represents a Dataset as defined here, usually with a strong but non-absolute assumption that it is a set of data items, rather than a singular data item. Each data item in the dataset describes an instance of some entity. These data items might be rows in a table, objects in an object store, or graph fragments.
+[so:Dataset](https://schema.org/Dataset) represents a Dataset, usually with a strong but non-absolute assumption that it is a set of data items, rather than a singular data item. Each data item in the dataset describes an instance of some entity. These data items might be rows in a table, objects in an object store, or graph fragments.
 
-The data items in a dataset have a 'type' that can be described as a set of attributes, each representing some aspect of the subject of the data item. In schema.org terms, these are the variableMeasured. There is a great deal of variability in how data items in a dataset are constructed, i.e. what is the unifying entity the motivates grouping a set of attributes to define a type for a data item. Commonly this unifying entity is a sampled feature, a particular location, an event (e.g. an interview), or some individual.  
+The data items in a dataset have a 'type' that can be described as a set of attributes. In a schema.org dataset description an attribute is documented by an so:variableMeasured instance. There is a great deal of variability in how data items in a dataset are constructed. In simple cases the attributes might each specify a property that inheres in the entity that the data item is about.  Complex data items might also include attributes that are about other attributes, e.g. units of measure, instrument used, observer name, or context information specific to a particular attribute value. There might be attributes that are links (foreign keys) to related data items. A data item commonly includes some attributes that are about the data item itself, e.g. a primary key, creation date/time, who created the record.
 
-In simple cases the attributes might each specify a property that inheres in the entity that the data item is about. A data item commonly includes some attributes that are about the data item itself, e.g. a primary key, creation date/time, who created the record. Complex data items might also include attributes that are about other attributes, e.g. units of measure, instrument used, observer name, or context information specific to a particular attribute value. 
-
-The so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue) implementation is focused on a quantitative (numeric) attribute value. In the spectrum of scientific activity, however, the attributes for a data item might represent the result of any kind of information acquisition, for example the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a category assignment ("Chinook salmon"; "Kuskokwim River"), a researcher's name, an arbitrarily-assigned ('Specimen 23') or deterministic identifier (e.g. value of a SHA-2 hash), a recording of an interview with a human subject, or the sounds made by a bird or whale...  To understand an attribute value commonly entails not only a property, but also the entity that is carrying that attribute, a measurement procedure, and other context, which might vary from attribute to attribute in a dataset. For example 'nitrate in river water using spectrophotometric method'. 
+The existing so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue) implementation is focused on a quantitative (numeric) attribute value. In the spectrum of scientific activity, however, the attributes for a data item might represent the result of any kind of information acquisition, for example the output of an electronic sensor, a written description, a category assignment (species, crystal class, color), a measurement made with a ruler or scale, the output of a computer model, a category assignment ("Chinook salmon"; "Kuskokwim River"), a researcher's name, an arbitrarily-assigned ('Specimen 23') or deterministic identifier (e.g. value of a SHA-2 hash), a recording of an interview with a human subject, or the sounds made by a bird or whale...  To understand an attribute value commonly entails not only a property, but also the entity that is carrying that attribute, a measurement procedure, and other context, which might vary from attribute to attribute in a dataset. For example 'nitrate in river water using spectrophotometric method'. 
 
 Description and documentation of attributes at the conceptual level is important for interfaces through which domain practitioners interact with data. Search at this level might involve criteria like 'find data that report calcium ion concentration in river water', 'find data that contain soil porosity measurements', 'find data that have sea-surface water temperature in {some bounding box} in {some time interval}', ' find images of polar bears on Baffin Island between year 2005 and 2010'. 
  
@@ -50,7 +47,7 @@ An attribute might have a restricted range of valid values, or a cardinality tha
 ## Current Science on schema.org recommendation.
 Some of the characteristics of attributes of an so:Dataset can be described using so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue).  
 
-A so:Dataset can have 0 to many so:variableMeasured property elements. Each attribute, e.g. a field in a table, or an element in an object can be described by a variableMeasured.  The range of variableMeasured is text or [so:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [so:Thing](https://schema.org/Thing), and adds these: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example attribute descriptions:
+A so:Dataset can have 0 to many so:variableMeasured property elements. Each attribute, e.g. a field in a table, or an element in an object, can be described by a variableMeasured.  The range of variableMeasured is text or [so:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [so:Thing](https://schema.org/Thing), and adds these: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example attribute descriptions:
 
 **Example 1**
 ```
@@ -83,13 +80,16 @@ A so:Dataset can have 0 to many so:variableMeasured property elements. Each attr
 
 The PropertyValue entity in schema.org provides a basic framework for  description of variables. For many purposes, the so:propertyID specified in a so:ProperyValue instance can be a URI that references an in-depth property description such as that included with CF names, SWEET, EnvO, or a Scientific Variables Ontology instance. 
 
+The variableMeasured/PropertyValue has a propertyID attribute that should be a URL (http URI) that points to a dereferenceable term in an Ontology that represents the variable, e.g.  http://purl.obolibrary.org/obo/ENVO_04000002 .  
+
+That term might have a rich representation, accessible by dereferencing the URI, that further axiomatizes the phenomenon, e.g. as a  "Feature of Interest: sea surface" and "Observed Property: temperature", etc, with links to ontologies like EnvO or SWEET.  
+
+It would be up to the client to recognize the propertyID identifier, or extract useful information from the source semantic resource to better understand what the PropertyValue actually represents, via its rdfs:label, skos:definition, skos:altLabel, etc. 
+
+### Details on encoding
 1. Multiple so:propertyID values could be used to indicate different levels of granularity/detail for the property associated with an attribute. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.  Each of these description approaches addresses different use cases. Communities can define standard reference resources that provide variable definitions with identifiers that can be used for information interchange. 
 
 1. so:measurementTechnique should provide an identifier for a registered measurement technique description. If one is not available, the measurement technique should be described in text. 
-
-1. For situations where it is not practical to have a registry of variable definitions, take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other vocabulary, e.g. SVO, SSN, DDI in the PropertyValue instance. This would only be interoperable in the context of a profile that is known to clients parsing the schema.org instance. 
-
-1. The dct:conformsTo property should be asserted in the so:Dataset to identify the profile used for extending the so:PropertyValue description. (see discussion question below on whether dct:conformsTo should be optional at the so:PropertyValue)
 
 1. - Multiple labels that apply to a so:PropertyValue should be represented with an array of so:alternateName. Ideally the names could be scoped in some fashion to associate them with a context in which they are used, but Schema.org does not have an object for representing scoped names.
 
@@ -97,11 +97,9 @@ The PropertyValue entity in schema.org provides a basic framework for  descripti
 
 Two elements are needed: 
  
-- Recommend use of **rdf:dataType** property on soPropertyValue, with range as defined in https://www.w3.org/TR/rdf11-concepts/#section-Datatypes.   The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. To deal with data objects that are recorded interviews, sound recordings (e.g. whale song), and other 'unstructured' content the valueType could be a MIME type.   Object types would need to be defined in a data type registry (e.g. see [RDA Data Type Registries WG](https://www.rd-alliance.org/groups/data-type-registries-wg.html)).   
+- Recommend use of **rdf:dataType** or **qudt:dataType** property on soPropertyValue, with range as defined in https://www.w3.org/TR/rdf11-concepts/#section-Datatypes.   The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. To deal with data objects that are recorded interviews, sound recordings (e.g. whale song), and other 'unstructured' content the valueType could be a MIME type.   Object types would need to be defined in a data type registry (e.g. see [RDA Data Type Registries WG](https://www.rd-alliance.org/groups/data-type-registries-wg.html)).   
 
 - Add a **rangeConstraint** property on so:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for by so:minValue and so:maxValue. SOSO recommends that these be used to represent the range of actual values in the described dataset. Categorical ranges could be expressed as a URI for the vocabulary used to populate values. Other more complex range constraints might need to be expressed as text or via URI.  The interpretation of the rangeConstraint might vary depending on the valueType. Options: use [rdfs:range](https://www.w3.org/TR/rdf-schema/#ch_range)
-
-- Wishful: so:variableMeasured should be renamed so:attribute to clarify that narrow interpretation as a numeric result is not intended. (NOTE--we are unlikely to convince the schema.org maintainers to make this change...)
 
 # Outstanding issues for discussion:
 
@@ -132,3 +130,13 @@ Two elements are needed:
 [XML schema datatypes](https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes)
 
 [FHIR specification]( https://www.hl7.org/fhir/datatypes.html) defines a set of data types that are used for the resource elements.  FHIR is a standard for health care data exchange, published by HL7®
+
+# Some property vocabularies
+
+- Wikidata 
+- [QUDT quanityKinds]( http://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html)
+- [Minimum Information about any (x) Sequence (MIxS)](https://gensc.org/mixs/) the GSC family of minimum information standards – 
+- [USGS NWIS parameters](https://help.waterdata.usgs.gov/codes-and-parameters/parameters). 
+- [Scientific Variables Ontology](http://www.geoscienceontology.org/svo/svl/property/1.0.0/)
+- [US EPA substance registry](https://ofmpub.epa.gov/sor_internet/registry/substreg/LandingPage.do)
+- 
