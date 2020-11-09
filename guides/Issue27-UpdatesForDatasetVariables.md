@@ -4,7 +4,7 @@ The schema:variableMeasured/schema:PropertyValue entity provides a framework for
  
 We highly recommend using the schema:PropertyValue object to describe variables using one of a tiered set of options, and avoid the simple free text value. The schema:PropertyValue object enables a structured description of the variable that can provide greater interoperability and machine processing.
 
-### Basic
+### Basic: Tier 0
 In it's most basic form, a schema:PropertyValue can be published with a name and description of the variable. This is essentially equivalent to the free text option, but makes parsing the metadata simpler.  The name provided should match the label for the variable in the dataset.  If that label does not clearly convey the meaning of the variable, use schema:alternateName to provide a label that better conveys the meaning of the variable. Use schema:descritpion to provide a text explanation of the variable, including its data type, what kind of values are expected, and any measurement method or environmental context information that applies to values for the variable in the described dataset. Example:
 
 ```
@@ -26,7 +26,7 @@ In it's most basic form, a schema:PropertyValue can be published with a name and
 }
 ```
 ## Variables with Numeric Values
-### Recommended
+### Recommended: Tier 1
 The recommended level of description is to include one or more resolvable identifiers that specify the semanitcs of the variable using [schema:propertyID](https://schema.org/propertyID) in the schema:PropertyValue object. Identifiers should resolve to a web page that provides a human-friendly description of the variable. Ideally an RDF representation using a documented vocabulary for machine consumption should be accessible via content negotiation. HTTP URI is the recommended identifier scheme. Multiple identifiers could be provided. These could be equivalent identifiers from different registries, or could specify the variable data type and semantics at different granularities. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'. 
 
 Example: 
@@ -49,6 +49,8 @@ Example:
   ]
 }
 ```
+
+### More properties: Tier 2
 
 These first two levels of property value description will support dataset discovery scenarios. A more complete description of the property value would be useful to support evaluation of a dataset for an intended use. Such a description should include a name, description and propertyID, with additional information using the other properties of PropertyValue defined by schema.org:
 - [unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
@@ -87,12 +89,14 @@ Example:
 }
 ```
 
-### More in depth variable descriptions.
+### More in depth variable descriptions: Tier 3.
 
 For situations in which there is no registry of variable definitions that bind the semantics associated with an identifier that can be used as a so:propertyID, there are two options. In either case the dcat:conformsTo property should be asserted in the schema:Dataset to identify a profile used for extending the PropertyValue description. Either of these extension mechanisms would only be interoperable for clients that recognize the meaning of the dcat:conformsTo value. 
 
 #### Option 1 (preferred)
-Take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other more expressive vocabulary, e.g. SVO, SSN, DDI, in the PropertyValue instance.
+Take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other more expressive vocabulary, e.g. SVO, SSN, DDI, in the PropertyValue instance. 
+
+Example using the [sosa vocabulary](https://www.w3.org/TR/vocab-ssn/)
  
 ```
 "variableMeasured": 
@@ -121,9 +125,30 @@ Use [so:valueReference](https://schema.org/valueReference) to add additional con
   -  [QuantitativeValue](https://schema.org/QuantitativeValue)
   -  [StructuredValue](https://schema.org/StructuredValue).   
 
-### Variables populated by controlled vocabulary
+## Variables with non-numeric values
 
-For consideration by ESIP SOSO group: Two options. 1. extend/
+### Data Type
+For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary like xml schema, rdf datasets, QUDT datatypes. Schema.org does not have a so:dataType property that can be used for describing so:PropertyValues. We recommend using qudt:dataType as a property on so:PropertyValue to specify the kind of data value for that property in the described dataset. RDF datatypes are recommended to populate the qudt:dataTyep property.  The QUDT unit vocabulary provides and extensive set of register units of measure that can be used with the qudt:hasUnit property to specify the units of measure used to report datavalues when that is appropriate. 
+
+Example with data type and units specified for a dataset measured variable data type:
+
+```
+        {
+            "@type": "PropertyValue",
+            "@id": "http://lod.example-data-repository.org/id/dataset/3300/variable0002",
+            "name": "year",
+            "description": "year of experiment",
+            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20861",
+            "unitText": "year",
+            "unitCode": "unit:YR",
+            "qudt:dataType": "xsd:gYear",
+            "qudt:hasUnit": "unit:YR"
+        },
+```
+
+### Value range is controlled vocabulary
+
+For consideration by ESIP SOSO group: Two options. 1. adopt so:rangeIncludes to point at so:DefinedTermSet. This is outside of the current normal usage of so:rangeIncludes, but seems consistent with the intention of the property.
 
 #### so:DefinedTermSet
 schema.org has some additional "pending" elements that use "Defined" in their labels in a fairly loose way semantically speaking:
@@ -156,9 +181,9 @@ Example encoding for a variableMeasured that is populated with a controlled voca
 }
 ```
 
-#### qudt:Enumeration
+### qudt:Enumeration
 
-Example encoding for a variableMeasured that is populated with a controlled vocabulary, using qudt:dataType/qudt:Enumeration.
+The [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) provides an extensive set of data type definitions and related properties.  Example encoding for a variableMeasured that is populated with a controlled vocabulary, using qudt:dataType/qudt:Enumeration.
 
 ```
  {
