@@ -65,11 +65,14 @@
             "description": "Value in sample data are 'Can be averaged', 'Cannot be averaged', 'It is average' (note spelling errors)",
             "qudt:cardinality":"0..1",
             "qudt:dataType": {
-                "qudt:Enumeration": [
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"Can be averaged"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"Cannot be averaged"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"It is average"}}}
-                ]
+                "qudt:Enumeration": {
+                    "qudt:element":
+                    [
+                        {"qudt:EnumeratedValue": {"qudt:symbol":"Can be averaged"}},
+                        {"qudt:EnumeratedValue": {"qudt:symbol":"Cannot be averaged"}},
+                        {"qudt:EnumeratedValue": {"qudt:symbol":"It is average"}}
+                    ]
+                }
             }
         },
         {
@@ -212,10 +215,12 @@
             "description": "Temperature of heating?  Values in test data are 'YES', 'NO', and blank. Needs explanation",
             "qudt:cardinality":"0..1",
             "qudt:dataType":  {
-                "qudt:Enumeration": [
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"YES"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"NO"}}}
-                ]
+                "qudt:Enumeration":  {
+                    "qudt:element": [
+                        {"qudt:EnumeratedValue": {"qudt:symbol":"YES"}},
+                        {"qudt:EnumeratedValue": {"qudt:symbol":"NO"}}
+                    ]
+                }
             }
         }
     ]
