@@ -43,7 +43,7 @@ Google has drafted a [guide to help publishers](https://developers.google.com/se
 
 The [guide](https://developers.google.com/search/docs/data-types/dataset) suggests the following recommended fields:
 
-* [url](https://schema.org/url) - Location of a page describing the dataset.
+* [url](https://schema.org/url) - Location of a page describing the dataset. Should get a user readable page that will display in a web browser, e.g. html, pdf, doc, txt. 
 * [sameAs](https://schema.org/sameAs) - Other URLs that can be used to access the dataset page. A link to a page that provides more information about the same dataset, usually in a different repository.
 * [version](https://schema.org/version) - The version number or identifier for this dataset (text or numeric).
 * [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) speficying if the dataset is accessible for free.
@@ -416,7 +416,11 @@ Back to [top](#top)
 
 ### Distributions
 
-Where the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data in a specific format is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
+The [schema:distribution](https://schema.org/distribution) property should provide information on getting a representation of the described dataset directly using the [schema:DataDownload](https://schema.org/DataDownload) type. The schema:DataDownload/[schema:contentURL](https://schema.org/contentURL) property should provide a URL that will directly get a representation of the described dataset as a file serialized using the format specified by schema:DataDownload/[schema:encodingFormat](https://schema.org/encodingFormat). The .../schema:DataDownload/schema:encodingFormat should be an array of media types that includes a base media type (e.g. application/xml, text/csv), as well as more specific format identifiers (e.g. an xml namespace URI, or JSON schema URI).
+
+Note that this is in contrast to the schema:Dataset/[schema:url](https://schema.org/url) property of the Dataset that links to a user-readable page describing the dataset in detail. 
+
+If your dataset is not accessible through a direct download URL use only the schema:Dataset/[schema:url](https://schema.org/url) property.  If the dataset is accessible through a WebAPI that enables operations like filtering or subsetting the data data will be downloaded and might need input parameters, jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
 
 ![Distributions](/assets/diagrams/dataset/dataset_distribution.svg "Dataset - Distributions")
 
