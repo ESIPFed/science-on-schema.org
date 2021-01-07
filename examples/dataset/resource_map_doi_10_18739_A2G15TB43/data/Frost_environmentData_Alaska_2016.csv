@@ -1,0 +1,24 @@
+ID,plot_id,Date,X,Y,Elevation,Veg_completeness,Mean_shrub_height,Mean_LAI,cover_Shrub_tall,cover_Shrub_low,cover_Shrub_dwarf,cover_Whole_Tussocks,cover_Graminoids,cover_Forbs,cover_Feathermoss,cover_Sphagnum,cover_Total_moss,cover_Cladonia_Cladina,cover_Total_lichen,cover_Litter,cover_Rock_fragments,cover_Bare_soil,cover_Water,slope,aspect,Geomorphic_Unit,Macrotopography_class,Microtopography_class,Surface_organic_depth,Dominant_mineral_texture,Water_depth,Thaw_depth,pH,Electrical_conductivity
+14,76161,8/21/16,7616272,401641,780,dominants,75.6,2.36,0,70,10,0,9,35,20,25,65,0,0.1,20,0.1,0,25,4,300,younger till,riverbanks,mounds (ice and peat related),14,loamy,-13,58,5.8,40
+15,76167,8/21/16,7616635,401953,747,dominants,66.1,2.21,5,65,15,0,10,8,10,0,30,0,0.1,25,5,0,20,4,300,younger till,riverbanks,soil-covered rocks,10,loamy,<-40,80,5.8,40
+4,76160_1,8/24/16,7615984,405888,856,dominants,13,0.77,0,1,22,0,15,0.1,0,5,45,0,0,15,0,0,5,1,280,older till,riverbanks,beads,2,sandy,-23,>57,5.2,30
+3,76168_1,8/24/16,7616681,405798,845,dominants,35.1,0.96,0,30,7,0.1,8,5,15,40,60,0.1,0.1,40,18,0,0.1,1,290,older till,riverbanks,beads,16,loamy,<-40,60,5.4,40
+12,76172_1,8/21/16,7617252,400290,781,dominants,38.9,1.075,0,30,5,0,5,3,10,0,30,0,2,10,0,0,30,2,300,thermokarst river,riverbanks,beads,10,loamy,<-48,48,5.5,-999
+13,76176A_1,8/21/16,7617598,400316,777,dominants,44.2,1.26,0,45,5,0,7,5,0,3,45,0,0.1,10,0,0,50,2,300,thermokarst river,riverbanks,beads,8,loamy,-13,48,5.6,-999
+1,76203_1,8/24/16,7620244,414237,760,dominants,52,1.465,0,75,15,0,8,10,15,15,50,0,0.1,45,0,0,0,1,250,hillside colluvium,riverbanks,mounds (undifferentiated),-999,no data,-999,40,6.3,40
+2,76208_1,8/24/16,7620815,414879,756,dominants,55.4,1.36,0,75,10,0,10,8,5,5,40,0,0.1,55,0,0.1,0,1,340,hillside colluvium,riverbanks,mounds (undifferentiated),10,loamy,<-40,43,6,50
+9,76215_1,8/27/16,7621444,415484,759,full,38.9,0.835,0,60,15,0,5,15,30,5,65,0,0.1,30,0.1,0,0,6,300,headwater active overbank deposit,streambanks,high-centered polygons,2,loamy,<-40,43,6.6,120
+10,76215_2,8/27/16,7620778,414830,757,full,39.7,1.05,0,50,18,0,5,10,20,20,55,0,0,40,15,0.1,0,0,-999,headwater active overbank deposit,streambanks,high-centered polygons,0,loamy,<-40,59,6.3,50
+11,76215_3,8/27/16,7619477,413849,758,full,42.3,1.285,0,45,25,0,5,10,1,40,55,0,0,40,0,0,0,0,-999,headwater active overbank deposit,streambanks,high-centered polygons,0,loamy,<-40,64,5.9,60
+16,76287_1,8/22/16,7629109,422839,522,full,446.5,3.59,70,38,0,0,15,25,3,0,35,0,0.1,60,0,0.1,0,2,320,meander active overbank deposit,floodplain step,mounds (logs and rootwads),0,sandy,<-40,>125,7.6,70
+17,76287_2,8/27/16,7629789,423519,497,full,442,3.175,60,5,0,0,22,25,10,0,45,0,0,50,0,0.1,0,0,-999,meander active overbank deposit,floodplain step,mounds (logs and rootwads),1,loamy,<-40,>125,6.8,70
+19,76287_3,8/26/16,7630520,424034,483,full,278.5,2.365,40,50,15,0,5,8,25,0,50,0,0.1,40,12,0,0,0,-999,meander active overbank deposit,floodplain step,mounds (logs and rootwads),0,loamy,<-40,>125,7.4,70
+18,76305_1,8/22/16,7630506,424017,486,dominants,256.1,3.15,40,55,3,0,5,10,5,0,20,0,0.1,75,0.1,0.1,0,1,40,meander active overbank deposit,floodplain step,mounds (logs and rootwads),0,loamy,<-40,>125,7.3,70
+20,76327_1,8/22/16,7632698,424248,467,dominants,204.5,1.575,35,30,0,0,0.1,2,0,0,35,0,0.1,20,10,40,0,0,-999,meander inactive channel deposit,floodplain step,mounds (logs and rootwads),0,sandy,<-40,>125,7.1,50
+7,76749_1,8/25/16,7674411,424952,329,full,100.3,2.045,10,55,0.1,0,15,5,0,5,20,0,0,25,0,50,0.1,4,180,headwater active overbank deposit,streambanks,mounds (undifferentiated),0,loamy,-15,42,6.1,50
+6,76749_3,8/25/16,7674642,425241,322,full,69.2,1.71,0.1,60,10,0,7,7,40,30,95,0,3,5,0,0,0,5,320,upland frozen silt,streambanks,mounds (ice and peat related),19,loamy,-15,40,6.3,80
+5,76749_5,8/25/16,7674860,425528,325,full,110.3,1.73,5,65,5,0,8,8,20,20,65,0.1,3,35,0,0,2,30,290,upland frozen silt,streambanks,mounds (ice and peat related),14,loamy,<-40,47,5.4,50
+21,76777_1,8/23/16,7677738,427932,286,full,311.6,2.49,60,30,0.1,0,5,35,0.1,0,45,0,0.1,45,10,0.1,0.1,3,330,meander active overbank deposit,riverbanks,mounds (logs and rootwads),0,gravelly,-73,>125,7.5,120
+22,76777_2,8/26/16,7678067,428103,279,full,459.6,2.88,65,30,0.1,0,5,30,3,0,45,0.1,0.1,50,0.1,0,0,1,20,meander active overbank deposit,floodplain step,mounds (logs and rootwads),0,gravelly,<-40,>125,7.5,90
+24,76777_3,8/26/16,7678358,428339,277,full,393,1.915,45,35,0.1,0,3,15,20,0,45,0.1,1,45,3,0.1,0,1,300,meander inactive channel deposit,floodplain step,mounds (logs and rootwads),3,gravelly,<-30,>125,6.9,60
+23,76784_1,8/23/16,7678354,428335,278,dominants,416,2.09,45,55,2,0,2,20,15,0,30,0,2,50,20,0.1,0,0,-999,meander inactive channel deposit,floodplain step,soil-covered rocks,0,gravelly,<-40,>125,7.6,90

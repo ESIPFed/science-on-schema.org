@@ -140,3 +140,7 @@ Two elements are needed:
 - [Scientific Variables Ontology](http://www.geoscienceontology.org/svo/svl/property/1.0.0/)
 - [US EPA substance registry](https://ofmpub.epa.gov/sor_internet/registry/substreg/LandingPage.do)
 - 
+
+
+# Reading
+[Typology-based Semantic Labeling of Numeric Tabular Data](http://www.semantic-web-journal.net/system/files/swj2393.pdf)
