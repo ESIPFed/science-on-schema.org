@@ -48,10 +48,11 @@ Data structures are a way to organize data in order to be processed by software 
 
 A useful framework for thinking about description of variables is the [**variable cascade**](https://ddi4.readthedocs.io/en/latest/userguides/variablecascade.html#the-variable-cascade) (see also section II-E in [Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf?version=3&modificationDate=1586887411228&cacheVersion=1&api=v2), quoted here). 'In DDI - CDI, the variable cascade is the way the descriptions of variables is managed. Features defined at each level of the cascade don’t depend on features at any of the lower levels. Because of this, the descriptions at each level are reusable.
 The cascade consists of four levels, each level corresponding to an ever-increasing descriptive detail. The levels in the cascade are
-▪ Concept
-▪ Conceptual variable
-▪ Represented variable
-▪ Instance variable
+ -  Concept
+ - Conceptual variable
+ - Represented variable
+ - Instance variable
+
 The names of the levels indicate to the user what the main focus of the description is at each. The Concept and Conceptual Variable provide details about the concepts employed. The Represented Variable and Instance Variable provide the details about the codes, characters, and numbers representing the concepts at the higher levels.'
 
 Description and documentation of variables at the conceptual level is important for interfaces through which domain practitioners interact with data. Search at this level might involve criteria like 'find data that report calcium ion concentration in river water', 'find data that contain soil porosity measurements', 'find data that have sea-surface water temperature in {some bounding box} in {some time interval}', ' find images of polar bears on Baffin Island between year 2005 and 2010'. 
