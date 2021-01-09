@@ -139,6 +139,12 @@ Property URIs that might be used in the so:propertyID field.
   - **SWEET** has a set of property labels with some hierarchical structure providing weak semantics, but noe explicit definitions in the http://sweetontology.net/prop/Property namespace. Properties are at the conceptual level, e.g. 'total alkalinity', 'pH', 'precision', 'temperature range'. 
   - **LTER Measurements**   Provides [A word net, similar to SWEET, but doesn't provide URI or definition](https://vocab.lternet.edu/vocab/vocab/index.php?tema=667&/measurements).  All term URIs are query fragments on the 'vocab/index.php' resource.
   - **Structured Variable ontology** (SVO) SVO provides a [vocabulary of measured variables based on its model](http://geoscienceontology.org/svo/svl/variable/1.0.0/), it is apparently only accessible on a web page with URIs that are html fragment identifiers.
+- Wikidata 
+- [QUDT quanityKinds]( http://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html)
+- [Minimum Information about any (x) Sequence (MIxS)](https://gensc.org/mixs/) the GSC family of minimum information standards – 
+- [USGS NWIS parameters](https://help.waterdata.usgs.gov/codes-and-parameters/parameters). 
+- [Scientific Variables Ontology](http://www.geoscienceontology.org/svo/svl/property/1.0.0/)
+- [US EPA substance registry](https://ofmpub.epa.gov/sor_internet/registry/substreg/LandingPage.do)
 
 
 # Some data type vocabularies
@@ -152,15 +158,6 @@ Property URIs that might be used in the so:propertyID field.
 [XML schema datatypes](https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes)
 
 [FHIR specification]( https://www.hl7.org/fhir/datatypes.html) defines a set of data types that are used for the resource elements.  FHIR is a standard for health care data exchange, published by HL7®
-
-# Some property vocabularies
-
-- Wikidata 
-- [QUDT quanityKinds]( http://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html)
-- [Minimum Information about any (x) Sequence (MIxS)](https://gensc.org/mixs/) the GSC family of minimum information standards – 
-- [USGS NWIS parameters](https://help.waterdata.usgs.gov/codes-and-parameters/parameters). 
-- [Scientific Variables Ontology](http://www.geoscienceontology.org/svo/svl/property/1.0.0/)
-- [US EPA substance registry](https://ofmpub.epa.gov/sor_internet/registry/substreg/LandingPage.do)
 
 # Data Description systems
  - [DDI-Cross Domain Integration: Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf), section III Data Description, 

@@ -1,0 +1,128 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://qudt.org/2.1/schema/qudt/sosoprofile> rdf:type owl:Ontology ;
+                                       owl:versionIRI <http://qudt.org/2.1/schema/qudt> ;
+                                       owl:imports <http://www.w3.org/2004/02/skos/core> ;
+
+                                       rdfs:label "QUDT Schema profile for Science on Schema.org - based on qudt Version 2.1.2" .
+
+
+###  http://qudt.org/schema/qudt/dataType
+qudt:dataType rdf:type owl:ObjectProperty ;
+              rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+              rdfs:label "datatype" .
+			  
+			  
+			  ###  http://qudt.org/schema/qudt/hasUnit
+qudt:hasUnit rdf:type owl:ObjectProperty ;
+             dcterms:description "This property relates a system of units with a unit of measure that is either a) defined by the system, or b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system."^^rdf:HTML ;
+             rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+             rdfs:label "has unit" .
+			 
+			 ###  http://qudt.org/schema/qudt/cardinality
+qudt:cardinality rdf:type owl:ObjectProperty ;
+                 rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+                 rdfs:label "cardinality" .
+
+
+###  http://qudt.org/schema/qudt/Enumeration
+qudt:Enumeration rdf:type owl:Class ;
+                 rdfs:subClassOf qudt:Concept ,
+                                 dtype:Enumeration ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty qudt:default ;
+                                   owl:allValuesFrom qudt:EnumeratedValue
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty qudt:element ;
+                                   owl:allValuesFrom qudt:EnumeratedValue
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty qudt:element ;
+                                   owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty qudt:default ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty qudt:abbreviation ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ;
+                 qudt:dbpediaMatch "http://dbpedia.org/resource/Enumeration"^^xsd:anyURI ;
+                 qudt:informativeReference "http://en.wikipedia.org/wiki/Enumerated_type"^^xsd:anyURI ,
+                                           "http://en.wikipedia.org/wiki/Enumeration"^^xsd:anyURI ;
+                 rdfs:comment """<p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>
+
+<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of <em>Scalar Datatype</em>. This allows them to be used as the reference of a datatype specification.</p>"""^^rdf:HTML ;
+                 rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+                 rdfs:label "Enumeration" .
+
+###  http://qudt.org/schema/qudt/element
+qudt:element rdf:type owl:ObjectProperty ;
+             dcterms:description "An element of an enumeration"^^rdf:HTML ;
+             rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+             rdfs:label "element" .
+
+				 
+###  http://qudt.org/schema/qudt/abbreviation
+qudt:abbreviation rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string ;
+                  dcterms:description "An abbreviation for a unit is a short ASCII string that is used in place of the full name for the unit in contexts where non-ASCII characters would be problematic, or where using the abbreviation will enhance readability. When a power of abase unit needs to be expressed, such as squares this can be done using abbreviations rather than symbols. For example, <em>sq ft</em> means <em>square foot</em>, and <em>cu ft</em> means <em>cubic foot</em>."^^rdf:HTML ;
+                  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+                  rdfs:label "abbreviation" .
+				 
+				 
+###  http://qudt.org/schema/qudt/dataEncoding
+qudt:dataEncoding rdf:type owl:ObjectProperty ;
+                  rdfs:range qudt:DataEncoding ;
+                  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+                  rdfs:label "data encoding" .
+
+
+###  http://qudt.org/schema/qudt/default
+qudt:default rdf:type owl:ObjectProperty ;
+             dcterms:description "The default element in an enumeration"^^rdf:HTML ;
+             rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+             rdfs:label "default" .
+
+###  http://qudt.org/schema/qudt/EnumeratedValue
+qudt:EnumeratedValue rdf:type owl:Class ;
+                     rdfs:subClassOf qudt:Datatype ,
+                                     dtype:EnumeratedValue ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty qudt:abbreviation ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty qudt:symbol ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ;
+                     dcterms:description """<p>This class is for all enumerated and/or coded values.  For example, it contains the dimension objects that are the basis elements in some abstract vector space associated with a quantity kind system. Another use is for the base dimensions for quantity systems. Each quantity kind system that defines a base set has a corresponding ordered enumeration whose elements are the dimension objects for the base quantity kinds. The order of the dimensions in the enumeration determines the canonical order of the basis elements in the corresponding abstract vector space.</p>
+
+<p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>
+
+<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of Scalar Datatype. This allows them to be used as the reference of a datatype specification.</p>"""^^rdf:HTML ;
+                     qudt:informativeReference "http://en.wikipedia.org/wiki/Enumeration"^^xsd:anyURI ;
+                     rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+                     rdfs:label "Enumerated Value" .
+
+###  http://qudt.org/schema/qudt/symbol
+qudt:symbol rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf qudt:literal ;
+            rdfs:range xsd:string ;
+            dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
+            rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+            rdfs:label "symbol" .
+
+###  http://qudt.org/schema/qudt/literal
+qudt:literal rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf dtype:literal ;
+             rdfs:range xsd:string ;
+             rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+             rdfs:label "literal" .
