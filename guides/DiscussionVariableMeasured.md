@@ -34,18 +34,24 @@ Would like to know something about:
 See [DDI-Cross Domain Integration: Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf), section III Data Description, and the [OpenDAP v4 documentation on Characterizing a Data Source](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Characterization_of_a_Data_Source) for background on describing data. 
 
 DDI defines a variable as “a mapping between some collection of units (the extension of the general concept for which the variable is a characteristic) to a set of values.”  In the DDI usage, a ‘Unit’ is the entity that a variable is about. 
+
+## Roles that variables can fill
 Roles allow users to assign different functions to variables according to their context of use. Roles are not inherent in variables but can be imposed on them. In DDI-CDI there are currently three roles:
  - Identifier - An identifier role that serves to differentiate one record from another. More than one variable may be used in combination to produce a compound identifier. 
  - Measure – Variables tagged with the measure role represent the values of interest. 
  - Attribute – The attribute role serves to provide information about the measures of interest. Variables might, for example, describe the conditions of a measurement. This way attributes can be used to link metadata or paradata (data about the process by which the data were collected) to the Measure of interest. 
 
 In OpenDAP data description each variable in a dataset has a name, a type, a value, and an (optional) collection of Attributes. The distinction between information in a variable and in an Attribute is somewhat arbitrary. However, the intention is that Attributes hold information that aids in the interpretation of data held in a variable. Variables, on the other hand, hold the primary content of a data source (‘Measures’ in DDI usage).
+
+## Data Structure types
 Data structures are a way to organize data in order to be processed by software programs. The current DDI-CDI model can be used to describe data from different data structures using an approach that involves describing each “cell” in the structure. The following structures are covered: 
  - Wide Data: Traditional rectangular, record-oriented data sets. Each record has an identifier and a set of measures related the same subject (unit, entity, feature of interest). Exemplified by common tabular data formats.
  - Long Data: Each record has an identifier for the subject, and a set of measures, but there might be multiple records for any given subject. The structure is used for  example with event data and spell data (observations for each unit, each covering a span of time (a spell)). Analogous to RDF or [Sixth normal form](https://en.wikipedia.org/wiki/Sixth_normal_form) in relational databases.
  - Multi-Dimensional Data: Data in which observations are identified using a set of dimensions. Examples are multi-dimensional cubes and time series. (Note that support is provided for time-series-specific constructs to support some legacy systems which are not based around the manipulation of multi-dimensional data “cubes”.) Exemplified by geospatial grid data.
  - Key-Value Data: A set of measures, each paired with an identifier, suited to describing No SQL and Big Data systems. JSON is a typical implementation.
 
+
+## Variable Cascade
 A useful framework for thinking about description of variables is the [**variable cascade**](https://ddi4.readthedocs.io/en/latest/userguides/variablecascade.html#the-variable-cascade) (see also section II-E in [Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf?version=3&modificationDate=1586887411228&cacheVersion=1&api=v2), quoted here). 'In DDI - CDI, the variable cascade is the way the descriptions of variables is managed. Features defined at each level of the cascade don’t depend on features at any of the lower levels. Because of this, the descriptions at each level are reusable.
 The cascade consists of four levels, each level corresponding to an ever-increasing descriptive detail. The levels in the cascade are
  -  Concept
@@ -55,6 +61,7 @@ The cascade consists of four levels, each level corresponding to an ever-increas
 
 The names of the levels indicate to the user what the main focus of the description is at each. The Concept and Conceptual Variable provide details about the concepts employed. The Represented Variable and Instance Variable provide the details about the codes, characters, and numbers representing the concepts at the higher levels.'
 
+## Other considerations
 Description and documentation of variables at the conceptual level is important for interfaces through which domain practitioners interact with data. Search at this level might involve criteria like 'find data that report calcium ion concentration in river water', 'find data that contain soil porosity measurements', 'find data that have sea-surface water temperature in {some bounding box} in {some time interval}', ' find images of polar bears on Baffin Island between year 2005 and 2010'. 
  
 A variable is anchored by its conceptual definition (DDI ConceptualVariable), but might be more narrowly scoped by concepts such as its value type (e.g. numeric or categorical, vocabulary used),  unit of measurement for reported values, aggregate functions (e.g. average, maximum), and observation context like associated feature-of-interest, sampling feature, or measurement method (Including sensor or device used) (DDI RepresentedVariable, DDI InstanceVariable).  
@@ -63,14 +70,14 @@ Examples variables: ‘Methane mass, daily formation rate per unit of sediment m
 
 A variable might have a restricted range of valid values (ValueDomain), or a cardinality that restricts the the number of values that can be associated with each item instance. The variable value might have one or more possible implementations in different representations (DDI InstanceVariable).  Description and documentation of the implementation level, e.g. specific data types, serialization schemes, cardinality, is important for software systems that automate operations on the data, but generally not critical for data discovery or evaluation.
 
-## Current state
+# Current state
 
-The existing so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue) implementation is focused on tabular data with quantitative (numeric) variable values that are all about a single subject entity ('unit'). 
+The existing so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue) implementation is focused on tabular data with quantitative (numeric) variable values that are all about a single subject entity (DDI 'unit'). 
 
 This implementation meets a very simple set of requirements, but in the spectrum of scientific activity a variable might represent the result of any kind of information acquisition, for example the output of an electronic sensor, a written description, a measurement made with a ruler or scale, the output of a computer model, a category assignment ("Chinook salmon"; "Kuskokwim River"), a researcher's name, an arbitrarily-assigned ('Specimen 23') or deterministic identifier (e.g. value of a SHA-2 hash), a recording of an interview with a human subject, or the sounds made by a bird or whale.  To understand a variable value entails understanding the property (conceptual variable in DDI terms), but also the entity (unit) that is the subject of the variable, a measurement procedure, and other context represented by variables in the attribute role. 
 
 ## Current Science on schema.org recommendation.
-Some of the characteristics of variables in an so:Dataset can be described using so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue).  A so:Dataset can have 0 to many so:variableMeasured property elements.  The range of so:variableMeasured is text or [so:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [so:Thing](https://schema.org/Thing), and adds additional properties: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example attribute descriptions:
+Some of the characteristics of variables in an so:Dataset can be described using so:variableMeasured/[so:PropertyValue](https://schema.org/PropertyValue).  A so:Dataset can have 0 to many so:variableMeasured property elements.  The range of so:variableMeasured is text or [so:PropertyValue](https://schema.org/PropertyValue), which inherits properties from [so:Thing](https://schema.org/Thing), and adds additional properties: { minValue, maxValue, measurementTechnique, propertyID, unitCode, unitText, value, valueReference}.  Here are two example variable descriptions:
 
 **Example 1**
 ```
@@ -101,6 +108,7 @@ Some of the characteristics of variables in an so:Dataset can be described using
 
 # Recommendations
 
+## PropertyID
 The PropertyValue entity in schema.org provides a basic framework for description of variables. For many purposes, the so:ProperyValue/so:propertyID can be a URI that references an in-depth property (DDI:ConceptualVariable) description such as that included with CF names, SWEET, EnvO, or a Scientific Variables Ontology instance. The value should be a URL (http URI) that points to a dereferenceable term that represents the base conceptual variable, e.g.  http://purl.obolibrary.org/obo/ENVO_04000002.  
 
 The so:ProperyValue/so:propertyID value should be an array, recognizing that there might be identifiers for variables at different levels in the DDI variable cascated (ConceptualVariable, RepresentationVariable, InstanceVariable), or that the property concept might have identifiers in different vocabularies (ontologies) used by different communities.  
@@ -108,6 +116,12 @@ The so:ProperyValue/so:propertyID value should be an array, recognizing that the
 Dereferencing the so:ProperyValue/so:propertyID  URI should yield a rich represenation of the meaning of the property that further axiomatizes the phenomenon, e.g. as a  "Feature of Interest: sea surface" and "Observed Property: temperature", etc, with links to ontologies like EnvO or SWEET.  
 
 It would be up to the client to recognize the propertyID identifier, or extract useful information from it representation, to better understand what the PropertyValue actually represents, via its rdfs:label, skos:definition, skos:altLabel, etc. 
+
+## Attributes
+Variables that play the role of attribute are scoped to one of the variables that is in the 'measure' role (see 'Roles that variables can fill', above). The [so:valueReference](https://schema.org/valueReference) property is described as "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."  This can be interpreted to mean an attribute role. The so:valueReference range includes so:PropertyValue, so valueReference can be used to describe variables in an attribute role. 
+
+example:
+
 
 ### Details on encoding
 1. Multiple so:propertyID values could be used to indicate different levels of granularity/detail for the property associated with a variable (the DDI variable cascade...). For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.  Each of these description approaches addresses different use cases. Communities can define standard reference resources that provide variable definitions with identifiers that can be used for information interchange. 

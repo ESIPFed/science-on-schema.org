@@ -120,7 +120,7 @@ Example using the [sosa vocabulary](https://www.w3.org/TR/vocab-ssn/)
 ## Variables with non-numeric values (Tier 3)
 
 ### Data Type
-For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary like xml schema, rdf datasets, QUDT datatypes. Schema.org does not have a so:dataType property that can be used for describing so:PropertyValues. We recommend using qudt:dataType as a property on so:PropertyValue to specify the kind of data value for that property in the described dataset. RDF datatypes are recommended to populate the qudt:dataTyep property.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used with the qudt:hasUnit property to specify the units of measure used to report datavalues when that is appropriate. 
+For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary like xml schema, rdf datasets, QUDT datatypes. Schema.org does not have a so:dataType property that can be used for describing so:PropertyValues. We recommend using qudt:dataType as a property on so:PropertyValue to specify the kind of data value for that property in the described dataset. The qudt schema does not constrain the domain or range of the qudt:dataType property.  RDF datatypes are recommended to populate the qudt:dataTyep property.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used with the qudt:hasUnit property to specify the units of measure used to report datavalues when that is appropriate. 
 
 Example with data type and units specified for a dataset measured variable data type:
 
@@ -132,50 +132,15 @@ Example with data type and units specified for a dataset measured variable data 
             "description": "year of experiment",
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20861",
             "unitText": "year",
-            "unitCode": "unit:YR",
+            "unitCode": "http://qudt.org/vocab/unit/YR",
             "qudt:dataType": "xsd:gYear",
-            "qudt:hasUnit": "unit:YR"
+            "qudt:hasUnit": "http://qudt.org/vocab/unit/YR"
         },
 ```
 
 ### Value range is controlled vocabulary
 
-For consideration by ESIP SOSO group: Two options. 1. adopt so:rangeIncludes to point at so:DefinedTermSet. This is outside of the current normal usage of so:rangeIncludes, but seems consistent with the intention of the property.
-
-#### so:DefinedTermSet
-schema.org has some additional "pending" elements that use "Defined" in their labels in a fairly loose way semantically speaking:
-- [so:DefinedTermSet](https://schema.org/DefinedTermSet) can be used to identify an Ontology or controlled vocabulary using a URL and name, that might pertain to ALL the variableMeasured types in some Dataset, or for each PropertyValue.
-- [DefinedTerm](https://schema.org/DefinedTerm) identifies a concept via a URL, and can also have a name, alternate name, identifier, comment, same as, etc. Unfortunately the proposed list of properties that can take DefinedTerm as a value do not include any properties that apply to PropertyValue, so we’d have to extend Schema.org.
-- [termCode](https://schema.org/termCode) is a property of DefinedTerm, and only allows a TEXT value. It be an abbreviation or  the hash-suffix that identifies the Term in the DefinedTermSet (note that deconstructing Identifiers in this way, only to have to reconstruct a URL that is dereferenceable, is problematic!)
-
-Example encoding for a variableMeasured that is populated with a controlled vocabulary.  Use so:rangeIncludes property to link to a so:DefinedTermsSet that either provides an identifier for a controlled voabulary, or enumerates the vocabulary values using an array of so:DefinedTerm:
-
-```
- {
-    "@type": "PropertyValue",
-    "@id": "http://astromat/dataset/data_astromat_analysis/variable0007"
-    "propertyID": "http://astromat/parameters/0027",
-    "name": "calcAvg",
-    "description": "Value in sample data are 'Can be averaged', 'Cannot be averaged', 'It is average' (note spelling errors)",
-    "rangeIncludes": {
-        "DefinedTermSet": {
-            "hasDefinedTerm": [
-                 {"DefinedTerm": 
-                     {"name":"Can be averaged"},
-                     {"description":"description of what this value means"},
-                     {"termCode":"expected value is TEXT, recommend making it a URI"}
-                 },
-                 {"DefinedTerm": {"name":"Cannot be averaged"}},
-                 {"DefinedTerm": {"name":"It is average"}}
-            ] 
-           }
-        }
-}
-```
-
-### qudt:Enumeration
-
-The [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) provides an extensive set of data type definitions and related properties.  Example encoding for a variableMeasured that is populated with a controlled vocabulary, using qudt:dataType/qudt:Enumeration.
+The [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) provides an extensive set of data type definitions and related properties. The qudt:Enumeration type can be used to specify a controlled vocabulary range for a variable.  Example encoding for a variableMeasured that is populated with a controlled vocabulary, using qudt:dataType/qudt:Enumeration. 
 
 ```
  {
@@ -196,3 +161,9 @@ The [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qud
     }
 }
 ```
+
+The controlled vocabulary could also be identified by a URI for communities that have identifiers for controlled vocabularies.  In the above example this would be encoded thus:
+```
+"qudt:dataType": <https://www.astromat.org/vocab/isaverage>  
+```
+ The intention here is that the URI can be dereference to obtain the qudt:Enumeration object that defines the vocabulary elements.
