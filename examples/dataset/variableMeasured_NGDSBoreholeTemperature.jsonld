@@ -1,0 +1,110 @@
+{
+    "@type": "Dataset",
+    "url": "http://schemas.usgin.org/models/#boreholetemperature",
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://semanticscience.org/resource/SIO_000763",
+            "name": "OBJECTID",
+            "description": "primary key added by GIS software",
+            "qudt:dataType": "xsd:long"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://semanticscience.org/resource/SIO_000115",
+            "name": "ObservationURI",
+            "alternateName": "Observation identifier",
+            "description": "Unique global identifier for this observation record.",
+            "qudt:dataType": "xsd:anyURI"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Sampling Feature",
+            "propertyID":"http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SpatialSamplingFeature",
+            "value": ["Borehole","http://purl.obolibrary.org/obo/ENVO_00002226"],
+            "description": "The sampling feature in which the temperature observation was made. ",
+            "qudt:dataType": "http://qudt.org/schema/qudt/StructuredDatatype",
+            "valueReference": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "WellName",
+                    "propertyID":"http://semanticscience.org/resource/SIO_000116",
+                    "description": "Common or human-readable name by which the feature is known. ",
+                    "qudt:dataType": "xsd:token"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "APINo",
+                    "propertyID":"http://semanticscience.org/resource/SIO_000115",
+                    "alternateName": "American Petroleum Institute well identifier",
+                    "description": "API number for the the wellbore/borehole identified by the HeaderURI. ",
+                    "qudt:dataType": ["xsd:name", "https://en.wikipedia.org/wiki/API_well_number"]
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "PLSSLocation",
+                    "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+                    "alternateName": "US Public Land Survey System location",
+                    "description": "The sampling feature in which the temperature observation was made.",
+                    "qudt:dataType": ["http://qudt.org/schema/qudt/StructuredDatatype", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
+                    "valueReference": [
+                        {
+                            "@type": "PropertyValue",
+                            "name": "PLSS_Meridians",
+                            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
+                            "qudt:dataType": "xsd:token"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "TWP",
+                            "alternateName": "Township",
+                            "description": "Township in PLSS grid, relative to reported baseline. ",
+                            "qudt:dataType": "xsd:token"
+                        },
+                        {
+                            "@type": "PropertyValue",
+                            "name": "RGE",
+                            "alternateName": "Range",
+                            "description": "Range in PLSS grid, relative to reported meridian.",
+                            "qudt:dataType": "xsd:token"
+                        }
+                    ]
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "DepthOfMeasurement",
+                    "propertyID":"http://purl.obolibrary.org/obo/PATO_0001595",
+                    "description": "depth below surface, along the borehole trace",
+                    "qudt:dataType": "xsd:decimal",
+                    "valueReference": {
+                        "@type": "PropertyValue",
+                        "name": "LengthUnits",
+                        "description": "Valid choices for units = Meters or Feet. If depth is reported as 'surface' or 'missing', use 'meters'.",
+                        "qudt:dataType": "xsd:token"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "ObservationResult",
+            "description": "The sampling feature in which the temperature observation was made. ",
+            "propertyID": "http://www.w3.org/ns/sosa/hasResult",
+            "qudt:dataType": "qudt:StructuredDatatype",
+            "valueReference": [
+                {
+                    "name": "MeasuredTemperature",
+                    "alternate name": "temperature",
+                    "description": "observed temperature",
+                    "propertyID": "http://purl.obolibrary.org/obo/PATO_0000146",
+                    "qudt:dataType": "xsd:decimal"
+                },
+                {
+                    "name": "TemperatureUnits",
+                    "description": "Temperatures in either degrees Fahrenheit or Celsius. Use same units throughout this document.",
+                    "qudt:dataType": "xsd:token"
+                }
+            ]
+        }
+    ]
+}
