@@ -4,8 +4,8 @@ The so:variableMeasured/so:PropertyValue entity provides a framework for descrip
  
 We highly recommend using the so:PropertyValue object to describe variables using one of a tiered set of options, and avoid the simple free text value. The so:PropertyValue object enables a structured description of a variable that can provide greater interoperability and machine processing.
 
-### Basic: Tier 0
-In it's most basic form, a so:PropertyValue can be published with a name and description of the variable. This is essentially equivalent to the free text option, but makes parsing the metadata simpler.  The name provided should match the label for the variable in the dataset.  If that label does not clearly convey the meaning of the variable, use so:alternateName to provide a label that better conveys the meaning of the variable. Use so:description to provide a text explanation of the variable, including its data type, what kind of values are expected, and any measurement method or environmental context information that applies to values for the variable in the described dataset. Example:
+### Starter
+A so:PropertyValue can be published with a name and description of the variable. This is essentially equivalent to the free text option, but makes parsing the metadata simpler.  The name provided should match the label for the variable in the dataset.  If that label does not clearly convey the meaning of the variable, use so:alternateName to provide a label that better conveys the meaning of the variable. Use so:description to provide a text explanation of the variable, including its data type, what kind of values are expected, and any measurement method or environmental context information that applies to values for the variable in the described dataset. Example:
 
 ```
 {
@@ -25,8 +25,8 @@ In it's most basic form, a so:PropertyValue can be published with a name and des
   ]
 }
 ```
-## Variables with Numeric Values
-### Recommended: Tier 1
+
+## Basic Recommended: 
 The recommended level of description is to include one or more resolvable identifiers that specify the semanitcs of a variable using [so:propertyID](https://schema.org/propertyID) in the so:PropertyValue object. Identifiers should resolve to a web page that provides a human-friendly description of the variable. Ideally an RDF representation using a documented vocabulary for machine consumption should be accessible via content negotiation. HTTP URI is the recommended identifier scheme. Multiple identifiers could be provided. These could be equivalent identifiers from different registries, or could specify the variable data type and semantics at different granularities, analogous to the variable cascade from conceptual, to representation, to instance, described in the [DDI data description model](https://ddi-alliance.atlassian.net/wiki/spaces/DDI4/pages/860815393/DDI+Cross+Domain+Integration+DDI-CDI+Review?preview=/860815393/932249666/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf). For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'. 
 
 Example: 
@@ -50,17 +50,13 @@ Example:
 }
 ```
 
-### More properties: Tier 2
-
-Tier 0 and Tier 1 levels of variable description support dataset discovery scenarios. Tier 2 introduces a more complete description of the variables, useful to support evaluation of a dataset for an intended use. Such a description should include the base properties from Tier 1 with additional information using the other properties of so:PropertyValue defined by schema.org:
+## Simple Numeric Data
+Standard schema.org properties allow a more complete description of simple numeric variables with additional information using the other properties of so:PropertyValue:
 - [unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
 - [unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  
 - [minValue](https://schema.org/minValue). If the value for the variable is numeric, this is the minimum value that occurs in the dataset. Not useful for other value types.
 - [maxValue](https://schema.org/maxValue). If the value for the variable is numeric, this is the maximum value that occurs in the dataset. Not useful for other value types.
 - [measurementTechnique](https://schema.org/measurementTechnique). A text description of the measurement method used to determine values for this variable. If standard measurement protocols are defined and registered, these can be identified via http URI's.
-
-
-Properties inherited from so:Thing 
 - [url](https://schema.org/url) Any so:Thing can have a URL property, but because the value is simply a url the relationship of the linked resource can not be expressed.  Usage is optional. The recommendation is that so:url should link to a web page that would be useful for a person, but are not intended to be machine-actionable.
 
 Example:
@@ -89,12 +85,9 @@ Example:
 }
 ```
 
-### More in depth variable descriptions: Tier 3.
+### Variable description using an external vocabulary.
 
-For situations in which there is no registry of variable definitions that bind the semantics associated with an identifier that can be used as a so:propertyID, there are two options. In either case the dcat:conformsTo property should be asserted in the so:PropertyValue to identify a profile used for extending the PropertyValue description. Either of these extension mechanisms would only be interoperable for clients that recognize the meaning of the dcat:conformsTo value. Other clients will depend on the Tier 0, 1, or 2 content provided.
-
-#### Recommended: use external vocabulary
-Take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other more expressive vocabulary, e.g. SVO, SSN, DDI, in the PropertyValue instance. If this approach is used, the so:PropertyValue/so:description text should contain text describing the variable scope etc, for clients that do not utilize the extenal vocabulary specified by the dcat:conformsTo.
+For situations in which there is no registry of variable definitions that define identifiers that can be used as a so:propertyID, take advantage of the open-world nature of rdf data to include an ontologic description of the variable using some other more expressive vocabulary, e.g. SVO, SSN, DDI, in the PropertyValue instance. If this approach is used, the so:PropertyValue/so:description text should contain text describing the variable scope etc, for clients that do not utilize the extenal vocabulary that is used. The dcat:conformsTo property should be asserted in the so:PropertyValue to identify a profile used for extending the PropertyValue description. This extension mechanisms would only be interoperable for clients that recognize the meaning of the dcat:conformsTo value. 
 
 Example using the [sosa vocabulary](https://www.w3.org/TR/vocab-ssn/)
  
@@ -117,7 +110,7 @@ Example using the [sosa vocabulary](https://www.w3.org/TR/vocab-ssn/)
 }
 ```
 
-## Variables with non-numeric values (Tier 3)
+## Variables with non-numeric values
 
 ### Data Type
 For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary like xml schema, rdf datasets, QUDT datatypes. Schema.org does not have a so:dataType property that can be used for describing so:PropertyValues. We recommend using qudt:dataType as a property on so:PropertyValue to specify the kind of data value for that property in the described dataset. The qudt schema does not constrain the domain or range of the qudt:dataType property.  RDF datatypes are recommended to populate the qudt:dataTyep property.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used with the qudt:hasUnit property to specify the units of measure used to report datavalues when that is appropriate. 
@@ -139,7 +132,6 @@ Example with data type and units specified for a dataset measured variable data 
 ```
 
 ### Value range is controlled vocabulary
-
 The [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) provides an extensive set of data type definitions and related properties. The qudt:Enumeration type can be used to specify a controlled vocabulary range for a variable.  Example encoding for a variableMeasured that is populated with a controlled vocabulary, using qudt:dataType/qudt:Enumeration. 
 
 ```

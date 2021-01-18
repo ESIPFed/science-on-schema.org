@@ -117,10 +117,40 @@ Dereferencing the so:ProperyValue/so:propertyID  URI should yield a rich represe
 
 It would be up to the client to recognize the propertyID identifier, or extract useful information from it representation, to better understand what the PropertyValue actually represents, via its rdfs:label, skos:definition, skos:altLabel, etc. 
 
-## Attributes
-Variables that play the role of attribute are scoped to one of the variables that is in the 'measure' role (see 'Roles that variables can fill', above). The [so:valueReference](https://schema.org/valueReference) property is described as "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."  This can be interpreted to mean an attribute role. The so:valueReference range includes so:PropertyValue, so valueReference can be used to describe variables in an attribute role. 
+## Variables about variables
+A variable might be scoped to one of the variables that is in the 'measure' role (see 'Roles that variables can fill', above). Variables in this role might specify metadata about another variable, or might be components of a structured variable.  Examples: a 'units' variable that specifies the units of measure for a value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. A example of a variable that has a structured value is a location variable that has latitude, longitude and spatial reference system as component variables. 
 
-example:
+The [so:valueReference](https://schema.org/valueReference) property is described as "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."  This can be interpreted to include variables providing metadata about other variables, and with a bit of license to include components in a structured variable. The so:valueReference range includes so:PropertyValue, so valueReference can be used to describe variables in an attribute role. 
+
+The dataType should be specified as a 'structured value', using the URI "http://qudt.org/schema/qudt/StructuredDatatype"; additional data type values can be used to indicate the specific data structure type. 
+Example describing a structured value:
+
+```
+{
+    "@type": "PropertyValue",
+     "name": "PLSSLocation",
+     "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+     "alternateName": "US Public Land Survey System location",
+     "description": "Location of sampling feature specified using PLSS grid",
+     "qudt:dataType": ["http://qudt.org/schema/qudt/StructuredDatatype", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
+     "valueReference": [
+          {"@type": "PropertyValue",
+            "name": "PLSS_Meridians",
+            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
+            "qudt:dataType": "xsd:token"  },
+           {"@type": "PropertyValue",
+            "name": "TWP",
+            "alternateName": "Township",
+            "description": "Township in PLSS grid, relative to reported baseline. ",
+            "qudt:dataType": "xsd:token"     },
+           {"@type": "PropertyValue",
+            "name": "RGE",
+            "alternateName": "Range",
+            "description": "Range in PLSS grid, relative to reported meridian.",
+            "qudt:dataType": "xsd:token"  }
+         ]
+ },
+```
 
 
 ### Details on encoding
