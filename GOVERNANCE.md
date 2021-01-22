@@ -1,11 +1,16 @@
 # Governance #
 
-We will leverage the [Earth Science Information Partners - Semantic Web Committee](http://wiki.esipfed.org/index.php/Semantic_Technologies) for discussion of issues and pull requests.
+We will leverage the [Earth Science Information Partners - Science on Schema.org Cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster) for organizing the cluster. We welcome contributions, which are described in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-Meetings are scheduled for the 4th Tuesday of each month at 4pm ET:
+Meetings are scheduled twice monthly:
 
-GoToMeeting: [https://www.gotomeeting.com/join/976796333](https://www.gotomeeting.com/join/976796333)
-Phone Access: United States: +1 (872) 240-3212
-Access Code: 976-796-333
+- When: 
+    - 1st Monday at 5pmET
+    - 4th Thursday, 2:30pmET
+- Where: Telecons via GoToMeeting
+    - Connection: https://global.gotomeeting.com/join/431083909
+    - Access Code: 431-083-909
+    - Phone Access: United States: +1 (786) 535-3211
+- [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
 Suggestions on governance models are welcome!
