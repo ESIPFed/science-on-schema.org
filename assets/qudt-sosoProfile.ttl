@@ -126,3 +126,5 @@ qudt:literal rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:string ;
              rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
              rdfs:label "literal" .
+			 
+### http://qudt.org/schema/qudt/MultiDimensionalDataFormat
