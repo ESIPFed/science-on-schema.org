@@ -7,13 +7,25 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/ESIPFed/science-on-schema.org)
 
 
-*This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.*
-
 <a id="guides"></a>
-## Guidance Documents - Table of Contents ##
-[Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
-* [Data Repository](/guides/DataRepository.md) - the research data repository
-* [Dataset](/guides/Dataset.md) - the scientific dataset
+## Science On Schema.Org (SOSO) Guidance Documents ##
+
+This repository provides guidance for repository operators and others to follow consistent conventions to provide schema.org markup in Dataset landing pages to improve data discovery through search engines. The main guides help describe Datasets and Data Repositories.
+
+* __[Dataset](/guides/Dataset.md)__ - guidelines for schema.org for a scientific Dataset
+* __[Data Repository](/guides/DataRepository.md)__ - guidelines for schema.org for a research data repository
+* [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
+
+This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets twice monthly, and all are welcome:
+
+- When: 
+    - 1st Monday at 5pmET
+    - 4th Thursday, 2:30pmET
+- Where: Telecons via GoToMeeting
+    - Connection: https://global.gotomeeting.com/join/431083909
+    - Access Code: 431-083-909
+    - Phone Access: United States: +1 (786) 535-3211
+- [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
 ## Upcoming Work
 
@@ -35,6 +47,8 @@ v1.2 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/5), [d
   * Chat on the [`sci-schemaorg`](https://esip-all.slack.com/archives/sci-schemaorg) Slack channel
   * [`sci-schemaorg` mailing list](https://lists.esipfed.org/mailman/listinfo/esip-schema-dot-org)
   * [`sci-schemaorg` wiki](http://wiki.esipfed.org/index.php/Schema.org_Cluster)
+* History
+  * This guide is a continuation of the [P418 NSF EarthCube](https://github.com/earthcubearchitecture-project418/p418Vocabulary) vocabulary guidance which ended in April 2018.
 * Broader Community
   * [Schema.org development](https://github.com/schemaorg/schemaorg)
   * [Schema.org archived history](https://www.w3.org/wiki/index.php?title=WebSchemas/SchemaDotOrgProposalsArchive#2011-2014_Proposals_for_Schema.org), can be helpful when determining intent
