@@ -3,7 +3,7 @@
         {
             "paleoDataTableName": "data",
             "filename": "Atlantic0220Thornalley2009.csv",
-            "description": "added by SMR: example from McKay et al. 2016, doi:10.5194/cp-12-1093-2016, page 1096",
+            "description": "added by SMR: example from McKay et al. 2016, doi:10.5194/cp-12-1093-2016, page 1096.  This is the LiPD format,not schema.org JSON-LD",
             "columns": [
                 {
                     "number": 1,
