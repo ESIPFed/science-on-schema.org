@@ -35,21 +35,29 @@ See [DDI-Cross Domain Integration: Detailed Model](https://ddi-alliance.atlassia
 
 DDI defines a variable as “a mapping between some collection of units (the extension of the general concept for which the variable is a characteristic) to a set of values.”  In the DDI usage, a ‘Unit’ is the entity that a variable is about. 
 
-## Roles that variables can fill
+## Data Structure types
+Data structures are a way to organize data in order to be processed by software programs. The current DDI-CDI model can be used to describe data from different data structures using an approach that involves describing each “cell” in the structure. The following structures are covered: 
+ - Wide Data: Traditional rectangular, record-oriented data sets. Each record has an identifier and a set of measures related the same subject (unit, entity, feature of interest). Exemplified by common tabular data formats.
+ - Long Data: Each record has an identifier for the subject, and a set of measures, but there might be multiple records for any given subject. The structure is used for  example with event data and spell data (observations for each unit, each covering a span of time (a spell)). Analogous to RDF or [Sixth normal form](https://en.wikipedia.org/wiki/Sixth_normal_form) in relational databases.
+ - Multi-Dimensional Data: Data in which observations are identified using a set of dimensions. Examples are multi-dimensional cubes and time series. (Note that support is provided for time-series-specific constructs to support some legacy systems which are not based around the manipulation of multi-dimensional data “cubes”.) Exemplified by geospatial grid data. See the W3c discussion of [data structure definitions for data cubes](https://www.w3.org/TR/vocab-data-cube/#dsd).
+ - Key-Value Data: A set of measures, each paired with an identifier, suited to describing No SQL and Big Data systems. JSON is a typical implementation.
+
+## Variable Roles or Components
+
 Roles allow users to assign different functions to variables according to their context of use. Roles are not inherent in variables but can be imposed on them. In DDI-CDI there are currently three roles:
  - Identifier - An identifier role that serves to differentiate one record from another. More than one variable may be used in combination to produce a compound identifier. 
  - Measure – Variables tagged with the measure role represent the values of interest. 
  - Attribute – The attribute role serves to provide information about the measures of interest. Variables might, for example, describe the conditions of a measurement. This way attributes can be used to link metadata or paradata (data about the process by which the data were collected) to the Measure of interest. 
 
-In OpenDAP data description each variable in a dataset has a name, a type, a value, and an (optional) collection of Attributes. The distinction between information in a variable and in an Attribute is somewhat arbitrary. However, the intention is that Attributes hold information that aids in the interpretation of data held in a variable. Variables, on the other hand, hold the primary content of a data source (‘Measures’ in DDI usage).
+In [OpenDAP data description](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1) each variable in a dataset has a name, a type, a value, and an (optional) collection of Attributes. The distinction between information in a variable and in an Attribute is somewhat arbitrary. However, the intention is that Attributes hold information that aids in the interpretation of data held in a variable. Variables, on the other hand, hold the primary content of a data source (‘Measures’ in DDI usage).
 
-## Data Structure types
-Data structures are a way to organize data in order to be processed by software programs. The current DDI-CDI model can be used to describe data from different data structures using an approach that involves describing each “cell” in the structure. The following structures are covered: 
- - Wide Data: Traditional rectangular, record-oriented data sets. Each record has an identifier and a set of measures related the same subject (unit, entity, feature of interest). Exemplified by common tabular data formats.
- - Long Data: Each record has an identifier for the subject, and a set of measures, but there might be multiple records for any given subject. The structure is used for  example with event data and spell data (observations for each unit, each covering a span of time (a spell)). Analogous to RDF or [Sixth normal form](https://en.wikipedia.org/wiki/Sixth_normal_form) in relational databases.
- - Multi-Dimensional Data: Data in which observations are identified using a set of dimensions. Examples are multi-dimensional cubes and time series. (Note that support is provided for time-series-specific constructs to support some legacy systems which are not based around the manipulation of multi-dimensional data “cubes”.) Exemplified by geospatial grid data.
- - Key-Value Data: A set of measures, each paired with an identifier, suited to describing No SQL and Big Data systems. JSON is a typical implementation.
+The [W3C DataCube model](https://www.w3.org/TR/vocab-data-cube) follows a  similar pattern, but with the addition of 'dimensions'.  In this model, a data set is collection of measured values (observations) made at points located in a logical space. The 'locations' are characterized by a set of dimensions that define the context for each observation (e.g. time, position, pressure, depth...). Each measured value may also have metadata describing what has been measured (e.g. velocity, temperature, density), how it was measured and how the observations are expressed (e.g. units, multipliers, status). We can think of the data set as a multi-dimensional space, or hyper-cube, indexed by those dimensions. A dataset is described according to a set of dimensions, attributes and measures, collectively called components in the Data Cube model. 
 
+ - The dimension components serve to identify the observations. A set of values for all the dimension components is sufficient to identify a single observation. 
+ - The measure components represent the phenomenon being observed.
+ - The attribute components provide information to qualify and interpret the observed value(s). They enable specification of the units of measure, any scaling factors and metadata such as the status of the observation (e.g. estimated, provisional). 
+
+The DDI-CDI model describes this data structure as a Multi-Dimensional Format, and the Data Cube Attribute and Measure components correspond to the DDI-CDI attribute and measure variable roles, and the dimensions are called dimension components.
 
 ## Variable Cascade
 A useful framework for thinking about description of variables is the [**variable cascade**](https://ddi4.readthedocs.io/en/latest/userguides/variablecascade.html#the-variable-cascade) (see also section II-E in [Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf?version=3&modificationDate=1586887411228&cacheVersion=1&api=v2), quoted here). 'In DDI - CDI, the variable cascade is the way the descriptions of variables is managed. Features defined at each level of the cascade don’t depend on features at any of the lower levels. Because of this, the descriptions at each level are reusable.
@@ -67,7 +75,6 @@ Description and documentation of variables at the conceptual level is important 
 A variable is anchored by its conceptual definition (DDI ConceptualVariable), but might be more narrowly scoped by concepts such as its value type (e.g. numeric or categorical, vocabulary used),  unit of measurement for reported values, aggregate functions (e.g. average, maximum), and observation context like associated feature-of-interest, sampling feature, or measurement method (Including sensor or device used) (DDI RepresentedVariable, DDI InstanceVariable).  
 
 Examples variables: ‘Methane mass, daily formation rate per unit of sediment mass’, ‘Practical salinity of water body by CTD and computation using UNESCO 1983 algorithm’. For example 'nitrate in river water using spectrophotometric method'. Data acquisition location might be defined by geospatial coordinates and/or relationship to the feature of interest (e.g. 10 m above ground surface). These aspects of variables are represented by variables in the role of 'attribute' in a data structure.  The restrictions on measurement method and context are likely to be important for evaluating data for fitness for use, but are lower priority for discovery. 
-
 A variable might have a restricted range of valid values (ValueDomain), or a cardinality that restricts the the number of values that can be associated with each item instance. The variable value might have one or more possible implementations in different representations (DDI InstanceVariable).  Description and documentation of the implementation level, e.g. specific data types, serialization schemes, cardinality, is important for software systems that automate operations on the data, but generally not critical for data discovery or evaluation.
 
 # Current state
@@ -117,12 +124,20 @@ Dereferencing the so:ProperyValue/so:propertyID  URI should yield a rich represe
 
 It would be up to the client to recognize the propertyID identifier, or extract useful information from it representation, to better understand what the PropertyValue actually represents, via its rdfs:label, skos:definition, skos:altLabel, etc. 
 
-## Variables about variables
-A variable might be scoped to one of the variables that is in the 'measure' role (see 'Roles that variables can fill', above). Variables in this role might specify metadata about another variable, or might be components of a structured variable.  Examples: a 'units' variable that specifies the units of measure for a value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. A example of a variable that has a structured value is a location variable that has latitude, longitude and spatial reference system as component variables. 
+## Variables with components
+A variable might be scoped to one of the variables that is in the 'measure' role (see 'Roles that variables can fill', above), or as a Dimension. Variables in this role might specify metadata about another variable, or might be components of a structured variable.  Examples: a 'units' variable that specifies the units of measure for a value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. A example of a variable that has a structured value is a location variable that has latitude, longitude and spatial reference system as component variables. 
+
+In the DataCube model, a measure component might have attributes or dimensions.  
 
 The [so:valueReference](https://schema.org/valueReference) property is described as "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."  This can be interpreted to include variables providing metadata about other variables, and with a bit of license to include components in a structured variable. The so:valueReference range includes so:PropertyValue, so valueReference can be used to describe variables in an attribute role. 
 
-The dataType should be specified as a 'structured value', using the URI "http://qudt.org/schema/qudt/StructuredDatatype"; additional data type values can be used to indicate the specific data structure type. 
+The dataType should be specified as one of the sub types of qudt:StructuredDatatype.
+
+QUTD types to consider:
+ - Composite Data Structure: http://qudt.org/schema/qudt/CompositeDataStructure. The Variable value aggregates elements of possibly different types, described using nested [so:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
+ - Multi Dimensional Data Format Type: http://qudt.org/schema/qudt/MultiDimensionalDataFormatType.  Value is scoped by one or more associated Dimension variables. 
+ - Dimensional Data type: http://qudt.org/schema/qudt/DimensionalDatatype. Value specifies a physical quantity and unit of measuure is embedded in the value.
+ 
 Example describing a structured value:
 
 ```
@@ -132,7 +147,7 @@ Example describing a structured value:
      "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
      "alternateName": "US Public Land Survey System location",
      "description": "Location of sampling feature specified using PLSS grid",
-     "qudt:dataType": ["http://qudt.org/schema/qudt/StructuredDatatype", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
+     "qudt:dataType": ["http://qudt.org/schema/qudt/CompositeDataStructure", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
      "valueReference": [
           {"@type": "PropertyValue",
             "name": "PLSS_Meridians",
@@ -152,6 +167,9 @@ Example describing a structured value:
  },
 ```
 
+## Reference or foreign key values
+use qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype) to indicate variables that are references to data objects stored elsewhere.  Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
+
 
 ### Details on encoding
 1. Multiple so:propertyID values could be used to indicate different levels of granularity/detail for the property associated with a variable (the DDI variable cascade...). For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.  Each of these description approaches addresses different use cases. Communities can define standard reference resources that provide variable definitions with identifiers that can be used for information interchange. 
@@ -161,12 +179,10 @@ Example describing a structured value:
 1. Multiple labels that apply to a so:PropertyValue should be represented with an array of so:alternateName. Ideally the names could be scoped in some fashion to associate them with a context in which they are used, but Schema.org does not have an object for representing scoped names.  [consider shoe-horning so:DefinedTerm for this purpose...]
 
 ## Suggested additions in SOSO usage
-
-Two elements are needed: 
  
 - Recommend use of **rdf:dataType** or **qudt:dataType** property on soPropertyValue, with range as defined in https://www.w3.org/TR/rdf11-concepts/#section-Datatypes.   The schema.org implementation is strongly oriented towards numeric result values for attributes. This is unnecessarily restrictive. To deal with data objects that are recorded interviews, sound recordings (e.g. whale song), and other 'unstructured' content the valueType could be a MIME type.   Object types would need to be defined in a data type registry (e.g. see [RDA Data Type Registries WG](https://www.rd-alliance.org/groups/data-type-registries-wg.html)).   
 
-- Add a **rangeConstraint** property on so:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for by so:minValue and so:maxValue. SOSO recommends that these be used to represent the range of actual values in the described dataset. Categorical ranges could be expressed as a URI for the vocabulary used to populate values. Other more complex range constraints might need to be expressed as text or via URI.  The interpretation of the rangeConstraint might vary depending on the valueType. Options: use [rdfs:range](https://www.w3.org/TR/rdf-schema/#ch_range)
+- [This proposal is tabled for now, 2020-01-22] Add a **rangeConstraint** property on so:PropertyValue to allow specification of the range of values expected for a property.  Numeric ranges are already accounted for by so:minValue and so:maxValue. SOSO recommends that these be used to represent the range of actual values in the described dataset. Categorical ranges could be expressed as a URI for the vocabulary used to populate values. Other more complex range constraints might need to be expressed as text or via URI.  The interpretation of the rangeConstraint might vary depending on the valueType. Options: use [rdfs:range](https://www.w3.org/TR/rdf-schema/#ch_range)
 
 # Outstanding issues for discussion:
 
