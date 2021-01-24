@@ -30,7 +30,7 @@
                 "http://purl.obolibrary.org/obo/ENVO_00002226"
             ],
             "description": "The sampling feature in which the temperature observation was made. ",
-            "qudt:dataType": "http://qudt.org/schema/qudt/StructuredDatatype",
+            "qudt:dataType": "qudt:TupleType",
             "valueReference": [
                 {
                     "@type": "PropertyValue",
@@ -106,6 +106,7 @@
             "qudt:dataType": "qudt:TupleType",
             "valueReference": [
                 {
+                    "@type": "PropertyValue",
                     "name": "MeasuredTemperature",
                     "alternate name": "temperature",
                     "description": "observed temperature",
@@ -113,9 +114,17 @@
                     "qudt:dataType": "xsd:decimal"
                 },
                 {
+                    "@type": "PropertyValue",
                     "name": "TemperatureUnits",
-                    "description": "Temperatures in either degrees Fahrenheit or Celsius. Use same units throughout this document.",
-                    "qudt:dataType": "xsd:token"
+                    "description": "Temperatures in either degrees Fahrenheit or Celsius. ",
+                    "qudt:dataType": {
+                        "qudt:Enumeration": {
+                            "qudt:element": [
+                                {"qudt:EnumeratedValue": {"qudt:symbol": "Fahrenheit"} },
+                                {"qudt:EnumeratedValue": {"qudt:symbol": "Celsius"}  }
+                            ]
+                        }
+                    }
                 }
             ]
         }
