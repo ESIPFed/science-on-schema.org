@@ -115,20 +115,15 @@ Example using the [sosa vocabulary](https://www.w3.org/TR/vocab-ssn/)
 ### Data Type
 For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary like xml schema, rdf datasets, QUDT datatypes. Schema.org does not have a so:dataType property that can be used for describing so:PropertyValues. We recommend using qudt:dataType as a property on so:PropertyValue to specify the kind of data value for that property in the described dataset. The qudt schema does not constrain the domain or range of the qudt:dataType property.  RDF datatypes are recommended to populate the qudt:dataType property, and several QUDT data types are recommended to identify kinds of structured data values (see  Variables with components, below).  
 
-Example with data type and units specified for a dataset measured variable data type:
+Example a dataset measured variable data type:
 
 ```
-        {
-            "@type": "PropertyValue",
-            "@id": "ex:variable0002",
-            "name": "year",0
-            "description": "year of experiment",
-            "propertyID": "https://www.example-data-repository.org/dataset-parameter/20861",
-            "unitText": "year",
-            "unitCode": "http://qudt.org/vocab/unit/YR",
-            "qudt:dataType": "xsd:gYear",
-            "qudt:hasUnit": "http://qudt.org/vocab/unit/YR"
-        },
+ {"@type": "PropertyValue",
+   "name": “Date of experiment",
+   "description": “date and time when observation was obtained",
+   "propertyID": "https://www.ex-data-repo.org/dataset-parameter/20861",
+   "qudt:dataType": "xsd:dateTime" },
+,
 ```
 
 ### Value range is controlled vocabulary
@@ -162,9 +157,72 @@ The controlled vocabulary could also be identified by a URI for communities that
  
 ## Variables with components
 ### Variable is represented by a dimensioned set of values (grid, coverage, time series, data cube)
-A variable might be represented as a function of one or more dimensions. An example is a time series of water levels in a well; the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity; the dimensions might be northing, easting, and elevation in some spatial reference system, and the dependent variable is field intensity.  A data cube structure can be implemented in various ways. Measured values might be regularly spaced along each dimension (as in many satellite imagery or time series types) in which case the dimension would be characterized by a start and end value and sample spacing; alternatively the dimension coordinate values might be associated with each measured value to account for irregular measured value spacing. Another variant in the data structure is how multiple measure values at each sampled location are represented.  For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the basic value types and their semantics.  Detailed description of the cube structure can be included in the dataset description. 
- - Multi Dimensional Data Format Type: http://qudt.org/schema/qudt/MultiDimensionalDataFormatType.  Value is scoped by one or more associated Dimension variables. This would be the data type for the container PropertyValue with valueReference child elements documenting the dimensions and measured values
+A variable might be represented as a function of one or more dimensions. An example is a time series of water levels in a well; the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity; the dimensions might be northing, easting, and elevation in some spatial reference system, and the dependent variable is field intensity.  A data cube structure can be implemented in various ways. Measured values might be regularly spaced along each dimension (as in many satellite imagery or time series types) in which case the dimension would be characterized by a start and end value and sample spacing; alternatively the dimension coordinate values might be associated with each measured value to account for irregular measured value spacing. Another variant in the data structure is how multiple measure values at each sampled location are represented.  For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the basic value types and their semantics.  Detailed description of the cube structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. OpenDAP v4 DMR, W3C DataCube). 
 
+Assign Multi Dimensional Data Format Type (qudt:MultiDimensionalDataFormatType) as a "@type" in the type declaration for the schema.org record. 
+The variableMeasured for the dataset can be represented as two base Properties-- the dimensions (independent variable in the data structure) and the measures (the dependent variable values that are a function of the dimension coordinates). Each of these is represented as a TupleType, with child schema:valueReference objects describing each dimension or measure.  
+
+Value is scoped by one or more associated Dimension variables. This would be the data type for the container PropertyValue with valueReference child elements documenting the dimensions and measured values
+ 
+ 
+Example for multi-dimensional dataset 
+```
+{"@type": [ "Dataset", "qudt:MultiDimensionalDataFormat" ],
+    "name": "Surface geology and geophysics grid",
+...
+ "variableMeasured": [
+   {"@type": "PropertyValue",
+    "name": "Dimensions",
+    "propertyID": "http://purl.org/linked-data/cube#measureDimension",
+    "description": "The dimensions for logical space in which measured values are positioned...",
+    "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+    "valueReference": [
+        {"@type": "PropertyValue",
+         "name": "latitude",
+         "propertyID": "http://semanticscience.org/resource/latitude",
+         "qudt:dataType": "xsd:decimal",
+         "unitText": "decimal degree"  },
+        {"@type": "PropertyValue",
+         "name": "longitude",
+         "propertyID": "http://semanticscience.org/resource/longitude",
+         "qudt:dataType": "xsd:decimal",
+         "unitText": "decimal degree"}
+     ]
+  },
+  {"@type": "PropertyValue",
+   "name": "observation value",
+   "propertyID": "http://purl.org/linked-data/cube#measure",
+   "description": "tuple with magnetic field intensity, g value, observed outcrop rock type, and elevation",
+   "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+   "valueReference": [
+       {"@type": "PropertyValue",
+         "name": "mag",
+         "alternateName": "magnetic field intensity",
+         "propertyID": "http://ex.org/resource/magneticFieldIntensity",
+          "qudt:dataType": "xsd:decimal",
+          "unitText": "amperes per metre" },
+        { "@type": "PropertyValue",
+          "name": "acceleration of gravity",
+          "propertyID": "http://ex.org/resource/localAccelGravity",
+          "alternateName": "Range",
+          "measurementTechnique": "gravimiter model xxx",
+          "qudt:dataType": "xsd:decimal",
+          "unitText": "mgal"},
+        { "@type": "PropertyValue",
+          "name": "lith",
+          "alternateName": "Outcrop lithology",
+          "propertyID": "http://ex.org/resource/geosciml/rocktype",
+          "qudt:dataType":
+             ["qudt:Enumeration",
+              "https://geosciml.org/vocab/simpleLithology"] },
+         { "@type": "PropertyValue",
+           "name": "elevation",
+           "propertyID": "http://ex.org/resource/elevation",
+           "description": "elevation relative to MSL, in meters",
+           "qudt:dataType": "xsd:decimal",
+           "unitText": "meters" }
+            ]        }    ]  }
+```
  
 ### Structured values 
 A variable in a attribute role provides information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for a value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. Other structured values might represent vector, tensor, tuples. In these cases a measure value is represented by a set of component measure values. The structure can be recursive. This kind of structure is typical of JSON or XML value representations, a tree graph. A example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as component variables. The reference system value might be another structure with components. Recommended data types for container PropertyValue with valueReference child elements documenting the attributes or component and measured values
