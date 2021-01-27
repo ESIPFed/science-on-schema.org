@@ -1,6 +1,8 @@
 {
   "@context": {
-    "@vocab": "https://schema.org/"
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
   },
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
@@ -210,5 +212,13 @@
         }
       ]
     }
-  ]
+  ],
+  "prov:wasDerivedFrom": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
+  "schema:isBasedOn": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
+  "prov:wasGeneratedBy": {
+    "@id": "https://example.org/executions/execution-42",
+    "@type": "provone:Execution",
+    "prov:hadPlan": "https://somerepository.org/datasets/10.xxxx/Dataset-2.v2/process-script.R",
+    "prov:used": {"@id": "https://doi.org/10.xxxx/Dataset-1"}
+  }
 }
