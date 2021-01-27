@@ -1100,7 +1100,7 @@ Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisio
   "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"prov:wasRevisionOf": "https://doi.org/10.xxxx/Dataset-2.v1"</strong>
+  <strong>"prov:wasRevisionOf": { "@id": "https://doi.org/10.xxxx/Dataset-2.v1" }</strong>
 }
 </pre>
 
@@ -1123,8 +1123,8 @@ In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn
   "@id": "https://doi.org/10.xxxx/Dataset-2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1"</strong>,
-  <strong>"schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1"</strong>
+  <strong>"prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>,
+  <strong>"schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>
 }
 </pre>
 
@@ -1146,14 +1146,14 @@ Any portion of the software workflow can be described to increase information ab
   "@id": "https://doi.org/10.xxxx/Dataset-2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  "prov:wasDerivedFrom": "https://doi.org/10.xxxx/Dataset-1",
-  "schema:isBasedOn": "https://doi.org/10.xxxx/Dataset-1",
+  "prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
+  "schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
   <strong>"prov:wasGeneratedBy": 
       {
         "@id": "https://example.org/executions/execution-42",
         "@type": "provone:Execution",
         "prov:hadPlan": "https://somerepository.org/datasets/10.xxxx/Dataset-2.v2/process-script.R",
-        "prov:used": "https://doi.org/10.xxxx/Dataset-1"
+        "prov:used": { "@id": "https://doi.org/10.xxxx/Dataset-1" }
       }</strong>
 }
 </pre>
