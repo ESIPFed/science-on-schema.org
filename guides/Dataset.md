@@ -8,6 +8,7 @@
 - [Describing a Dataset](#describing-a-dataset)
 	- [Common Properties](#common-properties)
 		- [Identifier](#identifier)
+			- [How to reference Short DOIs](#how-to-reference-short-dois)
 		- [Variables](#variables)
 		- [Catalog](#catalog)
 		- [Metadata](#metadata)
@@ -282,6 +283,43 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   <strong>"citation": "J.Smith 'How I created an awesome dataset’, Journal of Data Science, 1966"</strong>
 }
 </pre>
+
+#### How to reference Short DOIs
+
+[Short DOIs](http://shortdoi.org/) is a redirect service offered by the International DOI Foundation that provides a shorter version of an orginial DOI. For example, the original DOI `doi:10.5066/F7VX0DMQ` has a short DOI of `doi.org/csgf`. Short DOIs are resolvable using standard DOI URLS such as `http://doi.org/fg5v`. These short DOIs are treated identically to the original DOI. If you are using the short DOI service, we recommend publishing a short DOI URL using the `schema:sameAs` property of the `schema:Dataset`:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  "sameAs": [
+    "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+    <strong>"http://doi.org/fg5v"</strong>
+  ],
+  "version": "2013-11-21",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
+  "identifier":
+      {
+        "@id": "https://doi.org/10.5066/F7VX0DMQ",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
+      }
+}
+</pre>
+
+`schema:sameAs` is used here for the following reasons:
+
+1. It doesn't add too many more statements that might increase the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
+2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself: 
+
+`curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
 
 Back to [top](#top)
 
