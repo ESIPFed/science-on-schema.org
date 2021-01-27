@@ -7,6 +7,7 @@ This document explains the conventions used within this guide.
     * [JSON-LD Snippets](#syntax-snippets)
     * [Creating Diagrams](#syntax-diagrams)
     * [Creating Figures](#syntax-figures)
+    * [Schema.org Namespace](#syntax-namespace)
 * [Versioning](#versioning)
 * [Why JSON-LD](#why-jsonld)
 * [Typing to External Vocabularies](#external-vocab-typing)
@@ -61,6 +62,7 @@ Figure example:
   </p>
 ```
 
+<a id="syntax-namespace"></a>
 6. **Namespace for `schema.org`.** Use `https://schema.org/`. 
 
   Consistent representation of namespaces simplifies programmatic processing of markup. For example, even though conceptually it is clear the terms `http://schema.org/Dataset` and `https://schema.org/Dataset` (note the protocol difference) are referring to [https://schema.org/Dataset](https://schema.org/Dataset), these are programmatically treated as different entities. The [schema.org guidelines](https://schema.org/docs/faq.html#19) are somewhat ambivalent on the topic, with perhaps emphasis on `"https"`. 
@@ -83,6 +85,8 @@ Figure example:
   Including the trailing slash will make the literal representation of terms align with the Internet location of the term definition, and so be clearer for readers and other processors.
 
   It is further recommended that the prefix `SO:` is used in documentation and other locations when specifically referring to `https://schema.org/`.
+  
+  See also discussion at [issue #52](https://github.com/ESIPFed/science-on-schema.org/issues/52)
 
 <a id="versioning"></a>
 ## Versioning ##
