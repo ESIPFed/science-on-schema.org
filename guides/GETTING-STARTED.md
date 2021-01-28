@@ -22,6 +22,9 @@ If you are new to publishing schema.org, here are some general tips to getting s
     * [HTML](#data-types_HTML)
   * [Resource Types](#resource-types)
 * [Resource Modification Time](#modification_times)
+  * [`schema.org/dateModified`](#mod_so)
+  * [HTTP `Last-Modified`](#mod_http)
+  * [Sitemap `<lastmod>`](#mod_map)
 
 
 # Goals #
@@ -329,6 +332,7 @@ resource was modified. The `Last-Modified` header should reflect the correspondi
 whether a cached copy of a resource should be updated for example. Similarly the `<lastmod>` 
 entry should reflect the `Last-Modified` header and the `schema.org/dateModified` value.
 
+<a id="mod_so"></a>
 ### 1. `schema.org/dateModified`
 
 Each `schema.org` instance derived from [`schema.org/CreativeWork`](https://schema.org/CreativeWork) 
@@ -345,6 +349,7 @@ represent a date time value as a time zone aware ISO 8601 formatted string. For 
 }
 ```
 
+<a id="mod_http"></a>
 ### 2. HTTP `Last-Modified` Header
 
 A schema.org instance is typically embedded in a landing page or may be accessed directly as a 
@@ -358,6 +363,7 @@ example:
 Last-Modified: Mon, 10 Dec 2018 13:45:00 GMT
 ```
 
+<a id="mod_map"></a>
 ### 3. `sitemap.xml lastmod` value
 
 A [`sitemap.xml`](https://www.sitemaps.org/protocol.html) document provides a mechanism for a 
