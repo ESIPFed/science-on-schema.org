@@ -332,6 +332,17 @@ resource was modified. The `Last-Modified` header should reflect the correspondi
 whether a cached copy of a resource should be updated for example. Similarly the `<lastmod>` 
 entry should reflect the `Last-Modified` header and the `schema.org/dateModified` value.
 
+A typical pattern for a consumer interesting in synchronizing a cache of resource is:
+
+1. Examine the sitemap for new or updated entries using hints from `<lastmod>`
+2. Retrieve the resource directly or by previewing with a HTTP HEAD request. A 
+   `Last-Modified` provides a hint as to whether the resource should be retrieved.
+3. Examine the `schema.org/dateModified` property of the resource(s) extracted from the
+   resource.
+   
+Providing accurate hints early in the process can reduce requirements for effectively
+sharing data resources.
+
 <a id="mod_so"></a>
 ### 1. `schema.org/dateModified`
 
