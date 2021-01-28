@@ -1,0 +1,112 @@
+{
+  "@context":{
+    "@vocab":"http://schema.org/",
+    "@base": "https://science-on-schema.org/test/resources/dataset_core.jsonld"
+  },
+  "@graph": [
+    {
+      "@id": "#ds-core-01",
+      "@type": "Dataset",
+      "name": "Bad version",
+      "description": "Fails because version not provided",
+      "identifier": "dataset_core.jsonld#ds-core-01",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-01",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-01"
+    },
+    {
+      "@id": "#ds-core-02",
+      "@type": "Dataset",
+      "Xname": "No name",
+      "description": "Fails because dataset should have a name property",
+      "identifier": "dataset_core.jsonld#ds-core-02",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-02",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-02"
+    },
+    {
+      "@id": "#ds-core-03",
+      "@type": "Dataset",
+      "name": "No description",
+      "identifier": "dataset_core.jsonld#ds-core-03",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-03",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-03"
+    },
+    {
+      "@id": "#ds-core-04",
+      "@type": "Dataset",
+      "name": "No keywords",
+      "description": "Fails because there is not keywords property",
+      "identifier": "dataset_core.jsonld#ds-core-04",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-04",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-04"
+    },
+    {
+      "@id": "#ds-core-05",
+      "@type": "Dataset",
+      "name": "No isAccessibleForFree",
+      "description": "Fails because there is no isAccessibleForFree property",
+      "identifier": "dataset_core.jsonld#ds-core-05",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-05",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-05"
+    },
+    {
+      "@id": "#ds-core-06",
+      "@type": "Dataset",
+      "name": "No url",
+      "description": "Fails because there is no url property",
+      "identifier": "dataset_core.jsonld#ds-core-06",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "keywords": ["test", "dataset"],
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-06"
+    },
+    {
+      "@id": "#ds-core-07",
+      "@type": "Dataset",
+      "name": "No sameAs",
+      "description": "Fails because there is no sameAs property",
+      "identifier": "dataset_core.jsonld#ds-core-07",
+      "version": "1.0",
+      "isAccessibleForFree": true,
+      "keywords": ["test", "dataset"],
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-07"
+    },
+    {
+      "@id": "#ds-core-08",
+      "@type": "Dataset",
+      "name": "No identifier",
+      "description": "Fails because there is no identifier",
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-08",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-08"
+    },
+    {
+      "@id": "#ds-core-09",
+      "@type": "Dataset",
+      "name": "Wrong identifier type",
+      "description": "Fails because identifier is not a Literal, URL, or PropertyValue",
+      "identifier": {
+        "@id": "dataset_core.jsonld#ds-core-09",
+        "@type": "@id"
+      },
+      "version": "1.0",
+      "keywords": ["test", "dataset"],
+      "isAccessibleForFree": true,
+      "url": "https://science-on-schema.org/test/resources/dataset_core.jsonld#ds-core-09",
+      "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_core.jsonld#ds-core-09"
+    }
+  ]
+}
