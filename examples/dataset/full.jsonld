@@ -11,6 +11,7 @@
       "value": "doi:10.1234/1234567890",
       "url": "https://doi.org/10.1234/1234567890",
       "sameAs": "http://doi.org/abcd"
+
   },
   "sameAs": "https://doi.org/10.1234/1234567890",
   "isAccessibleForFree": true,
@@ -24,195 +25,178 @@
   },
   "datePublished": "2010-02-03",
   "keywords": ["krill", "biota", "oceans"],
-  "creator": [
-    {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51159",
-      "name": "Dr Langdon Quetin",
-      "url": "https://www.example-data-repository.org/person/51159"
-    },
-    {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51160",
-      "name": "Dr Robin Ross",
-      "url": "https://www.example-data-repository.org/person/51160"
-    }
-  ],
-  "citation": "Quetin, L., Ross, R. (2010) Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project). Example Data Repository. Version 1. doi:10.1234/1234567890 [access date]",
-  "version": "1",
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "temporalCoverage": "2001-08-06/2002-09-09",
-  "spatialCoverage": {
-    "@type": "Place",
-    "geo": {
-      "@type": "GeoShape",
-      "box": "-68.4817,-75.8183 -65.08,-68.5033",
-      "polygon": "-68.4817,-75.8183 -65.08,-75.8183 -65.08,-68.5033 -68.4817,-68.5033 -68.4817,-75.8183"
-    },
-    "additionalProperty": {
-      "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q4018860"],
-      "name": "WKT",
-      "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))",
-      "valueReference": [
+    "creator": [
         {
-          "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q31385480"],
-          "name": "datatype",
-          "value": "http://www.opengis.net/ont/geosparql#wktLiteral"
+            "@type": "Person",
+            "@id": "http://lod.example-data-repository.org/id/person/51159",
+            "name": "Dr Langdon Quetin",
+            "url": "https://www.example-data-repository.org/person/51159"
         },
         {
-          "@type": ["PropertyValue", "http://www.wikidata.org/entity/Q161779"],
-          "name": "SRS",
-          "alternateName": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
-        }
-      ]
-    }
-  },
-  "publisher": {
-    "@id": "https://www.example-data-repository.org",
-    "@type": "Organization",
-    "name": "Example Data Repository",
-    "url": "https://www.example-data-repository.org"
-  },
-  "provider": {
-    "@id": "https://www.example-data-repository.org"
-  },
-  "distribution": [
-    {
-      "@type": "DataDownload",
-      "contentUrl": "https://www.example-data-repository.org/dataset/3300/data/larval-krill.tsv",
-      "encodingFormat": "text/tsv",
-      "datePublished": "2010-02-03"
-    }
-  ],
-  "measurementTechnique": [
-    "Hand-held plankton net",
-    "Manual Biota Sampler"
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20860",
-      "name": "cruiseid",
-      "description": "cruise identification",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20860",
-      "unitText": "text"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20861",
-      "name": "year",
-      "description": "year of experiment",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20861",
-      "unitText": "YYYY"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20862",
-      "name": "sample_id",
-      "description": "sample identification: WBC=whole body clearance expt.; WBF=whole body fluorescence on collection",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20862",
-      "unitText": "alpha-numeric"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20863",
-      "name": "time_sample",
-      "description": "time of sampling for pigment content after collection; decline of pigment content with time was used to calculate time to clear the gut of pigment.",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20863",
-      "unitText": "minutes"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20864",
-      "name": "pigment_content",
-      "description": "pigment content",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20864",
-      "unitText": "micrograms total chl/grams wet weight"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20865",
-      "name": "stage_id",
-      "description": "stage development index of larvae in sample (furcilia = F1-6 = 1-6,  juvenile = J=7)",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20865"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20866",
-      "name": "wet_weight",
-      "description": "average wet weight/larvae in sample",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20866",
-      "unitText": "mg"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20874",
-      "name": "lat",
-      "description": "latitude, in decimal degrees, North is positive, negative denotes South",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20874",
-      "unitText": "decimal degrees"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20875",
-      "name": "lon",
-      "description": "longitude, in decimal degrees, East is positive, negative denotes West",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20875",
-      "unitText": "decimal degrees"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20876",
-      "name": "day_local",
-      "description": "day of month, local time",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20876"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20877",
-      "name": "month_local",
-      "description": "month, local time\n",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20877"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20878",
-      "name": "time_local",
-      "description": "time of day, local time, using 2400 clock format",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20878"
-    },
-    {
-      "@type": "PropertyValue",
-      "@id": "http://lod.example-data-repository.org/id/dataset-parameter/20879",
-      "name": "yrday_local",
-      "description": "local day and decimal time, as 326.5 for the 326th day of the year, or November 22 at 1200 hours (noon)",
-      "url": "https://www.example-data-repository.org/dataset-parameter/20879"
-    }
-  ],
-  "funder": [
-    {
-      "@type": "FundingAgency",
-      "name": "NSF Antarctic Sciences",
-      "alternateName": "NSF ANT",
-      "legalName": "NSF Antarctic Sciences",
-      "makesOffer": [
-        {
-          "@id": "http://lod.example-data-repository.org/id/award/55102",
-          "@type": "Offer",
-          "name": "ANT-9909933",
-          "url": "https://www.example-data-repository.org/award/55102",
-          "sameAs": "http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=9909933",
-          "offeredBy": {
             "@type": "Person",
-            "@id": "http://lod.example-data-repository.org/id/person/51469",
-            "name": "Dr Roberta Marinelli",
-            "url": "https://www.example-data-repository.org/person/51469"
-          }
+            "@id": "http://lod.example-data-repository.org/id/person/51160",
+            "name": "Dr Robin Ross",
+            "url": "https://www.example-data-repository.org/person/51160"
         }
-      ]
-    }
-  ],
+    ],
+    "citation": "Quetin, L., Ross, R. (2010) Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project). Example Data Repository. Version 1. doi:10.1234/1234567890 [access date]",
+    "version": "1",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "temporalCoverage": "2001-08-06/2002-09-09",
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoShape",
+            "box": "-68.4817 -75.8183 -65.08 -68.5033"
+        },
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://www.wikidata.org/entity/Q4018860",
+                "name": "well-known text (WKT) representation of geometry",
+                "value": "POLYGON ((-75.8183 -68.4817, -68.5033 -68.4817, -68.5033 -65.08, -75.8183 -65.08, -75.8183 -68.4817))"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://www.wikidata.org/entity/Q161779",
+                "name": "Spatial Reference System",
+                "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+            }
+        ]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Example Data Repository",
+        "url": "https://www.example-data-repository.org"
+    },
+    "provider": {
+        "@type": "Organization",
+        "name": "Example Data Repository",
+        "url": "https://www.example-data-repository.org"
+        },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "contentUrl": "https://www.example-data-repository.org/dataset/3300/data/larval-krill.tsv",
+            "encodingFormat": "text/tab-separated-values",
+            "datePublished": "2010-02-03"
+        }
+    ],
+    "measurementTechnique": [
+        "Hand-held plankton net",
+        "Manual Biota Sampler"
+    ],
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20860",
+            "name": "cruiseid",
+            "description": "cruise identification",
+            "unitText": "text"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20861",
+            "name": "year",
+            "description": "year of experiment",
+            "unitText": "calendar year"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20862",
+            "name": "sample_id",
+            "description": "sample identification: WBC=whole body clearance expt.; WBF=whole body fluorescence on collection"
+
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20863",
+            "name": "time_sample",
+            "description": "Number of minutes between collection and sampling for pigment content; decline of pigment content with time was used to calculate time to clear the gut of pigment.",
+            "unitText": "minutes"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20864",
+            "name": "pigment_content",
+            "description": "pigment content",
+            "unitText": "micrograms total chl/grams wet weight"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20865",
+            "name": "stage_id",
+            "description": "stage development index of larvae in sample (furcilia = F1-6 = 1-6,  juvenile = J=7)"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20866",
+            "name": "wet_weight",
+            "description": "average wet weight/larvae in sample",
+            "unitText": "mg"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20874",
+            "name": "lat",
+            "description": "latitude, in decimal degrees, North is positive, negative denotes South",
+            "unitText": "decimal degrees"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20875",
+            "name": "lon",
+            "description": "longitude, in decimal degrees, East is positive, negative denotes West",
+            "unitText": "decimal degrees"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20876",
+            "name": "day_local",
+            "description": "day of month, local time"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20877",
+            "name": "month_local",
+            "description": "month, local time"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20878",
+            "name": "time_local",
+            "description": "time of day, local time, using 2400 clock format"
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "http://lod.example-data-repository.org/id/dataset-parameter/20879",
+            "name": "yrday_local",
+            "description": "local day and decimal time, as 326.5 for the 326th day of the year, or November 22 at 1200 hours (noon)"
+        }
+    ],
+    "funder": [
+        {
+            "@type": "FundingAgency",
+            "name": "NSF Antarctic Sciences",
+            "alternateName": "NSF ANT",
+            "legalName": "NSF Antarctic Sciences",
+            "makesOffer": [
+                {
+                    "@id": "urn:local:55102",
+                    "@type": "Offer",
+                    "name": "ANT-9909933",
+                    "identifier": "https://www.example-data-repository.org/award/55102",
+                    "sameAs": "http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=9909933",
+                    "offeredBy": {
+                        "@type": "Person",
+                        "name": "Dr Roberta Marinelli",
+                        "identifier": "https://orcid.org/0000-0001-7775-xxxx"
+                    }
+                }
+            ]
+        }
+
+      ],
   "prov:wasDerivedFrom": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
   "schema:isBasedOn": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
   "prov:wasGeneratedBy": {
@@ -222,3 +206,4 @@
     "prov:used": {"@id": "https://doi.org/10.xxxx/Dataset-1"}
   }
 }
+
