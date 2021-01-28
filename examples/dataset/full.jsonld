@@ -1,13 +1,17 @@
 {
   "@context": {
-    "@vocab": "https://schema.org/"
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
   },
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
       "@type": "PropertyValue",
       "propertyID": "https://registry.identifiers.org/registry/doi",
       "value": "doi:10.1234/1234567890",
-      "url": "https://doi.org/10.1234/1234567890"
+      "url": "https://doi.org/10.1234/1234567890",
+      "sameAs": "http://doi.org/abcd"
+
   },
   "sameAs": "https://doi.org/10.1234/1234567890",
   "isAccessibleForFree": true,
@@ -21,19 +25,6 @@
   },
   "datePublished": "2010-02-03",
   "keywords": ["krill", "biota", "oceans"],
-  "creator": [
-    {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51159",
-      "name": "Dr Langdon Quetin",
-      "url": "https://www.example-data-repository.org/person/51159"
-    },
-    "datePublished": "2010-02-03",
-    "keywords": [
-        "krill",
-        "biota",
-        "oceans"
-    ],
     "creator": [
         {
             "@type": "Person",
@@ -204,5 +195,15 @@
                 }
             ]
         }
-    ]
+
+      ],
+  "prov:wasDerivedFrom": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
+  "schema:isBasedOn": {"@id": "https://doi.org/10.xxxx/Dataset-1"},
+  "prov:wasGeneratedBy": {
+    "@id": "https://example.org/executions/execution-42",
+    "@type": "provone:Execution",
+    "prov:hadPlan": "https://somerepository.org/datasets/10.xxxx/Dataset-2.v2/process-script.R",
+    "prov:used": {"@id": "https://doi.org/10.xxxx/Dataset-1"}
+  }
 }
+
