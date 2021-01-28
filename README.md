@@ -27,10 +27,15 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
     - Phone Access: United States: +1 (786) 535-3211
 - [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
+## Citation
+
+Science on Schema.org (SOSO) releases are archived on Zenodo, and the current release should be cited as:
+
+> Adam Shepherd, Matt Jones, Dave Vieglais, Douglas Fils, Stephen Richard, Ruth Duerr, Lewis John McGibbney, Charles Vardeman II. (2020). Schema.org Publishing Guidelines for the Geosciences v1.1 (Version 1.1.0). Zenodo. https://doi.org/10.5281/zenodo.3736235
+
 ## Upcoming Work
 
-v1.2 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/5), [develop branch](https://github.com/ESIPFed/science-on-schema.org/tree/develop))
-
+v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [develop branch](https://github.com/ESIPFed/science-on-schema.org/tree/develop))
 
 ## Version DOIs
 
