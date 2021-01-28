@@ -219,6 +219,8 @@ Property URIs that might be used in the so:propertyID field.
 
 [FHIR specification]( https://www.hl7.org/fhir/datatypes.html) defines a set of data types that are used for the resource elements.  FHIR is a standard for health care data exchange, published by HL7®
 
+[EDAM formats](http://edamontology.org/format_1915)
+
 # Data Description systems
  - [DDI-Cross Domain Integration: Detailed Model](https://ddi-alliance.atlassian.net/wiki/download/attachments/860815393/Part_2_DDI-CDI_Detailed_Model_PR_1.pdf), section III Data Description, 
  - [OpenDAP v4 documentation on Characterizing a Data Source](https://docs.opendap.org/index.php?title=DAP4:_Specification_Volume_1#Characterization_of_a_Data_Source) for background on describing data. 
