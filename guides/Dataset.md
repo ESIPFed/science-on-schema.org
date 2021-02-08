@@ -8,6 +8,7 @@
 - [Describing a Dataset](#describing-a-dataset)
 	- [Common Properties](#common-properties)
 		- [Identifier](#identifier)
+			- [How to reference Short DOIs](#how-to-reference-short-dois)
 		- [Variables](#variables)
 		- [Catalog](#catalog)
 		- [Metadata](#metadata)
@@ -19,6 +20,7 @@
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
 		- [License](#license)
+		- [Provenance Relationships](#provenance-relationships)
 	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
 		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
 
@@ -74,7 +76,7 @@ Back to [top](#top)
 
 ### Identifier
 
-Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field. 
+Adding the [schema:identifier](https://schema.org/identifier) field can be done in three ways - a text description, a URL, or by using the [schema:PropertyValue](https://schema.org/PropertyValue) field.
 
 ![Identifiers](/assets/diagrams/dataset/dataset_identifier.svg "Dataset - Identifier")
 
@@ -85,7 +87,7 @@ Adding the [schema:identifier](https://schema.org/identifier) field can be done 
 
 Most identifiers have these properties:
 
-- a **value**, 
+- a **value**,
 - a **domain** or **scheme** (in which the value is guaranteed to be unique),
 - (optionally) a **resolvable URL** (where the thing being identified can be found),
 - (optionally) a **domain prefix** (a token string of characters succeeded by a colon ':' that represents the domain or scheme).
@@ -98,11 +100,11 @@ For example, the Digital Object Identifier (DOI) for a dataset may be: doi:10.50
 - **prefix**: `doi`
 
 **Q: Can't we just say the scheme is a 'DOI'?**  
-**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data). 
+**A:** Yes, but there's a better way - a URI or URL. Because the we are publishing schema.org to express the explicit values of our content, we want to explicitly identify and classify our content such that harvesters can determine when our content appears elsewhere on the web. By detectinng these shared pieces content, we form the [Web of Data](https://www.w3.org/standards/semanticweb/data).
 
-Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry). 
+Because the **scheme** `Digital Object Identifier (DOI)` is described using unstructured text, we need a better way to explicitly state this value. Fortunately, [identifiers.org](https://registry.identifiers.org/registry) has registered URIs for almost 700 different identifier schemes which can be browsed at: [https://registry.identifiers.org/registry](https://registry.identifiers.org/registry).
 
-We can specify the **scheme** as being a DOI with this identifiers.org Registry URI: 
+We can specify the **scheme** as being a DOI with this identifiers.org Registry URI:
 
 [https://registry.identifiers.org/registry/doi](https://registry.identifiers.org/registry/doi)
 
@@ -125,7 +127,7 @@ Looking at the available fields from [schema:PropertyValue](https://schema.org/P
 - https://www.sciencebase.gov/catalog/item/56b3e649e4b0cc79997fb5ec
 
 For these reasons, we recommend that any identifier having a known prefix value should be included in the value succeeded by a colon to form '<prefix>:<value>', or for this DOI: `doi:10.5066/F7VX0DMQ`.
-	
+
 **Q: How do I know if an Identifier has a known prefix?**  
 **A:** Each Identifier in the identifiers.org Registry that has a known prefix will be specified on the identifers.org registry page under the section called '**Identifier Schemes**' at the field labeled '**Prefix**'.
 
@@ -154,7 +156,7 @@ An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to 
 }
 </pre>
 
-Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI". 
+Optionally, the `schema:name` field can be used to give this specific identifier a label such as "DOI: 10.5066/F7VX0DMQ" or "DOI 10.5066/F7VX0DMQ", but `schema:name` should never be used to simply say "DOI".
 
 <pre>
 {
@@ -282,6 +284,43 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 }
 </pre>
 
+#### How to reference Short DOIs
+
+[Short DOIs](http://shortdoi.org/) is a redirect service offered by the International DOI Foundation that provides a shorter version of an orginial DOI. For example, the original DOI `doi:10.5066/F7VX0DMQ` has a short DOI of `doi.org/csgf`. Short DOIs are resolvable using standard DOI URLS such as `http://doi.org/fg5v`. These short DOIs are treated identically to the original DOI. If you are using the short DOI service, we recommend publishing a short DOI URL using the `schema:sameAs` property of the `schema:Dataset`:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  "sameAs": [
+    "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
+    <strong>"http://doi.org/fg5v"</strong>
+  ],
+  "version": "2013-11-21",
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
+  "identifier":
+      {
+        "@id": "https://doi.org/10.5066/F7VX0DMQ",
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5066/F7VX0DMQ",
+        "url": "https://doi.org/10.5066/F7VX0DMQ"
+      }
+}
+</pre>
+
+`schema:sameAs` is used here for the following reasons:
+
+1. It doesn't add too many more statements that might increase the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
+2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself: 
+
+`curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
+
 Back to [top](#top)
 
 ### Variables
@@ -311,7 +350,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 }
 </pre>
 <a id="variables_external-vocab-example"></a>
-If a URI is available that identifies the variable, it should be included as the 
+If a URI is available that identifies the variable, it should be included as the
 [PropertyID](https://schema.org/propertyID):
 
 <pre>
@@ -375,7 +414,7 @@ Back to [top](#top)
 
 While this schema.org record represents metadata about a Dataset, many providers will also have other metadata records that may be more complete or that conform to other metadata formats and vocabularies that might be useful. For example, repositories often contain detailed records in ISO TC 211 formats, [EML](https://eml.ecoinformatics.org), and other formats. Aggregators and other consumers can make use of this additional metadata if they are linked in a standardized way to the schema.org record.  We recommend that the location of the alternative forms of the metadata be provided using the [schema:subjectOf](https://schema.org/subjectOf) and [schema:about](https://schema.org/about) properties:
 
-Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf). 
+Link metadata documents to a [schema:Dataset](https://schema.org/Dataset) by using [schema:subjectOf](https://schema.org/subjectOf).
     - Or if a schema.org snippet describes the metadata as the main resource, then link to the Dataset it describes using [schema:about](https://schema.org/about).
 
 These two approaches are equivalent, and which is used depends on the subject of the schema.org record.
@@ -383,7 +422,7 @@ These two approaches are equivalent, and which is used depends on the subject of
 ![Metadata](/assets/diagrams/dataset/dataset_metadata.svg "Dataset - Metadata")
 
 Once the linkage has been made, further details about the metadata can be provided. We recommend using [schema:encodingFormat](https://schema.org/encodingFormat) to indicate the metadata format/vocabulary to which the metadata record conforms.  If it conforms to multiple formats, or to a specific and general format types, multiple types can be listed.  
-We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc. 
+We use the [schema:DataDownload](https://schema.org/DataDownload) class for Metadata files so that we can use the [schema:MediaObject](https://schema.org/MediaObject) properties for describing bytesize, encoding, etc.
 
 It can be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
 
@@ -572,28 +611,24 @@ Back to [top](#top)
 
 ![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
-The types of spatial coverages in schema.org are
+Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees. 
 
-* [point](https://schema.org/GeoCoordinates) - specify the [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties of the schema:GeoCoordinates]() type.
+Schema.org documentation does not specify a convention for the coordinate reference system, our recommended practice is to use [WGS84](EPSG:3857) for at least one spatial coverage description if applicable. Spatial coverage location using other coordinate systems can be included, see recommendation for specifying coordinate reference systems, [below](#spatial_reference-system).  
 
-The following shapes use the [schema:GeoShape](https://schema.org/GeoShape) type where a 'point' is defined as a latitude/longitude pair separated by a comma.
+#### Point location
+A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties. 
+*Not Recommended* the [schema:Place](https://schema.org/Place) definition allows the latitude and longitude of a point location to be specified as properties directly of place; although this is more succinct, it makes parsing the metadata more complex and should be avoided.
 
-* [line](https://schema.org/line) - a series of two or more point objects separated by space.
-* [polygon](https://schema.org/polygon) - a series of four or more space delimited points where the first and final points are identical.
-* [box](https://schema.org/polboxygon) - two points separated by a space character where the first point is the lower corner and the second point is the upper corner.
+Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location. 
 
-These spatial definitiosn were added to schema.org very early on in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) where they decided to follow the [GeoRSS specification](http://www.georss.org/simple). While this is not ideal, there are ongoing conversations about improving this in schema.org.
-
-<a id="spatial_point"></a>
-A point, or coordinate, would defined in this way:
-
+<a id="spatial_point"></a> A schema:Dataset that is about a point location would documented in this way:
 <pre>
 {
   "@context": {
     "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "name": "Removal of organic carbon by natural bacterioplankton ....",
   ...
   <strong>"spatialCoverage": {
     "@type": "Place",
@@ -606,35 +641,58 @@ A point, or coordinate, would defined in this way:
 }
 </pre>
 
-<a id="spatial_shape"></a>
-All other shapes, are defined using the [schema:GeoShape](https://schema.org/GeoShape):
+#### GeoShape location extent
+
+<a id="spatial_shape"></a>A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g. a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.  
+
+Be aware that some client applications might only index or display bounding box extents. 
+
+* [line](https://schema.org/line) - a series of two or more points.
+* [polygon](https://schema.org/polygon) - a series of four or more points where the first and final points are identical.
+* [box](https://schema.org/box) - A rectangular (in lat-long space) extent specified by two points, the first in the lower left (southwest) corner and the second in the upper right (northeast) corner.
+* [circle](https://schema.org/circle) - A circular region of a specified radius centered at a specified latitude and longitude, represented as a coordinate pair followed by a radius in meters. *Not recommended for use*.
+
+
+Examples
+<a id="geoshape-line">Linear spatial location</a>
+A line spatial location. Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature. 
 
 <pre>
   <strong>"spatialCoverage": {
     "@type": "Place",
     "geo": {
       "@type": "GeoShape",
-      "line": "39.3280,120.1633 40.445,123.7878"
+      "line": "39.3280 120.1633 40.445 123.7878"
     }
   }</strong>
 }
 </pre>
 
-A polygon
+<a id="geoshape-polygon">Polygon spatial location</a>
+A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications. 
+
 <pre>
   <strong>"polygon": "39.3280 120.1633 40.445 123.7878 41 121 39.77 122.42 39.3280 120.1633"</strong>
 </pre>
 
-A box where 'lower-left' corner is 39.3280/120.1633 and 'upper-right' corner is 40.445/123.7878
+<a id="geoshape-box">Bounding Boxes</a>
+A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
 
-The defined spatial coverages are inadequate for the needs of our community, but we also recognize that schema.org continues to hear the needs of its schema.org publishers on these [issues](https://github.com/schemaorg/schemaorg/issues/1548).
+NOTE-- see [discussion in GitHub issue 101](https://github.com/ESIPFed/science-on-schema.org/issues/101#issuecomment-720808142) on what works with Google Dataset search to display spatial locatation in their search results.
 
-We also recognize that there is no defined property for specifying a Coordinate Reference System, but we see from the [schema.org issue queue](https://github.com/schemaorg/schemaorg/issues) that this has been mentioned.
+East longitude values can be reported 0 <= X <= 360 or -180 <= X <= 180. Some applications will fail under one or the other of these conventions. Recommendation is to use -180 <= X <= 180, consistent with the [WKT specification](https://docs.opengeospatial.org/is/18-010r7/18-010r7.html#33).  Following this recommendation, bounding boxes that cross the antimeridian at ±180° longitude, the West longitude value will be numerically greater than the East longitude value. For example, to describe Fiji the box might be
+<pre>
+  <strong>"box": "-19 176 -15 -178"</strong>
+</pre>
 
-<a id="spatial_multiple-geometries"></a>
+NOTES: Some spatial data processors will not correctly interpret the bounding coordinates across the antimeridian even if they follow the recommended southwest, northeast corner convention, resulting in boxes that span the circumference of the Earth, excluding the actual area of interest. For applications operating with data in the vicinity of longitude 180, testing is strongly recommended to determine if it works for bounding boxes crossing the antimeridian (+/- 180); an alternative is to define two bounding boxes, one on each side of 180.
+
+For bounding boxes that include the north or south pole, schema:box will not work. Recommended practice is to use a schema:polygon to describe spatial location extents that include the poles.  
+
+<a id="spatial_multiple-geometries">Multiple geometries</a>
 If you have multiple geometries, you can publish those by making the [schema:geo](https://schema.org/geo) field an array of [GeoShape](https://schema.org/GeoShape) or [GeoCoordinates](https://schema.org/GeoCoordinates) like so:
 
 <pre>
@@ -660,14 +718,22 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 }
 </pre>
 
+Be aware that some client application might not index or display multiple geometries.
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate reference systems (CRS) are methodologies for locating geographical features within some frame of reference (e.g. Earth, Moon, etc.). To represent an SRS in schema.org, we should use the `[schema:additionalProperty](https://schema.org/additionalProperty)` property to specify an object of type `[schema:PropertyValue](https://schema.org/PropertyValue)` and `[dbpedia:Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system)`, a decent RDF resource on the web for describing what an SRS is.
+A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees. 
+
+In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of 
+[http://dbpedia.org/resource/Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are: 
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
-| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#     |
+| WGS84                    | http://www.w3.org/2003/01/geo/wgs84_pos#lat_long     |
 | CRS84                    | http://www.opengis.net/def/crs/OGC/1.3/CRS84 |
+| EPSG:26911               | https://spatialreference.org/ref/epsg/nad83-utm-zone-11n/  |
+| EPSG:3413                | https://spatialreference.org/ref/epsg/wgs-84-nsidc-sea-ice-polar-stereographic-north/ |
+
+NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified. 
 
 A spatial reference system can be added in this way:
 
@@ -684,11 +750,12 @@ A spatial reference system can be added in this way:
     "@type": "Place",
     "geo": {
       "@type": "GeoShape",
-      "line": "39.3280,120.1633 40.445,123.7878"
+      "line": "39.3280 120.1633 40.445 123.7878"
     },
     <strong>"additionalProperty": {
-      "@type": ["PropertyValue", "dbpedia:Spatial_reference_system"],
-      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      "@type": "PropertyValue",
+      "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
     }</strong>
   }
 }
@@ -698,7 +765,7 @@ Back to [top](#top)
 
 ### Roles of People
 
-People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields of creator and contribulds of creator and contributor. But using any of these fields are okay. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
@@ -1035,6 +1102,90 @@ The following table contains the SPDX URIs for some of the most common licenses.
 |GPL-3.0-or-later | https://spdx.org/licenses/GPL-3.0-or-later |
 |MIT              | https://spdx.org/licenses/MIT              |
 |MIT-0            | https://spdx.org/licenses/MIT-0            |
+
+Back to [top](#top)
+
+### Provenance Relationships
+
+High level relationships that link datasets based on their processing workflows and versioning relationships are critical for data consumers and search engines to link different versions of a [schema:Dataset](https://schema.org/Dataset), to clarify when a dataset is derived from one or more source Datasets, and to specify linkages to the software and activities that created these derived datasets for reproducibility. Collectively, this is provenance information.
+
+The [PROV-O](https://www.w3.org/TR/prov-o/) recommendation provides the widely-adopted vocabulary for representing this type of provenance information, and should be used within Dataset descriptions, as most of the necessary provenance properties are currently missing from schema.org. The main exception is [`schema:isBasedOn`](https://schema.org/isBasedOn), which provides a predicate for indicating that a Dataset was derived from one or more source Datasets. Producers and consumers should interpret `schema:isBasedOn` to be an equivalent property to `prov:wasDerivedFrom` (in the `owl:equivalentProperty` sense). Either is acceptable for representing derivation relationships, but there is utility in expressing the relationship with both predicates for consumers that might only be looking for one or the other. When other `PROV` predicates are used, it is preferred to use `prov:wasDerivedFrom` for consistency.
+
+We recommend providing provenance information about data processing workflows, data derivation relationships, and versioning information using PROV-O and schema.org predicates, and describe the structures to do this in the following subsections. Aggregators and search systems should use these properties to cluster and cross-link versions of Datasets, and to provide bi-directional linkages to source and derived data products.
+
+#### Indicating an earlier version: `prov:wasRevisionOf`
+
+![Prov_versions](/assets/diagrams/dataset/dataset_prov_revision.svg "Dataset - Revisions")
+
+Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisionOf`](https://www.w3.org/TR/prov-o/#wasRevisionOf) property. This indicates that the current `schema:Dataset` replaces or obsoletes the source Dataset indicated.  The value of the `prov:wasRevisionOf` should be the canonical IRI for the identifier for the original dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used.
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"prov:wasRevisionOf": { "@id": "https://doi.org/10.xxxx/Dataset-2.v1" }</strong>
+}
+</pre>
+
+#### Indicating a source dataset: `schema:isBasedOn` and `prov:wasDerivedFrom`
+
+A derived Dataset is one in which the values in the data are somehow related or created from the values in one or more source datasets. For example, raw voltage values from a sensor might be recorded in a raw data file, which is then processed through calibration functions to produce a derived dataset with values in scientific units. Other examples of derived data include data that has been error corrected, gap-filled, or integrated with other sources.
+
+To indicate that a Dataset has been derived from a source Dataset, use the [`prov:wasDerivedFrom`](https://www.w3.org/TR/prov-o/#wasDerivedFrom) property. This indicates that the current `schema:Dataset` was created in whole or in part from content in the source Dataset, and therefore does not represent an independent set of measurements.  The value of the `prov:wasDerivedFrom` should be the canonical IRI for the identifer for the source dataset, preferably to a persistently resolvable IRI such as as a DOI, but other persistent identifiers for the dataset can be used. In addition, if a persistent identifier for a digital object within a Dataset is available, the `prov:wasDerivedFrom` may also be used to indicate that that digital object was derived from that particular source object, rather than the overall Dataset. This allows one to be more specific about the exact relationship between the source and derived data objects.
+
+In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn`](https://schema.org/isBasedOn) property, which should be considered to be an equivalent property to `prov:wasDerivedFrom`. For compatibility with schema.org, we recommend that producers use `schema:isBasedOn` in addition to or instead of `prov:wasDerivedFrom` to indicate derivation relationships.
+
+![Prov_derived](/assets/diagrams/dataset/dataset_prov_derived.svg "Dataset - Derivations")
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "https://doi.org/10.xxxx/Dataset-2",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  <strong>"prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>,
+  <strong>"schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>
+}
+</pre>
+
+#### Indicating a software workflow or processing activity: `prov:used` and `prov:wasGeneratedBy`
+
+Frequently data are processed to create derived Datasets or other products using software programs that use some source data, transform it in various ways, and create the derived products. Understanding these software workflows promotes understanding of the products, and facilitates reproducibility. Describing a software workflow is really just a mechanism to provide more detail about how derived products were created when software was executed. The [ProvONE](https://purl.dataone.org/provone-v1-dev) vocabulary extends PROV to define a specific concept for an execution event (`provone:Execution`) during which a software program (`provone:Program`) is executed. During this execution, the software can use source data (`prov:used`) and generate outputs (`prov:wasGeneratedBy`), which then can be inferred to have been derived from the source data.
+
+![Prov_program](/assets/diagrams/dataset/dataset_prov_program.svg "Dataset - Workflow")
+
+Any portion of the software workflow can be described to increase information about derived datasets. For example, use `prov:used` to link an execution to one or more source datasets, and use `prov:wasGeneratedBy` to link an execution to one or more derived products. When information about the execution event itself is known, use `provone:Execution` to describe that event, and link it to the source and derived products, as well as the program. The program is often a software script that is itself dereferenceable, and may be part of the archived Dataset itself if it has an accessible IRI.
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+  },
+  "@id": "https://doi.org/10.xxxx/Dataset-2",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
+  "schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
+  <strong>"prov:wasGeneratedBy": 
+      {
+        "@id": "https://example.org/executions/execution-42",
+        "@type": "provone:Execution",
+        "prov:hadPlan": "https://somerepository.org/datasets/10.xxxx/Dataset-2.v2/process-script.R",
+        "prov:used": { "@id": "https://doi.org/10.xxxx/Dataset-1" }
+      }</strong>
+}
+</pre>
+
 
 Back to [top](#top)
 

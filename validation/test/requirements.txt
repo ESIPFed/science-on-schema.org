@@ -1,0 +1,8 @@
+#-e git+git://github.com/RDFLib/rdflib.git#egg=rdflib
+-e git+git://github.com/RDFLib/rdflib.git@5.0.0#egg=rdflib
+-e git+git://github.com/RDFLib/rdflib-jsonld.git#egg=rdflib_jsonld
+
+# This version of pySHACL includes additional graph metrics for reporting
+-e git+git://github.com/datadavev/pySHACL.git#egg=pyshacl
+
+requests
