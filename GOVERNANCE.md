@@ -7,10 +7,12 @@ Meetings are scheduled twice monthly:
 - When: 
     - 1st Monday at 5pmET
     - 4th Thursday, 2:30pmET
-- Where: Telecons via GoToMeeting
-    - Connection: https://global.gotomeeting.com/join/431083909
-    - Access Code: 431-083-909
+- Where: Telecons via Zoom
+    - Connection: https://us02web.zoom.us/j/85680809640?pwd=a09zQTl2eFd6NnpoRkRxNHlDdFN0dz09
+    - Meeting ID: 856 8080 9640
+    - Passcode: 002196
     - Phone Access: United States: +1 (786) 535-3211
+    - Dial by your location (Find your local number: https://us02web.zoom.us/u/kcKljXMoF0)
 - [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
 Suggestions on governance models are welcome!
