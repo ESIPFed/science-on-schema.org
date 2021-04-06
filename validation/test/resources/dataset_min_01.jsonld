@@ -1,0 +1,19 @@
+{
+  "@context": [
+    "https://schema.org/version/latest/schema.jsonld",
+    {
+      "@vocab": "http://schema.org/",
+      "@base": "https://science-on-schema.org/test/resources/"
+    }
+  ],
+  "@id": "#ds-min-01",
+  "@type": "Dataset",
+  "name": "Minimal passing example",
+  "description": "An example Dataset that passes the minimal shape constraints",
+  "identifier": "dataset_min.jsonld#ds-min-01",
+  "version": "1.0",
+  "keywords": ["test", "dataset"],
+  "isAccessibleForFree": true,
+  "url": "https://science-on-schema.org/test/resources/dataset_min.jsonld#ds-min-01",
+  "sameAs": "https://raw.githubusercontent.com/datadavev/science-on-schema.org/feature_59_SHACL/validation/test/resources/dataset_min.jsonld#ds-min-01"
+ }

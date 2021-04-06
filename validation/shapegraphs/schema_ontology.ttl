@@ -1,0 +1,47 @@
+@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfa: <http://www.w3.org/ns/rdfa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item."
+.
+
+schema:CreativeWork a rdfs:Class ;
+    rdfs:label "CreativeWork" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+    rdfs:subClassOf schema:Thing ;
+.
+
+schema:Dataset a rdfs:Class ;
+    rdfs:label "Dataset" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
+    rdfs:comment "A body of structured information describing some topic(s) of interest." ;
+    rdfs:subClassOf schema:CreativeWork ;
+    owl:equivalentClass dctype:Dataset,
+        void:Dataset,
+        dcat:Dataset ;
+.
+
+schema:Person a rdfs:Class ;
+    rdfs:label "Person" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+    rdfs:subClassOf schema:Thing ;
+    owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .

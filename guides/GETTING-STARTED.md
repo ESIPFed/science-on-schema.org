@@ -21,6 +21,10 @@ If you are new to publishing schema.org, here are some general tips to getting s
     * [Time](#data-types_Time)
     * [HTML](#data-types_HTML)
   * [Resource Types](#resource-types)
+* [Resource Modification Time](#modification_times)
+  * [`schema.org/dateModified`](#mod_so)
+  * [HTTP `Last-Modified`](#mod_http)
+  * [Sitemap `<lastmod>`](#mod_map)
 
 
 # Goals #
@@ -310,3 +314,77 @@ In some cases, it useful to multi-type a resource. One example of this may be a 
 </pre>
 
 **All [schema.org types may be found here](https://schema.org/docs/full.html).**
+
+<a id="modification_times"></a>
+## Time of resource modification 
+
+An indication of when a resource was modified is valuable to a consumer for a variety of reasons.
+
+A consumer tracking changes in a collection of `SO:Dataset` or similar resources being advertised 
+with a `sitemap.xml` or similar mechanism has at least three timestamps that can be examined to
+determine if an already retrieved resource may have been modified: the `schema.org/dateModified`
+property in the JSON-LD, the `Last-Modified` time reported by the web server, and the `<lastmod>`
+time that may be reported in a `sitemap.xml` document.
+
+The `schema.org/dateModified` value should be considered authoritative for indicating when the
+resource was modified. The `Last-Modified` header should reflect the corresponding 
+`schema.org/dateModified` entry. This property provides an important hint for consumers as to
+whether a cached copy of a resource should be updated for example. Similarly the `<lastmod>` 
+entry should reflect the `Last-Modified` header and the `schema.org/dateModified` value.
+
+A typical pattern for a consumer interesting in synchronizing a cache of resource is:
+
+1. Examine the sitemap for new or updated entries using hints from `<lastmod>`
+2. Retrieve the resource directly or by previewing with a HTTP HEAD request. A 
+   `Last-Modified` provides a hint as to whether the resource should be retrieved.
+3. Examine the `schema.org/dateModified` property of the resource(s) extracted from the
+   resource.
+   
+Providing accurate hints early in the process can reduce requirements for effectively
+sharing data resources.
+
+<a id="mod_so"></a>
+### 1. `schema.org/dateModified`
+
+Each `schema.org` instance derived from [`schema.org/CreativeWork`](https://schema.org/CreativeWork) 
+may have a [`dateModified`](https://schema.org/dateModified) property to indicate "The date on which 
+the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
+This property should be provided with any instance of `schema.org/Dataset` or any other `schema.org`
+entity published in a landing page or though other mechanisms. The JSON spec does not include a
+built-in type for date time values, however the general consensus and a sensible practices is to
+represent a date time value as a time zone aware ISO 8601 formatted string. For example:
+
+```json
+{
+  "dateModified": "2018-12-10T13:45:00.000Z"
+}
+```
+
+<a id="mod_http"></a>
+### 2. HTTP `Last-Modified` Header
+
+A schema.org instance is typically embedded in a landing page or may be accessed directly as a 
+JSON-LD document over the HTTP protocol. HTTP resource providers (i.e. web servers) may include 
+a [`Last-Modified` header](https://tools.ietf.org/html/rfc7232#section-2.2) which contains the 
+date and time at which the origin server believes the resource was last modified. The format for 
+the date value follows the [RFC 2616 specification](https://tools.ietf.org/html/rfc2616). For
+example:
+
+```
+Last-Modified: Mon, 10 Dec 2018 13:45:00 GMT
+```
+
+<a id="mod_map"></a>
+### 3. `sitemap.xml lastmod` value
+
+A [`sitemap.xml`](https://www.sitemaps.org/protocol.html) document provides a mechanism for a 
+resource server to advertise available resources. Each `<url>` element may include a `<lastmod>` 
+tag to indicate when the resource identified by the `<url>/<loc>` was last modified. The 
+specification is fairly loose, indicating that date in the 
+[W3C Datetime](https://www.w3.org/TR/NOTE-datetime) format of `YYYY-MM-DD` may be
+sufficient. However, for the purposes of content synchronization, a higher precision is
+desireable, and should be provided where possible. For example:
+
+```
+2018-12-10T13:45:00.000Z
+```
