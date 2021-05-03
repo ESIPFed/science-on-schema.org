@@ -1,6 +1,6 @@
 {
     "@context": {"@vocab": "https://schema.org/"},
-    "@type": "Dataset, Atlas",
+    "@type": ["Dataset", "Atlas"],
     "name": "Yup'ik Environmental Knowledge Project Atlas",
     "description": "Since 2000, Calista Education and Culture (CEC) has worked with elders from the Alaskan communities of Kotlik, Emmonak, Alakanuk, Nunam Iqua, Newtok, Tununak, Toksook Bay, Nightmute, Chefornak, Kwigillingok, and Kongiganak to document Yup'ik place names. This work was initiated and encouraged by CEC's Board of Elders as well as community members and funded by the National Science Foundation. Elders showed a strong desire to teach young people the rich history and named places of their homeland, including camp and settlement sites, rivers, sloughs, rocks, ponds, even sandbars and underwater channels. During our work together community members shared more than 3,000 names as part of three ongoing CEC projects and two previous regional place name projects.",
     "url": "http://eloka-arctic.org/communities/nunaput/atlas/index.html?module=module.chevak",
@@ -46,13 +46,19 @@
         {
             "@type": "PropertyValue",
             "name": "maps",
-            "propertyID":["https://schema.org/Map","http://semanticscience.org/resource/SIO_000906"],
+            "propertyID": [
+                "https://schema.org/Map",
+                "http://semanticscience.org/resource/SIO_000906"
+            ],
             "description": "Collection of visualizations of geographic location at level of accuracy allowed by provider; map images are linked and stored in a repository. Themes includes {stories, time of warring, traditional tales, Yuuyaraq, families and communities, animals and plants, world and weather, about}"
         },
         {
             "@type": "PropertyValue",
             "name": "photo",
-            "propertyID":["https://schema.org/Photograph", "http://semanticscience.org/resource/SIO_000082"],
+            "propertyID": [
+                "https://schema.org/Photograph",
+                "http://semanticscience.org/resource/SIO_000082"
+            ],
             "description": "dataset contains visuaition of geographic location at level of accuracy allowed by provider. Information about photos might include title, description, theme (stories, time of warring, traditional tales, Yuuyaraq, families and communities, animals and plants, world and weather, about), names or family names of people in the photo, an identifier for the location name, a location name."
         },
         {
@@ -67,16 +73,37 @@
         },
         {
             "@type": "PropertyValue",
+            "name": "sea_surface_temp",
+            "description": "sea surface temperature measured in degrees Fahrenheit",
+            "propertyID": {
+                "@type": "Observation",
+                "observedNode": {
+                    "@id": "http://purl.obolibrary.org/obo/ENVO_01001581",
+                    "name": "sea surface layer"
+                },
+                "measuredProperty": {
+                    "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
+                    "name": "temperature"
+                }
+            }
+        },
+        {
+            "@type": "PropertyValue",
             "name": "Place Name",
-            "propertyID":["https://schema.org/Place","http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C95378"],
+            "propertyID": [
+                "https://schema.org/Place",
+                "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C95378"
+            ],
             "description": "place names, with labels in Cup\u2019ik (latin alphabet spelling) and English equivalent. Subset of Indigenous terminology.  Latitude and longitude center points might be included. Terms might also include recording of native pronunciation in a related MP3 file."
         },
         {
             "@type": "PropertyValue",
             "name": "Video recording",
-            "propertyID":["https://schema.org/VideoObject","http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C91063"],
-            "description": "A collection of digital files containing recording of information. Includes stories, oral history, other indigenous knowledge. Files typically include English language transcription along with Cup\u2019ik speech. Might include title, description, names or family names of people in photos, identifier for location from the place names dataset, a place name, information about use permissions, ",
-            "encodingFormat": "video/mov"
+            "propertyID": [
+                "https://schema.org/VideoObject",
+                "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C91063"
+            ],
+            "description": "A collection of digital files containing recording of information. Includes stories, oral history, other indigenous knowledge. Files typically include English language transcription along with Cup\u2019ik speech. Might include title, description, names or family names of people in photos, identifier for location from the place names dataset, a place name, information about use permissions"
         }
     ]
 }
