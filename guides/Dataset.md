@@ -960,98 +960,63 @@ Back to [top](#top)
 
 
 ### Funding
+
 ![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
 
-Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object on your webpage. In order to do this, we have to modify the structure of our JSON-LD to include multiple top-level items, and make sure that our Dataset uses the `@id` to identify its URI. This `@id` will be used by the MonetaryGrant to say it funded the Dataset. First, we add the `@id` to our Dataset:
+Data providers should include funding information in their Dataset descriptions to enable discovery and cross-linking. The information that would be useful includes the title, identifier, and url of the grant or award, along with structured information about the funding organization, including its name and identifier. Organizational identifiers are best represented using either a general purpose institutional identifier such as a [ROR](https://ror.org), [GRID](https://grid.ac/), or ISNI identifier, or a more detailed [Crossref Funder ID](https://api.crossref.org/funders/). The ROR for the National Science Foundation (https://ror.org/021nxhr62), for example, provides linkages to related identifiers as well. The Funder ID has the advantage that it inlcudes both agency funders like the National Science Foundation (http://dx.doi.org/10.13039/100000001), but also provides identifiers for individual funding programs within those agencies, such as the NSF GEO Directorate (https://api.crossref.org/funders/100000085). When possible, providing both a ROR and FunderId is helpful. Here's an example of identifiers for the National Science Foundation:
+
+![NSF ROR Entry](/assets/images/ror.png "Dataset - Funder Identifiers")
+
+Linking a Dataset to the grants and awards that fund it can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant).  Each `schema:MonetaryGrant` can link to the items that it funds using the `schema:fundedItem` property. However, in our case, we need a property that points from the `schema:Dataset` that we are documenting via a `fundedBy` property to the `schema:MonetaryGrant` that funds it. Unfortunately, schema.org does not currently provide the `fundedBy` property which would be the inverse of `schema:fundedItem`, so we need to use a different mechanism to make the link. JSON-LD provides a very convenient `@reverse` keyword to indicate that the inverse property of a known propery is intended. In our case, instead of saying that `Grant X has a fundedItem of Dataset Y`, we can say that `Dataset Y has the reverse property of fundedItem of Grant X`. This is basically a way of saying that Dataset Y is funded by Grant X. Here's an example use of the `@reverse` applied to fundedItem for two grants that funded a dataset.
+
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
+  "@context": "http://schema.org/",
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-}
-</pre>
-
-Next, we must make our JSON-LD allow multiple top-level items by using the `@graph` property.
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  <strong>"@graph":[{</strong>
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      ...
-    <strong>}
-  ]</strong>
-}
-</pre>
-
-You can now see that the Dataset object `{}` is now the first element in the `@graph` array. Next, we add our [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object.
-
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      ...
-    }<strong>,
-    {
-      "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
-      "name": "NSF Award# 143211",
-      "funder": {
-        "@type": "Organization",
-        "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
+  "@id": "https://doi.org/10.18739/A22V2CB44",
+  "name": "Stable water isotope data from Arctic Alaska snow pits in 2019",
+<strong>
+  "@reverse": {
+    "fundedItem": [
+      {
+        "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+        "@type": "MonetaryGrant",
+        "identifier": "1604105",
+        "name": "Collaborative Research: Nutritional Landscapes of Arctic Caribou: Observations, Experiments, and Models Provide Process-Level Understanding of Forage Traits and Trajectories",
+        "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+        "funder": {
+            "@id": "http://dx.doi.org/10.13039/100000001",
+            "@type": "Organization",
+            "name": "National Science Foundation",
+            "identifier": [
+              "http://dx.doi.org/10.13039/100000001",
+              "https://ror.org/021nxhr62"
+            ]
+        }
       },
-      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
-      "identifier": "143211"
-    }
-  ]</strong>
+      {
+        "@type": "MonetaryGrant",
+        "@id": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+        "identifier": "316349",
+        "name": "Where does water go when snow melts? New spatio-temporal resolution in stable water isotopes measurements to inform cold climate hydrological modelling",        
+        "url": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+        "funder": {
+            "@id": "http://dx.doi.org/10.13039/501100002341",
+            "@type": "Organization",
+            "name": "Academy of Finland",
+            "identifier": [
+              "http://dx.doi.org/10.13039/501100002341",
+              "https://ror.org/05k73zm37"
+            ]
+        }
+      }
+    ]
+  }
+</strong>
 }
 </pre>
 
-Now, because there are two top-level items on this webpage, harvesters will be unsure which element is the main resource. But, we can specify this by using the [schema:mainEntityOfPage](https://schema.org/mainEntityOfPage) property.
-
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      <strong>"mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "http://www.sample-data-repository.org/dataset/123"
-      },</strong>
-      ...
-    },
-    {
-      "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
-      "name": "NSF Award# 143211",
-      "funder": {
-        "@type": "Organization",
-        "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
-      },
-      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
-      "identifier": "143211"
-    }
-  ]
-}
-</pre>
+We recommend providing as much structured information about the grants that fund a Dataset as possible so that aggregators and harvesters can crosslink to the Funding agencies and grants that provided resources for the Dataset.
 
 Back to [top](#top)
 
