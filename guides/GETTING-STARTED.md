@@ -25,6 +25,8 @@ If you are new to publishing schema.org, here are some general tips to getting s
   * [`schema.org/dateModified`](#mod_so)
   * [HTTP `Last-Modified`](#mod_http)
   * [Sitemap `<lastmod>`](#mod_map)
+* [JSON-LD Graph Techniques](#json-ld)
+  * [Ordered Lists](#json-ld-list)
 
 
 # Goals #
@@ -388,3 +390,97 @@ desireable, and should be provided where possible. For example:
 ```
 2018-12-10T13:45:00.000Z
 ```
+
+<a id="json-ld"></a>
+## JSON-LD Graph Techniques
+
+[JSON-LD](https://json-ld.org) documents represent a graph model, even though at times that graph is implicit rather than being named. Here are some techniques that may be useful when constructing such graphs.
+
+<a id="json-ld-list"></a>
+### Ordering items with JSON-LD `@list`
+
+Unlike plain JSON, collections in JSON-LD are unordered [[1](https://json-ld/json-ld.org#12), [2](https://www.w3.org/TR/json-ld/#lists)]. In cases where ordering of items needs to be preserved, we can use the `@list` keyword to specify that order should be preserved for a collection.  Ordered lists would be important, for example, when a list of authors or creators should be ordered as intended when rendering a view of the metadata, or when a list of bouunding box coordinates in an array need to come in a particular order. 
+
+In the following example, the list of `creator` items is not ordered, and so client tools could return the creator names in any order, and different tools may return them in different orders. This would be porblematic for building a citation, for example.
+
+Example 1. Ordering for this list of creators will not be preserved:
+```
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@id": "unordered_01",
+  "@type": "Dataset",
+  "creator": [
+    {
+      "@id": "https://www.sample-data-repository.org/person/51317",
+      "@type": "Person",
+      "name": "Dr Uta Passow"
+    },
+    {
+      "@id": "https://www.sample-data-repository.org/person/50663",
+      "@type": "Person",
+      "name": "Dr Mark Brzezinski"
+    }
+  ]
+}
+```
+
+To order a list, use the JSON-LD [`@list` keyword`](https://www.w3.org/TR/json-ld/#lists), as shown in Example 2:
+
+
+Example 2. Order will be preserved for this list of creators:
+```
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@id": "order_01",
+  "@type": "Dataset",
+  "creator": {
+    "@list": [
+      {
+        "@id": "https://www.sample-data-repository.org/person/51317",
+        "@type": "Person",
+        "name": "Dr Uta Passow"
+      },
+      {
+        "@id": "https://www.sample-data-repository.org/person/50663",
+        "@type": "Person",
+        "name": "Dr Mark Brzezinski"
+      }
+    ]
+  }
+}
+```
+
+Ordering may be specified globally within the document by specifying the container type in a context. For example:
+
+Example 3. Ordering of a list of creators is preserved anywhere such a list appears within the context.
+```
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "creator": {
+      "@container": "@list"
+    }
+  },
+  "@id": "order_02",
+  "@type": "Dataset",
+  "creator": [
+    {
+      "@id": "https://www.sample-data-repository.org/person/51317",
+      "@type": "Person",
+      "name": "Dr Uta Passow"
+    },
+    {
+      "@id": "https://www.sample-data-repository.org/person/50663",
+      "@type": "Person",
+      "name": "Dr Mark Brzezinski"
+    }
+  ]
+}
+```
+
+With this technique, ordering can be set once in the context using `@list`, and then order will be preserved anytime that concept is used int he document.
+
