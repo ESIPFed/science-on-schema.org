@@ -4,7 +4,7 @@ Discussion: https://github.com/ESIPFed/science-on-schema.org/issues/109
 
 ## Status ##
 
-__Proposed__
+__Accepted__
 
 ## Decision ##
 
