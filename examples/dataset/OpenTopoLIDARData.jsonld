@@ -29,9 +29,7 @@
         "https://schema.org/propertyID": "opentopoID",
         "https://schema.org/value": "OTLAS.022017.26910.2"
     },
-    "https://schema.org/includedInDataCatalog": {
-        "@id": "https://portal.opentopography.org/lidarDataset"
-        },
+    "https://schema.org/includedInDataCatalog": {"@id": "https://portal.opentopography.org/lidarDataset"},
     "https://schema.org/isAccessibleForFree": true,
     "https://schema.org/keywords": "yosemite, forest fire, wildfire, national park, Stanislaus National Forest",
     "https://schema.org/license": "Not-Provided",
@@ -58,6 +56,14 @@
     },
     "https://schema.org/temporalCoverage": "2013-11-06/2013-11-24",
     "https://schema.org/url": "https://doi.org/10.5069/G9V69GJ4",
+    "https://schema.org/distribution": [
+        {
+            "@type": "DataDownload",
+            "https://schema.org/name": "data download landing page",
+            "https://schema.org/description": "Navigate directly to the URL for data access and download",
+            "https://schema.org/accessUrl": "https://doi.org/10.5069/G9V69GJ4"
+        }
+    ],
     "https://schema.org/usageinfo": "https://opentopography.org/usageterms",
     "https://schema.org/additionalProperty": [
         {

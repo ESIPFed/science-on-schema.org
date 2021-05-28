@@ -82,6 +82,7 @@
                     "name": "sea surface layer"
                 },
                 "measuredProperty": {
+                    "@type":"Property",
                     "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
                     "name": "temperature"
                 }
