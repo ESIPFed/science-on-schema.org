@@ -35,6 +35,8 @@ See [DDI-Cross Domain Integration: Detailed Model](https://ddi-alliance.atlassia
 
 DDI defines a variable as “a mapping between some collection of units (the extension of the general concept for which the variable is a characteristic) to a set of values.”  In the DDI usage, a ‘Unit’ is the entity that a variable is about. 
 
+Related, not clear if its useful [The Software Description Ontology](https://w3id.org/okn/o/sd)
+
 ## Data Structure types
 Data structures are a way to organize data in order to be processed by software programs. The current DDI-CDI model can be used to describe data from different data structures using an approach that involves describing each “cell” in the structure. The following structures are covered: 
  - Wide Data: Traditional rectangular, record-oriented data sets. Each record has an identifier and a set of measures related the same subject (unit, entity, feature of interest). Exemplified by common tabular data formats.
