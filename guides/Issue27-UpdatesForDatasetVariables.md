@@ -1,9 +1,9 @@
 ### Variables
 
 Variables in a dataset present various kinds of information, for example:
-    - Data management information related to the data item (record) in the dataset, e.g. identifier (primary key), create or update data, data source information.
-    - A data value that is a result of an observation, e.g. a temperature value, color, species categorization
-    - Metadata useful to understand and use an observation result reported in the data, e.g. method used, units of measure, context for the observation.
+- Data management information related to the data item (record) in the dataset, e.g. identifier (primary key), create or update data, data source information.
+- A data value that is a result of an observation, e.g. a temperature value, color, species categorization
+- Metadata useful to understand and use an observation result reported in the data, e.g. method used, units of measure, context for the observation.
 
 It is useful to add information about the variables in a dataset to enhance discovery and support evaluation of the data. This can be done using the [schema:variableMeasured](https://schema.org/variableMeasured) field. Schema.org allows the value of variableMeasured to be a simple text string, but it is strongly recommended to use the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. 
 
