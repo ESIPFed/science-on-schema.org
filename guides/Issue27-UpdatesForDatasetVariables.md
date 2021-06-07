@@ -229,11 +229,11 @@ Example for multi-dimensional dataset
 In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
 
 ### Structured values 
-Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes that can be thought of as metadata.  In the other case, the structured value might represent a vector, tensor, or tuple value. In these cases the value is represented by a set of component measure values, each of which might have included metadata. 
+Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e., metadata).  In the other case, the structured value might represent a vector, tensor, or tuple value. In this case the value is represented by a set of component values, each of which might have included metadata. 
 
 A variable in an attribute role provides information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
 
-An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as component variables. The latitude and longitude value each have units of measure and measurement method that is like the same; the spatial reference is asserted, and might itself have component properties. 
+An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. 
 
 Recommended data types for container PropertyValue with valueReference child elements documenting the attributes or component and measured values:
  - Dimensional Data type: http://qudt.org/schema/qudt/DimensionalDatatype. Value specifies a physical quantity and unit of measuure is embedded in the value.
