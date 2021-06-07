@@ -166,7 +166,7 @@ The intention here is that the URI can be dereferenced to obtain the schema:Defi
 Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e., metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values. 
 
 In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
-
+```
 {
   "@type": "PropertyValue",
   "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
@@ -185,7 +185,7 @@ In the first case, variables in an attribute role provide information about one 
     "name": "Uncertainty",
     "description": "magnitude of uncertainty on diameter measure",
      "qudt:dataType": "Number"  }  ]  }
-
+```
 
 An example of the second case,a variable that has a structured value with measure components, is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements. 
 In this case the PropertyValue should be typed as a [Composite Data Structure] (http://qudt.org/schema/qudt/CompositeDataStructure). The Variable value aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
@@ -221,7 +221,7 @@ In this case the PropertyValue should be typed as a [Composite Data Structure] (
 
 ## Variables that contain references
 For variables that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype).  Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
-
+```
     {"@type": "PropertyValue",
      "name": "Link to rock description",
      "propertyID":"geosciml:gbEarthMaterialDescription",
@@ -229,7 +229,7 @@ For variables that are references to data objects stored elsewhere, use the  qud
      "description": "link to structured description of rock material using GeoSciML properties.",
      "qudt:dataType":["xsd:anyURI", "qudtschema:ReferenceDatatype"]
      }
-     
+```   
  
 ## Array, Gridded or Coverage Data
 
