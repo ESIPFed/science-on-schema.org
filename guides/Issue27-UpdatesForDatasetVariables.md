@@ -282,7 +282,7 @@ For variables that are references to data objects stored elsewhere, use the  qud
      
 ## Use of schema:Observation to describe properties:
 
-More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. in this case, the variable can be represented with schema:propertyID typed as schema:Observation.
+More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
 
 example: 
 
