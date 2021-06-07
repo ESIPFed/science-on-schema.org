@@ -127,7 +127,7 @@ Example: a date and time variable data type:
 ```
 
 ### Value range is controlled vocabulary
-The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is scheme:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists. 
+The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists. 
 
 Example encoding for a variableMeasured that is populated with a controlled vocabulary, using schema:rangeIncludes/DefinedTermSet:
 
