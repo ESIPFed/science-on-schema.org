@@ -1,4 +1,4 @@
-### Variables
+# Variables
 
 Variables in a dataset present various kinds of information, for example:
 - Data management information related to the data item (record) in the dataset, e.g. identifier (primary key), create or update data, data source information.
@@ -161,8 +161,79 @@ The controlled vocabulary could also be identified by a URI for communities that
 The intention here is that the URI can be dereferenced to obtain the schema:DefinedTermSet object that defines the vocabulary elements.
  
 ## Variables with components
-### Variable is represented by a dimensioned set of values (grid, coverage, time series, data cube)
-A variable might be represented as a function of one or more dimensions. An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)). 
+
+### Structured values 
+Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e., metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values. 
+
+In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
+
+{
+  "@type": "PropertyValue",
+  "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
+  "propertyID": "quantitykind:Diameter",
+  "name": "mineralSize",
+  "description": "length value, UOM is value reference",
+  "qudt:dataType": "Number",
+  "valueReference": [
+    {"@type": "PropertyValue",
+    "name": "Unit of Measure",
+    "description": "unit of measure for diameter length",
+    "qudt:dataType": "Text",
+    "rangeIncludes":"http://qudt.org/schema/qudt/LengthUnit"  },
+        },
+    {"@type": "PropertyValue",
+    "name": "Uncertainty",
+    "description": "magnitude of uncertainty on diameter measure",
+     "qudt:dataType": "Number"  }  ]  }
+
+
+An example of the second case,a variable that has a structured value with measure components, is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements. 
+In this case the PropertyValue should be typed as a [Composite Data Structure] (http://qudt.org/schema/qudt/CompositeDataStructure). The Variable value aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
+ 
+ Example describing a structured value:
+
+```
+{
+    "@type": "PropertyValue",
+     "name": "PLSSLocation",
+     "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+     "alternateName": "US Public Land Survey System location",
+     "description": "Location of sampling feature specified using PLSS grid",
+     "qudt:dataType": ["http://qudt.org/schema/qudt/CompositeDataStructure", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
+     "valueReference": [
+          {"@type": "PropertyValue",
+            "name": "PLSS_Meridians",
+            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
+            "qudt:dataType": "Text"  },
+           {"@type": "PropertyValue",
+            "name": "TWP",
+            "alternateName": "Township",
+            "description": "Township in PLSS grid, relative to reported baseline. ",
+            "qudt:dataType": "Text"     },
+           {"@type": "PropertyValue",
+            "name": "RGE",
+            "alternateName": "Range",
+            "description": "Range in PLSS grid, relative to reported meridian.",
+            "qudt:dataType": "Text"  }
+         ]
+ },
+```
+
+## Variables that contain references
+For variables that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype).  Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
+
+    {"@type": "PropertyValue",
+     "name": "Link to rock description",
+     "propertyID":"geosciml:gbEarthMaterialDescription",
+     "alternateName": "rock material description",
+     "description": "link to structured description of rock material using GeoSciML properties.",
+     "qudt:dataType":["xsd:anyURI", "qudtschema:ReferenceDatatype"]
+     }
+     
+ 
+## Array, Gridded or Coverage Data
+
+For data that represent continuously varying values, data values are typically reported as a function of one or more dimensions. Dimensions might be temporal, spatial, or thematic.  An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)). 
 
 Recommended approach is to include a schema:additionalType that with the value 'qudt:MultiDimensionalDataFormatType' in the schema.org record. The variableMeasured for the dataset can be represented with two base schema:PropertyValue instances -- the [dimensions](http://purl.org/linked-data/cube#measureDimension) (independent variable in the data structure) and the [measures](http://purl.org/linked-data/cube#measure) (the dependent variable values that are a function of the dimension coordinates). Each of these schema:PropertyValue instances has a qudt:dataType of 'qudtschema:TupleType' (prefix qudtschema: <http://qudt.org/schema/qudt/>) and an array of child schema:valueReference objects describing each dimension or measure respectively.  
 
@@ -227,59 +298,7 @@ Example for multi-dimensional dataset
             ]        }    ]  }
 ```
 In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
-
-### Structured values 
-Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e., metadata).  In the other case, the structured value might represent a vector, tensor, or tuple value. In this case the value is represented by a set of component values, each of which might have included metadata. 
-
-A variable in an attribute role provides information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
-
-An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. 
-
-Recommended data types for container PropertyValue with valueReference child elements documenting the attributes or component and measured values:
- - Dimensional Data type: http://qudt.org/schema/qudt/DimensionalDatatype. Value specifies a physical quantity and unit of measuure is embedded in the value.
- - Composite Data Structure: http://qudt.org/schema/qudt/CompositeDataStructure. The Variable value aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
- 
- Example describing a structured value:
-
-```
-{
-    "@type": "PropertyValue",
-     "name": "PLSSLocation",
-     "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
-     "alternateName": "US Public Land Survey System location",
-     "description": "Location of sampling feature specified using PLSS grid",
-     "qudt:dataType": ["http://qudt.org/schema/qudt/CompositeDataStructure", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
-     "valueReference": [
-          {"@type": "PropertyValue",
-            "name": "PLSS_Meridians",
-            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
-            "qudt:dataType": "Text"  },
-           {"@type": "PropertyValue",
-            "name": "TWP",
-            "alternateName": "Township",
-            "description": "Township in PLSS grid, relative to reported baseline. ",
-            "qudt:dataType": "Text"     },
-           {"@type": "PropertyValue",
-            "name": "RGE",
-            "alternateName": "Range",
-            "description": "Range in PLSS grid, relative to reported meridian.",
-            "qudt:dataType": "Text"  }
-         ]
- },
-```
-
-## Variables that contain references
-For variables that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype).  Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
-
-    {"@type": "PropertyValue",
-     "name": "Link to rock description",
-     "propertyID":"geosciml:gbEarthMaterialDescription",
-     "alternateName": "rock material description",
-     "description": "link to structured description of rock material using GeoSciML properties.",
-     "qudt:dataType":["xsd:anyURI", "qudtschema:ReferenceDatatype"]
-     }
-     
-     
+           
 ## Use of schema:Observation to describe properties:
 
 More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
