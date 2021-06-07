@@ -124,9 +124,9 @@ Example encoding for a variableMeasured that is populated with a controlled voca
         "@id":"https://www.astromat.org/vocab/calcavg",        
         "name":"calcAvg controlled vocabulary",        
         "hasDefinedTerm": [
-            {"@type: DefinedTerm", "termCode":"Can be averaged"},
-            {"@type: DefinedTerm", "termCode":"Cannot be averaged"},
-            {"@type: DefinedTerm", "termCode":"It is average"}
+            {"@type": "DefinedTerm", "termCode":"Can be averaged"},
+            {"@type": "DefinedTerm", "termCode":"Cannot be averaged"},
+            {"@type": "DefinedTerm", "termCode":"It is average"}
                 ]
         }
 }
