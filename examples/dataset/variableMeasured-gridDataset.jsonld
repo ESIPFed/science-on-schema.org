@@ -45,7 +45,7 @@
         },
         {
             "@type": "PropertyValue",
-            "name": "observation value",
+            "name": "observation values",
             "propertyID": "http://purl.org/linked-data/cube#measure",
             "description": "tuple with magnetic field intensity, g value, and observed outcrop rock type",
             "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
@@ -72,10 +72,9 @@
                     "name": "lith",
                     "alternateName": "Outcrop lithology",
                     "propertyID": "http://www.opengis.net/def/property/geosciml/rocktype",
-                    "qudt:dataType": [
-                        "qudt:Enumeration",
-                        "https://geosciml.org/vocab/simpleLithology"
-                    ]
+                    "qudt:dataType": "xsd:string",
+                    "rangeIncludes":   "https://geosciml.org/vocab/simpleLithology"
+                    
                 },
                 {
                     "@type": "PropertyValue",
