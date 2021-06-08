@@ -1,8 +1,9 @@
 {
     "@context": {
+        "sdo": "https://schema.org/",
         "@vocab": "https://schema.org/",
         "qudt": "http://qudt.org/schema/qudt/",
-        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "unit": "http://qudt.org/vocab/unit/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "quantityKind": "http://qudt.org/vocab/quantitykind/"
@@ -68,7 +69,7 @@
             "propertyID": ["http://lod.example-data-repository.org/id/dataset-parameter/20860", "http://purl.dataone.org/odo/ECSO_00002440"],
             "name": "cruiseid",
             "description": "cruise identification",
-            "qudt:dataType": "xsd:token"
+            "qudt:dataType": {"@id":"xsd:token"}
         },
         {
             "@type": "PropertyValue",
@@ -78,7 +79,7 @@
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20861",
             "unitText": "year",
             "unitCode": "unit:YR",
-            "qudt:dataType": "xsd:gYear",
+            "qudt:dataType": {"@id":"xsd:gYear"},
             "qudt:hasUnit": "unit:YR"
         },
         {
@@ -88,7 +89,7 @@
             "description": "sample identification: WBC=whole body clearance expt.; WBF=whole body fluorescence on collection",
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20862",
             "url":"https://www.hl7.org/fhir/datatypes-definitions.html#Identifier",
-            "qudt:dataType": "xsd:token"            
+            "qudt:dataType": {"@id":"xsd:token" }           
         },
         {
             "@type": "PropertyValue",
@@ -98,8 +99,8 @@
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20863",
             "unitText": "minutes",
             "unitCode": "unit:MIN",
-            "qudt:hasUnit":"unit:MIN",
-            "qudt:dataType": "xsd:nonNegativeInteger"
+            "qudt:hasUnit": {"@id":"unit:MIN"},
+            "qudt:dataType": {"@id":"xsd:nonNegativeInteger"}
         },
         {
             "@type": "PropertyValue",
@@ -112,8 +113,8 @@
             "measurementTechnique": "Chlorophyll determination was done spectrophotometrically at absorbances 664nm, 647nm & 630nm. Concentration of chlorophyll a, b, c was calculated in microgam/gram and summed.",
             "minValue": ".0001",
             "maxValue": "125",
-            "qudt:dataType": "xsd:decimal",
-            "qudt:hasUnit":"unit:PPM"
+            "qudt:dataType": {"@id":"xsd:decimal"},
+            "qudt:hasUnit": {"@id":"unit:PPM"}
         },
         {
             "@type": "PropertyValue",
@@ -121,14 +122,31 @@
             "name": "stage_id",
             "description": "stage development index of larvae in sample (furcilia = F1-6 = 1-6,  juvenile = J=7)",
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20865",
-            "qudt:dataType":{
-                "qudt:Enumeration": [
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F1"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F2"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F3"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F4"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F5"}}},
-                    {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"F6"}}},
+            "qudt:dataType":"Text",
+            "rangeIncludes": {
+                "@type": "DefinedTermSet",
+                "@id": "http://lod.example-data-repository.org/id/vocabulary/2537238",
+                "name": "Controlled vocabulary for larval stage",
+                "hasDefinedTerm": [
+
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F1"},
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F2"},
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F3"},
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F4"},
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F5"},
+                    {
+                        "@type": "DefinedTerm",
+                        "termCode":"F6"}}},
                     {"qudt:element": {"qudt:EnumeratedValue": {"qudt:symbol":"J7"}}}
                 ]
             }
@@ -141,8 +159,8 @@
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20866",
             "unitText": "mg",
             "unitCode": "unit:MilliGM",
-            "qudt:dataType": "xsd:decimal",
-            "qudt:hasUnit":"unit:MilliGM",
+            "qudt:dataType": {"@id":"xsd:decimal"},
+            "qudt:hasUnit": {"@id":"unit:MilliGM"},
             "minValue": "0.1"
         },
         {
@@ -155,8 +173,8 @@
             "unitCode": "unit:DEG",
             "minValue": "23",
             "maxValue": "30",
-            "qudt:dataType": "xsd:decimal",
-            "qudt:hasUnit":"unit:DEG"
+            "qudt:dataType": {"@id":"xsd:decimal"},
+            "qudt:hasUnit": {"@id":"unit:DEG"}
         },
         {
             "@type": "PropertyValue",
@@ -166,8 +184,8 @@
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20875",
             "unitText": "decimal degrees",
              "unitCode": "unit:DEG",
-            "qudt:dataType": "xsd:decimal",
-            "qudt:hasUnit":"unit:DEG",
+            "qudt:dataType": {"@id":"xsd:decimal"},
+            "qudt:hasUnit": {"@id":"unit:DEG"},
             "minValue": "-127",
             "maxValue": "-125"
         },
@@ -179,8 +197,8 @@
             "propertyID": "https://www.example-data-repository.org/dataset-parameter/20879",
             "unitText": "decimal day",
              "unitCode": "unit:DAY",
-            "qudt:dataType": "xsd:decimal",
-            "qudt:hasUnit":"unit:DAY",
+            "qudt:dataType": {"@id":"xsd:decimal"},
+            "qudt:hasUnit": {"@id":"unit:DAY"},
             "minValue": "333.6",
             "maxValue": "355.9"
         }
