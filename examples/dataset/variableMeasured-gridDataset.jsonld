@@ -33,13 +33,13 @@
                     "@type": "PropertyValue",
                     "name": "latitude",
                     "propertyID": "http://semanticscience.org/resource/latitude",
-                    "qudt:dataType": "xsd:decimal"
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal"
                 },
                 {
                     "@type": "PropertyValue",
                     "name": "longitude",
                     "propertyID": "http://semanticscience.org/resource/longitude",
-                    "qudt:dataType": "xsd:decimal"
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal"
                 }
             ]
         },
@@ -55,7 +55,7 @@
                     "name": "mag",
                     "alternateName": "magnetic field intensity",
                     "propertyID": "http://semanticscience.org/resource/magneticFieldIntensity",
-                    "qudt:dataType": "xsd:decimal",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
                     "unitText": "amperes per metre"
                 },
                 {
@@ -64,7 +64,7 @@
                     "propertyID": "http://semanticscience.org/resource/localAccelGravity",
                     "alternateName": "Range",
                     "measurementTechnique": "gravimiter model xxx",
-                    "qudt:dataType": "xsd:decimal",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
                     "unitText": "mgal"
                 },
                 {
@@ -72,7 +72,7 @@
                     "name": "lith",
                     "alternateName": "Outcrop lithology",
                     "propertyID": "http://www.opengis.net/def/property/geosciml/rocktype",
-                    "qudt:dataType": "xsd:string",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#string",
                     "rangeIncludes":   "https://geosciml.org/vocab/simpleLithology"
                     
                 },
@@ -81,7 +81,7 @@
                     "name": "elevation",
                     "propertyID": "http://www.opengis.net/def/property/elevation",
                     "description": "elevation relative to mean sea level, in meters",
-                    "qudt:dataType": "xsd:decimal",
+                    "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
                     "unitText": "meters"
                 }
             ]

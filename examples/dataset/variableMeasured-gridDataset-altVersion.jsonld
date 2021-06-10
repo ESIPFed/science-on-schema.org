@@ -8,10 +8,8 @@
         "quantityKind": "http://qudt.org/vocab/quantitykind/"
     },
     "@id": "ex:dataset/5500",
-    "@type": [
-        "Dataset",
-        "qudt:MultiDimensionalDataFormat"
-    ],
+    "@type":  "Dataset",
+    "additionalType" :  "http://qudt.org/schema/qudt/MultiDimensionalDataFormat",
     "name": "Surface geology and geophysics grid",
     "description": "Grid of sample locations on earth surface with site lithology, gravity, elevation, and magnetic field observations",
     "spatialCoverage": {
@@ -29,7 +27,7 @@
                 "http://purl.org/linked-data/cube#measureDimension",
                 "http://semanticscience.org/resource/latitude"
             ],
-            "qudt:dataType": "xsd:decimal",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
             "unitText": "decimal degree"
         },
         {
@@ -39,7 +37,7 @@
                 "http://purl.org/linked-data/cube#measureDimension",
                 "http://semanticscience.org/resource/longitude"
             ],
-            "qudt:dataType": "xsd:decimal",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
             "unitText": "decimal degree"
         },
         {
@@ -50,7 +48,7 @@
                 "http://purl.org/linked-data/cube#measure",
                 "http://semanticscience.org/resource/magneticFieldIntensity"
             ],
-            "qudt:dataType": "xsd:decimal",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
             "unitText": "amperes per metre"
         },
         {
@@ -62,7 +60,7 @@
             ],
             "alternateName": "Range",
             "measurementTechnique": "gravimiter model xxx",
-            "qudt:dataType": "xsd:decimal",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
             "unitText": "mgal"
         },
         {
@@ -73,10 +71,8 @@
                 "http://purl.org/linked-data/cube#measure",
                 "http://www.opengis.net/def/property/geosciml/rocktype"
             ],
-            "qudt:dataType": [
-                "qudt:Enumeration",
-                "https://geosciml.org/vocab/simpleLithology"
-            ]
+            "qudt:dataType": "https://schema.org/Text",
+            "rangeIncludes": "https://geosciml.org/vocab/simpleLithology"
         },
         {
             "@type": "PropertyValue",
@@ -86,7 +82,7 @@
                 "http://www.opengis.net/def/property/elevation"
             ],
             "description": "elevation relative to mean sea level, in meters",
-            "qudt:dataType": "xsd:decimal",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
             "unitText": "meters"
         }
     ]
