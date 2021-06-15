@@ -20,6 +20,7 @@
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
 		- [License](#license)
+        - [Checksum](#checksum)
 		- [Provenance Relationships](#provenance-relationships)
 	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
 		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
@@ -1072,6 +1073,50 @@ The following table contains the SPDX URIs for some of the most common licenses.
 
 Back to [top](#top)
 
+### Checksum
+
+A `schema:Dataset` can be composed of multiple digital objects which are listed in the `schema:distribution` list. For each `schema:DataDownload`, it can be useful to provide an cryptographic checksum value (like SHA 256 or MD5) that can be used to characterize the contents of the object. Aggregators and distributors can use these values to verify that they have retrieved exactly the same content as the original provider made available, and that replica copies of an object are identical to the original, among other uses. Because schema.org does not contain a class for representing checksum values, by convention we recommend using the [`spdx:checksum`](http://spdx.org/rdf/terms#checksum) property, which points at an `spdx:Checksum` instance that provides both the value of the checksum and the algorithm that was used to calculate the checksum.
+
+Here's an example that provides two different checksum values for a single digital object within a `schema:DataDownload` description. Note that providers will need to define the `spdx` prefix in their `@context` block in order to use the prefix as shown in the example.
+
+<pre>
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        <strong>"spdx": "http://spdx.org/rdf/terms#"</strong>
+    },
+    "@type": "Dataset",
+    "@id": "https://dataone.org/datasets/doi%3A10.18739%2FA2NK36607",
+    "sameAs": "https://doi.org/10.18739/A2NK36607",
+    "name": "Conductivity-Temperature-Depth (CTD) data along DBO5 (Distributed Biological Observatory - Barrow Canyon), from the 2009 Circulation, Cross-shelf Exchange, Sea Ice, and Marine Mammal Habitat on the Alaskan Beaufort Sea Shelf cruise on USCGC Healy (HLY0904)",
+    "distribution": {
+        "@type": "DataDownload",
+        "@id": "https://dataone.org/datasets/urn%3Euuid%3E2646d817-9897-4875-9429-9c196be5c2ae",
+        "identifier": "urn:uuid:2646d817-9897-4875-9429-9c196be5c2ae",
+        <strong>"spdx:checksum": [
+            {
+                "@type": "spdx:Checksum",
+                "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
+                "spdx:checksumAlgorithm": {
+                    "@id": "spdx:checksumAlgorithm_sha256"
+                }
+            },
+            {
+                "@type": "spdx:Checksum",
+                "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
+                "spdx:checksumAlgorithm": {
+                    "@id": "spdx:checksumAlgorithm_md5"
+                }
+            }
+        ]</strong>
+    }
+}
+
+The algorithm property is chosen from the controlled [SPDX vocabulary of checksum types](http://spdx.org/rdf/terms#ChecksumAlgorithm), making it easy for processors to recalculate checksum values to verify them. Common algorithms that many providers woiuld use include `spdx:checksumAlgorithm_sha256` and `spdx:checksumAlgorithm_md5`. Note specifically that the `spdx:checksumAlgorithm_sha256` value is inside of an `@id` property so that the SPDX namespace from the context definition is used to define the algorithm URI.
+
+
+Back to [top](#top)
+
 ### Provenance Relationships
 
 High level relationships that link datasets based on their processing workflows and versioning relationships are critical for data consumers and search engines to link different versions of a [schema:Dataset](https://schema.org/Dataset), to clarify when a dataset is derived from one or more source Datasets, and to specify linkages to the software and activities that created these derived datasets for reproducibility. Collectively, this is provenance information.
@@ -1152,7 +1197,6 @@ Any portion of the software workflow can be described to increase information ab
       }</strong>
 }
 </pre>
-
 
 Back to [top](#top)
 

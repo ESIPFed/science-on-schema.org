@@ -2,7 +2,8 @@
   "@context": {
     "@vocab": "https://schema.org/",
     "prov": "http://www.w3.org/ns/prov#",
-    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
+    "spdx": "http://spdx.org/rdf/terms#"
   },
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
@@ -82,7 +83,23 @@
       "@type": "DataDownload",
       "contentUrl": "https://www.example-data-repository.org/dataset/3300/data/larval-krill.tsv",
       "encodingFormat": "text/tab-separated-values",
-      "datePublished": "2010-02-03"
+      "datePublished": "2010-02-03",
+      "spdx:checksum": [
+        {
+          "@type": "spdx:Checksum",
+          "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
+          "spdx:checksumAlgorithm": {
+            "@id": "spdx:checksumAlgorithm_sha256"
+          }
+        },
+        {
+          "@type": "spdx:Checksum",
+          "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
+          "spdx:checksumAlgorithm": {
+            "@id": "spdx:checksumAlgorithm_md5"
+          }
+        }
+      ]
     }
   ],
   "measurementTechnique": [
