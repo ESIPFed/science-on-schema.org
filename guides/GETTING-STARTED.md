@@ -399,7 +399,7 @@ desireable, and should be provided where possible. For example:
 <a id="json-ld-list"></a>
 ### Ordering items with JSON-LD `@list`
 
-Unlike plain JSON, collections in JSON-LD are unordered [[1](https://json-ld/json-ld.org#12), [2](https://www.w3.org/TR/json-ld/#lists)]. In cases where ordering of items needs to be preserved, we can use the `@list` keyword to specify that order should be preserved for a collection.  Ordered lists would be important, for example, when a list of authors or creators should be ordered as intended when rendering a view of the metadata, or when a list of bouunding box coordinates in an array need to come in a particular order. 
+Unlike plain JSON, collections in JSON-LD are unordered [[1](https://json-ld/json-ld.org#12), [2](https://www.w3.org/TR/json-ld/#lists)]. In cases where ordering of items needs to be preserved, we can use the `@list` keyword to specify that order should be preserved for a collection.  Ordered lists would be important, for example, when a list of authors or creators should be ordered as intended when rendering a view of the metadata, or when a list of bounding box coordinates in an array need to come in a particular order. 
 
 In the following example, the list of `creator` items is not ordered, and so client tools could return the creator names in any order, and different tools may return them in different orders. This would be problematic for building a citation, for example.
 
