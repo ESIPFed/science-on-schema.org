@@ -334,11 +334,36 @@ It is useful to add information about the variables in a dataset to enhance disc
 
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
+This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3), and dealing with variables with non-numeric values (Tier 4). Advanced recommendations are included for variables whose values are structured objects (e.g. json objects, arrays, gridded data) or are references to external value representations. 
 
-The [schema:propertyID](https://schema.org/propertyID) in the schema:PropertyValue object should resolve to a web page that provides a human-friendly description of the variable.  Ideally, the identifier should also be resolved to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data - i.e., to be more FAIR.  The property can be identified at any level of granularity, depending on what the data provider can determine. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
+#### Tier 1. 
 
-The schema:name should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using schema:alternateName.
+The simplest approach is to provide a schema:name and a text description of the variable. The schema:name should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using schema:alternateName.
 
+Example:
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities ...",
+  ...
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "latdd",
+      "alternateName":"latitude, decimal degrees",
+      "description": "Latitude where water samples were collected ...",
+    },
+    ...
+  ]
+}
+</pre>
+
+#### Tier 2
+
+It is highly recommended to provide a [schema:propertyID](https://schema.org/propertyID) in the schema:PropertyValue object. This should be an http URI that  resolves to a web page providing a human-friendly description of the variable.  Ideally, this identifier should also be resolved to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data - i.e., to be more FAIR.  The property can be identified at any level of granularity, depending on what the data provider can determine. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
 
 Example:
 <pre>
@@ -362,7 +387,9 @@ Example:
 }
 </pre>
 
-Other properties of schema:PropertyValue can add additional useful information about variables with measured numeric values:
+#### Tier 3: Numeric values
+
+For variable with numeric measured values, other properties of schema:PropertyValue can add additional useful information:
 
 - [unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
 - [unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate. 
@@ -372,7 +399,7 @@ Other properties of schema:PropertyValue can add additional useful information a
 - [url](https://schema.org/url) Any schema:Thing can have a URL property, but because the value is simply a url the relationship of the linked resource can not be expressed.  Usage is optional. The recommendation is that schema:url should link to a web page that would be useful for a person, but are not intended to be machine-actionable.
 
 Example:
-```
+<pre>
 {
   "@context": {
     "@vocab": "https://schema.org/"
@@ -395,12 +422,11 @@ Example:
     ...
   ]
 }
-```
+</pre>
 
-#### Variables with non-numeric values
-Scientific datasets might have fields containing many other kinds of values, including categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some recommendations for describing these kinds of variable are included here.
+#### Tier 4. Variables with non-numeric values
+Scientific datasets might have fields containing many other kinds of values, including categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some recommendations for describing these kinds of variable are included here, using some elements from other community vocabularies.
 
-##### Data Type
 For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types: 
 
 | type  | subtype  | note  |
@@ -411,7 +437,7 @@ For variables that have values that are not numeric, the datatype should be spec
 |[Number](https://schema.org/Number)| |allows integer and decimal number
 | |[Float](https://schema.org/Float)|use with scientific notation?
 | |[Integer](https://schema.org/Integer)|use to restrict to integer numbers
-|[Boolean](https://schema.org/Boolean)| |   
+|[Boolean](https://schema.org/Boolean)| |
 |[Text](https://schema.org/Text)| |  
 | |[URL](https://schema.org/URL)|  
 
@@ -421,21 +447,20 @@ If other more specific data types need to be specified, [xml schema datatypes](h
 
 Example: a date and time variable data type:
 
-```
+<pre>
  {"@type": "PropertyValue",
    "name": “Date of experiment",
    "description": “date and time when observation was obtained",
    "propertyID": "https://www.ex-data-repo.org/dataset-parameter/20861",
    "qudt:dataType": "https://schema.org/DateTime" },
-,
-```
+</pre>
 
 ##### Value range is controlled vocabulary
 The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists. 
 
 Example encoding for a variableMeasured that is populated with a controlled vocabulary, using schema:rangeIncludes/DefinedTermSet:
 
-```
+<pre>
  {
     "@type": "PropertyValue",
     "@id": "ex_variable0007",
@@ -455,22 +480,22 @@ Example encoding for a variableMeasured that is populated with a controlled voca
                 ]
         }
 }
-```
+</pre>
 
 The controlled vocabulary could also be identified by a URI for communities that have identifiers for controlled vocabularies.  In the above example this would be encoded thus:
 
-```
+<pre>
 "rangeincludes":  "https://www.astromat.org/vocab/calcavg" 
-```
+</pre>
 Ideally, the URI can be dereferenced to obtain a schema:DefinedTermSet object that defines the vocabulary elements. Recognizing that in many cases vocabulary representations use SKOS or a tabular text listing, the critical consideration is that the identifier for the vocabulary is something the user community will recognize.
  
-#### Variables with components
+#### Advanced: Variables with components
 
 ##### Structured values 
 Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values. 
 
 In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
-```
+<pre>
 {
   "@type": "PropertyValue",
   "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
@@ -489,15 +514,14 @@ In the first case, variables in an attribute role provide information about one 
     "name": "Uncertainty",
     "description": "magnitude of uncertainty on diameter measure",
      "qudt:dataType": "https://schema.org/Number"  }  ]  }
-```
+</pre>
 
 An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements. 
 In this case the PropertyValue should be typed as a qudt Structured Data Type (http://qudt.org/schema/qudt/StructuredDataType). The PropertyValue description aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
  
  Example describing a structured value:
 
-```
-{
+<pre>{
     "@type": "PropertyValue",
      "name": "PLSSLocation",
      "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
@@ -520,20 +544,19 @@ In this case the PropertyValue should be typed as a qudt Structured Data Type (h
             "description": "Range in PLSS grid, relative to reported meridian.",
             "qudt:dataType": "https://schema.org/Text"  }
          ]
- },
-```
+ },</pre>
 
 #### Variables that contain references
-For variables that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype).  Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
-```
+For variables with values that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
+<pre>
     {"@type": "PropertyValue",
      "name": "Link to rock description",
-     "propertyID":"geosciml:gbEarthMaterialDescription",
+     "propertyID":"http://geosciml.org/feature/gbEarthMaterialDescription",
      "alternateName": "rock material description",
      "description": "link to structured description of rock material using GeoSciML properties.",
      "qudt:dataType":["xsd:anyURI", "http://qudt.org/schema/qudt/ReferenceDatatype"]
      }
-```   
+</pre> 
  
 #### Array, Gridded or Coverage Data
 
@@ -544,6 +567,7 @@ The recommended approach is to include a schema:additionalType for the Dataset, 
 Each schema:valueReference is a schema:PropertyValue, which has a schema:propertyID specifying the semantics of a dimension or measure, as well as other properties useful to document that variable. The details of the sample spacing along each dimension are not described in this scheme.  
  
 Example for multi-dimensional dataset 
+
 ```
 {"@type": [ "Dataset"]
     "additionalType":[ "http://qudt.org/schema/qudt/MultiDimensionalDataFormat" ],
@@ -601,6 +625,7 @@ Example for multi-dimensional dataset
            "unitText": "meters" }
             ]        }    ]  }
 ```
+
 In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
            
 #### Use of schema:Observation to describe properties:
@@ -609,7 +634,7 @@ More in depth description can be provided for dataset variables that are the res
 
 example: 
 
-```
+<pre>
  "@type": "PropertyValue",
       "name": "sea_surface_temp",
       "description": "sea surface temperature measured in degrees Fahrenheit",
@@ -624,12 +649,12 @@ example:
           "name": "temperature"
         }
       }
-```
+</pre>
 
 This approach uses unexpected value ranges for schema:propertyID, which expects Text or URL, and for schema:observedNode, which expects schema:StatisticalPopulation (see [schema.org Issue 2291](https://github.com/schemaorg/schemaorg/issues/2291)).  Other useful Observation properties could be included based on the rdf open world, like observation procedure (schema:measurementTechnique), or the sensor used (sosa:madeBySensor)
 
 example:
-```
+<pre>
 {
 "@type": "PropertyValue",
 "@id": "http://example.org/data/property/00246",
@@ -645,7 +670,7 @@ example:
           "name":"Relative humidity" },          
      "measurementTechnique": "https://www.globe.gov/documents/348614/348678/Relative+Humidity+Protocol/89f8c44d-4a99-494b-ba81-1853b80710b4"
 }
-```
+</pre>
 This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here. 
 
 
