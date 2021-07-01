@@ -317,7 +317,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 `schema:sameAs` is used here for the following reasons:
 
 1. It doesn't add too many more statements that might increase the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
-2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself: 
+2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself:
 
 `curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
 
@@ -325,18 +325,15 @@ Back to [top](#top)
 
 ### Variables
 
-Variables in a dataset present various kinds of information, for example:
-- Data management information related to the data item (record) in the dataset, e.g. identifier (primary key), create or update data, data source information.
-- A data value that is a result of an observation, e.g. a temperature value, color, species categorization
-- Metadata useful to understand and use an observation result reported in the data, e.g. method used, units of measure, context for the observation.
+A Dataset is a collection of data entities, each of which contains structured and unstructured values for a set of properties about that entity. For example, an hypothetical Dataset might contain three data files: 1) a data table in CSV format containing columns of data that both classify and measure the properties of a set of lakes in a region; 2) an image file containing rasterized geospatial data values for each location for properties like water temperature at multiple depths; and, 3) a text file containing responses to a survey assessing perspectives on water rights, with values for questions containing both natural language responses and responses on a Likert scale. In each of these examples, we are recording the value of attributes (aka properties) about an entity of interest (lake). In schema.org, details about these attributes can be recorded using `schema:variableMeasured`. So, while schema.org uses the term "variable" and the term "measured", it is usually conceptualized as a listing of any of the properties or attributes of an entity that are recorded, and not sensu strictu a measured variable. Thus, we recommend using `schema:variableMeasured` to represent any recordable property of an entity that is found in the dataset. While this includes quantitatively "measured" observations (e.g., rainfaill in mm), it also includes classification values that are asserted or qualitatively assigned (e.g., "moderate velocity"), contextual attributes such as spatial locations, times, or sampling information associated with a value, and textual values such as narrative text.
 
-It is useful to add information about the variables in a dataset to enhance discovery and support evaluation of the data. This can be done using the [schema:variableMeasured](https://schema.org/variableMeasured) field. Schema.org allows the value of variableMeasured to be a simple text string, but it is strongly recommended to use the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. 
+Information about the variables/attributes in a dataset can enhance discovery and support evaluation of the data. This can be done using the [schema:variableMeasured](https://schema.org/variableMeasured) field. Schema.org allows the value of variableMeasured to be a simple text string, but it is strongly recommended to use the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail.
 
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
-This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3), and dealing with variables with non-numeric values (Tier 4). Advanced recommendations are included for variables whose values are structured objects (e.g. json objects, arrays, gridded data) or are references to external value representations. 
+This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3), and dealing with variables with non-numeric values (Tier 4). Advanced recommendations are included for variables whose values are structured objects (e.g. json objects, arrays, gridded data) or are references to external value representations.
 
-#### Tier 1. 
+#### Tier 1. Simple list of variable names
 
 The simplest approach is to provide a schema:name and a text description of the variable. The schema:name should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using schema:alternateName.
 
@@ -361,7 +358,7 @@ Example:
 }
 </pre>
 
-#### Tier 2
+#### Tier 2: Names of variables with formal property types
 
 It is highly recommended to provide a [schema:propertyID](https://schema.org/propertyID) in the schema:PropertyValue object. This should be an http URI that  resolves to a web page providing a human-friendly description of the variable.  Ideally, this identifier should also be resolved to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data - i.e., to be more FAIR.  The property can be identified at any level of granularity, depending on what the data provider can determine. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
 
@@ -379,7 +376,7 @@ Example:
       "@type": "PropertyValue",
       "name": "latdd",
       "alternateName":"latitude, decimal degrees",
-      <strong>"propertyID":"http://www.geoscienceontology.org/geo-lower/quantity#latitude"</strong>,
+      <strong>"propertyID":"http://purl.obolibrary.org/obo/NCIT_C68642"</strong>,
       "description": "Latitude where water samples were collected ...",
     },
     ...
@@ -392,7 +389,7 @@ Example:
 For variable with numeric measured values, other properties of schema:PropertyValue can add additional useful information:
 
 - [unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
-- [unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate. 
+- [unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate.
 - [minValue](https://schema.org/minValue). If the value for the variable is numeric, this is the minimum value that occurs in the dataset. Not useful for other value types.
 - [maxValue](https://schema.org/maxValue). If the value for the variable is numeric, this is the maximum value that occurs in the dataset. Not useful for other value types.
 - [measurementTechnique](https://schema.org/measurementTechnique). A text description of the measurement method used to determine values for this variable. If standard measurement protocols are defined and registered, these can be identified via http URI's.
@@ -411,11 +408,11 @@ Example:
     {
       "@type": "PropertyValue",
       "name": "latitude",
-      "propertyID":"http://semanticscience.org/resource/SIO_000319",
+      "propertyID":"http://purl.obolibrary.org/obo/NCIT_C68642",
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
       "description": "Latitude where water samples were collected; north is positive. Latitude is a geographic coordinate which refers to the angle from a point on the Earth's surface to the equatorial plane",
       "unitText": "decimal degrees",
-      "unitCode":"http://qudt.org/vocab/unit/DEG", 
+      "unitCode":"http://qudt.org/vocab/unit/DEG",
       "minValue": "45.0",
       "maxValue": "15.0"
     },
@@ -427,7 +424,7 @@ Example:
 #### Tier 4. Variables with non-numeric values
 Scientific datasets might have fields containing many other kinds of values, including categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some recommendations for describing these kinds of variable are included here, using some elements from other community vocabularies.
 
-For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types: 
+For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types:
 
 | type  | subtype  | note  |
 |---|---|---|
@@ -456,7 +453,7 @@ Example: a date and time variable data type:
 </pre>
 
 ##### Value range is controlled vocabulary
-The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists. 
+The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists.
 
 Example encoding for a variableMeasured that is populated with a controlled vocabulary, using schema:rangeIncludes/DefinedTermSet:
 
@@ -485,16 +482,16 @@ Example encoding for a variableMeasured that is populated with a controlled voca
 The controlled vocabulary could also be identified by a URI for communities that have identifiers for controlled vocabularies.  In the above example this would be encoded thus:
 
 <pre>
-"rangeincludes":  "https://www.astromat.org/vocab/calcavg" 
+"rangeincludes":  "https://www.astromat.org/vocab/calcavg"
 </pre>
 Ideally, the URI can be dereferenced to obtain a schema:DefinedTermSet object that defines the vocabulary elements. Recognizing that in many cases vocabulary representations use SKOS or a tabular text listing, the critical consideration is that the identifier for the vocabulary is something the user community will recognize.
- 
+
 #### Advanced: Variables with components
 
-##### Structured values 
-Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values. 
+##### Structured values
+Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values.
 
-In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined. 
+In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined.
 <pre>
 {
   "@type": "PropertyValue",
@@ -516,9 +513,9 @@ In the first case, variables in an attribute role provide information about one 
      "qudt:dataType": "https://schema.org/Number"  }  ]  }
 </pre>
 
-An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements. 
-In this case the PropertyValue should be typed as a qudt Structured Data Type (http://qudt.org/schema/qudt/StructuredDataType). The PropertyValue description aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable. 
- 
+An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements.
+In this case the PropertyValue should be typed as a qudt Structured Data Type (http://qudt.org/schema/qudt/StructuredDataType). The PropertyValue description aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable.
+
  Example describing a structured value:
 
 <pre>{
@@ -556,17 +553,17 @@ For variables with values that are references to data objects stored elsewhere, 
      "description": "link to structured description of rock material using GeoSciML properties.",
      "qudt:dataType":["xsd:anyURI", "http://qudt.org/schema/qudt/ReferenceDatatype"]
      }
-</pre> 
- 
+</pre>
+
 #### Array, Gridded or Coverage Data
 
-For data that represent continuously varying values, data values are typically reported as a function of one or more dimensions. Dimensions might be temporal, spatial, or thematic.  An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)). 
+For data that represent continuously varying values, data values are typically reported as a function of one or more dimensions. Dimensions might be temporal, spatial, or thematic.  An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)).
 
 The recommended approach is to include a schema:additionalType for the Dataset, with the value 'http://qudt.org/schema/qudt/MultiDimensionalDataFormat'. The variableMeasured for the dataset can be represented with two base schema:PropertyValue instances -- the [dimensions](http://purl.org/linked-data/cube#measureDimension) (independent variable in the data structure) and the [measures](http://purl.org/linked-data/cube#measure) (the dependent variable values that are a function of the dimension coordinates). Each of these schema:PropertyValue instances has a qudt:dataType of 'http://qudt.org/schema/qudt/TupleType' (prefix http://qudt.org/schema/qudt/ <http://qudt.org/schema/qudt/>) and an array of child schema:valueReference objects describing each dimension or measure respectively.  
 
 Each schema:valueReference is a schema:PropertyValue, which has a schema:propertyID specifying the semantics of a dimension or measure, as well as other properties useful to document that variable. The details of the sample spacing along each dimension are not described in this scheme.  
- 
-Example for multi-dimensional dataset 
+
+Example for multi-dimensional dataset
 
 ```
 {"@type": [ "Dataset"]
@@ -627,12 +624,12 @@ Example for multi-dimensional dataset
 ```
 
 In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
-           
+
 #### Use of schema:Observation to describe properties:
 
 More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
 
-example: 
+example:
 
 <pre>
  "@type": "PropertyValue",
@@ -640,11 +637,11 @@ example:
       "description": "sea surface temperature measured in degrees Fahrenheit",
       "propertyID": {
         "@type": "Observation",
-        "observedNode": { 
+        "observedNode": {
           "@id": "http://purl.obolibrary.org/obo/ENVO_01001581",
           "name": "sea surface layer"
 	},
-        "measuredProperty": { 
+        "measuredProperty": {
           "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
           "name": "temperature"
         }
@@ -660,18 +657,18 @@ example:
 "@id": "http://example.org/data/property/00246",
  "name": "Relative Humidity",
 "propertyID": {
-    "@type":"Observation", 
+    "@type":"Observation",
     "description": "Relative humidity as averaged over 15min at COPR.",
      "name" "Relative humidity, AVG, 15min, COPR, 06.02.2017, 3:00 PM"' ;
      "sosa:madeBySensor": "http://example.org/data/HUMICAP-H",
      "observedNode":  "http://example.org/data/COPR_Station",
-     "measuredProperty":{ 
+     "measuredProperty":{
           "@id":http://sweetontology.net/propFraction/RelativeHumidity",
           "name":"Relative humidity" },          
      "measurementTechnique": "https://www.globe.gov/documents/348614/348678/Relative+Humidity+Protocol/89f8c44d-4a99-494b-ba81-1853b80710b4"
 }
 </pre>
-This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here. 
+This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here.
 
 
 Back to [top](#top)
@@ -907,15 +904,15 @@ Back to [top](#top)
 
 ![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
-Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees. 
+Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees.
 
 Schema.org documentation does not specify a convention for the coordinate reference system, our recommended practice is to use [WGS84](EPSG:3857) for at least one spatial coverage description if applicable. Spatial coverage location using other coordinate systems can be included, see recommendation for specifying coordinate reference systems, [below](#spatial_reference-system).  
 
 #### Point location
-A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties. 
+A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties.
 *Not Recommended* the [schema:Place](https://schema.org/Place) definition allows the latitude and longitude of a point location to be specified as properties directly of place; although this is more succinct, it makes parsing the metadata more complex and should be avoided.
 
-Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location. 
+Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.
 
 <a id="spatial_point"></a> A schema:Dataset that is about a point location would documented in this way:
 <pre>
@@ -941,7 +938,7 @@ Point locations are recommended for data that is associated with specific sample
 
 <a id="spatial_shape"></a>A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g. a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.  
 
-Be aware that some client applications might only index or display bounding box extents. 
+Be aware that some client applications might only index or display bounding box extents.
 
 * [line](https://schema.org/line) - a series of two or more points.
 * [polygon](https://schema.org/polygon) - a series of four or more points where the first and final points are identical.
@@ -951,7 +948,7 @@ Be aware that some client applications might only index or display bounding box 
 
 Examples
 <a id="geoshape-line">Linear spatial location</a>
-A line spatial location. Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature. 
+A line spatial location. Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature.
 
 <pre>
   <strong>"spatialCoverage": {
@@ -965,14 +962,14 @@ A line spatial location. Useful for data that were collected along a traverse, s
 </pre>
 
 <a id="geoshape-polygon">Polygon spatial location</a>
-A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications. 
+A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications.
 
 <pre>
   <strong>"polygon": "39.3280 120.1633 40.445 123.7878 41 121 39.77 122.42 39.3280 120.1633"</strong>
 </pre>
 
 <a id="geoshape-box">Bounding Boxes</a>
-A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
+A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus:
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
@@ -1017,10 +1014,10 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 Be aware that some client application might not index or display multiple geometries.
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees. 
+A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees.
 
-In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of 
-[http://dbpedia.org/resource/Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are: 
+In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of
+[http://dbpedia.org/resource/Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are:
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
@@ -1029,7 +1026,7 @@ In the mean time, to represent an SRS in schema.org, we recommend using the [sch
 | EPSG:26911               | https://spatialreference.org/ref/epsg/nad83-utm-zone-11n/  |
 | EPSG:3413                | https://spatialreference.org/ref/epsg/wgs-84-nsidc-sea-ice-polar-stereographic-north/ |
 
-NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified. 
+NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified.
 
 A spatial reference system can be added in this way:
 
@@ -1472,7 +1469,7 @@ Any portion of the software workflow can be described to increase information ab
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
   "schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
-  <strong>"prov:wasGeneratedBy": 
+  <strong>"prov:wasGeneratedBy":
       {
         "@id": "https://example.org/executions/execution-42",
         "@type": "provone:Execution",
