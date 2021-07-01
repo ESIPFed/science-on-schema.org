@@ -322,7 +322,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 `curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
 
 Back to [top](#top)
-
+<a id="variables"></a>
 ### Variables
 
 A Dataset is a collection of data entities, each of which contains structured and unstructured values for a set of properties about that entity. For example, an hypothetical Dataset might contain three data files: 1) a data table in CSV format containing columns of data that both classify and measure the properties of a set of lakes in a region; 2) an image file containing rasterized geospatial data values for each location for properties like water temperature at multiple depths; and, 3) a text file containing responses to a survey assessing perspectives on water rights, with values for questions containing both natural language responses and responses on a Likert scale. In each of these examples, we are recording the value of attributes (aka properties) about an entity of interest (lake). In schema.org, details about these attributes can be recorded using `schema:variableMeasured`. So, while schema.org uses the term "variable" and the term "measured", it is usually conceptualized as a listing of any of the properties or attributes of an entity that are recorded, and not sensu strictu a measured variable. Thus, we recommend using `schema:variableMeasured` to represent any recordable property of an entity that is found in the dataset. While this includes quantitatively "measured" observations (e.g., rainfaill in mm), it also includes classification values that are asserted or qualitatively assigned (e.g., "moderate velocity"), contextual attributes such as spatial locations, times, or sampling information associated with a value, and textual values such as narrative text.
@@ -331,7 +331,7 @@ Information about the variables/attributes in a dataset can enhance discovery an
 
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
-This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3), and dealing with variables with non-numeric values (Tier 4). Advanced recommendations are included for variables whose values are structured objects (e.g. json objects, arrays, gridded data) or are references to external value representations.
+This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3). Tier 4 includes recommendations for describing variables with with non-numeric  or enumerated (controlled vocabulary) values.  See [Advanced Publishing Techniques](#advanced-publishing-techniques), below for recommendations to document variables whose values are structured objects (e.g. json objects, arrays, gridded data), or are references to external value representations.
 
 #### Tier 1. Simple list of variable names
 
@@ -485,190 +485,6 @@ The controlled vocabulary could also be identified by a URI for communities that
 "rangeincludes":  "https://www.astromat.org/vocab/calcavg"
 </pre>
 Ideally, the URI can be dereferenced to obtain a schema:DefinedTermSet object that defines the vocabulary elements. Recognizing that in many cases vocabulary representations use SKOS or a tabular text listing, the critical consideration is that the identifier for the vocabulary is something the user community will recognize.
-
-#### Advanced: Variables with components
-
-##### Structured values
-Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values.
-
-In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined.
-<pre>
-{
-  "@type": "PropertyValue",
-  "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
-  "propertyID": "quantitykind:Diameter",
-  "name": "mineralSize",
-  "description": "length value, UOM is value reference",
-  "qudt:dataType": "https://schema.org/Number",
-  "valueReference": [
-    {"@type": "PropertyValue",
-    "name": "Unit of Measure",
-    "description": "unit of measure for diameter length",
-    "qudt:dataType": "https://schema.org/Text",
-    "rangeIncludes":"http://qudt.org/schema/qudt/LengthUnit"  },
-        },
-    {"@type": "PropertyValue",
-    "name": "Uncertainty",
-    "description": "magnitude of uncertainty on diameter measure",
-     "qudt:dataType": "https://schema.org/Number"  }  ]  }
-</pre>
-
-An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements.
-In this case the PropertyValue should be typed as a qudt Structured Data Type (http://qudt.org/schema/qudt/StructuredDataType). The PropertyValue description aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable.
-
- Example describing a structured value:
-
-<pre>{
-    "@type": "PropertyValue",
-     "name": "PLSSLocation",
-     "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
-     "alternateName": "US Public Land Survey System location",
-     "description": "Location of sampling feature specified using PLSS grid",
-     "qudt:dataType": ["http://qudt.org/schema/qudt/StructuredDataType", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
-     "valueReference": [
-          {"@type": "PropertyValue",
-            "name": "PLSS_Meridians",
-            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
-            "qudt:dataType": "https://schema.org/Text"  },
-           {"@type": "PropertyValue",
-            "name": "TWP",
-            "alternateName": "Township",
-            "description": "Township in PLSS grid, relative to reported baseline. ",
-            "qudt:dataType": "https://schema.org/Text"     },
-           {"@type": "PropertyValue",
-            "name": "RGE",
-            "alternateName": "Range",
-            "description": "Range in PLSS grid, relative to reported meridian.",
-            "qudt:dataType": "https://schema.org/Text"  }
-         ]
- },</pre>
-
-#### Variables that contain references
-For variables with values that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
-<pre>
-    {"@type": "PropertyValue",
-     "name": "Link to rock description",
-     "propertyID":"http://geosciml.org/feature/gbEarthMaterialDescription",
-     "alternateName": "rock material description",
-     "description": "link to structured description of rock material using GeoSciML properties.",
-     "qudt:dataType":["xsd:anyURI", "http://qudt.org/schema/qudt/ReferenceDatatype"]
-     }
-</pre>
-
-#### Array, Gridded or Coverage Data
-
-For data that represent continuously varying values, data values are typically reported as a function of one or more dimensions. Dimensions might be temporal, spatial, or thematic.  An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)).
-
-The recommended approach is to include a schema:additionalType for the Dataset, with the value 'http://qudt.org/schema/qudt/MultiDimensionalDataFormat'. The variableMeasured for the dataset can be represented with two base schema:PropertyValue instances -- the [dimensions](http://purl.org/linked-data/cube#measureDimension) (independent variable in the data structure) and the [measures](http://purl.org/linked-data/cube#measure) (the dependent variable values that are a function of the dimension coordinates). Each of these schema:PropertyValue instances has a qudt:dataType of 'http://qudt.org/schema/qudt/TupleType' (prefix http://qudt.org/schema/qudt/ <http://qudt.org/schema/qudt/>) and an array of child schema:valueReference objects describing each dimension or measure respectively.  
-
-Each schema:valueReference is a schema:PropertyValue, which has a schema:propertyID specifying the semantics of a dimension or measure, as well as other properties useful to document that variable. The details of the sample spacing along each dimension are not described in this scheme.  
-
-Example for multi-dimensional dataset
-
-```
-{"@type": [ "Dataset"]
-    "additionalType":[ "http://qudt.org/schema/qudt/MultiDimensionalDataFormat" ],
-    "name": "Surface geology and geophysics grid",
-...
- "variableMeasured": [
-   {"@type": "PropertyValue",
-    "name": "Dimensions",
-    "propertyID": "http://purl.org/linked-data/cube#measureDimension",
-    "description": "The dimensions for logical space in which measured values are positioned...",
-    "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
-    "valueReference": [
-        {"@type": "PropertyValue",
-         "name": "latitude",
-         "propertyID": "http://semanticscience.org/resource/latitude",
-         "qudt:dataType": "https://schema.org/Number",
-         "unitText": "decimal degree"  },
-        {"@type": "PropertyValue",
-         "name": "longitude",
-         "propertyID": "http://semanticscience.org/resource/longitude",
-         "qudt:dataType": "https://schema.org/Number",
-         "unitText": "decimal degree"}
-     ]
-  },
-  {"@type": "PropertyValue",
-   "name": "observation value",
-   "propertyID": "http://purl.org/linked-data/cube#measure",
-   "description": "tuple with magnetic field intensity, g value, observed outcrop rock type, and elevation",
-   "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
-   "valueReference": [
-       {"@type": "PropertyValue",
-         "name": "mag",
-         "alternateName": "magnetic field intensity",
-         "propertyID": "http://ex.org/resource/magneticFieldIntensity",
-          "qudt:dataType": "https://schema.org/Number",
-          "unitText": "amperes per metre" },
-        { "@type": "PropertyValue",
-          "name": "acceleration of gravity",
-          "propertyID": "http://ex.org/resource/localAccelGravity",
-          "alternateName": "Range",
-          "measurementTechnique": "gravimiter model xxx",
-          "qudt:dataType": "https://schema.org/Number",
-          "unitText": "mgal"},
-        { "@type": "PropertyValue",
-          "name": "lith",
-          "alternateName": "Outcrop lithology",
-          "propertyID": "http://ex.org/resource/geosciml/rocktype",
-          "qudt:dataType": "https://schema.org/Text"
-          "rangeIncludes": [ <https://geosciml.org/vocab/simpleLithology> ] },
-         { "@type": "PropertyValue",
-           "name": "elevation",
-           "propertyID": "http://ex.org/resource/elevation",
-           "description": "elevation relative to MSL, in meters",
-           "qudt:dataType": "https://schema.org/Number",
-           "unitText": "meters" }
-            ]        }    ]  }
-```
-
-In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
-
-#### Use of schema:Observation to describe properties:
-
-More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
-
-example:
-
-<pre>
- "@type": "PropertyValue",
-      "name": "sea_surface_temp",
-      "description": "sea surface temperature measured in degrees Fahrenheit",
-      "propertyID": {
-        "@type": "Observation",
-        "observedNode": {
-          "@id": "http://purl.obolibrary.org/obo/ENVO_01001581",
-          "name": "sea surface layer"
-	},
-        "measuredProperty": {
-          "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
-          "name": "temperature"
-        }
-      }
-</pre>
-
-This approach uses unexpected value ranges for schema:propertyID, which expects Text or URL, and for schema:observedNode, which expects schema:StatisticalPopulation (see [schema.org Issue 2291](https://github.com/schemaorg/schemaorg/issues/2291)).  Other useful Observation properties could be included based on the rdf open world, like observation procedure (schema:measurementTechnique), or the sensor used (sosa:madeBySensor)
-
-example:
-<pre>
-{
-"@type": "PropertyValue",
-"@id": "http://example.org/data/property/00246",
- "name": "Relative Humidity",
-"propertyID": {
-    "@type":"Observation",
-    "description": "Relative humidity as averaged over 15min at COPR.",
-     "name" "Relative humidity, AVG, 15min, COPR, 06.02.2017, 3:00 PM"' ;
-     "sosa:madeBySensor": "http://example.org/data/HUMICAP-H",
-     "observedNode":  "http://example.org/data/COPR_Station",
-     "measuredProperty":{
-          "@id":http://sweetontology.net/propFraction/RelativeHumidity",
-          "name":"Relative humidity" },          
-     "measurementTechnique": "https://www.globe.gov/documents/348614/348678/Relative+Humidity+Protocol/89f8c44d-4a99-494b-ba81-1853b80710b4"
-}
-</pre>
-This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here.
 
 
 Back to [top](#top)
@@ -1058,7 +874,7 @@ Back to [top](#top)
 
 ### Roles of People
 
-People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
@@ -1481,9 +1297,8 @@ Any portion of the software workflow can be described to increase information ab
 
 
 Back to [top](#top)
-
+<a id="advanced-publishing-techniques"></a>
 ## Advanced Publishing Techniques
-
 
 ### Attaching Physical Samples to a Dataset
 
@@ -1536,3 +1351,187 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 </pre>
 
 Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
+
+### Advanced variable value type description
+
+##### Structured values
+Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values.
+
+In the first case, variables in an attribute role provide information about one or more of the measure value variables, e.g. to specify metadata about another variable. Examples: a 'units' variable that specifies the units of measure for the value in a different variable, or a 'measurement method' variable that specifies how the value in a different variable was determined.
+<pre>
+{
+  "@type": "PropertyValue",
+  "@id": "http://astromat/dataset/data_astromat_analysis/variable0016",
+  "propertyID": "quantitykind:Diameter",
+  "name": "mineralSize",
+  "description": "length value, UOM is value reference",
+  "qudt:dataType": "https://schema.org/Number",
+  "valueReference": [
+    {"@type": "PropertyValue",
+    "name": "Unit of Measure",
+    "description": "unit of measure for diameter length",
+    "qudt:dataType": "https://schema.org/Text",
+    "rangeIncludes":"http://qudt.org/schema/qudt/LengthUnit"  },
+        },
+    {"@type": "PropertyValue",
+    "name": "Uncertainty",
+    "description": "magnitude of uncertainty on diameter measure",
+     "qudt:dataType": "https://schema.org/Number"  }  ]  }
+</pre>
+
+An example of a variable that has a structured value with measure components is a location variable that has latitude, longitude and spatial reference system as components. The latitude and longitude value each have the same units of measure and measurement method; the spatial reference is asserted, and might itself have component properties. The more complex situations, where the variable value is itself an object (e.g. a JSON object) can be represented using nested schema:valueReference elements.
+In this case the PropertyValue should be typed as a qudt Structured Data Type (http://qudt.org/schema/qudt/StructuredDataType). The PropertyValue description aggregates elements of possibly different types, described using nested [schema:valueReference](https://schema.org/valueReference) PropertyValue elements. This type would be used to represent values that are JSON or XML type objects, or ordered sequences like Tuples in which each element in the sequence might represent a different conceptual variable.
+
+ Example describing a structured value:
+
+<pre>{
+    "@type": "PropertyValue",
+     "name": "PLSSLocation",
+     "propertyID":"http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+     "alternateName": "US Public Land Survey System location",
+     "description": "Location of sampling feature specified using PLSS grid",
+     "qudt:dataType": ["http://qudt.org/schema/qudt/StructuredDataType", "https://www.usgs.gov/media/images/public-land-survey-system-plss"],
+     "valueReference": [
+          {"@type": "PropertyValue",
+            "name": "PLSS_Meridians",
+            "description": "List north-south baseline and east-west meridian that Townships and Ranges are referenced to.",
+            "qudt:dataType": "https://schema.org/Text"  },
+           {"@type": "PropertyValue",
+            "name": "TWP",
+            "alternateName": "Township",
+            "description": "Township in PLSS grid, relative to reported baseline. ",
+            "qudt:dataType": "https://schema.org/Text"     },
+           {"@type": "PropertyValue",
+            "name": "RGE",
+            "alternateName": "Range",
+            "description": "Range in PLSS grid, relative to reported meridian.",
+            "qudt:dataType": "https://schema.org/Text"  }
+         ]
+ },</pre>
+
+#### Variables that contain references
+For variables with values that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
+<pre>
+    {"@type": "PropertyValue",
+     "name": "Link to rock description",
+     "propertyID":"http://geosciml.org/feature/gbEarthMaterialDescription",
+     "alternateName": "rock material description",
+     "description": "link to structured description of rock material using GeoSciML properties.",
+     "qudt:dataType":["xsd:anyURI", "http://qudt.org/schema/qudt/ReferenceDatatype"]
+     }
+</pre>
+
+#### Array, Gridded or Coverage Data
+
+For data that represent continuously varying values, data values are typically reported as a function of one or more dimensions. Dimensions might be temporal, spatial, or thematic.  An example is a time series of water levels in a well. In this case, the 'dimension' or independent variable is time, and the dependent variable is water level.  Another common example is a geospatial grid representing magnetic field intensity. The dimensions might be northing and easting in some spatial reference system, and the dependent variable is field intensity. For the basic discovery and evaluation purposes supported by these recommendations, we do not propose how to represent the sampling points along the various dimension, only the dimension and value types and their semantics.  Detailed description of the data structure can be included in the dataset description using one of the standard schemes designed for this purpose (e.g. [OpenDAP v4 DMR](https://docs.opendap.org/index.php/DAP4:_Specification_Volume_1), or [W3C DataCube](https://www.w3.org/TR/vocab-data-cube/#cubes-model)).
+
+The recommended approach is to include a schema:additionalType for the Dataset, with the value 'http://qudt.org/schema/qudt/MultiDimensionalDataFormat'. The variableMeasured for the dataset can be represented with two base schema:PropertyValue instances -- the [dimensions](http://purl.org/linked-data/cube#measureDimension) (independent variable in the data structure) and the [measures](http://purl.org/linked-data/cube#measure) (the dependent variable values that are a function of the dimension coordinates). Each of these schema:PropertyValue instances has a qudt:dataType of 'http://qudt.org/schema/qudt/TupleType' (prefix http://qudt.org/schema/qudt/ <http://qudt.org/schema/qudt/>) and an array of child schema:valueReference objects describing each dimension or measure respectively.  
+
+Each schema:valueReference is a schema:PropertyValue, which has a schema:propertyID specifying the semantics of a dimension or measure, as well as other properties useful to document that variable. The details of the sample spacing along each dimension are not described in this scheme.  
+
+Example for multi-dimensional dataset
+
+```
+{"@type": [ "Dataset"]
+    "additionalType":[ "http://qudt.org/schema/qudt/MultiDimensionalDataFormat" ],
+    "name": "Surface geology and geophysics grid",
+...
+ "variableMeasured": [
+   {"@type": "PropertyValue",
+    "name": "Dimensions",
+    "propertyID": "http://purl.org/linked-data/cube#measureDimension",
+    "description": "The dimensions for logical space in which measured values are positioned...",
+    "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+    "valueReference": [
+        {"@type": "PropertyValue",
+         "name": "latitude",
+         "propertyID": "http://semanticscience.org/resource/latitude",
+         "qudt:dataType": "https://schema.org/Number",
+         "unitText": "decimal degree"  },
+        {"@type": "PropertyValue",
+         "name": "longitude",
+         "propertyID": "http://semanticscience.org/resource/longitude",
+         "qudt:dataType": "https://schema.org/Number",
+         "unitText": "decimal degree"}
+     ]
+  },
+  {"@type": "PropertyValue",
+   "name": "observation value",
+   "propertyID": "http://purl.org/linked-data/cube#measure",
+   "description": "tuple with magnetic field intensity, g value, observed outcrop rock type, and elevation",
+   "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
+   "valueReference": [
+       {"@type": "PropertyValue",
+         "name": "mag",
+         "alternateName": "magnetic field intensity",
+         "propertyID": "http://ex.org/resource/magneticFieldIntensity",
+          "qudt:dataType": "https://schema.org/Number",
+          "unitText": "amperes per metre" },
+        { "@type": "PropertyValue",
+          "name": "acceleration of gravity",
+          "propertyID": "http://ex.org/resource/localAccelGravity",
+          "alternateName": "Range",
+          "measurementTechnique": "gravimiter model xxx",
+          "qudt:dataType": "https://schema.org/Number",
+          "unitText": "mgal"},
+        { "@type": "PropertyValue",
+          "name": "lith",
+          "alternateName": "Outcrop lithology",
+          "propertyID": "http://ex.org/resource/geosciml/rocktype",
+          "qudt:dataType": "https://schema.org/Text"
+          "rangeIncludes": [ <https://geosciml.org/vocab/simpleLithology> ] },
+         { "@type": "PropertyValue",
+           "name": "elevation",
+           "propertyID": "http://ex.org/resource/elevation",
+           "description": "elevation relative to MSL, in meters",
+           "qudt:dataType": "https://schema.org/Number",
+           "unitText": "meters" }
+            ]        }    ]  }
+```
+
+In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
+
+#### Use of schema:Observation to describe properties:
+
+More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
+
+example:
+
+<pre>
+ "@type": "PropertyValue",
+      "name": "sea_surface_temp",
+      "description": "sea surface temperature measured in degrees Fahrenheit",
+      "propertyID": {
+        "@type": "Observation",
+        "observedNode": {
+          "@id": "http://purl.obolibrary.org/obo/ENVO_01001581",
+          "name": "sea surface layer"
+	},
+        "measuredProperty": {
+          "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
+          "name": "temperature"
+        }
+      }
+</pre>
+
+This approach uses unexpected value ranges for schema:propertyID, which expects Text or URL, and for schema:observedNode, which expects schema:StatisticalPopulation (see [schema.org Issue 2291](https://github.com/schemaorg/schemaorg/issues/2291)).  Other useful Observation properties could be included based on the rdf open world, like observation procedure (schema:measurementTechnique), or the sensor used (sosa:madeBySensor)
+
+example:
+<pre>
+{
+"@type": "PropertyValue",
+"@id": "http://example.org/data/property/00246",
+ "name": "Relative Humidity",
+"propertyID": {
+    "@type":"Observation",
+    "description": "Relative humidity as averaged over 15min at COPR.",
+     "name" "Relative humidity, AVG, 15min, COPR, 06.02.2017, 3:00 PM"' ;
+     "sosa:madeBySensor": "http://example.org/data/HUMICAP-H",
+     "observedNode":  "http://example.org/data/COPR_Station",
+     "measuredProperty":{
+          "@id":http://sweetontology.net/propFraction/RelativeHumidity",
+          "name":"Relative humidity" },          
+     "measurementTechnique": "https://www.globe.gov/documents/348614/348678/Relative+Humidity+Protocol/89f8c44d-4a99-494b-ba81-1853b80710b4"
+}
+</pre>
+This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here.
