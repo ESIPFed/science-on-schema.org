@@ -1,0 +1,150 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "time": "http://www.w3.org/2006/time/",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "ts": "http://resource.geosciml.org/vocabulary/timescale/",
+        "isc": "http://resource.geosciml.org/classifier/ics/ischart/"
+    },
+    "@graph": [
+        {
+            "@type": "Dataset",
+            "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporal coverage expressed as range of dateTime",
+            "temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.760 Ma) before present",
+            "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:numericPosition": {
+                        "@value": 0.760,
+                        "@type": "xsd:decimal"
+                    }
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+            "temporalCoverage": "Bartonian",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": [
+                    {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "isc:Bartonian",
+                            "@type": "xsd:anyURI"
+                        }
+                    },
+                    {
+                        "@type": "time:Interval",
+                        "time:hasBeginning": {
+                            "@type": "time:Instant",
+                            "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                            "time:inTimePosition": {
+                                "@type": "time:TimePosition",
+                                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                                "time:numericPosition": {
+                                    "@value": "41.2",
+                                    "@type": "xsd:decimal"
+                                }
+                            }
+                        },
+                        "time:hasEnd": {
+                            "@type": "time:Instant",
+                            "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                            "time:inTimePosition": {
+                                "@type": "time:TimePosition",
+                                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                                "time:numericPosition": {
+                                    "@value": "37.71",
+                                    "@type": "xsd:decimal"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+            "temporalCoverage": "Triassic to Jurassic",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "isc:Triassic",
+                            "@type": "xsd:anyURI"
+                        }
+                    }
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "isc:Jurassic",
+                            "@type": "xsd:anyURI"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed with beginning and end numeric positions [details on age estimation here]",
+            "temporalCoverage": "between 18.0 +/- 2.0 and 12.7 +/- 0.4 ",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "beginning is older bound of uncertainty envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:numericPosition": {
+                            "@value": "20.0",
+                            "@type": "xsd:decimal"
+                        }
+                    }
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "beginning is younger bound of uncertainty envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:numericPosition": {
+                            "@value": "12.3",
+                            "@type": "xsd:decimal"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
