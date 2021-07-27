@@ -7,7 +7,7 @@ Proposed, for discussion
 
 ## Decision ##
 Update the guidance for temporalCoverage description.  Main recommendations:
-1. use http://www.w3.org/2006/time/hasTime property from W3C OWL Time ([Cox and Little, 2021-06-29 editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime
+1. use  http://www.w3.org/2006/time#hasTime property from W3C OWL Time ([Cox and Little, 2021-06-29 editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime
 1. Provide numeric age positions in Ma before 1950 if possible
 1. If age is specified based on a time scale, provide nearest subsuming age from the [International Chronostratigraphic Chart](https://stratigraphy.org/chart)
 
@@ -30,7 +30,7 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
 ```
 {    "@context": {
         "@vocab": "http://schema.org/",
-        "time": "http://www.w3.org/2006/time/",
+        "time": "http://www.w3.org/2006/time#",
         "gstime": "http://schema.geoschemas.org/contexts/temporal#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "isc": "http://resource.geosciml.org/classifier/ics/ischart/"
