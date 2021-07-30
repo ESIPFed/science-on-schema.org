@@ -1,0 +1,100 @@
+5.  GeoJSON Bounding Box  https://datatracker.ietf.org/doc/html/rfc7946#section-5
+   A GeoJSON object MAY have a member named "bbox" to include
+   information on the coordinate range for its Geometries, Features, or
+   FeatureCollections.  The value of the bbox member MUST be an array of
+   length 2*n where n is the number of dimensions represented in the
+   contained geometries, with all axes of the most southwesterly point
+   followed by all axes of the more northeasterly point.  The axes order
+   of a bbox follows the axes order of geometries.
+   The "bbox" values define shapes with edges that follow lines of
+   constant longitude, latitude, and elevation.
+   
+   A position is an array of numbers.  There MUST be two or more
+   elements.  The first two elements are longitude and latitude, or
+   easting and northing, precisely in that order and using decimal
+   numbers.  Altitude or elevation MAY be included as an optional third
+   element.
+   
+   In representing Features that cross the antimeridian,
+   interoperability is improved by modifying their geometry.  Any
+   geometry that crosses the antimeridian SHOULD be represented by
+   cutting it in two such that neither part's representation crosses the
+   antimeridian.
+   
+Example of a 2D bbox member on a FeatureCollection:
+
+   {
+       "type": "FeatureCollection",
+       "bbox": [100.0, 0.0, 105.0, 1.0],
+       "features": [
+       //...
+       ]
+   }
+
+Example of a 3D bbox member with a depth of 100 meters:
+
+   {
+       "type": "FeatureCollection",
+       "bbox": [100.0, 0.0, -100.0, 105.0, 1.0, 0.0],
+       "features": [
+       //...
+       ]
+   }
+ 
+WKT  
+ 7.3.2.3.3      WKT Geographic bounding box http://docs.opengeospatial.org/is/18-010r7/18-010r7.html#33
+The geographic bounding box describes a "north up" area. Upper right latitude will be greater than the lower left latitude. Generally the upper right longitude will be greater than the lower left longitude. However when the area crosses the 180° meridian, the value of the lower left longitude will be greater than the value of the upper right longitude.
+
+The geographic bounding box is an approximate description of location. For most purposes a coordinate precision of two decimal places of a degree is sufficient. At this resolution the identification of the geodetic CRS to which the bounding box coordinates are referenced is not required.
+
+Bounding box latitude coordinates shall be given in decimal degrees in the range -90 to +90, longitude coordinates shall be given in decimal degrees in the range -180 to +180 relative to the international reference meridian.
+
+EXAMPLE 1      Geographic bounding box enveloping offshore Netherlands:
+              BBOX[51.43,2.54,55.77,6.40]
+
+EXAMPLE 2      Geographic bounding box enveloping offshore New Zealand and crossing the 180° meridian:
+            BBOX[-55.95,160.60,-25.88,-171.20]
+			
+https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry Coordinates for geometries may be 2D (x, y), 3D (x, y, z), 4D (x, y, z, m) with an m value that is part of a linear referencing system or 2D with an m value (x, y, m). Three-dimensional geometries are designated by a "Z" after the geometry type and geometries with a linear referencing system have an "M" after the geometry type. Empty geometries that contain no coordinates can be specified by using the symbol EMPTY after the type name.
+
+PostGIS contains functions that can convert geometries to and from a WKT representation, making them human readable.
+
+The OGC standard definition requires a polygon to be topologically closed. It also states that if the exterior linear ring of a polygon is defined in a counterclockwise direction it will be seen from the "top". Any interior linear rings should be defined in opposite fashion compared to the exterior ring, in this case, clockwise.
+
+GeoRSS and Schema.org
+7.3.1.1    Point
+A point SHALL contain a single latitude-longitude pair, separated by whitespace. Below is an example of a GeoRSS point encoding as part of an Atom feed.
+ <georss:point>45.256 -71.92</georss:point>
+ 
+ 7.3.1.4    Box
+A bounding box is a rectangular region, often used to define the extents of a map or a rough area of interest. A box SHALL contain two space separate latitude-longitude coordinate pairs, with each pair separated by whitespace. The first pair defines the lower left corner of the box and the second pair defines the upper right corner of the box.
+<georss:box>42.943 -71.032 43.039 -69.856</georss:box>
+
+schema.org:
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoShape",
+      "box": "39.3280 120.1633 40.445 123.7878"
+    }
+  }
+}
+
+7.3.2.2    Elevation
+Elevation, specified in GeoRSS elements, can be expressed as “elev” or “floor”. “elev” is meant to contain “common” GPS elevation readings, i.e. height in meters referenced to the WGS84 ellipsoid. This is a reading that should be easy to get from any GPS device. 
+    <georss:point>45.256 -110.45</georss:point>
+    <georss:elev>313</georss:elev>
+	
+GML point http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html
+A point consists of a GML <Point> element with a child <pos> element. Within<pos> the latitude and longitude coordinate values are separated by a space.
+         <gml:Point>
+            <gml:pos>45.256 -71.92</gml:pos>
+         </gml:Point>
+		 
+GML box  http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html
+Box
+A bounding box defines a rectangular region. This object is often used to define the extents of a map or define a rough area of interest. A GML box is called an Envelope. It consists of an <Envelope> element with a child <lowerCorner> element and a child <upperCorner> element.
+      <gml:Envelope>
+         <gml:lowerCorner>42.943 -71.032</gml:lowerCorner>
+          <gml:upperCorner>43.039 -69.856</gml:upperCorner>
+       </gml:Envelope>
