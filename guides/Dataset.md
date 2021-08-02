@@ -55,7 +55,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
-![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.svg "Dataset - Basic Fields")
+![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.png "Dataset - Basic Fields")
 
 <pre>
 {
@@ -81,7 +81,7 @@ Back to [top](#top)
 
 Adding the [schema:keywords](https://schema.org/keywords) field can be done in three ways - a text description, a URL, or by using [schema:DefinedTerm](https://schema.org/DefinedTerm). We recommend using `schema:DefinedTerm` if a keyword comes from a controlled vocabulary.
 
-![Keywords](/assets/diagrams/dataset/dataset_keywords.jpg "Dataset - Keywords")
+![Keywords](/assets/diagrams/dataset/dataset_keywords.png "Dataset - Keywords")
 
 #### Keywords as Text ####
 
