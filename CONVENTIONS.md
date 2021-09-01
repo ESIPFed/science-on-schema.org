@@ -102,7 +102,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 <a id="why-jsonld"></a>
 ## Why JSON-LD? ##
 
-Schema.org allows can be described using Microdata, RDFa, and JSON-LD. In this guide, we will use JSON-LD because:
+Schema.org allows descriptions using Microdata, RDFa, and JSON-LD. In this guide, we will use JSON-LD because:
 
 1. **Simplicity** - JSON-LD is the *most succinct* of the formats for communicating our *intent* with the recommendations.
 2. **Tersenees** - the JSON-LD ```[@context](https://json-ld.org/spec/latest/json-ld/#the-context)``` property allows publishers to express the data type of a specific properties of the data graph. 
