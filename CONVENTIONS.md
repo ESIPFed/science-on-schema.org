@@ -158,5 +158,5 @@ One impact of this change is that the Google Structured Data Testing Tool presen
 **Using external vocabulary prefixes**
 In addition, if one uses [schema:additionalType](https://schema.org/additionalType), then one can not use prefixes defined in the `@context` section when referencing these external concepts.  Instead, the concept must be specified with its full URL. This is illustrated in the example above, where we have to use `"additionalType": "http://vocabulary.example.org/ScientificInstrument"`  rather than the more compact prefixed version `"@type": ["ex:ScientificInstrument"]`.
 
-If one does decide to use `additionalType`, then opening the example in the JSON-LD Playground will show how the element type is nnot expanded and there is no triple generated for the additionalType.  Thus, we recommend using the `@type` field directly for associating fields with types so that they become part of the knowledge graph for the Dataset.
+If one does decide to use `additionalType`, then opening the example in the JSON-LD Playground will show how the element type is not expanded and there is no triple generated for the additionalType.  Thus, we recommend using the `@type` field directly for associating fields with types so that they become part of the knowledge graph for the Dataset.
 
