@@ -31,7 +31,7 @@
                 "@type": "time:Instant",
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
-                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                     "time:numericPosition": {
                         "@value": 0.76,
                         "@type": "xsd:decimal"
@@ -42,13 +42,13 @@
         {
             "@type": "Dataset",
             "description": "Example of a geologic time with an uncertainty. Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
-            "temporalCoverage": "Age of one of the oldest zircon found on Earth",
+            "temporalCoverage": "Age of one of the oldest zircon found on Earth from the Jack Hills Austrailia, 4.404 +- 0.008 Ga (2-sigma)",
             "time:hasTime": {
                 "@type": "time:Instant",
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {
-                        "@id": "gstest:BillionsOfYearsAgo"
+                        "@id": "gstest:BillionsOfYears"
                     },
                     "time:numericPosition": {
                         "@value": "4.404",
@@ -62,13 +62,12 @@
                     },
                     "gstime:uncertaintySigma": "2"
                 }
-
             }
         },
         {
             "@type": "Dataset",
-            "description": "Isotopic ages determined at the bottom and top of a stratigraphic section",
-            "temporalCoverage": "between 18.0 +/- 2.0 and 12.7 +/- 0.4 ",
+            "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
+            "temporalCoverage": "Between 18.0 +/- 0.35 and 12.7 +/- 0.4 Ma",
             "time:hasTime": {
                 "@type": "time:Interval",
                 "time:hasBeginning": {
@@ -76,14 +75,14 @@
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
                         "rdfs:comment": "beginning is older bound of uncertainty envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": {
                             "@value": "18.0",
                             "@type": "xsd:decimal"
                         },
                     "gstime:uncertainty": {
                         "time:numericPosition": {
-                            "@value": "2.0",
+                            "@value": "0.35",
                             "@type": "xsd:decimal"
                         }
                     },
@@ -95,7 +94,7 @@
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
                         "rdfs:comment": "beginning is younger bound of uncertainty envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": {
                             "@value": "12.7",
                             "@type": "xsd:decimal"
@@ -108,6 +107,35 @@
                     },
                     "gstime:uncertaintySigma": "2"
                     }
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya.",
+            "temporalCoverage": "Carbon dating age BP Calibrated of 2640 +130 -80 (one-sigma)",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
+                    "time:numericPosition": {
+                        "@value": 2460,
+                        "@type": "xsd:decimal"
+                    },
+                    "gstime:uncertaintyOlder": {
+                        "time:numericPosition": {
+                            "@value": "130",
+                            "@type": "xsd:decimal"
+                        }
+                    },
+                    "gstime:uncertaintyYounger": {
+                        "time:numericPosition": {
+                            "@value": "80",
+                            "@type": "xsd:decimal"
+                        }
+                    },
+                    "gstime:uncertaintySigma": "1"
                 }
             }
         },
