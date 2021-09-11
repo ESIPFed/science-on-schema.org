@@ -25,7 +25,7 @@
         },
         {
             "@type": "Dataset",
-            "description": "Temporal position expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.760 Ma) before present",
+            "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
             "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
             "time:hasTime": {
                 "@type": "time:Instant",
@@ -33,8 +33,80 @@
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
                     "time:numericPosition": {
-                        "@value": 0.760,
+                        "@value": 0.76,
                         "@type": "xsd:decimal"
+                    }
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Example of a geologic time with an uncertainty. Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
+            "temporalCoverage": "Age of one of the oldest zircon found on Earth",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {
+                        "@id": "gstest:BillionsOfYearsAgo"
+                    },
+                    "time:numericPosition": {
+                        "@value": "4.404",
+                        "@type": "xsd:decimal"
+                    },
+                    "gstime:uncertainty": {
+                        "time:numericPosition": {
+                            "@value": "0.008",
+                            "@type": "xsd:decimal"
+                        }
+                    },
+                    "gstime:uncertaintySigma": "2"
+                }
+
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Isotopic ages determined at the bottom and top of a stratigraphic section",
+            "temporalCoverage": "between 18.0 +/- 2.0 and 12.7 +/- 0.4 ",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "beginning is older bound of uncertainty envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:numericPosition": {
+                            "@value": "18.0",
+                            "@type": "xsd:decimal"
+                        },
+                    "gstime:uncertainty": {
+                        "time:numericPosition": {
+                            "@value": "2.0",
+                            "@type": "xsd:decimal"
+                        }
+                    },
+                    "gstime:uncertaintySigma": "2"
+                    }
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "beginning is younger bound of uncertainty envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                        "time:numericPosition": {
+                            "@value": "12.7",
+                            "@type": "xsd:decimal"
+                        },
+                    "gstime:uncertainty": {
+                        "time:numericPosition": {
+                            "@value": "0.4",
+                            "@type": "xsd:decimal"
+                        }
+                    },
+                    "gstime:uncertaintySigma": "2"
                     }
                 }
             }
@@ -109,38 +181,6 @@
                         "time:NominalPosition": {
                             "@value": "isc:Jurassic",
                             "@type": "xsd:anyURI"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "@type": "Dataset",
-            "description": "Temporal position expressed with beginning and end numeric positions [details on age estimation here]",
-            "temporalCoverage": "between 18.0 +/- 2.0 and 12.7 +/- 0.4 ",
-            "time:hasTime": {
-                "@type": "time:Interval",
-                "time:hasBeginning": {
-                    "@type": "time:Instant",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is older bound of uncertainty envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                        "time:numericPosition": {
-                            "@value": "20.0",
-                            "@type": "xsd:decimal"
-                        }
-                    }
-                },
-                "time:hasEnd": {
-                    "@type": "time:Instant",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is younger bound of uncertainty envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                        "time:numericPosition": {
-                            "@value": "12.3",
-                            "@type": "xsd:decimal"
                         }
                     }
                 }
