@@ -109,8 +109,7 @@ If you have information about a controlled vocabulary from which keywords come f
 * [url](https://schema.org/url) - The canonical URL for the keyword. (Optional)
 * [termCode](https://schema.org/termCode) - A representative code for this keyword in the controlled vocabulary (Optional) 
 
-As an example, we demonstrate these fields using the `oceans` keyword from the NASA GCMD Keywrods vocabulary.
-<pre>
+As an example, we demonstrate these fields using the `oceans` keyword from the NASA GCMD Keyword vocabulary, `ice core studies` from  [SnowTerm](https://vocabularyserver.com/cnr/ml/snowterm/en/index.php), and `Baked Clay` from [EarthRef controlled vocabulary](https://www2.earthref.org/vocabularies/controlled).
 {
   "@context": {
     "@vocab": "https://schema.org/"
@@ -124,7 +123,20 @@ As an example, we demonstrate these fields using the `oceans` keyword from the N
       "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
       "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
       "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"
-    }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ice core studies",
+      "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
+      "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
+      "identifier": "ark:/99152/t3v4yo3eeqepj0"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Baked Clay",
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"
+    },
+    
   ]</strong>
 }
 </pre>
