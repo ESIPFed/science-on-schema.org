@@ -170,7 +170,7 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
             "@type": "time:Instant",
             "time:inTimePosition": {
                 "@type": "time:TimePosition",
-                "rdfs:comment": "beginning is younger bound of uncertainty envelop",
+                "rdfs:comment": "end is younger bound of uncertainty envelop",
                 "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
                 "time:numericPosition": {
                     "@value": "12.3",
