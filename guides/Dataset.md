@@ -541,8 +541,9 @@ Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type bec
 Back to [top](#top)
 
 ### Temporal Coverage
+Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case-- the time period that data are linked to thematically. 
 
-Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
+Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. This section includes recommendations for extensions to handle some common temporal coverage descriptions useful for geoscience. We ask for your [feedback on any temporal coverages you may have that are not accounted for by these recommendations](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
 
 ![Temporal](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Temporal")
 
@@ -585,25 +586,131 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
-One example of a URL temporal coverage might be for named periods in time:
+
+For temporal extents that can not be expressed using schema:DateTime, use W3C OWL time elements from the http://www.w3.org/2006/time# namespace. SOSO is already recommending use of elements from some other namespaces, and OWL time is widely recognized and vetted.
+
+For user-friendliness, include a text statement of the temporal coverage; aggregators might not be able to handle the more precise information in the time:hasTime elements.
+Some example cases:
+
+Time positions specificed using numeric geochronologic time scale. When possible, express extent using geologic time as a decimal number in millions of years before present (A.D. 1950). If there is a known uncertainty on a value, express the interval as the outer bounds of the uncertainty envelope. Temporal CRS can be identified with the URI http://schema.geoschemas.org/contexts/temporal#MillionsOfYear.
+
+Context used for these examples:
+<pre>
+"@context": {
+        "@vocab": "http://schema.org/",
+        "time": "http://www.w3.org/2006/time#",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "ts": "http://resource.geosciml.org/vocabulary/timescale/",
+        "isc": "http://resource.geosciml.org/classifier/ics/ischart/"
+    }
+</pre>
+
+
+
+*Example*: Dataset with single time instant temporal coverage.
 
 <pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-  <strong>"temporalCoverage": "http://sweetontology.net/stateTimeGeologic/Paleocene"</strong>
+{   "@type": "Dataset",
+    "description": "Temporal position expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.760 Ma) before present",
+    "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
+    "time:hasTime": {
+        "@type": "time:Instant",
+        "time:inTimePosition": {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+            "time:numericPosition": {
+                "@value": 0.760,
+                "@type": "xsd:decimal"
+            }  }  }   }
+</pre>
+
+*Example*: Dataset with temporal coverage that is named time interval (nominalPosition). from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+
+<pre>
+{ "@type": "Dataset",
+"description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+"temporalCoverage": "Bartonian",
+"time:hasTime": {
+    "@type": "time:Instant",
+    "time:inTimePosition": [
+        {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "ts:gts2020"},
+            "time:NominalPosition": {"@id": "isc:Bartonian"}
+        },
+        {
+            "@type": "time:Interval",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:numericPosition": 41.2
+                    }
+            },
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:numericPosition": 37.71
+                 }   }    }
+    ]
+}   },
+</pre>
+
+*Example*: Temporal intervals with nominal temporal position that have identifiers. When possible, used temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:hasTime element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
+
+<pre>
+{    "@type": "Dataset",
+    "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
+    "temporalCoverage": "Triassic to Jurassic",
+    "time:hasTime": {
+        "@type": "time:Interval",
+        "time:hasBeginning": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {"@id": "ts:gts2020"},
+                "time:NominalPosition": {"@id": "isc:Triassic"}
+            }
+        },
+        "time:hasEnd": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {"@id": "ts:gts2020"},
+                "time:NominalPosition": {"@id": "isc:Jurassic"} 
+             }    }    }
 }
 </pre>
 
-Even though `http://sweetontology.net/stateTimeGeologic/Paleocene` is a valid RDF resource, and the natural tendency would be to use it as such:
-```
-"temporalCoverage": { "@id": "http://sweetontology.net/stateTimeGeologic/Paleocene" }
-```
-Because [schema:URL (rdf)](https://schema.org/URL.rdf) is defined as an rdfs:Class, these URLs can be interepreted by harvesters as an RDF resource, but that is a decision left to the harvester, not the publisher. So here, the publisher simply uses the resources URL.
+*Example*: Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
+
+<pre>
+{   "@type": "Dataset",
+    "description": "Temporal position expressed with beginning and end numeric positions [details on age estimation here]",
+    "temporalCoverage": "between 18.0 +/- 2.0 and 12.7 +/- 0.4 ",
+    "time:hasTime": {
+        "@type": "time:Interval",
+        "time:hasBeginning": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "rdfs:comment": "beginning is older bound of uncertainty envelop",
+                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                "time:numericPosition": 20.0    }
+        },
+        "time:hasEnd": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "rdfs:comment": "end is younger bound of uncertainty envelop",
+                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                "time:numericPosition": 12.3    }     }   }   }
+</pre>
 
 Back to [top](#top)
 
