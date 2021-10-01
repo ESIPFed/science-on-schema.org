@@ -110,6 +110,8 @@ If you have information about a controlled vocabulary from which keywords come f
 * [termCode](https://schema.org/termCode) - A representative code for this keyword in the controlled vocabulary (Optional) 
 
 As an example, we demonstrate these fields using the `oceans` keyword from the NASA GCMD Keyword vocabulary, `ice core studies` from  [SnowTerm](https://vocabularyserver.com/cnr/ml/snowterm/en/index.php), and `Baked Clay` from [EarthRef controlled vocabulary](https://www2.earthref.org/vocabularies/controlled).
+
+<pre>
 {
   "@context": {
     "@vocab": "https://schema.org/"
@@ -129,8 +131,7 @@ As an example, we demonstrate these fields using the `oceans` keyword from the N
       "name": "ice core studies",
       "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
       "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
-      "identifier": 
-      {
+      "identifier": {
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/ark",
         "value": "ark:/99152/t3v4yo3eeqepj0",
