@@ -115,29 +115,34 @@ As an example, we demonstrate these fields using the `oceans` keyword from the N
     "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  <strong>"keywords": [
+  "name": "Dataset shell for example DefinedTerm keywords",
+  "keywords": [
     {
-      "@type": "DefinedTerm",
+      <strong>"@type": "DefinedTerm",
       "name": "OCEANS",
       "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
       "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
-      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"
+      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"</strong>
     },
     {
-      "@type": "DefinedTerm",
+      <strong>"@type": "DefinedTerm",
       "name": "ice core studies",
       "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
       "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
-      "identifier": "ark:/99152/t3v4yo3eeqepj0"
+      "identifier": 
+      {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "value": "ark:/99152/t3v4yo3eeqepj0",
+        "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/t3v4yo3eeqepj0"
+      }</strong>
     },
     {
-      "@type": "DefinedTerm",
+      <strong>"@type": "DefinedTerm",
       "name": "Baked Clay",
-      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"
-    },
-    
-  ]</strong>
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"</strong>
+    }
+  ]
 }
 </pre>
 
