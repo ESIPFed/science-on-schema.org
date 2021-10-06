@@ -32,9 +32,7 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                    "time:numericPosition": {
-                        "@value": 0.76,
-                        "@type": "xsd:decimal"
+                    "time:numericPosition": 0.76,
                     }
                 }
             }
@@ -47,20 +45,10 @@
                 "@type": "time:Instant",
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
-                    "time:hasTRS": {
-                        "@id": "gstest:BillionsOfYears"
-                    },
-                    "time:numericPosition": {
-                        "@value": "4.404",
-                        "@type": "xsd:decimal"
-                    },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.008",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                    "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
+                    "time:numericPosition": 4.404,
+                    "gstime:uncertainty": 0.008,
+                    "gstime:uncertaintySigma": 2
                 }
             }
         },
@@ -76,36 +64,20 @@
                         "@type": "time:TimePosition",
                         "rdfs:comment": "beginning is older bound of uncertainty envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": {
-                            "@value": "18.0",
-                            "@type": "xsd:decimal"
-                        },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.35",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                        "time:numericPosition": 18.0,
+                        "gstime:uncertainty": 0.35,
+                        "gstime:uncertaintySigma": 2
                     }
                 },
                 "time:hasEnd": {
                     "@type": "time:Instant",
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is younger bound of uncertainty envelop",
+                        "rdfs:comment": "ending is younger bound of uncertainty envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": {
-                            "@value": "12.7",
-                            "@type": "xsd:decimal"
-                        },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.4",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                        "time:numericPosition": 12.7,
+                        "gstime:uncertainty": 0.4,
+                        "gstime:uncertaintySigma": 2
                     }
                 }
             }
@@ -119,23 +91,10 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
-                    "time:numericPosition": {
-                        "@value": 2460,
-                        "@type": "xsd:decimal"
-                    },
-                    "gstime:uncertaintyOlder": {
-                        "time:numericPosition": {
-                            "@value": "130",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintyYounger": {
-                        "time:numericPosition": {
-                            "@value": "80",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "1"
+                    "time:numericPosition": 2460,
+                    "gstime:uncertaintyOlder": 130,
+                    "gstime:uncertaintyYounger": 80,
+                    "gstime:uncertaintySigma": 1
                 }
             }
         },
