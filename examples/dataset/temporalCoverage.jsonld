@@ -1,10 +1,10 @@
 {
     "@context": {
         "@vocab": "http://schema.org/",
-        "time": "http://www.w3.org/2006/time/",
+        "time": "http://www.w3.org/2006/time#",
         "gstime": "http://schema.geoschemas.org/contexts/temporal#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
-        "isc": "http://resource.geosciml.org/classifier/ics/ischart/"
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
     },
     "@graph": [
         {
@@ -32,9 +32,7 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                    "time:numericPosition": {
-                        "@value": 0.76,
-                        "@type": "xsd:decimal"
+                    "time:numericPosition": 0.76,
                     }
                 }
             }
@@ -47,21 +45,11 @@
                 "@type": "time:Instant",
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
-                    "time:hasTRS": {
-                        "@id": "gstest:BillionsOfYears"
-                    },
-                    "time:numericPosition": {
-                        "@value": "4.404",
-                        "@type": "xsd:decimal"
-                    },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.008",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                    "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
+                    "time:numericPosition": 4.404,
                 }
+                "gstime:uncertainty": 0.008,
+                "gstime:uncertaintySigma": 2
             }
         },
         {
@@ -74,39 +62,23 @@
                     "@type": "time:Instant",
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is older bound of uncertainty envelop",
+                        "rdfs:comment": "beginning is older bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": {
-                            "@value": "18.0",
-                            "@type": "xsd:decimal"
-                        },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.35",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                        "time:numericPosition": 18.0,
                     }
+                    "gstime:uncertainty": 0.35,
+                    "gstime:uncertaintySigma": 2
                 },
                 "time:hasEnd": {
                     "@type": "time:Instant",
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is younger bound of uncertainty envelop",
+                        "rdfs:comment": "ending is younger bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": {
-                            "@value": "12.7",
-                            "@type": "xsd:decimal"
-                        },
-                    "gstime:uncertainty": {
-                        "time:numericPosition": {
-                            "@value": "0.4",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "2"
+                        "time:numericPosition": 12.7,
                     }
+                    "gstime:uncertainty": 0.4,
+                    "gstime:uncertaintySigma": 2
                 }
             }
         },
@@ -119,24 +91,11 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
-                    "time:numericPosition": {
-                        "@value": 2460,
-                        "@type": "xsd:decimal"
-                    },
-                    "gstime:uncertaintyOlder": {
-                        "time:numericPosition": {
-                            "@value": "130",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintyYounger": {
-                        "time:numericPosition": {
-                            "@value": "80",
-                            "@type": "xsd:decimal"
-                        }
-                    },
-                    "gstime:uncertaintySigma": "1"
+                    "time:numericPosition": 2460,
                 }
+                "gstime:uncertaintyOlder": 130,
+                "gstime:uncertaintyYounger": 80,
+                "gstime:uncertaintySigma": 1
             }
         },
         {
@@ -150,7 +109,7 @@
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
                         "time:NominalPosition": {
-                            "@value": "isc:Bartonian",
+                            "@value": "icsc:Bartonian",
                             "@type": "xsd:anyURI"
                         }
                     },
@@ -196,7 +155,7 @@
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
                         "time:NominalPosition": {
-                            "@value": "isc:Triassic",
+                            "@value": "icsc:Triassic",
                             "@type": "xsd:anyURI"
                         }
                     }
@@ -207,7 +166,7 @@
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
                         "time:NominalPosition": {
-                            "@value": "isc:Jurassic",
+                            "@value": "icsc:Jurassic",
                             "@type": "xsd:anyURI"
                         }
                     }
