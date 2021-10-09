@@ -345,13 +345,15 @@ d1:MediaObjectShape
 
 Back to [top](#top)
 
-### Distributions
+### Distribution: how to access the data
 
-Where the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data in a specific format is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
+The [schema:url](https://schema.org/url) property of the Dataset should point to an authoritative dataset landing page, which will typically include some links to download data. Use the [schema:distribution](https://schema.org/distribution) property, for which the expected data type is [schema:DataDownload](https://schema.org/DataDownload) for datasets that have direct data download URLs, have a web application that assists users to get subsets of the data for their specific purpose, or are accessible through a web service (WebAPI) that may need input parameters.
 
 ![Distributions](/assets/diagrams/dataset/dataset_distribution.svg "Dataset - Distributions")
 
-For data available in multipe formats, there will be multiple values of the [schema:DataDownload](https://schema.org/DataDownload):
+#### Accessing Data through a direct download URL
+
+The DataDownload/contentURL should be a URL that will get the dataset in a particular format. The data format should be indicated by the schema:DataDownload/schema:encodingFormat string. Recommended usage is to provide a registered MIME type to specify the format; if an identifier string for a particular profile of the format is available, that can be included as a type parameter with the MIME Type. For example 'application/json;type=WaterML'. Specifying a more specific format can enable automation to connect datasets and applications that work with that particular data format profile.  For data available in multiple formats with different URLs for each format, there will be multiple values of the [schema:DataDownload](https://schema.org/DataDownload):
 
 <pre>
 {
@@ -370,13 +372,24 @@ For data available in multipe formats, there will be multiple values of the [sch
 }
 </pre>
 
+#### Accessing Data through a data selection web application
+
+Some large datasets are accessible via web sites that assist the user to construct a set of filters to subset the dataset and obtain only the data they need. The URL for the web site is not a direct download url, so the address for the web site should be placed in the DataDownload/url element. Adding WebSite as an additional type will make the access approach more explicit. Example:
+
+<pre>
+"distribution": {
+            "@type": [ "DataDownload", "WebSite" ],
+            "name": "ERDDAP Server",
+            "description": "Web form to select ARGO data and download one of many offered formats. 
+            See https://www.ifremer.fr/erddap/tabledap/ArgoFloats.html#DAS 
+            for complete list of variables in data structure",
+            "url": "https://www.ifremer.fr/erddap/tabledap/ArgoFloats.html"
+        }
+</pre>
 
 #### Accessing Data through a Service Endpoint
 
-The [schema:distribution](https://schema.org/distribution) property is used to indicate mechanisms to access a described dataset. In some cases the data can be access via a WebAPI with request that include parameters that enable, for example, subsetting, filtering, selection of different format options.  The value expected for a [schema:distribution](https://schema.org/distribution) is [schema:DataDownload](https://schema.org/DataDownload) populated with a simple URL (see [Distribution](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#distributions)) for simple file-download distributions. 
-
-If access to the data is via WebAPI request that requires some input parameters before a download can occur, we can use the [schema:potentialAction](https://schema.org/potentialAction), which the [schema:DataDownload](https://schema.org/DataDownload) object inherits from [schema:Thing](https://schema.org/Thing). The value expected for a [schema:potentialAction](https://schema.org/potentialAction) is [schema:SearchAction](https://schema.org/SearchAction). In the simplest case, the search action target is a [schema:EntryPoint](https://schema.org/EntryPoint) that specifies a urlTemplate (see IETF RFC-6570
-[IETF RFC-6570](https://tools.ietf.org/html/rfc6570)), and a set of urlTemplate-input [schema:PropertyValueSpecification](https://schema.org/PropertyValueSpecification) objects that describe the template parameters. (Note there is discussion about an alternative approach that uses query-input as a separate element, see issues [#2340](https://github.com/schemaorg/schemaorg/issues/2340) and [#2342](https://github.com/schemaorg/schemaorg/issues/2342) in the schema.org github repository). The [schema:valueName](https://schema.org/valueName) in each property value specification matches one of the urlTemplate parameters, which are enclosed in curly braces ('{}'). 
+In some cases the data can be accessed via a WebAPI with a request including parameters that enable, for example, subsetting, filtering, or selection of different format options.  In suche cases, we can use the [schema:potentialAction](https://schema.org/potentialAction), which the [schema:DataDownload](https://schema.org/DataDownload) object inherits from [schema:Thing](https://schema.org/Thing). The value expected for a [schema:potentialAction](https://schema.org/potentialAction) is [schema:SearchAction](https://schema.org/SearchAction). In the simplest case, the search action target is a [schema:EntryPoint](https://schema.org/EntryPoint) that specifies a urlTemplate (see [IETF RFC-6570](https://tools.ietf.org/html/rfc6570)), and a set of query-input [schema:PropertyValueSpecification](https://schema.org/PropertyValueSpecification) objects that describe the template parameters. The [schema:valueName](https://schema.org/valueName) in each property value specification matches one of the urlTemplate parameters, which are enclosed in curly braces ('{}'). 
 
 ![Service Endpoint](/assets/diagrams/dataset/dataset_service-endpoint.svg "Dataset - Service Endpoint")
 
@@ -385,60 +398,71 @@ The basic pattern looks like this:
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
-    "datacite": "http://purl.org/spar/datacite/"
+    "@vocab": "https://schema.org/"
   },
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "name": "Argo float data and metadata from Global Data Assembly Centre (Argo GDAC)",
   ...
-  <strong>"potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-        "@type": "EntryPoint",
-        "contentType": ["application/x-netcdf", "text/tab-separated-values"],
-        "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
-        "description": "Download dataset 1234 based on the requested format, start/end dates and bounding box",
-        "httpMethod": ["GET", "POST"], 
-        "urlTemplate-input": [
+  "distribution":      {
+    "@type": [ "DataDownload","WebAPI" ],
+    "name": "Argovis WebAPI",
+    "serviceType": "Argovis API",
+    "documentation": "https://argovis.colorado.edu/api-docs/#/",
+    "description": "Access Argo profiles via API, i.e. temperature, salinity, and biogeochemical data by location. Argo metadata, float trajectory forecasts, gridded fields, weather events are also available through API",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://argovis.colorado.edu/selection/profiles?startDate={start}&endDate={end}&shape={shape}&presRange={presRange}",
+            "description": "download profiles within a bounding box for specified start/end dates",
+            "httpMethod": ["GET"]
+        },
+        "query-input": [
             {
                 "@type": "PropertyValueSpecification",
-                "valueName": "format",
-                "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
-                "valueRequired": true,
-                "defaultValue": "application/x-netcdf",
-                "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+                "valueName": "shape",
+                "description": "list of lists containing [lon, lat] coordinates that define a polygon; first and last coordinate pair should be the same poitn. example: shape = [[[-144.84375,36.031332],[-136.038755,36.210925],[-127.265625,35.746512],[-128.144531,22.755921],[-136.543795,24.835311],[-145.195313,26.431228],[-144.84375,36.031332]]]",
+                "valueRequired": true
             },
             {
                 "@type": "PropertyValueSpecification",
                 "valueName": "start",
-                "description": "A UTC ISO DateTime",
-                "valueRequired": false,
-                "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
-            },
-            {
-                 "@type": "PropertyValueSpecification",
-                 "valueName": "end",
-                 "description": "A UTC ISO DateTime",
-                 "valueRequired": false,
-                 "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+                "description": "string formatted as 'YYYY-MM-DD'",
+                "valueRequired": true
             },
             {
                 "@type": "PropertyValueSpecification",
-                "valueName": "bbox",
-                "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+                "valueName": "end",
+                "description": "string formatted as 'YYYY-MM-DD'",
+                "valueRequired": true
+            },
+            {
+                "@type": "PropertyValueSpecification",
+                "valueName": "presRange",
+                "description": "a string of a list formatted as '[minimum pres,maximum pres]' (no spaces)",
                 "valueRequired": false,
-                "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
+                "defaultValue": "None"
             }
-    ]
-  }</strong>
+        ],
+        "result":{
+            "@type":"DataDownload",
+            "encodingFormat":"application/json"
+        }
+    }
 }
 </pre>
 
 Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the template parameters and HTTP methods so that machines can build user interfaces to collect those query parameters and actuate a request to provide the user what they are looking for.
 
-Note that the schema:PotentialAction object also includes a [schema:result](https://schema.org/result) property that can be used to provide information about the encoding format of the WebAPI response, and a [schema:object](https://schema.org/object) property that can be used to provide a more detailed description of the data type for the WebAPI response. A more detailed description of an API would be like this (elipses ... indicate where some of the template property specifications are omitted for brevity) :
+Note that the schema:SearchAction object also includes a [schema:result](https://schema.org/result) property that can be used to provide information about the encoding format of the WebAPI response, and a [schema:object](https://schema.org/object) property that can be used to provide a more detailed description of the data type for the WebAPI response. A more detailed description of an API would be like this (elipses ... indicate where some of the template property specifications are omitted for brevity) :
 
 <pre>
+  "distribution":      {
+    "@type": [ "DataDownload","WebAPI" ],
+    "name": "IRIS DMC FDSNWS event Web Service",
+    "serviceType": "FDSNWS event API",
+    "documentation": "http://service.iris.edu/fdsnws/event/1/",
+    "description": "The fdsnws-event web service returns event (earthquake) information from catalogs originating from the NEIC and the ISC data centers. ",
 	"potentialAction": [
 			"@type": "SearchAction",
 			"name": "Query",
@@ -447,7 +471,7 @@ Note that the schema:PotentialAction object also includes a [schema:result](http
 				{
 					"@type": "DataDownload",
 					"encodingFormat": [
-						"application/xml+QuakeML",
+						"application/xml;type=QuakeML",
 						"text/csv","QuakeML",
 						"text/csv+geocsv",
 						"GeoCSV-SeismicEvent"
@@ -457,7 +481,7 @@ Note that the schema:PotentialAction object also includes a [schema:result](http
 			"target": {
 				"@type": "EntryPoint",
 				"urlTemplate": "http://service.iris.edu/fdsnws/event/1/query?{geographic-constraints}&{depth-constraints}&{temporal-constraints}&{magnitude-constraints}&{organization-constraints}&{misc-parameters}&{format-option}&{nodata=404}",
-				"description": "URL with multiple query paramters--geographic location, event depth, time period of event, event magnitude, source network, miscellaneous parameters, formt for returned data, and what flat to use for no data.  TBD-- how to handle POST request version; need to specify the format for the POST content",
+				"description": "URL with multiple query parameters--geographic location, event depth, time period of event, event magnitude, source network, miscellaneous parameters, format for returned data, and what flag to use for no data.  ",
 				"httpMethod":"GET",
 				"uriTemplate-input": [
 					{
@@ -541,33 +565,6 @@ Note that the schema:PotentialAction object also includes a [schema:result](http
 						"xsd:type": "float",
 						"unitOfMeasure": "degrees"
 					},
-...
-					{
-						"@id": "urn:iris:fsdn.maxdepth",
-						"@type": "PropertyValueSpecification",
-						"valueName": "maxdepth",
-						"defaultValue": "Any",
-						"description": "Limit to events with depth less than the specified minimum",
-						"valueRequired": true,
-						"minvalue":"0.0",
-						"maxvalue":"500.0",
-						"xsd:type": "float",
-						"unitOfMeasure": "kilometers"
-					},
-...
-					{
-						"@id": "urn:iris:fsdn.maxmagnitude",
-						"@type": "PropertyValueSpecification",
-						"valueName": "maxmag",
-						"defaultValue": "Any",
-						"description": "Limit to events with a magnitude smaller than the specified maximum.",
-						"valueRequired": true,
-						"minvalue":"",
-						"maxvalue":"",
-						"valuePattern": "Any valid magnitude",
-						"xsd:type": "float",
-						"unitOfMeasure": "determined by magtype"
-					}
 ...
 			]
 			},
