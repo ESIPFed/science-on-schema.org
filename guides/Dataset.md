@@ -347,7 +347,7 @@ Back to [top](#top)
 
 ### Distribution: how to access the data
 
-The [schema:url](https://schema.org/url) property of the Dataset should point to an authoritative dataset landing page, which will typically include some links to download data. Use the [schema:distribution](https://schema.org/distribution) property, for which the expected data type is [schema:DataDownload](https://schema.org/DataDownload) for datasets that have direct data download URLs, have a web application that assists users to get subsets of the data for their specific purpose, or are accessible through a web service (WebAPI) that may need input parameters.
+The [schema:url](https://schema.org/url) property of the Dataset should point to an authoritative dataset landing page, which will typically include some links to download data. Use the [schema:distribution](https://schema.org/distribution) property, for which the expected data type is [schema:DataDownload](https://schema.org/DataDownload), for datasets that have direct data download URLs, have a web application that assists users to get subsets of the data for their specific purpose, or are accessible through a web service (WebAPI) that may need input parameters.
 
 ![Distributions](/assets/diagrams/dataset/dataset_distribution.svg "Dataset - Distributions")
 
@@ -389,7 +389,7 @@ Some large datasets are accessible via web sites that assist the user to constru
 
 #### Accessing Data through a Service Endpoint
 
-In some cases the data can be accessed via a WebAPI with a request including parameters that enable, for example, subsetting, filtering, or selection of different format options.  In suche cases, we can use the [schema:potentialAction](https://schema.org/potentialAction), which the [schema:DataDownload](https://schema.org/DataDownload) object inherits from [schema:Thing](https://schema.org/Thing). The value expected for a [schema:potentialAction](https://schema.org/potentialAction) is [schema:SearchAction](https://schema.org/SearchAction). In the simplest case, the search action target is a [schema:EntryPoint](https://schema.org/EntryPoint) that specifies a urlTemplate (see [IETF RFC-6570](https://tools.ietf.org/html/rfc6570)), and a set of query-input [schema:PropertyValueSpecification](https://schema.org/PropertyValueSpecification) objects that describe the template parameters. The [schema:valueName](https://schema.org/valueName) in each property value specification matches one of the urlTemplate parameters, which are enclosed in curly braces ('{}'). 
+In some cases the data can be accessed via a WebAPI with a request including parameters that enable, for example, subsetting, filtering, or selection of different format options.  In such cases, we can use the [schema:potentialAction](https://schema.org/potentialAction), which the [schema:DataDownload](https://schema.org/DataDownload) object inherits from [schema:Thing](https://schema.org/Thing). The value expected for a [schema:potentialAction](https://schema.org/potentialAction) is [schema:SearchAction](https://schema.org/SearchAction). In the simplest case, the search action target is a [schema:EntryPoint](https://schema.org/EntryPoint) that specifies a urlTemplate (see [IETF RFC-6570](https://tools.ietf.org/html/rfc6570)), and a set of query-input [schema:PropertyValueSpecification](https://schema.org/PropertyValueSpecification) objects that describe the template parameters. The [schema:valueName](https://schema.org/valueName) in each property value specification matches one of the urlTemplate parameters, which are enclosed in curly braces ('{}'). 
 
 ![Service Endpoint](/assets/diagrams/dataset/dataset_service-endpoint.svg "Dataset - Service Endpoint")
 
@@ -452,7 +452,8 @@ The basic pattern looks like this:
 }
 </pre>
 
-Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the template parameters and HTTP methods so that machines can build user interfaces to collect those query parameters and actuate a request to provide the user what they are looking for.
+
+Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the template parameters and HTTP methods so that machines can build user interfaces to collect those query parameters and actuate a request to provide the user what they are looking for. Adding 'WebAPI' as an additional type will make the access approach more explicit,and also adds properties to specify serviceType and a link to a service description document like OpenAPI/Swagger or OGC getCapabilities.
 
 Note that the schema:SearchAction object also includes a [schema:result](https://schema.org/result) property that can be used to provide information about the encoding format of the WebAPI response, and a [schema:object](https://schema.org/object) property that can be used to provide a more detailed description of the data type for the WebAPI response. A more detailed description of an API would be like this (elipses ... indicate where some of the template property specifications are omitted for brevity) :
 
