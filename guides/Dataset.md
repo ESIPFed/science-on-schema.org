@@ -766,7 +766,47 @@ Back to [top](#top)
 
 ### Roles of People
 
-People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable.
+
+NOTE: Becuase JSON-LD doesn't preserve the order of its collection values, for more see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list), we can preserve the order of people roles by applying the `@list` JSON-LD keyword. Given the following `creator` JSON-LD block,:
+	
+```
+{
+  ...
+  "creator:[
+    {
+	"@type": "Person",
+	"name": "Creator #1"
+    },
+    {
+	"@type": "Person",
+	"name": "Creator #2"
+    }
+  ]
+}
+```
+	
+The order of these creators can be preserved by the using the `@list` JSON-LD keyword:
+	
+```
+{
+  ...
+  "creator:{
+    "@list": [
+      {
+	"@type": "Person",
+	"name": "Creator #1"
+      },
+      {
+	"@type": "Person",
+	"name": "Creator #2"
+      }
+    ]
+  }
+}
+```
+	
+Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
