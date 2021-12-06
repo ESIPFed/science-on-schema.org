@@ -586,7 +586,6 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
 **Geologic Time**
-  
 
 There are many different ways of defining geologic age. See the examples below for a few cases. Descriptions of the vocabulary are at [geoschemas.org](https://geoschemas.org/extensions/temporal.html). More example formats can be found in [temporalCoverage.jsonld](https://github.com/ESIPFed/science-on-schema.org/tree/develop/examples/dataset/temporalCoverage.jsonld)
 
