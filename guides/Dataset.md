@@ -541,6 +541,8 @@ Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type bec
 Back to [top](#top)
 
 ### Temporal Coverage
+Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case-- the time period that data are linked to thematically. 
+
 
 Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We have created our own geologic timescale vocabulary and it is found at [https://geoschemas.org/extensions/temporal.html](https://geoschemas.org/extensions/temporal.html). We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
 
@@ -606,6 +608,7 @@ A time interval using the ISO 8601 standard:
         "@type": "time:Interval",
         "time:hasBeginning": {
             "@type": "time:Instant",
+
             "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
         },
         "time:hasEnd": {
@@ -656,6 +659,7 @@ A geologic interval bounded by two eras:
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
 <strong>    "temporalCoverage": "Triassic to Jurassic",
+
     "time:hasTime": {
         "@type": "time:Interval",
         "time:hasBeginning": {
