@@ -21,10 +21,10 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
 - When: 
     - 1st Monday at 5pmET
     - 4th Thursday, 2:30pmET
-- Where: Telecons via GoToMeeting
-    - Connection: https://global.gotomeeting.com/join/431083909
-    - Access Code: 431-083-909
+- Where: Telecons via Zoom
+    - Connection: https://us02web.zoom.us/j/84043422486?pwd=bGM4YkFyMkFGSW1FZG5yaFRNaGNvdz09
     - Phone Access: United States: +1 (786) 535-3211
+    - Dial by your location (Find your local number: https://us02web.zoom.us/u/kcKljXMoF0)
 - [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
 ## Citation
