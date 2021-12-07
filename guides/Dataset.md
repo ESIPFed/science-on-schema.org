@@ -21,8 +21,6 @@
 		- [Funding](#funding)
 		- [License](#license)
 		- [Provenance Relationships](#provenance-relationships)
-	- [Advanced Publishing Techniques](#advanced-publishing-techniques)
-		- [Attaching Physical Samples to a Dataset](#attaching-physical-samples-to-a-dataset)
 
 <!-- /TOC -->
 
@@ -1189,57 +1187,3 @@ Any portion of the software workflow can be described to increase information ab
 
 Back to [top](#top)
 
-## Advanced Publishing Techniques
-
-
-### Attaching Physical Samples to a Dataset
-
-Currently, there isn't a great semantic property for a Dataset to distinguish the related physical samples. However, we can use the [schema:hasPart](https://schema.org/hasPart) property to accomplish this without too much compromise. A [GitHub issue](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues/16) has been setup to follow this scenario. Here is the best way, so far, to link physical samples to a Dataset:
-
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "gdx": "https://geodex.org/voc/",
-    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
-    "igsn": "http://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>
-  },
-  "@type": "Dataset",
-  ...,
-  <strong>"hasPart": [
-    {
-      "@type": ["CreativeWork", "geolink:PhysicalSample"],
-      "identifier": {
-        "@id": "https://doi.org/10273/WHO000A53",
-        "@type": "PropertyValue",
-        "propertyID": "https://registry.identifiers.org/registry/doi",
-        "url": "https://doi.org/10273/WHO000A53",
-        "value": "IGSN:WHO000A53"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -26.94486389,
-          "longitude": 143.43508333,
-          "elevation": 219.453
-        }
-      }
-      ...
-    },
-    {
-      "@type": ["CreativeWork", "geolink:PhysicalSample"],
-      "identifier": {
-        "@id": "https://doi.org/10273/WHO000A67",
-        "@type": "PropertyValue",
-        "https://registry.identifiers.org/registry/doi",
-        "url": "https://doi.org/10273/WHO000A67",
-        "value": "IGSN:WHO000A67"
-      }
-      ...
-    }
-  ]</strong>
-}
-</pre>
-
-Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
