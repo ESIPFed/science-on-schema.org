@@ -1,0 +1,462 @@
+serial,plot_id,species,veg_lifeform_code,veg_structure_class_code,cover_percent
+1122,76287_2,Aconitum delphinifolium,forbs,forbs,0.1
+1290,76777_3,Aconitum delphinifolium,forbs,forbs,1
+1329,76777_2,Aconitum delphinifolium,forbs,forbs,0.1
+1487,76777_1,Aconitum delphinifolium,forbs,forbs,0.1
+1541,76287_1,Aconitum delphinifolium,forbs,forbs,0.1
+1123,76287_2,Anemone narcissiflora,forbs,forbs,0.1
+1181,76215_3,Anemone narcissiflora,forbs,forbs,0.1
+1124,76287_2,Anemone parviflora,forbs,forbs,0.1
+1182,76215_3,Anemone parviflora,forbs,forbs,0.1
+1256,76287_3,Anemone parviflora,forbs,forbs,0.1
+1293,76777_3,Anemone parviflora,forbs,forbs,0.1
+1324,76777_2,Anemone parviflora,forbs,forbs,1
+1536,76287_1,Anemone parviflora,forbs,forbs,2
+1573,76167,Anemone parviflora,forbs,forbs,2
+1183,76215_3,Anthoxanthum arcticum,grasses,grasses,0.1
+1125,76287_2,Arctagrostis latifolia,grasses,grasses,0.1
+1150,76215_2,Arctagrostis latifolia,grasses,grasses,0.1
+1184,76215_3,Arctagrostis latifolia,grasses,grasses,0.1
+1257,76287_3,Arctagrostis latifolia,grasses,grasses,0.1
+1355,76749_3,Arctagrostis latifolia,grasses,grasses,0.1
+1402,76749_5,Arctagrostis latifolia,grasses,grasses,1
+1488,76777_1,Arctagrostis latifolia,grasses,grasses,0.1
+1542,76287_1,Arctagrostis latifolia,grasses,grasses,0.1
+1172,76215_3,Arctous rubra,deciduous shrubs,prostrate shrub,0.1
+1243,76287_3,Arctous rubra,deciduous shrubs,prostrate shrub,3
+1283,76777_3,Arctous rubra,deciduous shrubs,prostrate shrub,1
+1252,76287_3,Artemisia arctica,forbs,forbs,1
+1116,76287_2,Artemisia tilesii,forbs,forbs,8
+1258,76287_3,Artemisia tilesii,forbs,forbs,0.1
+1530,76287_1,Artemisia tilesii,forbs,forbs,15
+1288,76777_3,Astragalus alpinus,forbs,forbs,3
+1320,76777_2,Astragalus alpinus,forbs,forbs,3
+1485,76777_1,Astragalus alpinus,forbs,forbs,1
+1126,76287_2,Aster sibiricus,forbs,forbs,0.1
+1319,76777_2,Aster sibiricus,forbs,forbs,5
+1480,76777_1,Aster sibiricus,forbs,forbs,8
+1539,76287_1,Aster sibiricus,forbs,forbs,1
+1162,76215_2,Aulacomnium palustre,mosses,mosses,5
+1197,76215_3,Aulacomnium palustre,mosses,mosses,3
+1227,76215_1,Aulacomnium palustre,mosses,mosses,10
+1366,76749_3,Aulacomnium palustre,mosses,mosses,5
+1419,76749_5,Aulacomnium palustre,mosses,mosses,5
+1433,76160_1,Aulacomnium palustre,mosses,mosses,5
+1464,76203_1,Aulacomnium palustre,mosses,mosses,3
+1559,76287_1,Aulacomnium palustre,mosses,mosses,2
+1230,76215_1,Aulacomnium turgidum,mosses,mosses,3
+1562,76287_1,Aulacomnium turgidum,mosses,mosses,0.1
+1145,76215_2,Betula nana,deciduous shrubs,low shrub,1
+1205,76215_1,Betula nana,deciduous shrubs,low shrub,5
+1247,76287_3,Betula nana,deciduous shrubs,low shrub,0.1
+1284,76777_3,Betula nana,deciduous shrubs,low shrub,1
+1316,76777_2,Betula nana,deciduous shrubs,low shrub,0.1
+1348,76749_3,Betula nana,deciduous shrubs,low shrub,25
+1375,76749_1,Betula nana,deciduous shrubs,low shrub,3
+1394,76749_5,Betula nana,deciduous shrubs,low shrub,10
+1436,76168_1,Betula nana,deciduous shrubs,low shrub,5
+1445,76208_1,Betula nana,deciduous shrubs,low shrub,30
+1457,76203_1,Betula nana,deciduous shrubs,low shrub,5
+1527,76287_1,Betula nana,deciduous shrubs,low shrub,0.1
+1567,76167,Betula nana,deciduous shrubs,low shrub,5
+1575,76161,Betula nana,deciduous shrubs,low shrub,20
+1585,76176a_1,Betula nana,deciduous shrubs,low shrub,18
+1593,76172_1,Betula nana,deciduous shrubs,low shrub,7
+1294,76777_3,Botrychium lunaria,ferns,forbs,0.1
+1472,76784_1,Botrychium lunaria,ferns,forbs,0.1
+1133,76287_2,Brachythecium sp.,mosses,mosses,5
+1200,76215_3,Brachythecium sp.,mosses,mosses,0.1
+1389,76749_1,Brachythecium sp.,mosses,mosses,3
+1127,76287_2,Bromus pumpellianus,grasses,grasses,0.1
+1543,76287_1,Bromus pumpellianus,grasses,grasses,0.1
+1113,76287_2,Calamagrostis canadensis,grasses,grasses,20
+1148,76215_2,Calamagrostis canadensis,grasses,grasses,1
+1179,76215_3,Calamagrostis canadensis,grasses,grasses,2
+1211,76215_1,Calamagrostis canadensis,grasses,grasses,3
+1251,76287_3,Calamagrostis canadensis,grasses,grasses,3
+1289,76777_3,Calamagrostis canadensis,grasses,grasses,2
+1321,76777_2,Calamagrostis canadensis,grasses,grasses,3
+1354,76749_3,Calamagrostis canadensis,grasses,grasses,1
+1378,76749_1,Calamagrostis canadensis,grasses,grasses,3
+1400,76749_5,Calamagrostis canadensis,grasses,grasses,3
+1438,76168_1,Calamagrostis canadensis,grasses,grasses,3
+1448,76208_1,Calamagrostis canadensis,grasses,grasses,8
+1459,76203_1,Calamagrostis canadensis,grasses,grasses,10
+1471,76784_1,Calamagrostis canadensis,grasses,grasses,2
+1481,76777_1,Calamagrostis canadensis,grasses,grasses,3
+1515,76305_1,Calamagrostis canadensis,grasses,grasses,5
+1531,76287_1,Calamagrostis canadensis,grasses,grasses,15
+1568,76167,Calamagrostis canadensis,grasses,grasses,5
+1578,76161,Calamagrostis canadensis,grasses,grasses,5
+1589,76176a_1,Calamagrostis canadensis,grasses,grasses,3
+1134,76287_2,Calliergon giganteum,mosses,mosses,5
+1560,76287_1,Calliergon giganteum,mosses,mosses,1
+1259,76287_3,Caltha palustris,forbs,forbs,0.1
+1231,76215_1,Campylium stellatum,mosses,mosses,3
+1147,76215_2,Carex aquatilis,sedges,sedges and rushes,2
+1175,76215_3,Carex aquatilis,sedges,sedges and rushes,3
+1212,76215_1,Carex aquatilis,sedges,sedges and rushes,2
+1352,76749_3,Carex aquatilis,sedges,sedges and rushes,5
+1377,76749_1,Carex aquatilis,sedges,sedges and rushes,10
+1399,76749_5,Carex aquatilis,sedges,sedges and rushes,4
+1429,76160_1,Carex aquatilis,sedges,sedges and rushes,12
+1439,76168_1,Carex aquatilis,sedges,sedges and rushes,3
+1571,76167,Carex aquatilis,sedges,sedges and rushes,3
+1580,76161,Carex aquatilis,sedges,sedges and rushes,3
+1590,76176a_1,Carex aquatilis,sedges,sedges and rushes,3
+1596,76172_1,Carex aquatilis,sedges,sedges and rushes,3
+1176,76215_3,Carex bigelowii,sedges,sedges and rushes,3
+1214,76215_1,Carex bigelowii,sedges,sedges and rushes,0.1
+1260,76287_3,Carex bigelowii,sedges,sedges and rushes,0.1
+1356,76749_3,Cardamine hyperborea,forbs,forbs,0.1
+1404,76749_5,Cardamine hyperborea,forbs,forbs,0.1
+1261,76287_3,Cardamine pratensis,forbs,forbs,0.1
+1405,76749_5,Cardamine pratensis,forbs,forbs,0.1
+1330,76777_2,Castilleja sp.,forbs,forbs,0.1
+1489,76777_1,Castilleja sp.,forbs,forbs,0.1
+1306,76777_3,Cladonia sp.,lichens,lichens,0.1
+1343,76777_2,Cladonia sp.,lichens,lichens,0.1
+1424,76749_5,Cladonia sp.,lichens,lichens,0.1
+1137,76287_2,Climacium dendroides,mosses,mosses,3
+1163,76215_2,Climacium dendroides,mosses,mosses,3
+1196,76215_3,Climacium dendroides,mosses,mosses,5
+1228,76215_1,Climacium dendroides,mosses,mosses,5
+1274,76287_3,Climacium dendroides,mosses,mosses,18
+1303,76777_3,Climacium dendroides,mosses,mosses,10
+1340,76777_2,Climacium dendroides,mosses,mosses,10
+1368,76749_3,Climacium dendroides,mosses,mosses,3
+1390,76749_1,Climacium dendroides,mosses,mosses,3
+1417,76749_5,Climacium dendroides,mosses,mosses,8
+1454,76208_1,Climacium dendroides,mosses,mosses,3
+1465,76203_1,Climacium dendroides,mosses,mosses,2
+1474,76784_1,Climacium dendroides,mosses,mosses,10
+1500,76777_1,Climacium dendroides,mosses,mosses,7
+1518,76305_1,Climacium dendroides,mosses,mosses,5
+1555,76287_1,Climacium dendroides,mosses,mosses,5
+1545,76287_1,Cnidium cnidiifolium,forbs,forbs,0.1
+1112,76287_2,Dasiphora fruticosa,deciduous shrubs,low shrub,0.1
+1173,76215_3,Dasiphora fruticosa,deciduous shrubs,low shrub,0.1
+1248,76287_3,Dasiphora fruticosa,deciduous shrubs,low shrub,0.1
+1331,76777_2,Delphinium glaucum,forbs,forbs,0.1
+1546,76287_1,Delphinium glaucum,forbs,forbs,0.1
+1235,76215_1,Ditrichum sp.,mosses,mosses,1
+1201,76215_3,Drepanocladus revolvens,mosses,mosses,0.1
+1207,76215_1,Dryas integrifolia,evergreen shrubs,prostrate shrub,0.1
+1291,76777_3,Elymus violaceus,grasses,grasses,1
+1332,76777_2,Elymus violaceus,grasses,grasses,0.1
+1490,76777_1,Elymus violaceus,grasses,grasses,0.1
+1244,76287_3,Empetrum nigrum,evergreen shrubs,dwarf shrub,3
+1317,76777_2,Empetrum nigrum,evergreen shrubs,dwarf shrub,0.1
+1115,76287_2,Epilobium angustifolium,forbs,forbs,10
+1318,76777_2,Epilobium angustifolium,forbs,forbs,10
+1470,76784_1,Epilobium angustifolium,forbs,forbs,3
+1532,76287_1,Epilobium angustifolium,forbs,forbs,5
+1262,76287_3,Epilobium latifolium,forbs,forbs,0.1
+1325,76777_2,Epilobium latifolium,forbs,forbs,1
+1486,76777_1,Epilobium latifolium,forbs,forbs,1
+1117,76287_2,Equisetum arvense,ferns,forbs,1
+1263,76287_3,Equisetum arvense,ferns,forbs,0.1
+1295,76777_3,Equisetum arvense,ferns,forbs,0.1
+1333,76777_2,Equisetum arvense,ferns,forbs,0.1
+1491,76777_1,Equisetum arvense,ferns,forbs,0.1
+1517,76305_1,Equisetum arvense,ferns,forbs,3
+1533,76287_1,Equisetum arvense,ferns,forbs,3
+1482,76777_1,Erigeron acris,forbs,forbs,3
+1151,76215_2,Eriophorum angustifolium,sedges,sedges and rushes,0.1
+1215,76215_1,Eriophorum vaginatum,sedges,sedges and rushes,0.1
+1152,76215_2,Festuca altaica,grasses,grasses,0.1
+1185,76215_3,Festuca altaica,grasses,grasses,0.1
+1253,76287_3,Festuca altaica,grasses,grasses,1
+1461,76203_1,Festuca altaica,grasses,grasses,2
+1572,76167,Festuca altaica,grasses,grasses,3
+1581,76161,Festuca altaica,grasses,grasses,3
+1216,76215_1,Festuca rubra,grasses,grasses,0.1
+1264,76287_3,Festuca rubra,grasses,grasses,0.1
+1540,76287_1,Festuca rubra,grasses,grasses,1
+1307,76777_3,Flavocetraria cucullata,lichens,lichens,0.1
+1425,76749_5,Flavocetraria cucullata,lichens,lichens,0.1
+1114,76287_2,Galium boreale,forbs,forbs,12
+1296,76777_3,Galium boreale,forbs,forbs,0.1
+1534,76287_1,Galium boreale,forbs,forbs,3
+1381,76749_1,Galium trifidum,forbs,forbs,0.1
+1297,76777_3,Hedysarum alpinum,forbs,forbs,0.1
+1547,76287_1,Hedysarum alpinum,forbs,forbs,0.1
+1135,76287_2,Hylocomium splendens,mosses,mosses,5
+1159,76215_2,Hylocomium splendens,mosses,mosses,20
+1198,76215_3,Hylocomium splendens,mosses,mosses,1
+1226,76215_1,Hylocomium splendens,mosses,mosses,30
+1273,76287_3,Hylocomium splendens,mosses,mosses,25
+1302,76777_3,Hylocomium splendens,mosses,mosses,20
+1342,76777_2,Hylocomium splendens,mosses,mosses,3
+1364,76749_3,Hylocomium splendens,mosses,mosses,40
+1414,76749_5,Hylocomium splendens,mosses,mosses,25
+1442,76168_1,Hylocomium splendens,mosses,mosses,15
+1452,76208_1,Hylocomium splendens,mosses,mosses,5
+1462,76203_1,Hylocomium splendens,mosses,mosses,15
+1473,76784_1,Hylocomium splendens,mosses,mosses,15
+1502,76777_1,Hylocomium splendens,mosses,mosses,0.1
+1519,76305_1,Hylocomium splendens,mosses,mosses,5
+1556,76287_1,Hylocomium splendens,mosses,mosses,5
+1174,76215_3,Ledum decumbens,evergreen shrubs,low shrub,0.1
+1350,76749_3,Ledum decumbens,evergreen shrubs,low shrub,3
+1395,76749_5,Ledum decumbens,evergreen shrubs,low shrub,3
+1528,76287_1,Linnaea borealis,evergreen shrubs,prostrate shrub,0.1
+1308,76777_3,Unknown liverwort,liverworts,liverworts,0.1
+1186,76215_3,Luzula confusa,rushes,sedges and rushes,0.1
+1217,76215_1,Luzula multiflora,rushes,sedges and rushes,0.1
+1118,76287_2,Moehringia lateriflora,forbs,forbs,1
+1265,76287_3,Moehringia lateriflora,forbs,forbs,0.1
+1548,76287_1,Moehringia lateriflora,forbs,forbs,0.1
+1236,76215_1,Orthothecium chryseum,mosses,mosses,0.1
+1357,76749_3,Pedicularis capitata,forbs,forbs,0.1
+1406,76749_5,Pedicularis langsdorffii,forbs,forbs,0.1
+1187,76215_3,Pedicularis verticillata,forbs,forbs,0.1
+1326,76777_2,Pedicularis verticillata,forbs,forbs,1
+1382,76749_1,Pedicularis verticillata,forbs,forbs,0.1
+1492,76777_1,Pedicularis verticillata,forbs,forbs,0.1
+1310,76777_3,Peltigera sp.,lichens,lichens,0.1
+1345,76777_2,Peltigera sp.,lichens,lichens,0.1
+1503,76777_1,Peltigera sp.,lichens,lichens,0.1
+1563,76287_1,Peltigera sp.,lichens,lichens,0.1
+1149,76215_2,Petasites frigidus,forbs,forbs,1
+1177,76215_3,Petasites frigidus,forbs,forbs,3
+1213,76215_1,Petasites frigidus,forbs,forbs,2
+1250,76287_3,Petasites frigidus,forbs,forbs,4
+1322,76777_2,Petasites frigidus,forbs,forbs,3
+1353,76749_3,Petasites frigidus,forbs,forbs,5
+1383,76749_1,Petasites frigidus,forbs,forbs,0.1
+1401,76749_5,Petasites frigidus,forbs,forbs,3
+1483,76777_1,Petasites frigidus,forbs,forbs,3
+1516,76305_1,Petasites frigidus,forbs,forbs,5
+1537,76287_1,Petasites frigidus,forbs,forbs,2
+1569,76167,Petasites frigidus,forbs,forbs,5
+1579,76161,Petasites frigidus,forbs,forbs,5
+1139,76287_2,Plagiomnium sp.,mosses,mosses,1
+1276,76287_3,Plagiomnium sp.,mosses,mosses,0.1
+1346,76777_2,Plagiomnium sp.,mosses,mosses,0.1
+1426,76749_5,Plagiomnium sp.,mosses,mosses,0.1
+1558,76287_1,Plagiomnium sp.,mosses,mosses,3
+1138,76287_2,Pleurozium schreberi,mosses,mosses,3
+1129,76287_2,Poa arctica,grasses,grasses,0.1
+1153,76215_2,Poa arctica,grasses,grasses,0.1
+1188,76215_3,Poa arctica,grasses,grasses,0.1
+1218,76215_1,Poa arctica,grasses,grasses,0.1
+1266,76287_3,Poa arctica,grasses,grasses,0.1
+1298,76777_3,Poa arctica,grasses,grasses,0.1
+1384,76749_1,Poa arctica,grasses,grasses,0.1
+1407,76749_5,Poa arctica,grasses,grasses,0.1
+1493,76777_1,Poa arctica,grasses,grasses,0.1
+1549,76287_1,Poa arctica,grasses,grasses,0.1
+1130,76287_2,Polemonium acutiflorum,forbs,forbs,0.1
+1189,76215_3,Polemonium acutiflorum,forbs,forbs,0.1
+1219,76215_1,Polemonium acutiflorum,forbs,forbs,0.1
+1267,76287_3,Polemonium acutiflorum,forbs,forbs,0.1
+1292,76777_3,Polemonium acutiflorum,forbs,forbs,1
+1327,76777_2,Polemonium acutiflorum,forbs,forbs,1
+1358,76749_3,Polemonium acutiflorum,forbs,forbs,0.1
+1380,76749_1,Polemonium acutiflorum,forbs,forbs,2
+1408,76749_5,Polemonium acutiflorum,forbs,forbs,0.1
+1469,76784_1,Polemonium acutiflorum,forbs,forbs,5
+1484,76777_1,Polemonium acutiflorum,forbs,forbs,3
+1154,76215_2,Polygonum bistorta ssp. plumosum,forbs,forbs,0.1
+1190,76215_3,Polygonum bistorta ssp. plumosum,forbs,forbs,0.1
+1268,76287_3,Polygonum bistorta ssp. plumosum,forbs,forbs,0.1
+1155,76215_2,Polygonum viviparum,forbs,forbs,0.1
+1191,76215_3,Polygonum viviparum,forbs,forbs,0.1
+1220,76215_1,Polygonum viviparum,forbs,forbs,0.1
+1164,76215_2,Polytrichum sp.,mosses,mosses,2
+1199,76215_3,Polytrichum sp.,mosses,mosses,1
+1232,76215_1,Polytrichum sp.,mosses,mosses,3
+1370,76749_3,Polytrichum sp.,mosses,mosses,3
+1420,76749_5,Polytrichum sp.,mosses,mosses,5
+1432,76160_1,Polytrichum sp.,mosses,mosses,30
+1443,76168_1,Polytrichum sp.,mosses,mosses,5
+1561,76287_1,Polytrichum sp.,mosses,mosses,1
+1409,76749_5,Potentilla palustris,forbs,forbs,0.1
+1587,76176a_1,Potentilla palustris,forbs,forbs,5
+1595,76172_1,Potentilla palustris,forbs,forbs,5
+1372,76749_3,Ptilidium ciliare,liverworts,liverworts,0.1
+1422,76749_5,Ptilidium ciliare,liverworts,liverworts,1
+1119,76287_2,Pyrola asarifolia,forbs,forbs,1
+1156,76215_2,Pyrola asarifolia,forbs,forbs,0.1
+1254,76287_3,Pyrola asarifolia,forbs,forbs,1
+1328,76777_2,Pyrola asarifolia,forbs,forbs,1
+1550,76287_1,Pyrola asarifolia,forbs,forbs,0.1
+1146,76215_2,Pyrola grandiflora,forbs,forbs,3
+1180,76215_3,Pyrola grandiflora,forbs,forbs,2
+1210,76215_1,Pyrola grandiflora,forbs,forbs,5
+1255,76287_3,Pyrola grandiflora,forbs,forbs,1
+1359,76749_3,Pyrola grandiflora,forbs,forbs,0.1
+1403,76749_5,Pyrola grandiflora,forbs,forbs,1
+1269,76287_3,Pyrola secunda,forbs,forbs,0.1
+1360,76749_3,Ranunculus lapponicus,forbs,forbs,0.1
+1410,76749_5,Ranunculus lapponicus,forbs,forbs,0.1
+1494,76777_1,Ranunculus lapponicus,forbs,forbs,0.1
+1522,76287_1,Rosa acicularis,deciduous shrubs,low shrub,28
+1178,76215_3,Rubus chamaemorus,forbs,forbs,3
+1209,76215_1,Rubus chamaemorus,forbs,forbs,7
+1398,76749_5,Rubus chamaemorus,forbs,forbs,5
+1431,76160_1,Rubus chamaemorus,forbs,forbs,0.1
+1440,76168_1,Rubus chamaemorus,forbs,forbs,3
+1460,76203_1,Rubus chamaemorus,forbs,forbs,8
+1570,76167,Rubus chamaemorus,forbs,forbs,5
+1577,76161,Rubus chamaemorus,forbs,forbs,30
+1588,76176a_1,Rubus chamaemorus,forbs,forbs,5
+1110,76287_2,Salix alaxensis,deciduous shrubs,tall shrub,35
+1238,76287_3,Salix alaxensis,deciduous shrubs,tall shrub,40
+1277,76777_3,Salix alaxensis,deciduous shrubs,tall shrub,45
+1312,76777_2,Salix alaxensis,deciduous shrubs,tall shrub,60
+1466,76784_1,Salix alaxensis,deciduous shrubs,tall shrub,45
+1475,76777_1,Salix alaxensis,deciduous shrubs,tall shrub,30
+1504,76327_1,Salix alaxensis,deciduous shrubs,tall shrub,35
+1510,76305_1,Salix alaxensis,deciduous shrubs,tall shrub,40
+1521,76287_1,Salix alaxensis,deciduous shrubs,tall shrub,50
+1111,76287_2,Salix arbusculoides,deciduous shrubs,tall shrub,30
+1245,76287_3,Salix arbusculoides,deciduous shrubs,tall shrub,3
+1281,76777_3,Salix arbusculoides,deciduous shrubs,tall shrub,2
+1523,76287_1,Salix arbusculoides,deciduous shrubs,tall shrub,25
+1141,76215_2,Salix chamissonis,deciduous shrubs,dwarf shrub,15
+1168,76215_3,Salix chamissonis,deciduous shrubs,dwarf shrub,10
+1204,76215_1,Salix chamissonis,deciduous shrubs,dwarf shrub,8
+1437,76168_1,Salix chamissonis,deciduous shrubs,dwarf shrub,5
+1456,76203_1,Salix chamissonis,deciduous shrubs,dwarf shrub,10
+1565,76167,Salix chamissonis,deciduous shrubs,dwarf shrub,10
+1576,76161,Salix chamissonis,deciduous shrubs,dwarf shrub,5
+1249,76287_3,Salix niphoclada,deciduous shrubs,low shrub,0.1
+1285,76777_3,Salix niphoclada,deciduous shrubs,low shrub,1
+1526,76287_1,Salix niphoclada,deciduous shrubs,low shrub,1
+1239,76287_3,Salix pseudomonticola,deciduous shrubs,low shrub,28
+1279,76777_3,Salix pseudomonticola,deciduous shrubs,low shrub,3
+1313,76777_2,Salix pseudomonticola,deciduous shrubs,low shrub,15
+1374,76749_1,Salix pseudomonticola,deciduous shrubs,low shrub,10
+1396,76749_5,Salix pseudomonticola,deciduous shrubs,low shrub,3
+1477,76777_1,Salix pseudomonticola,deciduous shrubs,low shrub,15
+1506,76327_1,Salix pseudomonticola,deciduous shrubs,low shrub,5
+1511,76305_1,Salix pseudomonticola,deciduous shrubs,low shrub,25
+1529,76287_1,Salix pseudomonticola,deciduous shrubs,low shrub,0.1
+1140,76215_2,Salix pulchra,deciduous shrubs,low shrub,45
+1167,76215_3,Salix pulchra,deciduous shrubs,low shrub,45
+1202,76215_1,Salix pulchra,deciduous shrubs,low shrub,45
+1242,76287_3,Salix pulchra,deciduous shrubs,low shrub,5
+1280,76777_3,Salix pulchra,deciduous shrubs,low shrub,3
+1347,76749_3,Salix pulchra,deciduous shrubs,low shrub,30
+1373,76749_1,Salix pulchra,deciduous shrubs,low shrub,60
+1393,76749_5,Salix pulchra,deciduous shrubs,low shrub,50
+1427,76160_1,Salix pulchra,deciduous shrubs,low shrub,12
+1435,76168_1,Salix pulchra,deciduous shrubs,low shrub,30
+1444,76208_1,Salix pulchra,deciduous shrubs,low shrub,40
+1455,76203_1,Salix pulchra,deciduous shrubs,low shrub,60
+1478,76777_1,Salix pulchra,deciduous shrubs,low shrub,10
+1514,76305_1,Salix pulchra,deciduous shrubs,low shrub,5
+1524,76287_1,Salix pulchra,deciduous shrubs,low shrub,3
+1564,76167,Salix pulchra,deciduous shrubs,low shrub,60
+1574,76161,Salix pulchra,deciduous shrubs,low shrub,40
+1584,76176a_1,Salix pulchra,deciduous shrubs,low shrub,20
+1591,76172_1,Salix pulchra,deciduous shrubs,low shrub,15
+1142,76215_2,Salix reticulata,deciduous shrubs,prostrate shrub,3
+1169,76215_3,Salix reticulata,deciduous shrubs,prostrate shrub,8
+1208,76215_1,Salix reticulata,deciduous shrubs,prostrate shrub,0.1
+1446,76208_1,Salix reticulata,deciduous shrubs,prostrate shrub,5
+1458,76203_1,Salix reticulata,deciduous shrubs,prostrate shrub,5
+1203,76215_1,Salix richardsonii,deciduous shrubs,low shrub,10
+1241,76287_3,Salix richardsonii,deciduous shrubs,low shrub,10
+1282,76777_3,Salix richardsonii,deciduous shrubs,low shrub,2
+1314,76777_2,Salix richardsonii,deciduous shrubs,low shrub,3
+1468,76784_1,Salix richardsonii,deciduous shrubs,low shrub,10
+1476,76777_1,Salix richardsonii,deciduous shrubs,low shrub,30
+1505,76327_1,Salix richardsonii,deciduous shrubs,low shrub,20
+1512,76305_1,Salix richardsonii,deciduous shrubs,low shrub,15
+1136,76287_2,Sanionia uncinata,mosses,mosses,5
+1161,76215_2,Sanionia uncinata,mosses,mosses,15
+1195,76215_3,Sanionia uncinata,mosses,mosses,15
+1233,76215_1,Sanionia uncinata,mosses,mosses,3
+1304,76777_3,Sanionia uncinata,mosses,mosses,10
+1339,76777_2,Sanionia uncinata,mosses,mosses,30
+1371,76749_3,Sanionia uncinata,mosses,mosses,3
+1391,76749_1,Sanionia uncinata,mosses,mosses,3
+1418,76749_5,Sanionia uncinata,mosses,mosses,7
+1451,76208_1,Sanionia uncinata,mosses,mosses,15
+1499,76777_1,Sanionia uncinata,mosses,mosses,30
+1509,76327_1,Sanionia uncinata,mosses,mosses,30
+1520,76305_1,Sanionia uncinata,mosses,mosses,3
+1557,76287_1,Sanionia uncinata,mosses,mosses,5
+1323,76777_2,Saussurea angustifolia,forbs,forbs,3
+1361,76749_3,Saussurea angustifolia,forbs,forbs,0.1
+1131,76287_2,Saxifraga punctata,forbs,forbs,0.1
+1221,76215_1,Saxifraga punctata,forbs,forbs,0.1
+1270,76287_3,Saxifraga punctata,forbs,forbs,0.1
+1362,76749_3,Saxifraga punctata,forbs,forbs,0.1
+1411,76749_5,Saxifraga punctata,forbs,forbs,0.1
+1551,76287_1,Saxifraga punctata,forbs,forbs,0.1
+1278,76777_3,Shepherdia canadensis,deciduous shrubs,low shrub,20
+1315,76777_2,Shepherdia canadensis,deciduous shrubs,low shrub,3
+1467,76784_1,Shepherdia canadensis,deciduous shrubs,low shrub,45
+1479,76777_1,Shepherdia canadensis,deciduous shrubs,low shrub,1
+1120,76287_2,Solidago multiradiata,forbs,forbs,1
+1222,76215_1,Solidago multiradiata,forbs,forbs,0.1
+1271,76287_3,Solidago multiradiata,forbs,forbs,0.1
+1287,76777_3,Solidago multiradiata,forbs,forbs,5
+1495,76777_1,Solidago multiradiata,forbs,forbs,0.1
+1535,76287_1,Solidago multiradiata,forbs,forbs,3
+1160,76215_2,Sphagnum sp.,mosses,mosses,20
+1194,76215_3,Sphagnum sp.,mosses,mosses,30
+1229,76215_1,Sphagnum sp.,mosses,mosses,5
+1365,76749_3,Sphagnum sp.,mosses,mosses,30
+1415,76749_5,Sphagnum sp.,mosses,mosses,20
+1434,76160_1,Sphagnum sp.,mosses,mosses,5
+1441,76168_1,Sphagnum sp.,mosses,mosses,40
+1453,76208_1,Sphagnum sp.,mosses,mosses,5
+1463,76203_1,Sphagnum sp.,mosses,mosses,15
+1583,76161,Sphagnum sp.,mosses,mosses,25
+1192,76215_3,Stellaria sp.,forbs,forbs,0.1
+1223,76215_1,Stellaria sp.,forbs,forbs,0.1
+1299,76777_3,Stellaria sp.,forbs,forbs,0.1
+1334,76777_2,Stellaria sp.,forbs,forbs,0.1
+1363,76749_3,Stellaria sp.,forbs,forbs,0.1
+1385,76749_1,Stellaria sp.,forbs,forbs,0.1
+1412,76749_5,Stellaria sp.,forbs,forbs,0.1
+1538,76287_1,Stellaria sp.,forbs,forbs,2
+1311,76777_3,Stereocaulon sp.,lichens,lichens,0.1
+1224,76215_1,Thalictrum alpinum,forbs,forbs,0.1
+1165,76215_2,Tomentypnum nitens,mosses,mosses,2
+1234,76215_1,Tomentypnum nitens,mosses,mosses,3
+1335,76777_2,Trientalis europaea,forbs,forbs,0.1
+1300,76777_3,Trisetum spicatum,grasses,grasses,0.1
+1336,76777_2,Trisetum spicatum,grasses,grasses,0.1
+1143,76215_2,Vaccinium uliginosum,deciduous shrubs,low shrub,3
+1171,76215_3,Vaccinium uliginosum,deciduous shrubs,low shrub,3
+1206,76215_1,Vaccinium uliginosum,deciduous shrubs,low shrub,3
+1240,76287_3,Vaccinium uliginosum,deciduous shrubs,low shrub,15
+1286,76777_3,Vaccinium uliginosum,deciduous shrubs,low shrub,1
+1349,76749_3,Vaccinium uliginosum,deciduous shrubs,low shrub,10
+1376,76749_1,Vaccinium uliginosum,deciduous shrubs,low shrub,0.1
+1507,76327_1,Vaccinium uliginosum,deciduous shrubs,low shrub,3
+1513,76305_1,Vaccinium uliginosum,deciduous shrubs,low shrub,10
+1525,76287_1,Vaccinium uliginosum,deciduous shrubs,low shrub,2
+1566,76167,Vaccinium uliginosum,deciduous shrubs,low shrub,10
+1592,76172_1,Vaccinium uliginosum,deciduous shrubs,low shrub,15
+1144,76215_2,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,2
+1170,76215_3,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,5
+1246,76287_3,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,2
+1351,76749_3,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,2
+1397,76749_5,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,3
+1447,76208_1,Vaccinium vitis-idaea,evergreen shrubs,dwarf shrub,3
+1121,76287_2,Valeriana capitata,forbs,forbs,1
+1158,76215_2,Valeriana capitata,forbs,forbs,0.1
+1193,76215_3,Valeriana capitata,forbs,forbs,0.1
+1225,76215_1,Valeriana capitata,forbs,forbs,0.1
+1272,76287_3,Valeriana capitata,forbs,forbs,0.1
+1337,76777_2,Valeriana capitata,forbs,forbs,0.1
+1379,76749_1,Valeriana capitata,forbs,forbs,3
+1413,76749_5,Valeriana capitata,forbs,forbs,0.1
+1450,76208_1,Valeriana capitata,forbs,forbs,1
+1496,76777_1,Valeriana capitata,forbs,forbs,0.1
+1552,76287_1,Valeriana capitata,forbs,forbs,0.1
+1582,76161,Valeriana capitata,forbs,forbs,3
+1132,76287_2,Viola sp.,forbs,forbs,0.1
+1338,76777_2,Wilhelmsia physodes,forbs,forbs,0.1
+1386,76749_1,Wilhelmsia physodes,forbs,forbs,0.1
+1497,76777_1,Wilhelmsia physodes,forbs,forbs,0.1
+1553,76287_1,Wilhelmsia physodes,forbs,forbs,0.1
+1301,76777_3,Zygadenus elegans,forbs,forbs,0.1
+1498,76777_1,Zygadenus elegans,forbs,forbs,0.1

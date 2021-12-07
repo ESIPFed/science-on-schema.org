@@ -1,0 +1,111 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "qudt": "http://qudt.org/schema/qudt/",
+        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "dct": "http://purl.org/dc/terms/",
+        "unit": "http://qudt.org/vocab/unit/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "quantityKind": "http://qudt.org/vocab/quantitykind/"
+    },
+    "@id": "https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022017.26910.2",
+    "@type": "https://schema.org/Dataset",
+    "additionalType": [
+        "geolink:Dataset",
+        "vivo:Dataset"
+    ],
+    "alternateName": "CA13_Ramirez",
+    "citation": "N/A - <a href=\\'https://opentopography.org/citations\\'>Citation Guidance</a>",
+    "contributor": [
+        {
+            "@type": "Organization",
+            "name": "National Center for Airborne Laser Mapping",
+            "url": "http://www.ncalm.org/"
+        },
+        {
+            "@type": "Organization",
+            "name": "Jet Propulsion Laboratory",
+            "url": "https://wildfire.jpl.nasa.gov/"
+        }
+    ],
+    "dateCreated": "2017-03-06 10:25:20.079575",
+    "description": "The Rim Fire started on August 17, 2013 in a remote area of the Stanislaus National Forest near the confluence of the Clavey and Tuolumne Rivers about 20 miles east of Sonora, California. The Rim Fire burned 257,314 acres, including 154,530 acres of National Forest System (NFS) lands, becoming the third largest wildfire in California history. - <i><a href=\"https://www.fs.usda.gov/detail/stanislaus/home/?cid=stelprdb5442963\">Stanislaus National Forest</a></i><br><br>  The requested survey area consisted of a single irregular polygon of approximately 1500 km<sup>2</sup>, located west of Yosemite Valley in California. The polygon covered the Yosemite Rim fire that occurred in fall 2013.  Two flight strips were flown with full waveform data collection. A smaller polygon (Smithsonian forest plot) north of Crane Flat Fire lookout, within the larger area, was collected at a higher point density and full waveform.",
+    "encodingFormat": "application/octet-stream;type=ASPRS-LAS",
+    "fileFormat": "Point Cloud Data",
+    "identifier": {
+        "@id": "https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.022017.26910.2",
+        "@type": "PropertyValue",
+        "propertyID": "opentopoID",
+        "value": "OTLAS.022017.26910.2"
+    },
+    "includedInDataCatalog": {"@id": "https://portal.opentopography.org/lidarDataset"},
+    "isAccessibleForFree": true,
+    "keywords": "yosemite, forest fire, wildfire, national park, Stanislaus National Forest",
+    "license": "Not-Provided",
+    "locationCreated": "",
+    "name": "Yosemite Rim Fire lidar 2013",
+    "publisher": {
+        "@type": "Organization",
+        "email": "info@opentopography.org",
+        "legalName": "OpenTopography",
+        "name": "OpenTopography",
+        "logo": "http://www.opentopography.org/sites/opentopography.org/files/ot_transp_logo.png",
+        "url": "https://opentopography.org"
+    },
+    "funder": "National Science Foundation under Award Numbers EAR-1948997, 1948994 & 1948857",
+    "sameAs": "https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.022017.26910.2",
+    "spatialCoverage": {
+        "@type": "Place",
+        "additionalProperty": [],
+        "geo": {
+            "@type": "GeoShape",
+            "box": "37.6907298031548, -120.293014530182 38.1089409018931, -119.622117419635"
+        }
+    },
+    "temporalCoverage": "2013-11-06/2013-11-24",
+    "url": "https://doi.org/10.5069/G9V69GJ4",
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "name": "data download landing page",
+            "description": "Navigate directly to the URL for data access and download",
+            "accessUrl": "https://doi.org/10.5069/G9V69GJ4"
+        }
+    ],
+    "usageinfo": "https://opentopography.org/usageterms",
+    "additionalProperty": [
+        {
+            "@type": "PropertyValue",
+            "name": "Area",
+            "value": "1,654.34 km2"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Unit",
+            "value": "meter"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "LidarReturns",
+            "value": "27579822913 points"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "PointDensity",
+            "value": "16.67 points/m2"
+        },
+        {
+            "@type": "PropertyValue",
+            "additionalType": "CoordinatesSystem",
+            "name": "Horizontal Coordinates",
+            "value": "UTM Zone 10N NAD83 (2010) [EPSG: 26910]"
+        },
+        {
+            "@type": "PropertyValue",
+            "additionalType": "CoordinatesSystem",
+            "name": "Vertical Coordinates",
+            "value": "NAVD88 (GEOID 12A)"
+        }
+    ],
+    "version": "1.0"
+}

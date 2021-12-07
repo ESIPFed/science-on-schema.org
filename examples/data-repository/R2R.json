@@ -1,0 +1,272 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "gdx": "https://geodex.org/voc/",
+        "datacite": "http://purl.org/spar/datacite/"
+    },
+    "comment":"/////why are Service WebSite and WebPage included as type?",
+    "@type": [
+        "Service",
+        "Organization",
+        "WebSite",
+        "WebPage"
+    ],
+    "@id": "http://www.rvdata.us",
+    "comment6": "//@id is meant to be an internal identifier for this document, like a fragment identifier in http; makeing these URLs is confusing in my opinion. (of course they're just strings so you can use anything you want, as long as its unique in the scope of the document.",
+    "additionalType": "https://geodex.org/voc/ResearchRepositoryService", "comment7":"geodexl.org/voc URIs don't resolve. are they useful? Is someone building a geoDex vocabulary service?",
+    "comment2": "// URI doesn't resolve",
+    "legalName": "Rolling Deck to Repository",
+    "name": "R2R",
+    "url": "http://www.rvdata.us",
+    "category": [
+        "Marine Geoscience",
+        "Marine Geophysics",
+        "Oceanography",
+        "Meteorology"
+    ],
+    "description": "The Rolling Deck to Repository (R2R) program manages underway environmental sensor data from scientific expeditions for the U.S. academic research fleet. R2R maintains a comprehensive catalog of modern academic fleet expeditions with inventories of end-of-cruise data distributions from each vessel operator, and provides access to the routinely collected  environmental data obtained from ship-board sensors for each expedition. These data are submitted to the NOAA Data Centers for long-term preservation and data quality assessments are provided for the most common data streams. R2R creates a number of value-added products including quality-controlled shiptrack navigation, geophysical profiles (gravity, magnetics, bathymetry), CTD data and real-time meteorology/near-surface oceanography in partnership with the SAMOS program. Data from each cruise are submitted directly to R2R by vessel operators, rather than from science parties. R2R works in close collaboration with the U.S. University-National Oceanographic Laboratory System, vessel technicians, NOAA Data Centers, and other U.S. and international ocean data systems.",
+    "sameAs": [
+        "https://www.re3data.org/repository/r3d100010735",
+        "https://twitter.com/R2Rdata"
+    ],
+    "logo": {
+        "@type": "ImageObject",
+        "url": "http://www.rvdata.us/images/Logo.4b1519be.png"
+    },
+    "foundingDate": "2009-09-01",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "61 Route 9W",
+        "addressLocality": "Palisades",
+        "addressRegion": "NY",
+        "postalCode": "10964-1000",
+        "addressCountry": "USA"
+    },
+    "contactPoint": {
+        "@id": "http://www.rvdata.us/about",
+        "@type": "ContactPoint",
+        "name": "R2R Manager",
+        "email": "info@rvdata.us",
+        "url": "http://www.rvdata.us/contact",
+        "contactType": "customer support"
+    },
+    "provider": {"@id": "http://www.rvdata.us"},
+    "funder": {
+        "@type": "Organization",
+        "@id": "https://dx.doi.org/10.13039/100000141",
+        "legalName": "Division of Ocean Sciences",
+        "alternateName": "OCE",
+        "url": "https://www.nsf.gov/div/index.jsp?div=OCE",
+        "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "http://purl.org/spar/datacite/:doi",
+            "value": "10.13039/100000141",
+            "url": "https://doi.org/10.13039/100000141"
+        },
+        "parentOrganization": {
+            "@type": "Organization",
+            "@id": "http://dx.doi.org/10.13039/100000085",
+            "legalName": "Directorate for Geosciences",
+            "alternateName": "NSF-GEO",
+            "url": "http://www.nsf.gov",
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "http://purl.org/spar/datacite/:doi",
+                "value": "10.13039/100000085",
+                "url": "https://doi.org/10.13039/100000085"
+            },
+            "parentOrganization": {
+                "@type": "Organization",
+                "@id": "http://dx.doi.org/10.13039/100000001",
+                "legalName": "National Science Foundation",
+                "alternateName": "NSF",
+                "url": "http://www.nsf.gov",
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "propertyID": "http://purl.org/spar/datacite/:doi",
+                    "value": "10.13039/100000001",
+                    "url": "https://doi.org/10.13039/100000001"
+                }
+            }
+        }
+    },
+    "parentOrganization": [
+        {
+            "@type": "Organization",
+            "@id": "https://viaf.org/viaf/142992181/",
+            "name": "Lamont-Doherty Earth Observatory",
+            "url": "http://www.ldeo.columbia.edu",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "61 Route 9W",
+                "addressLocality": "Palisades",
+                "addressRegion": "NY",
+                "postalCode": "10964-1000",
+                "addressCountry": "USA"
+            }
+        },
+        {
+            "comment3": "// shouldn't this be a parent organization for Lamont?",
+            "@type": "Organization",
+            "@id": "https://viaf.org/viaf/156836332/",
+            "legalName": "Columbia University",
+            "url": "http://www.columbia.edu/"
+        }
+    ],
+    "publishingPrinciples": [
+        {
+            "@type": "DigitalDocument",
+            "additionalType": "http://geodex.org/voc/Protocol-Access",
+            "name": "Data Access",
+            "url": "http://www.rvdata.us/about/policy/access",
+            "fileFormat": "text/html"
+        },
+        {
+            "@type": "DigitalDocument",
+            "additionalType": "https://geodex.org/voc/Protocol-ResourceSubmissionPolicy",
+            "name": "NSF OCE Sample and Data Policy",
+            "url": "https://www.nsf.gov/publications/pub_summ.jsp?ods_key=nsf17037&org=NSF",
+            "fileFormat": "text/html"
+        },
+        {
+            "@type": "DigitalDocument",
+            "additionalType": "https://geodex.org/voc/Protocol-ResourceSubmissionPolicy",
+            "name": "Data Submission",
+            "url": "https://www.rvdata.us/about/data-policies-and-repositories/data-submission",
+            "fileFormat": "text/html"
+        }
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "comment4": "/// shouldn't this be an array of itemListElements? modified here",
+        "name": "R2R",
+        "itemListElement": [
+            {
+                "@type": "DataCatalog",
+                "@id": "http://www.rvdata",
+                "name": "R2R",
+                "publishingPrinciples": [
+                    {
+                        "@type": "DigitalDocument",
+                        "additionalType": "http://geodex.org/voc/Protocol-Access",
+                        "name": "Data Access",
+                        "url": "http://www.rvdata.us/about/data-policies-and-repositories/data-access",
+                        "fileFormat": "text/html"
+                    },
+                    {
+                        "@type": "DigitalDocument",
+                        "additionalType": "https://geodex.org/voc/Protocol-ResourceSubmissionPolicy",
+                        "name": "NSF OCE Sample and Data Policy",
+                        "url": "https://www.nsf.gov/publications/pub_summ.jsp?ods_key=nsf17037&org=NSF",
+                        "fileFormat": "text/html"
+                    },
+                    {
+                        "@type": "DigitalDocument",
+                        "additionalType": "https://geodex.org/voc/Protocol-ResourceSubmissionPolicy",
+                        "name": "Data Submission",
+                        "url": "https://www.rvdata.us/about/data-policies-and-repositories/data-submission",
+                        "fileFormat": "text/html"
+                    }
+                ]
+            },
+            {
+                "@type": "Dataset",
+                "name": "R2R Cruise Database",
+                "comment8":"is there a distribution available to access this resource?"
+            },
+            {
+                "@type": "DigitalDocument",
+                "@id": "CatalogItem3",
+                "additionalType": "https://geodex.org/voc/ResearchResourceTypes",
+                "name": "R2R Resources and Best Practices",
+                "description": "R2R supplied information for scientist, vessel operators and users. These documents help plan for, participate in and archive the data/metadat for a cruise.",
+                "comment9":"is there a distribution available to access this resource"
+            }
+        ]
+    },
+    "availableChannel": [
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "http://data.rvdata.us/sparql",
+            "providesService": {
+                "@type": "Service",
+                "additionalType": "https://geodex.org/voc/SearchService",
+                "name": "R2R Linked Data (SPARQL Endpoint) Cruise Catalog",
+                "description": "Explore Entire R2R Linked Data (SPARQL Endpoing) cruise catalog",
+                "potentialAction": {"@id": "http://www.rvdata.us/search"}
+            }
+        },
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "http://api.rvdata.us/catalog?service=CSW&version=3.0.0&request=GetCapabilities",
+            "providesService": {
+                "@type": "Service",
+                "additionalType": "https://geodex.org/voc/SearchService",
+                "name": "R2R OGC CSW Cruise Descriptions",
+                "description": "Get overview of capablities of cruise description service.",
+                "potentialAction": {"@id": "http://api.rvdata.us/catalog?service=CSW&version=3.0.0&request=GetCapabilities"}
+            }
+        },
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "http://api.rvdata.us/rss/cruise/program/OOI",
+            "providesService": {
+                "@type": "Service",
+                "@id": "http://api.rvdata.us/rss/cruise/program/OOI",
+                "additionalType": "https://geodex.org/voc/SyndicationService",
+                "name": "R2R Cruise DOI syndication",
+                "description": "Get OOI list of R2R cruises"
+            }
+        },
+        {
+            "@type": "ServiceChannel",
+            "serviceUrl": "http://api.rvdata.us/rss/cruise/program/OOI",
+            "providesService": {
+                "@type": "Service",
+                "additionalType": "https://geodex.org/voc/SearchService",
+                "name": "R2R OGC WFS Cruise Tracklines",
+                "description": "R2R GeoRSS/Atom Service of Cruises"
+            }
+        }
+    ],
+    "potentialAction": [
+        {
+            "@id": "https://www.rvdata.us/search/cruise",
+            "@type": "SearchAction",
+            "name": "R2R Cruise search",
+            "description": "Link to web page enabling users to construct and submit queries to the R2R catalog.",
+            "target": {
+                "@type": "EntryPoint",
+                "url": "https://www.rvdata.us/search",
+                "httpMethod": "GET",
+                "urlTemplate": "https://www.rvdata.us/search/cruise/{cruise_id}"
+            },
+            "query-input": "required name=cruise_id"
+        },
+        {
+            "@id": "https://www.rvdata.us/search/fileset",
+            "@type": "SearchAction",
+            "name": "R2R Fileset search",
+            "description": "Link to web page enabling users to construct and submit queries to the R2R catalog.",
+            "target": {
+                "@type": "EntryPoint",
+                "url": "https://www.rvdata.us/search",
+                "httpMethod": "GET",
+                "urlTemplate": "https://www.rvdata.us/search/fileset/{fileset_id}"
+            },
+            "query-input": "required name=fileset_id"
+        },
+        {
+            "@id": "https://www.rvdata.us/search",
+            "@type": "SearchAction",
+            "name": "R2R Cruise Catalog",
+            "description": "Link to web page enabling users to locate all cruises for a vessel in the R2R catalog.",
+            "target": {
+                "@type": "EntryPoint",
+                "url": "https://www.rvdata.us/search",
+                "urlTemplate": "https://www.rvdata.us/search/vessel/{vessel_id}"
+            },
+            "query-input": "required name=vessel_id"
+        }
+    ]
+}

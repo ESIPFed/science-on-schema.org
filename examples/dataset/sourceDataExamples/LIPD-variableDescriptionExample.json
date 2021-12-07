@@ -1,0 +1,70 @@
+{
+    "paleoData": [
+        {
+            "paleoDataTableName": "data",
+            "filename": "Atlantic0220Thornalley2009.csv",
+            "description": "added by SMR: example from McKay et al. 2016, doi:10.5194/cp-12-1093-2016, page 1096.  This is the LiPD format,not schema.org JSON-LD",
+            "columns": [
+                {
+                    "number": 1,
+                    "variableName": "depth",
+                    "variableType": "measured",
+                    "description": "depth below ocean floor",
+                    "units": "cm",
+                    "datatype": "csvw:NumericFormat",
+                    "notes": "depth refers to top of sample"
+                },
+                {
+                    "number": 2,
+                    "variableName": "year",
+                    "variableType": "inferred",
+                    "description": "calendar year AD",
+                    "units": "AD",
+                    "datatype": "csvw:NumericFormat",
+                    "method": "linear interpolation"
+                },
+                {
+                    "number": 3,
+                    "variableName": "temperature",
+                    "variableType": "inferred",
+                    "description": "sea-surface temperature inferred from Mg/Ca ratios",
+                    "datatype": "csvw:NumericFormat",
+                    "material": "foraminifera carbonate",
+                    "calibration": {
+                        "equation": "BAR2005: Mg/Ca=0.794*exp(0.10*SST)",
+                        "reference": "Barker et al., (2005), Thornalley et al., (2009)",
+                        "uncertainty": 1.3
+                    },
+                    "units": "deg C",
+                    "proxy": "Mg/Ca",
+                    "climateInterpretation": {
+                        "addedbySMR": "For example, the \u201cclimateInterpretation\u201d section above allows the scientist to explicitly describe the details of how the variable \u201csenses\u201d climate.  five parameters that allow for a concise description of how the climate-sensitive parameter is related to climate. This is required for at least one column in the PAGES 2k database, but may not be appropriate for all paleoArchives.  1) Parameter --  what aspect(s) of climate are recorded in this archive; example: temperature; 2) parameterDetail --provides detail on \u201cclimateInterpretationParameter\u201d example: sea surface; 3) seasonality -- example: May, June , July; 4) interpretationDirection -- Do the values have a positive or negative relation to the inferred parameter example: positive; 5) basis -- quote from paper or other argument that justifies the interpretation example: regional core top calibration equation (Barker et al., 2005)",
+                        "variable": "T",
+                        "variableDetail": "seaSurface",
+                        "seasonality": "MJJ",
+                        "interpDirection": "positive",
+                        "basis": "Mg/Ca calibration to SST"
+                    }
+                },
+                {
+                    "variableName": "d18O",
+                    "description": "d18O measured on skeletal aragonite",
+                    "addedbySMR": "from p. 1099 in McKay et al 2016, two examples of d180 variable measured, with different contexts. LiPD puts detailed variable definition in the description field. free text... ?. They note --If we were to describe each variable in a single term,we would have to decide whether to call them both 'd18O', or to call one “d18O-skeletal aragonite” and the other 'd18Oforaminifera > 120 μm size class'--",
+                    "units": "permil",
+                    "standard": "VSMOW",
+                    "material": "skeletal aragonite",
+                    "instrument": "Micromass Optima gas source triple-collector mass spectrometer"
+                },
+                {
+                    "variableName": "d18O",
+                    "description": "d18O measured on G. bulloides > 120 microns",
+                    "units": "permil",
+                    "standard": "VSMOW",
+                    "material": "foraminifera calcite",
+                    "instrument": "Micromass Optima gas source triple-collector mass spectrometer",
+                    "species": "Globigerina bulloides"
+                }
+            ]
+        }
+    ]
+}

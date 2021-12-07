@@ -1,0 +1,66 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Dataset",
+    "identifier": "UF420953",
+    "url": "https://massbank.eu/MassBank/RecordDisplay?id=UF420953",
+    "name": "MS2 mass spectrum of '2-Benzothiazolsulfonic acid",
+    "headline": "2-Benzothiazolsulfonic acid; LC-ESI-ITFT; MS2; CE: 35; R=15000; [M-H]-",
+    "description": "This MassBank record with Accession UF420953 contains the MS2 mass spectrum of '2-Benzothiazolsulfonic acid'.",
+    "about": {
+        "@type": [
+            "Thing",
+            "http://purl.obolibrary.org/obo/CHEBI_23367"
+        ],
+        "name": "2-Benzothiazolsulfonic acid",
+        "alternateName": [
+            "2-Benzothiazolsulfonic acid",
+            "Benzothiazole-2-sulfonic acid",
+            "1,3-Benzothiazole-2-sulfonic acid"
+        ],
+        "inchikey": "ZCXGMSGCBDSEOY-UHFFFAOYSA-N",
+        "molecularFormula": "C7H5NO3S2",
+        "monoisotopicMolecularWeight": "214.9711",
+        "inChI": "InChI=1S/C7H5NO3S2/c9-13(10,11)7-8-5-3-1-2-4-6(5)12-7/h1-4H,(H,9,10,11)",
+        "smiles": "O=S(=O)(O)c1nc2ccccc2s1",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://edamontology.org/format_1199",
+                "name": "inchikey",
+                "value": "ZCXGMSGCBDSEOY-UHFFFAOYSA-N"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://purl.obolibrary.org/obo/MS_1000866",
+                "name": "molecularFormula",
+                "value": "C7H5NO3S2"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://purl.obolibrary.org/obo/MI_2156",
+                "name": "monoisotopicMolecularWeight",
+                "value": "214.9711"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://edamontology.org/format_1197",
+                "name": "inChI",
+                "value": "InChI=1S/C7H5NO3S2/c9-13(10,11)7-8-5-3-1-2-4-6(5)12-7/h1-4H,(H,9,10,11)"
+            },
+            {
+                "@type": "PropertyValue",
+                "propertyID": "http://edamontology.org/format_1196",
+                "name": "smiles",
+                "value": "O=S(=O)(O)c1nc2ccccc2s1"
+            }
+        ]
+    },
+    "measurementTechnique": "mass spectrometry",
+    "datePublished": "2017-01-05",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "citation": "null",
+    "comment": [
+        "CONFIDENCE standard compound",
+        "INTERNAL_ID 4209"
+    ]
+}

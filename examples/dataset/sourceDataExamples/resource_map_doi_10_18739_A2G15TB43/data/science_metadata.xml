@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="doi:10.18739/A2W85W" system="https://arcticdata.io" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 eml.xsd">
+  <access order="allowFirst" authSystem="knb">
+    <allow>
+      <principal>CN=arctic-data-admins,DC=dataone,DC=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>http://orcid.org/0000-0002-5134-0334</principal>
+      <permission>all</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier>16-140 Arctic Riparian Shrubs</alternateIdentifier>
+    <title>Vegetation, soils, and environmental data in Arctic Riparian Shrublands, North Slope Alaska, 2016</title>
+    <creator id="6232247788719394">
+      <individualName>
+        <givenName>Gerald</givenName>
+        <surName>Frost</surName>
+      </individualName>
+      <organizationName>ABR, Inc. Environmental Research</organizationName>
+      <positionName>Senior Scientist</positionName>
+      <address>
+        <deliveryPoint>P.O. Box 80410</deliveryPoint>
+        <city>Fairbanks</city>
+        <administrativeArea>Alaska</administrativeArea>
+        <postalCode>99708</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(907)455-6777 ext. 142</phone>
+      <phone phonetype="facsimile">(907)455-6781</phone>
+      <electronicMailAddress>jfrost@abrinc.com</electronicMailAddress>
+      <onlineUrl>http://abrinc.com/about/offices/fairbanks/gerald_v_frost_phd/</onlineUrl>
+      <userId directory="https://orcid.org/">https://orcid.org/0000-0002-5134-0334</userId>
+    </creator>
+    <metadataProvider id="2668757164824171">
+      <individualName>
+        <givenName>Gerald</givenName>
+        <surName>Frost</surName>
+      </individualName>
+      <organizationName>ABR, Inc. Environmental Research</organizationName>
+      <positionName>Senior Scientist</positionName>
+      <address>
+        <deliveryPoint>P.O. Box 80410</deliveryPoint>
+        <city>Fairbanks</city>
+        <administrativeArea>Alaska</administrativeArea>
+        <postalCode>99708</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(907)455-6777 ext. 142</phone>
+      <phone phonetype="facsimile">(907)455-6781</phone>
+      <electronicMailAddress>jfrost@abrinc.com</electronicMailAddress>
+      <onlineUrl>http://abrinc.com/about/offices/fairbanks/gerald_v_frost_phd/</onlineUrl>
+      <userId directory="https://orcid.org/">https://orcid.org/0000-0002-5134-0334</userId>
+    </metadataProvider>
+    <associatedParty id="2876881058766889">
+      <individualName>
+        <givenName>Anna</givenName>
+        <surName>Liljedahl</surName>
+      </individualName>
+      <organizationName>University of Alaska Fairbanks</organizationName>
+      <positionName>Research Professor</positionName>
+      <address>
+        <deliveryPoint>P.O. Box 755860</deliveryPoint>
+        <city>Fairbanks</city>
+        <administrativeArea>Alaska</administrativeArea>
+        <postalCode>99775</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(907)474-1951</phone>
+      <phone phonetype="facsimile">(907)474-7041</phone>
+      <electronicMailAddress>akliljedahl@alaska.edu</electronicMailAddress>
+      <onlineUrl>http://ine.uaf.edu/werc/people/faculty/anna-liljedahl/</onlineUrl>
+      <userId directory="https://orcid.org/">https://orcid.org/0000-0001-7114-6443</userId>
+      <role>principalInvestigator</role>
+    </associatedParty>
+    <pubDate>2017-11-19</pubDate>
+    <abstract>
+      <para>These data pertain to vegetation, soils, and ecological site-factors sampled in August 2016 in Arctic riparian shrublands near the Dalton Highway in northern Alaska. Data were collected using an Ecological Land Survey approach as part of a multi-disciplinary study of ecohydrological relationships between shrubs and stream discharge in continuous permafrost environments. Shrub expansion along riparian corridors is a phenomenon that has been observed across the pan-Arctic in recent decades. Increasing air temperatures are often cited as the primary driver of shrub increase, which, in turn, has been documented to show warm soils in winter due to increased snow accumulation. Complex interactions between shrubland development and permafrost conditions raise the question of whether Arctic shrubs are initiating shifts in ground temperature and hydrologic regime, or simply taking advantage of improved conditions brought on by climate change.</para>
+    </abstract>
+    <keywordSet>
+      <keyword>Arctic tundra</keyword>
+      <keyword>vegetation species-composition</keyword>
+      <keyword>Leaf Area Index</keyword>
+      <keyword>active-layer</keyword>
+      <keyword>permafrost soils</keyword>
+      <keyword>shrubs</keyword>
+      <keyword>riparian corridors</keyword>
+      <keywordThesaurus>None</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>
+      <para>
+This work is dedicated to the public domain under the Creative Commons Universal 1.0 Public Domain Dedication.
+To view a copy of this dedication, visit https://creativecommons.org/publicdomain/zero/1.0/.</para>
+    </intellectualRights>
+    <distribution>
+      <offline>
+        <mediumName>digital </mediumName>
+      </offline>
+    </distribution>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>North Slope, Alaska along Dalton Highway corridor north of Toolik Field Station</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-149.4839</westBoundingCoordinate>
+          <eastBoundingCoordinate>-148.7728</eastBoundingCoordinate>
+          <northBoundingCoordinate>69.2158</northBoundingCoordinate>
+          <southBoundingCoordinate>68.6294</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2016-08-21</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2016-08-27</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <contact id="4467802539902052">
+      <individualName>
+        <givenName>Gerald</givenName>
+        <surName>Frost</surName>
+      </individualName>
+      <organizationName>ABR, Inc. Environmental Research</organizationName>
+      <positionName>Senior Scientist</positionName>
+      <address>
+        <deliveryPoint>P.O. Box 80410</deliveryPoint>
+        <city>Fairbanks</city>
+        <administrativeArea>Alaska</administrativeArea>
+        <postalCode>99708</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(907)455-6777 ext. 142</phone>
+      <phone phonetype="facsimile">(907)455-6781</phone>
+      <electronicMailAddress>jfrost@abrinc.com</electronicMailAddress>
+      <onlineUrl>http://abrinc.com/about/offices/fairbanks/gerald_v_frost_phd/</onlineUrl>
+      <userId directory="https://orcid.org/">https://orcid.org/0000-0002-5134-0334</userId>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <section>
+            <title>Ecological sampling </title>
+            <para>Ecological field plots were established in riparian vegetation along discrete stream reaches, 2 or 3 plots per stream reach. Ecological measurements focused on vegetation species-composition, canopy structure, and soil characteristics. The measurements included:
+              <orderedlist><listitem><para>Visual species-cover estimation of all shrub species and of dominant herbaceous and nonvascular taxa</para></listitem><listitem><para>Leaf Area Index (LAI)</para></listitem><listitem><para>Maximum shrub canopy height</para></listitem><listitem><para>Thaw depth</para></listitem><listitem><para>Categorical descriptions of surficial geology and geomorphic landforms</para></listitem><listitem><para>Basic soil stratigraphy</para></listitem><listitem><para>Soil chemistry (pH and electrical conductivity [EC])</para></listitem></orderedlist>
+              Ecological field plots were 20 m in length and oriented parallel to the adjacent stream section, with widths ranging 2‐10 m depending on the size and configuration of the riparian shrub patch. Species-cover estimates were developed for the entire plot and included an independent cover estimate for plant functional type (e.g., tall/low/dwarf deciduous shrub, graminoid, moss, etc.). For LAI, canopy height, and thaw depth, we made measurements at 10 points spaced at 2 meter intervals along the plot centerline and parallel to the creek. LAI measurements were taken using an LAI-2000 Plant Canopy Analyzer (LI-COR Biosciences, Lincoln, NE). LAI is a unitless metric that represents the density of leaves, wood, and standing litter projecting above a sensor placed on the ground. Maximum canopy height was represented by the uppermost shrub branch or leaf within 15 cm of the each sampling point and was measured using a metal tape. We measured thaw depth using a metal thaw probe. Categorical descriptions of surficial geology and geomorphic landforms were recorded using standard classification systems developed for Arctic Alaska [Kreig and Reger, 1982; ADGGS, 1983; Williams, 1983; Rawlinson, 1993]. Finally, we recorded basic soil stratigraphy, surface organic thickness, soil particle texture, depth to saturated soils, pH, and EC and chemistry at small soil pits (~40 cm deep) established at a representative location within each plot.
+            </para>
+          </section>
+        </description>
+      </methodStep>
+      <sampling>
+        <studyExtent>
+          <description>
+            <para>Data were collected 21-27 August 2016 along the Dalton Highway, northern Alaska.</para>
+          </description>
+        </studyExtent>
+        <samplingDescription>
+          <para>Ecological field plots were established in riparian vegetation along discrete stream reaches, 2 or 3 plots per stream reach. Stream discharge measurements were made in the adjacent stream channel; we categorized the discharge regime for each stream reach as gaining (more discharge downstream) or losing (less discharge downstream; i.e., streamflow lost to groundwater).</para>
+        </samplingDescription>
+      </sampling>
+    </methods>
+    <project>
+      <title>Vegetation, Soils, and Environmental Data in Arctic Riparian Shrublands, North Slope, AK</title>
+      <personnel>
+        <individualName>
+          <givenName>Gerald</givenName>
+          <surName>Frost</surName>
+        </individualName>
+        <role>originator</role>
+      </personnel>
+      <funding>
+        <para>1630360</para>
+      </funding>
+    </project>
+    <dataTable>
+      <entityName>Frost_vegCover_Alaska_2016.csv</entityName>
+      <entityDescription>Categorization and coverage data of various species</entityDescription>
+      <physical id="urn:uuid:fba52d65-7fc1-4298-bc33-c30d6ebda4ae">
+        <objectName>Frost_vegCover_Alaska_2016.csv</objectName>
+        <size unit="bytes">24563</size>
+        <authentication method="SHA-1">aee2171b5ecf7216a4d9b92756e7df0db93ebd66</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://cn.dataone.org/cn/v2/resolve/urn:uuid:48b2c1a1-2c47-445d-b3cd-bcaf90137488</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>serial</attributeName>
+          <attributeDefinition>primary key</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>primary key</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="6rH9CTGtx0">
+          <attributeName>plot_id</attributeName>
+          <attributeDefinition>field plot identifier</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>field plot identifier</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <annotation id="sc4Wx5H3VT">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="plot identifier">http://purl.dataone.org/odo/ECSO_00002432</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="cKeRaIJIhB">
+          <attributeName>species</attributeName>
+          <attributeDefinition>vegetation taxon</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Nomenclature follows Viereck and Little (2010) for shrubs; Skinnner at al. (2012), and Hulten (1969) for all other taxa)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <annotation id="kxpomCz8Tw">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="species name">http://purl.dataone.org/odo/ECSO_00002735</valueURI>
+          </annotation>
+        </attribute>
+        <attribute>
+          <attributeName>veg_lifeform_code</attributeName>
+          <attributeDefinition>categorical class for life form</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>categorical class for life form</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>veg_structure_class_code</attributeName>
+          <attributeDefinition>categorical class for structure</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>categorical class for structure</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="vphIN8q6Qk">
+          <attributeName>cover_percent</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="2JFgqmbcqK">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Plant Cover Percentage">http://purl.dataone.org/odo/ECSO_00001197</valueURI>
+          </annotation>
+        </attribute>
+      </attributeList>
+    </dataTable>
+    <dataTable>
+      <entityName>Frost_shrubMetric_Alaska_2016.csv</entityName>
+      <entityDescription>Data on and categorization of shrubs</entityDescription>
+      <physical id="urn:uuid:50b7b6a7-c40d-4b6f-86ea-ed1d69c45e00">
+        <objectName>Frost_shrubMetric_Alaska_2016.csv</objectName>
+        <size unit="bytes">15821</size>
+        <authentication method="SHA-1">a47baa9163beaad8d6e4d00b76c4ff3464fb4587</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://cn.dataone.org/cn/v2/resolve/urn:uuid:9af049d0-f68a-4cb8-9661-a363357e7b48</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>ID</attributeName>
+          <attributeDefinition>Primary key</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Primary key</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="71aJsY11z8">
+          <attributeName>plot_id</attributeName>
+          <attributeDefinition>Plot identifier</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Plot identifier</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <annotation id="tPyB6qNd1g">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="plot identifier">http://purl.dataone.org/odo/ECSO_00002432</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="2aoXY99PPD">
+          <attributeName>Date</attributeName>
+          <attributeDefinition>Date of sampling</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+          <annotation id="6xltXrlGT8">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="date">http://purl.dataone.org/odo/ECSO_00002051</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="RUPo79vj55">
+          <attributeName>Point</attributeName>
+          <attributeDefinition>Distance along transect centerline</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="1RS8zCksbf">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="location along transect or plot">http://purl.dataone.org/odo/ECSO_00003023</valueURI>
+          </annotation>
+          <annotation id="h6RoHCsHCg">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Meter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Meter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="Qmp1Y3o2xr">
+          <attributeName>Max_Height</attributeName>
+          <attributeDefinition>Maximum shrub canopy height within 20 cm of point</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="vlpDqaikoM">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="maximum shear rate">http://purl.dataone.org/odo/ECSO_00003072</valueURI>
+          </annotation>
+          <annotation id="HpIzL1lnRy">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Centimeter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="hBb3dhQhKM">
+          <attributeName>Canopy_Species</attributeName>
+          <attributeDefinition>Shrub species that forms the top of the canopy</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Shrub species that forms the top of the canopy</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <annotation id="Ij6W3ni9rF">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="species name">http://purl.dataone.org/odo/ECSO_00002735</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="CAoPaoC6Xi">
+          <attributeName>LAI_mean</attributeName>
+          <attributeDefinition>Average of 5 LAI measurements taken at first/last 5 sampling points along 10 m transect</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>The LAI instrument was configured to report the mean of 5 individual LAI measurements. Hence the mean values are displayed at every fifth point along each transect, with -999 reported for the other points</codeExplanation>
+          </missingValueCode>
+          <annotation id="L4n6gl2YUk">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Leaf Area Index">http://purl.dataone.org/odo/ECSO_00001156</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="9ATXSFebth">
+          <attributeName>LAI_stddev</attributeName>
+          <attributeDefinition>Average of 5 LAI measurements taken at first/last 5 sampling points along 10 m transect</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>The LAI instrument was configured to report the mean of 5 individual LAI measurements. Hence the standard deviation values are displayed at every fifth point along each transect, with -999 reported for the other points</codeExplanation>
+          </missingValueCode>
+          <annotation id="5EMtUfom2k">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Leaf Area Index">http://purl.dataone.org/odo/ECSO_00001156</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="Egoq0rooB3">
+          <attributeName>Thaw_Depth</attributeName>
+          <attributeDefinition>Depth of thaw</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>This field was recorded opportunistically along the transects. Thaw depths were not measured on transects</codeExplanation>
+          </missingValueCode>
+          <annotation id="v0lAJ0gd8R">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Depth of Thaw">http://www.purl.dataone.org/odo/ECSO_00010114</valueURI>
+          </annotation>
+          <annotation id="2A9PfhwdwJ">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Centimeter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute>
+          <attributeName>Rock_Depth</attributeName>
+          <attributeDefinition>Depth to rock</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>Rock depths were not measured</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+    </dataTable>
+    <dataTable>
+      <entityName>Frost_environmentData_Alaska_2016.csv</entityName>
+      <entityDescription>Description and data on electrical conductivity, coverage, slope, and water and thaw depth of a plot</entityDescription>
+      <physical id="urn:uuid:1ac52886-f068-4517-9f20-3df3889e1d64">
+        <objectName>Frost_environmentData_Alaska_2016.csv</objectName>
+        <size unit="bytes">4816</size>
+        <authentication method="SHA-1">449b5c9b6912257ef584dfa13f959e3b686e081e</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download">https://cn.dataone.org/cn/v2/resolve/urn:uuid:9f32ba46-ecba-4f69-8e9d-9fb16c1eec04</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>ID</attributeName>
+          <attributeDefinition>primary key for table</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>primary key for table</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="IvS4b2iXjS">
+          <attributeName>plot_id</attributeName>
+          <attributeDefinition>plot identifier</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>plot identifier</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <annotation id="d0MdaXZtJd">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="plot identifier">http://purl.dataone.org/odo/ECSO_00002432</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="UemFvSd6Nz">
+          <attributeName>Date</attributeName>
+          <attributeDefinition>date that data was recorded on</attributeDefinition>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+            </dateTime>
+          </measurementScale>
+          <annotation id="A6ePAB17bF">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="date">http://purl.dataone.org/odo/ECSO_00002051</valueURI>
+          </annotation>
+        </attribute>
+        <attribute>
+          <attributeName>X</attributeName>
+          <attributeDefinition>X coordinate of plot center</attributeDefinition>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+        </attribute>
+        <attribute id="dhfmOppZs1">
+          <attributeName>Y</attributeName>
+          <attributeDefinition>Y coordinate of plot center</attributeDefinition>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <annotation id="9NuB1R9VBh">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="UTM northing coordinate">http://purl.dataone.org/odo/ECSO_00002625</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="gKXE6fAuBc">
+          <attributeName>Elevation</attributeName>
+          <attributeDefinition>elevation of plot center reported by GPS</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="zwkvA72EXA">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="elevation">http://purl.dataone.org/odo/ECSO_00001567</valueURI>
+          </annotation>
+          <annotation id="EGSkwXaQ0x">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Meter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Meter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute>
+          <attributeName>Veg_completeness</attributeName>
+          <attributeDefinition>To what degree of completeness the species list is</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>full</code>
+                    <definition>complete species list</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>dominant</code>
+                    <definition>all shrub species plus dominant herbaceous </definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Mean_shrub_height</attributeName>
+          <attributeDefinition>mean maximum shrub height for plot</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Mean_LAI</attributeName>
+          <attributeDefinition>mean Leaf Area Index (LAI) for plot</attributeDefinition>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+        </attribute>
+        <attribute id="Dyvlu1lFHw">
+          <attributeName>cover_Shrub_tall</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for tall shrubs (&gt;=1.5 m height)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="5huou0wa4D">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="shrub cover percentage">http://purl.dataone.org/odo/ECSO_00001608</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="YcRN2rG8Jy">
+          <attributeName>cover_Shrub_low</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for low shrubs (0.2 - 1.5 m height)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="EOWjg5KU6V">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="shrub cover percentage">http://purl.dataone.org/odo/ECSO_00001608</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="dqZ2Nlascn">
+          <attributeName>cover_Shrub_dwarf</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for dwarf shrubs (&lt;=0.2 m height)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="Yu7npAUyN9">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="shrub cover percentage">http://purl.dataone.org/odo/ECSO_00001608</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="iv8UK3ObJ8">
+          <attributeName>cover_Whole_Tussocks</attributeName>
+          <attributeDefinition>visual estimate of total cover (0-100%) of tussocks (live and dead material)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="vfDFz3AN6j">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Plant Cover Percentage">http://purl.dataone.org/odo/ECSO_00001197</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="vatqyXyiIw">
+          <attributeName>cover_Graminoids</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for graminoids</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="VfUnI0omrn">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="graminoid cover percentage">http://purl.dataone.org/odo/ECSO_00001623</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="1S7u1xdIT1">
+          <attributeName>cover_Forbs</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for forbs</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="hotZUF0uUt">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="forb cover percentage">http://purl.dataone.org/odo/ECSO_00001611</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="J43q3t7BY9">
+          <attributeName>cover_Feathermoss</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for feathermosses</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="K9BYM8LNnM">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="moss cover percentage">http://purl.dataone.org/odo/ECSO_00001639</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="MkNlhvhvM3">
+          <attributeName>cover_Sphagnum</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for Sphagnum mosses</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="CYzPXzDxbA">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="moss cover percentage">http://purl.dataone.org/odo/ECSO_00001639</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="rWGKi5ug1h">
+          <attributeName>cover_Total_moss</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for total moss</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="WiRGUMsCMZ">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="moss cover percentage">http://purl.dataone.org/odo/ECSO_00001639</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="FyguJDBbEZ">
+          <attributeName>cover_Cladonia_Cladina</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for Cladonia/Cladina ("reindeer lichens")</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="WKKCR6Fjsn">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="lichen cover percentage">http://purl.dataone.org/odo/ECSO_00001615</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="XKBexjgsGp">
+          <attributeName>cover_Total_lichen</attributeName>
+          <attributeDefinition>visual estimate of live cover (0-100%) for total lichen</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="HVMqLyPZCW">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="lichen cover percentage">http://purl.dataone.org/odo/ECSO_00001615</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="xl9zeIPCqG">
+          <attributeName>cover_Litter</attributeName>
+          <attributeDefinition>visual estimate of total cover (0-100%) for litter (unattached to live plant)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="TM34TFnIWX">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="litter cover percentage">http://purl.dataone.org/odo/ECSO_00001637</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="vK1GQLd54z">
+          <attributeName>cover_Rock_fragments</attributeName>
+          <attributeDefinition>visual estimate of total cover (0-100%) of surface rocks</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="HLX14oggPH">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="rock cover percentage">http://purl.dataone.org/odo/ECSO_00001627</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="tVUC0fEaFU">
+          <attributeName>cover_Bare_soil</attributeName>
+          <attributeDefinition>visual estimate of total cover (0-100%) of bare mineral soil</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="6sVCKAAj3P">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="bare soil cover percentage">http://purl.dataone.org/odo/ECSO_00001648</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="GCPXgiwjwK">
+          <attributeName>cover_Water</attributeName>
+          <attributeDefinition>visual estimate of total cover (0-100%) of surface water</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="WMGu4rI8Il">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="water cover percentage">http://purl.dataone.org/odo/ECSO_00001630</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="FNbC1j2nrE">
+          <attributeName>Slope</attributeName>
+          <attributeDefinition>slope angle (deg) at plot center</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="FzN1OkUQ8j">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="surface slope">http://purl.dataone.org/odo/ECSO_00002642</valueURI>
+          </annotation>
+          <annotation id="xo7QsHfJiC">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Degree">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Degree</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="3TwOVA3EFV">
+          <attributeName>Aspect</attributeName>
+          <attributeDefinition>slope aspect (deg true) at plot center</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>-999 was recorded when the hillslope angle was 0 degrees (in others words, flat ground)</codeExplanation>
+          </missingValueCode>
+          <annotation id="UYM6SIKD1F">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="aspect">http://purl.dataone.org/odo/ECSO_00002212</valueURI>
+          </annotation>
+          <annotation id="eiTqGhFTO8">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Degree">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Degree</valueURI>
+          </annotation>
+        </attribute>
+        <attribute>
+          <attributeName>Geomorphic_Unit</attributeName>
+          <attributeDefinition>generalized category for surficial deposits</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>generalized category for surficial deposits</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Macrotopography_class</attributeName>
+          <attributeDefinition>generalized category for macrotopography class</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>generalized category for macrotopography class</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Microtopography_class</attributeName>
+          <attributeDefinition>generalized category for microtopography class</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>generalized category for microtopography class</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Surface_organic_depth</attributeName>
+          <attributeDefinition>total thickness of surface organic material in soil profile</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>This was not measured at one plot due to time constraints</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Dominant_mineral_texture</attributeName>
+          <attributeDefinition>generalized category for mineral soil texture</attributeDefinition>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>generalized category for mineral soil texture</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="a6yMpExL67">
+          <attributeName>Water_depth</attributeName>
+          <attributeDefinition>depth of water (negative if below surface)</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>This was not measured at one plot due to time constraints</codeExplanation>
+          </missingValueCode>
+          <annotation id="Lk4UwOEunx">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Stream Depth">http://purl.dataone.org/odo/ECSO_00001212</valueURI>
+          </annotation>
+          <annotation id="M8hbsgSvAe">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Centimeter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="wSPe7PgM0l">
+          <attributeName>Thaw_depth</attributeName>
+          <attributeDefinition>depth of thaw</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <annotation id="g6whL4aHR0">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="Depth of Thaw">http://www.purl.dataone.org/odo/ECSO_00010114</valueURI>
+          </annotation>
+          <annotation id="C8OLMCltgc">
+            <propertyURI label="has unit">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit</propertyURI>
+            <valueURI label="Centimeter">http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="7hDaHYLWas">
+          <attributeName>pH</attributeName>
+          <attributeDefinition>pH of soil at 10cm</attributeDefinition>
+          <measurementScale>
+            <interval>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <annotation id="jJFiRnS0b0">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="soil pH">http://purl.dataone.org/odo/ECSO_00001646</valueURI>
+          </annotation>
+        </attribute>
+        <attribute id="m0SrRVQLKR">
+          <attributeName>Electrical_conductivity</attributeName>
+          <attributeDefinition>electrical conductivity at 10 cm</attributeDefinition>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microsiemen</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>-999</code>
+            <codeExplanation>Electrical conductivity was not measured</codeExplanation>
+          </missingValueCode>
+          <annotation id="mPcRrVEeRP">
+            <propertyURI label="contains measurements of type">http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType</propertyURI>
+            <valueURI label="soil conductivity">http://purl.dataone.org/odo/ECSO_00001538</valueURI>
+          </annotation>
+        </attribute>
+      </attributeList>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <stmml:unitList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:stmml="http://www.xml-cml.org/schema/stmml_1.2">
+        <unit id="microsiemen" name="microsiemen" unitType="NA"/>
+      </stmml:unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>
