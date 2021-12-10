@@ -111,7 +111,7 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
 
 Many harvesters and aggregators depend on the existence of a `sitemap.xml` file on your site that lists all of the dataset landing pages from your site that you want to be harvested and indexed for search. Google Dataset Search, DataONE, and Geocodes all can make use of sitemap to more efficietly harvest your site. A sitemap is a simple text file that lists each page that you want harvested. This can contain any webpage, but in this context we specifically want to list pages that contain a `schema:Dataset` entry to be harvested. Here's an example `sitemap.xml` file listing two Dataset landing pages, along with their `lastmod` date:
 
-<pre>
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -123,7 +123,7 @@ Many harvesters and aggregators depend on the existence of a `sitemap.xml` file 
     <lastmod>2021-12-07</lastmod>
   </url>
 </urlset>
-</pre>
+```
 
 Note the `<lastmod>` field, which indicates the last date on which the page was modified. Most harvesters will use that date along with the HTTP `Last-modified` header to determine if a page has changed since the last time that a harvest was attempted. Keeping accurate `lastmod` values can massively improve the efficiency of indexing your catalog, as only the few items that have changed will need to be indexed. 
 
