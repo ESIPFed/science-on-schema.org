@@ -11,6 +11,7 @@ If you are new to publishing schema.org, here are some general tips to getting s
 * [Introduction](#introduction)
 * [Using schema.org](#using-schemaorg)
   * [Modifying web pages to include schema.org as JSON-LD](#using-schemaorg_adding-jsonld-webpages)
+  * [Provide a Sitemap](#sitemaps)
   * [Data Types](#data-types)
     * [Text](#data-types_Text)
     * [Number](#data-types_Number)
@@ -105,6 +106,38 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
 </html>
  ```
  
+<a id="sitemaps"></a>
+### Provide a Sitemap.xml file
+
+Many harvesters and aggregators depend on the existence of a `sitemap.xml` file on your site that lists all of the dataset landing pages from your site that you want to be harvested and indexed for search. Google Dataset Search, DataONE, and Geocodes all can make use of a sitemap to more efficietly harvest your site. A sitemap is a simple text file that lists each page that you want harvested. This can contain any webpage, but in this context we specifically want to list pages that contain a `schema:Dataset` entry to be harvested. Here's an example `sitemap.xml` file listing two Dataset landing pages, along with their `lastmod` date:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2GH9BB0Q</loc>
+    <lastmod>2021-12-06</lastmod>
+  </url>
+  <url>
+    <loc>https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2ST7DZ2Q</loc>
+    <lastmod>2021-12-07</lastmod>
+  </url>
+</urlset>
+```
+
+Note the `<lastmod>` field, which indicates the last date on which the page was modified. Most harvesters will use that date along with the HTTP `Last-modified` header to determine if a page has changed since the last time that a harvest was attempted. Keeping accurate `lastmod` values can massively improve the efficiency of indexing your catalog, as only the few items that have changed will need to be indexed. 
+
+**Location:** The sitemap.xml file can be located anywhere on your site that is above the path in the hierachy in which your pages are listed. Typically, the sitemap.xml is places at the root of the site, but other locations can be used as well. A great way to indicate to harvesters where your sitemap is located would be to include it in your `robots.txt` file at the root of your web site, which is bascially an instruction manual for harvesters. For example, you might have a robots.txt file with the following contents:
+
+<pre>
+User-agent: *
+Sitemap: https://arcticdata.io/sitemap1.xml
+</pre>
+
+Sitemaps are limited to 50,000 records and 50MB, so if your site is larger than that you can break up your sitemap into multiple files, linked together using a sitemap index. Details about [`sitemap-index.xml`](https://www.sitemaps.org/protocol.html#index) and other aspects of sitemaps are provided in the https://sitemaps.org site, as well as from the [Google sitemap documentation](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap).
+
+By providing a sitemap and advertising its location, you make it simple for harvesters to find and index your Dataset listings.
+
 <a id="data-types"></a>
 ### Data Types ###
 
