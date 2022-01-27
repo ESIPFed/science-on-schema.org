@@ -1,30 +1,34 @@
 # Experimental recommendations
 
+This document contains suggestions for recommendations to address use cases and problems that users have identified as possible additions to the science-on-schema.org recommendations. These are presented for discussion and testing. Suggestions here should be linked to issues in the Science-On-Schema.org issue tracker. 
 
+# Table of contents
+1. [Linking Physical Samples to a Dataset](#LinkingPhysicalSamples)
 
-## Attaching Physical Samples to a Dataset
+<div id='LinkingPhysicalSamples'/>
 
-Currently, there isn't a great semantic property for a Dataset to distinguish the related physical samples. However, we can use the [schema:hasPart](https://schema.org/hasPart) property to accomplish this without too much compromise. A [GitHub issue](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues/16) has been setup to follow this scenario. Here is the best way, so far, to link physical samples to a Dataset:
+## Linking  Physical Samples to a Dataset
+
+Currently, there isn't a great semantic property for a Dataset to distinguish the related physical samples. However, we can use the [schema:hasPart](https://schema.org/hasPart) property to accomplish this without too much compromise. A [GitHub issue](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues/16) has been setup to follow this scenario. Here is a suggested approach to link physical samples to a Dataset:
 
 <pre>
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "gdx": "https://geodex.org/voc/",
-    <strong>"geolink": "http://schema.geolink.org/1.0/base/main#",
-    "igsn": "http://pid.geoscience.gov.au/def/voc/igsn-codelists/",</strong>
+    
+    <strong>"igsn": "http://igsn.org/",</strong>
   },
   "@type": "Dataset",
   ...,
   <strong>"hasPart": [
     {
-      "@type": ["CreativeWork", "geolink:PhysicalSample"],
+      "@type": ["CreativeWork", "http://vocabulary.odm2.org/specimentype/individualSample/"],
       "identifier": {
-        "@id": "https://doi.org/10273/WHO000A53",
+        "@id": "igsn.org/WHO000A53",
         "@type": "PropertyValue",
-        "propertyID": "https://registry.identifiers.org/registry/doi",
-        "url": "https://doi.org/10273/WHO000A53",
-        "value": "IGSN:WHO000A53"
+        "propertyID": "https://registry.identifiers.org/registry/igsn",
+        "url": "http://igsn.org/WHO000A53",
+        "value": "igsn:WHO000A53"
       },
       "spatialCoverage": {
         "@type": "Place",
@@ -38,12 +42,12 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
       ...
     },
     {
-      "@type": ["CreativeWork", "geolink:PhysicalSample"],
+      "@type": ["CreativeWork", "http://vocabulary.odm2.org/specimentype/individualSample/"],
       "identifier": {
-        "@id": "https://doi.org/10273/WHO000A67",
+        "@id": "igsn.org/WHO000A67",
         "@type": "PropertyValue",
-        "https://registry.identifiers.org/registry/doi",
-        "url": "https://doi.org/10273/WHO000A67",
+        "propertyID": "https://registry.identifiers.org/registry/igsn",
+        "url": "http://igsn.org/WHO000A67",
         "value": "IGSN:WHO000A67"
       }
       ...
@@ -52,12 +56,14 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 }
 </pre>
 
-Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the GeoLink definition in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) to for the additional fields available for adding to the physical sample.
+Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the IGSN type in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) for additional fields available for adding to the physical sample.
 
 ## Advanced variable value type description
 
+This section includes suggestions for documenting variable with a wider range of implementations, based on discussions following [Issue 27](https://github.com/ESIPFed/science-on-schema.org/issues/27)
+
 ### Variables with non-numeric values
-Scientific datasets might have fields containing many other kinds of values, including categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some recommendations for describing these kinds of variable are included here, using some elements from other community vocabularies.
+Scientific datasets might have fields containing many other kinds of values than simple numeric values. These include categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some suggestions for describing these kinds of variable are included here, using some elements from other community vocabularies.
 
 For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types:
 
@@ -69,11 +75,11 @@ For variables that have values that are not numeric, the datatype should be spec
 |[Number](https://schema.org/Number)| |allows integer and decimal number
 | |[Float](https://schema.org/Float)|use with scientific notation?
 | |[Integer](https://schema.org/Integer)|use to restrict to integer numbers
-|[Boolean](https://schema.org/Boolean)| |
-|[Text](https://schema.org/Text)| |  
+|[Boolean](http://schema.org/Boolean)| |
+|[Text](http://schema.org/Text)| |  
 | |[URL](https://schema.org/URL)|  
 
-The QUDT model does not restrict the range of values that can populate qudt:dataType, so the schema.org values can be used. Note that the values used to populate data type should be the full schema.org identifier, e.g. https://schema.org/Text.
+The QUDT model does not restrict the range of values that can populate qudt:dataType, so the schema.org values can be used. Note that the values used to populate data type should be the full schema.org identifier, e.g. http://schema.org/Text.
 
 If other more specific data types need to be specified, [xml schema datatypes](https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes) ([used in RDF as well](https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes)), or [QUDT quantity kinds](http://qudt.org/doc/2019/12/DOC_VOCAB-QUANTITY-KINDS-ALL-v2.1.html)  may be used. There are QUDT quantity kinds that can be used to specify types of structured data values (see  Variables with components, below).  
 
