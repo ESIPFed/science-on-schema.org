@@ -25,9 +25,30 @@
   },
   "datePublished": "2010-02-03",
   "keywords": [
-    "krill",
-    "biota",
-    "oceans"
+    {
+      "@type": "DefinedTerm",
+      "name": "OCEANS",
+      "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
+      "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
+      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ice core studies",
+      "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
+      "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "value": "ark:/99152/t3v4yo3eeqepj0",
+        "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/t3v4yo3eeqepj0"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Baked Clay",
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"
+    }
   ],
   "creator": [
     {
