@@ -1,6 +1,6 @@
 {
     "@context": {
-        "@vocab": "https://schema.org/"
+        "@vocab": "http://schema.org/"
     },
     "@type": ["Service", "ResearchProject", "WebSite"],
     "@id": "http://lod.bco-dmo.org/id/affiliation/191",

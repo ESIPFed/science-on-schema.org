@@ -1,6 +1,6 @@
 {
     "@context": {
-        "@vocab": "https://schema.org/"
+        "@vocab": "http://schema.org/"
     },
     "@type": ["Service", "ResearchProject"],
     "legalName": "Example Data Repository",
