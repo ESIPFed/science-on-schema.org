@@ -5,11 +5,16 @@ This document contains suggestions for recommendations to address use cases and 
 # Table of contents
 1. [Linking Physical Samples to a Dataset](#LinkingPhysicalSamples)
 2. [Advanced variable value type description](#AdvancedVariableValueType)
- 2.1 [Variables with non-numeric values](#NonnumericValues)
- 2.2 [Value range is controlled vocabulary](#ControlledVocabulary)
- 2.3 [Structured values](#StructuredValues)
- 2.4 [Variables that contain references](#References)
- 2.4 [Array, Gridded or Coverage Data](#ArrayValues)
+
+   2.1 [Variables with non-numeric values](#NonnumericValues)
+
+   2.2 [Value range is controlled vocabulary](#ControlledVocabulary)
+
+   2.3 [Structured values](#StructuredValues)
+
+   2.4 [Variables that contain references](#References)
+ 
+   2.5 [Array, Gridded or Coverage Data](#ArrayValues)
  
  
 <div id='LinkingPhysicalSamples'/>
