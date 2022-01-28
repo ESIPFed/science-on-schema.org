@@ -15,6 +15,7 @@ This repository provides guidance for repository operators and others to follow 
 * __[Dataset](/guides/Dataset.md)__ - guidelines for schema.org for a scientific Dataset
 * __[Data Repository](/guides/DataRepository.md)__ - guidelines for schema.org for a research data repository
 * [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
+* [Experimental](/guides/Experimental.md) - some suggestions for more advanced dataset documentation, proposed for inclusion in SOSO recommendations. 
 
 This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets twice monthly, and all are welcome:
 
