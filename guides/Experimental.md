@@ -4,7 +4,14 @@ This document contains suggestions for recommendations to address use cases and 
 
 # Table of contents
 1. [Linking Physical Samples to a Dataset](#LinkingPhysicalSamples)
-
+2. [Advanced variable value type description](#AdvancedVariableValueType)
+ 2.1 [Variables with non-numeric values](#NonnumericValues)
+ 2.2 [Value range is controlled vocabulary](#ControlledVocabulary)
+ 2.3 [Structured values](#StructuredValues)
+ 2.4 [Variables that contain references](#References)
+ 2.4 [Array, Gridded or Coverage Data](#ArrayValues)
+ 
+ 
 <div id='LinkingPhysicalSamples'/>
 
 ## Linking  Physical Samples to a Dataset
@@ -58,9 +65,13 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 
 Here, we use the superclass of a Dataset, the [schema:CreativeWork](https://schema.org/CreativeWork) to also define a Physical Sample. We disambiguate the Creative Work to be a physical sample by using the IGSN type in the `@type` field. See the [schema:CreativeWork](https://schema.org/CreativeWork) for additional fields available for adding to the physical sample.
 
+<div id='AdvancedVariableValueType'/>
+
 ## Advanced variable value type description
 
 This section includes suggestions for documenting variable with a wider range of implementations, based on discussions following [Issue 27](https://github.com/ESIPFed/science-on-schema.org/issues/27)
+
+<div id='NonnumericValues'/>
 
 ### Variables with non-numeric values
 Scientific datasets might have fields containing many other kinds of values than simple numeric values. These include categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some suggestions for describing these kinds of variable are included here, using some elements from other community vocabularies.
@@ -92,6 +103,8 @@ Example: a date and time variable data type:
    "propertyID": "https://www.ex-data-repo.org/dataset-parameter/20861",
    "qudt:dataType": "https://schema.org/DateTime" },
 </pre>
+
+<div id='ControlledVocabulary'/>
 
 ### Value range is controlled vocabulary
 The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists.
@@ -126,6 +139,8 @@ The controlled vocabulary could also be identified by a URI for communities that
 "rangeincludes":  "https://www.astromat.org/vocab/calcavg"
 </pre>
 Ideally, the URI can be dereferenced to obtain a schema:DefinedTermSet object that defines the vocabulary elements. Recognizing that in many cases vocabulary representations use SKOS or a tabular text listing, the critical consideration is that the identifier for the vocabulary is something the user community will recognize.
+
+<div id='StructuredValues'/>
 
 ### Structured values
 Structured values might appear in two contexts. The structure might include a value, units of measure and measurementMethod--that is a value and associated attributes (i.e. metadata).  In the other case, the structured value might represent a vector, tensor, tuple value, or an object that has some internal data structure. In this case each value is represented by a set of component values.
@@ -182,6 +197,8 @@ In this case the PropertyValue should be typed as a qudt Structured Data Type (h
          ]
  },</pre>
 
+<div id='References'/>
+
 ### Variables that contain references
 For variables with values that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
 <pre>
@@ -193,6 +210,8 @@ For variables with values that are references to data objects stored elsewhere, 
      "qudt:dataType":["xsd:anyURI", "http://qudt.org/schema/qudt/ReferenceDatatype"]
      }
 </pre>
+
+<div id='ArrayValues'/>
 
 ### Array, Gridded or Coverage Data
 
@@ -263,48 +282,3 @@ Example for multi-dimensional dataset
 ```
 
 In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
-
-### Use of schema:Observation to describe properties:
-
-More in depth description can be provided for dataset variables that are the result of an observation process, and not registered such that a single schema:propertyID will suffice to enable users to evaluate the value for fitness to their purpose. In this case, the variable can be represented with schema:propertyID typed as schema:Observation.
-
-example:
-
-<pre>
- "@type": "PropertyValue",
-      "name": "sea_surface_temp",
-      "description": "sea surface temperature measured in degrees Fahrenheit",
-      "propertyID": {
-        "@type": "Observation",
-        "observedNode": {
-          "@id": "http://purl.obolibrary.org/obo/ENVO_01001581",
-          "name": "sea surface layer"
-	},
-        "measuredProperty": {
-          "@id": "http://purl.obolibrary.org/obo/PATO_0000146",
-          "name": "temperature"
-        }
-      }
-</pre>
-
-This approach uses unexpected value ranges for schema:propertyID, which expects Text or URL, and for schema:observedNode, which expects schema:StatisticalPopulation (see [schema.org Issue 2291](https://github.com/schemaorg/schemaorg/issues/2291)).  Other useful Observation properties could be included based on the rdf open world, like observation procedure (schema:measurementTechnique), or the sensor used (sosa:madeBySensor)
-
-example:
-<pre>
-{
-"@type": "PropertyValue",
-"@id": "http://example.org/data/property/00246",
- "name": "Relative Humidity",
-"propertyID": {
-    "@type":"Observation",
-    "description": "Relative humidity as averaged over 15min at COPR.",
-     "name" "Relative humidity, AVG, 15min, COPR, 06.02.2017, 3:00 PM"' ;
-     "sosa:madeBySensor": "http://example.org/data/HUMICAP-H",
-     "observedNode":  "http://example.org/data/COPR_Station",
-     "measuredProperty":{
-          "@id":http://sweetontology.net/propFraction/RelativeHumidity",
-          "name":"Relative humidity" },          
-     "measurementTechnique": "https://www.globe.gov/documents/348614/348678/Relative+Humidity+Protocol/89f8c44d-4a99-494b-ba81-1853b80710b4"
-}
-</pre>
-This approach allows a semantically rich description of a property, but is quite different and would not be interoperable with variable described using the other recommendations here.
