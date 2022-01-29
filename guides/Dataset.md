@@ -7,6 +7,7 @@
 
 - [Describing a Dataset](#describing-a-dataset)
 	- [Common Properties](#common-properties)
+		- [Keywords](#keywords)	
 		- [Identifier](#identifier)
 			- [How to reference Short DOIs](#how-to-reference-short-dois)
 		- [Variables](#variables)
@@ -54,7 +55,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
-![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.svg "Dataset - Basic Fields")
+![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.png "Dataset - Basic Fields")
 
 <pre>
 {
@@ -68,12 +69,84 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "isAccessibleForFree": true,
-  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]
   </strong>
 }
 </pre>
 Back to [top](#top)
+
+
+### Keywords
+
+Adding the [schema:keywords](https://schema.org/keywords) field can be done in three ways - a text description, a URL, or by using [schema:DefinedTerm](https://schema.org/DefinedTerm). We recommend using `schema:DefinedTerm` if a keyword comes from a controlled vocabulary.
+
+![Keywords](/assets/diagrams/dataset/dataset_keywords.png "Dataset - Keywords")
+
+#### Keywords as Text ####
+
+For a dataset with the keywords of: `ocean acidification`, `Dissolved Organic Carbon`, `bacterioplankton respiration`, `pCO2`, `carbon dioxide`, `oceans`, you can express these:
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  <strong>"keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]</strong>
+}
+</pre>
+
+#### Keywords as DefinedTerm ####
+
+If you have information about a controlled vocabulary from which keywords come from,  use `schema:DefinedTerm` to descibe that kewyword. The relevant properties of a `schema:DefinedTerm` are:
+
+* [name](https://schema.org/name) - The name of the keyword. (Required)
+* [inDefinedTermSet](https://schema.org/inDefinedTermSet) - The controlled vocabulary responisble for this keyword. (Required)
+* [url](https://schema.org/url) - The canonical URL for the keyword. (Optional)
+* [termCode](https://schema.org/termCode) - A representative code for this keyword in the controlled vocabulary (Optional) 
+
+As an example, we demonstrate these fields using the `oceans` keyword from the NASA GCMD Keyword vocabulary, `ice core studies` from  [SnowTerm](https://vocabularyserver.com/cnr/ml/snowterm/en/index.php), and `Baked Clay` from [EarthRef controlled vocabulary](https://www2.earthref.org/vocabularies/controlled).
+
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Dataset shell for example DefinedTerm keywords",
+  "keywords": [
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "OCEANS",
+      "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
+      "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
+      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"</strong>
+    },
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "ice core studies",
+      "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
+      "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "value": "ark:/99152/t3v4yo3eeqepj0",
+        "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/t3v4yo3eeqepj0"
+      }</strong>
+    },
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "Baked Clay",
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"</strong>
+    }
+  ]
+}
+</pre>
+
 
 ### Identifier
 
