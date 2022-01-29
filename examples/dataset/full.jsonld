@@ -1,10 +1,12 @@
 {
-  "@context": {
-    "@vocab": "http://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
-    "spdx": "http://spdx.org/rdf/terms#"
-  },
+  "@context": [
+    "https://schema.org/",
+    {      
+      "prov": "http://www.w3.org/ns/prov#",
+      "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
+      "spdx": "http://spdx.org/rdf/terms#"
+    }
+  ],
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
     "@type": "PropertyValue",

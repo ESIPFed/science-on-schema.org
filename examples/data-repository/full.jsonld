@@ -1,7 +1,5 @@
 {
-    "@context": {
-        "@vocab": "http://schema.org/"
-    },
+    "@context": "https://schema.org/",
     "@type": ["Service", "ResearchProject", "WebSite"],
     "@id": "http://lod.bco-dmo.org/id/affiliation/191",
     "legalName": "Biological and Chemical Data Management Office",

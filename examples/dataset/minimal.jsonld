@@ -1,7 +1,5 @@
 {
-  "@context": {
-    "@vocab": "http://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "@id": "https://example.org/datasets/1234567890",
   "identifier": "doi:10.1234/1234567890",
