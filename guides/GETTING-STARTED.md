@@ -108,7 +108,8 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
 ### Specifying the `context`
 
 The `context` in a JSON-LD document defines the namespaces used in the document and their mappings to URIs when they
-are referenced using prefix notation. The JSON-LD 1.1 specification provides many rules that impact how the context is
+are referenced using prefix notation. The JSON-LD 1.1 specification 
+[provides many rules](https://www.w3.org/TR/json-ld11-api/#remote-document-and-context-retrieval) that impact how the context is
 loaded and how it is retrieved, but ultimately the goal is to define a context map with the namespace mappings for each
 vocabulary used in the document. For the schema.org vocabulary specifically, the official namespace is `http://schema.org/`
 (note this is not an `https` URI), but the context file for schema.org can be retrieved from the `https` web location at
@@ -171,12 +172,12 @@ Many harvesters and aggregators depend on the existence of a `sitemap.xml` file 
   </url>
   <url>
     <loc>https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2ST7DZ2Q</loc>
-    <lastmod>2021-12-07</lastmod>
+    <lastmod>2021-12-07T12:15:05Z</lastmod>
   </url>
 </urlset>
 ```
 
-Note the `<lastmod>` field, which indicates the last date on which the page was modified. Most harvesters will use that date along with the HTTP `Last-modified` header to determine if a page has changed since the last time that a harvest was attempted. Keeping accurate `lastmod` values can massively improve the efficiency of indexing your catalog, as only the few items that have changed will need to be indexed.
+Note the `<lastmod>` field, which indicates the last date on which the page was modified and is formatted as a [W3C DateTime](https://www.w3.org/TR/NOTE-datetime) and may vary in precision. Most harvesters will use that date along with the HTTP `Last-modified` header to determine if a page has changed since the last time that a harvest was attempted. Keeping accurate `lastmod` values can massively improve the efficiency of indexing your catalog, as only the few items that have changed will need to be indexed.
 
 **Location:** The sitemap.xml file can be located anywhere on your site that is above the path in the hierachy in which your pages are listed. Typically, the sitemap.xml is places at the root of the site, but other locations can be used as well. A great way to indicate to harvesters where your sitemap is located would be to include it in your `robots.txt` file at the root of your web site, which is bascially an instruction manual for harvesters. For example, you might have a robots.txt file with the following contents:
 
