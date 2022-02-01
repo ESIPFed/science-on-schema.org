@@ -1,11 +1,13 @@
 {
-    "@context": {
-        "@vocab": "http://schema.org/",
+    "@context": [
+      "https://schema.org/",
+      {      
         "time": "http://www.w3.org/2006/time#",
         "gstime": "http://schema.geoschemas.org/contexts/temporal#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
-    },
+      }
+    ],
     "@graph": [
         {
             "@type": "Dataset",
@@ -32,8 +34,7 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                    "time:numericPosition": 0.76,
-                    }
+                    "time:numericPosition": 0.76
                 }
             }
         },
@@ -46,8 +47,8 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
-                    "time:numericPosition": 4.404,
-                }
+                    "time:numericPosition": 4.404
+                },
                 "gstime:uncertainty": 0.008,
                 "gstime:uncertaintySigma": 2
             }
@@ -64,8 +65,8 @@
                         "@type": "time:TimePosition",
                         "rdfs:comment": "beginning is older bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": 18.0,
-                    }
+                        "time:numericPosition": 18.0
+                    },
                     "gstime:uncertainty": 0.35,
                     "gstime:uncertaintySigma": 2
                 },
@@ -75,8 +76,8 @@
                         "@type": "time:TimePosition",
                         "rdfs:comment": "ending is younger bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": 12.7,
-                    }
+                        "time:numericPosition": 12.7
+                    },
                     "gstime:uncertainty": 0.4,
                     "gstime:uncertaintySigma": 2
                 }
@@ -91,8 +92,8 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
-                    "time:numericPosition": 2460,
-                }
+                    "time:numericPosition": 2460
+                },
                 "gstime:uncertaintyOlder": 130,
                 "gstime:uncertaintyYounger": 80,
                 "gstime:uncertaintySigma": 1
