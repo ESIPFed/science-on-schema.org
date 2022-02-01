@@ -128,16 +128,16 @@ SO:Dataset-isAccessibleForFree
 SO:Dataset-keywords
     a sh:PropertyShape ;
     sh:or (
-		[
+        [
             sh:path SO:keywords ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-		]
-		[
-			sh:path SO:keywords ;
-			sh:minCount 1 ;
-		]
-	) ;
+        ]
+        [
+            sh:path SO:keywords ;
+            sh:minCount 1 ;
+        ]
+    ) ;
     sh:message "A Dataset should include descriptive keywords as literals or DefinedTerm"@en ;
     sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
 .
