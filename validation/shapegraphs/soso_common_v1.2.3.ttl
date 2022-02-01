@@ -136,6 +136,7 @@ SO:Dataset-keywords
         [
             sh:path SO:keywords ;
             sh:minCount 1 ;
+            sh:class SO:DefinedTerm ;
         ]
     ) ;
     sh:message "A Dataset should include descriptive keywords as literals or DefinedTerm"@en ;
