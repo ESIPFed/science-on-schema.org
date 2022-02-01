@@ -7,6 +7,7 @@
 
 - [Describing a Dataset](#describing-a-dataset)
 	- [Common Properties](#common-properties)
+		- [Keywords](#keywords)
 		- [Identifier](#identifier)
 			- [How to reference Short DOIs](#how-to-reference-short-dois)
 		- [Variables](#variables)
@@ -20,6 +21,7 @@
 		- [Publisher / Provider](#publisher-provider)
 		- [Funding](#funding)
 		- [License](#license)
+        - [Checksum](#checksum)
 		- [Provenance Relationships](#provenance-relationships)
 
 <!-- /TOC -->
@@ -32,9 +34,7 @@ Google has drafted a [guide to help publishers](https://developers.google.com/se
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   <strong>"name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. "</strong>
@@ -51,13 +51,11 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
-![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.svg "Dataset - Basic Fields")
+![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.png "Dataset - Basic Fields")
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
@@ -65,12 +63,80 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
   "sameAs": "https://search.dataone.org/#view/https://www.sample-data-repository.org/dataset/472032",
   "version": "2013-11-21",
   "isAccessibleForFree": true,
-  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]
+  "keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"],
   "license": [ "http://spdx.org/licenses/CC0-1.0", "https://creativecommons.org/publicdomain/zero/1.0"]
   </strong>
 }
 </pre>
 Back to [top](#top)
+
+
+### Keywords
+
+Adding the [schema:keywords](https://schema.org/keywords) field can be done in three ways - a text description, a URL, or by using [schema:DefinedTerm](https://schema.org/DefinedTerm). We recommend using `schema:DefinedTerm` if a keyword comes from a controlled vocabulary.
+
+![Keywords](/assets/diagrams/dataset/dataset_keywords.png "Dataset - Keywords")
+
+#### Keywords as Text ####
+
+For a dataset with the keywords of: `ocean acidification`, `Dissolved Organic Carbon`, `bacterioplankton respiration`, `pCO2`, `carbon dioxide`, `oceans`, you can express these:
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
+  "url": "https://www.sample-data-repository.org/dataset/472032",
+  <strong>"keywords": ["ocean acidification", "Dissolved Organic Carbon", "bacterioplankton respiration", "pCO2", "carbon dioxide", "oceans"]</strong>
+}
+</pre>
+
+#### Keywords as DefinedTerm ####
+
+If you have information about a controlled vocabulary from which keywords come from,  use `schema:DefinedTerm` to descibe that kewyword. The relevant properties of a `schema:DefinedTerm` are:
+
+* [name](https://schema.org/name) - The name of the keyword. (Required)
+* [inDefinedTermSet](https://schema.org/inDefinedTermSet) - The controlled vocabulary responisble for this keyword. (Required)
+* [url](https://schema.org/url) - The canonical URL for the keyword. (Optional)
+* [termCode](https://schema.org/termCode) - A representative code for this keyword in the controlled vocabulary (Optional)
+
+As an example, we demonstrate these fields using the `oceans` keyword from the NASA GCMD Keyword vocabulary, `ice core studies` from  [SnowTerm](https://vocabularyserver.com/cnr/ml/snowterm/en/index.php), and `Baked Clay` from [EarthRef controlled vocabulary](https://www2.earthref.org/vocabularies/controlled).
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Dataset shell for example DefinedTerm keywords",
+  "keywords": [
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "OCEANS",
+      "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
+      "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
+      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"</strong>
+    },
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "ice core studies",
+      "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
+      "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "value": "ark:/99152/t3v4yo3eeqepj0",
+        "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/t3v4yo3eeqepj0"
+      }</strong>
+    },
+    {
+      <strong>"@type": "DefinedTerm",
+      "name": "Baked Clay",
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"</strong>
+    }
+  ]
+}
+</pre>
+
 
 ### Identifier
 
@@ -133,9 +199,7 @@ An example of using [schema:PropertyValue](https://schema.org/PropertyValue) to 
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
@@ -158,9 +222,7 @@ Optionally, the `schema:name` field can be used to give this specific identifier
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -224,9 +286,7 @@ While we strongly recommend using a [schema:PropertyValue](https://schema.org/Pr
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
@@ -242,9 +302,7 @@ Or as a URL:
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -260,9 +318,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
@@ -288,9 +344,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. Included in this dataset are; bacterial abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. ",
@@ -315,7 +369,7 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 `schema:sameAs` is used here for the following reasons:
 
 1. It doesn't add too many more statements that might increase the page weight (which may impact major search engine crawlers stopping the crawl of schema.org markup).
-2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself: 
+2. Crawlers that follow the URL for the short DOI can retrieve structured metadata for the DOI itself:
 
 `curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
 
@@ -331,9 +385,7 @@ In it's most basic form, the variable as a [schema:PropertyValue](https://schema
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -353,13 +405,15 @@ If a URI is available that identifies the variable, it should be included as the
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-    <strong>"gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"</strong>
-  },
+  "@context": [
+    "https://schema.org/",
+	{
+      "gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"
+    }
+  ],
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
+
   "variableMeasured": [
     {
       "@type": "PropertyValue",
@@ -392,9 +446,7 @@ In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that cat
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -461,9 +513,7 @@ For data available in multipe formats, there will be multiple values of the [sch
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -484,9 +534,7 @@ If access to the data requires some input parameters before a download can occur
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -539,17 +587,17 @@ Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type bec
 Back to [top](#top)
 
 ### Temporal Coverage
+Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case-- the time period that data are linked to thematically.
 
-Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
+
+Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We have created our own geologic timescale vocabulary and it is found at [https://geoschemas.org/extensions/temporal.html](https://geoschemas.org/extensions/temporal.html). We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
 
 ![Temporal](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Temporal")
 
 To represent a single date and time:
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -583,25 +631,109 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
-One example of a URL temporal coverage might be for named periods in time:
+**Geologic Time**
 
+There are many different ways of defining geologic age. See the examples below for a few cases. Descriptions of the vocabulary are at [geoschemas.org](https://geoschemas.org/extensions/temporal.html). More example formats can be found in [temporalCoverage.jsonld](https://github.com/ESIPFed/science-on-schema.org/tree/develop/examples/dataset/temporalCoverage.jsonld)
+
+
+A time interval using the ISO 8601 standard:
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-  <strong>"temporalCoverage": "http://sweetontology.net/stateTimeGeologic/Paleocene"</strong>
-}
+    "@context": [
+	  "https://schema.org/",
+	  {
+        "time": "http://www.w3.org/2006/time#",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "ts": "http://resource.geosciml.org/vocabulary/timescale/",
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
+      }
+	],
+    "@type": "Dataset",
+    "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporal coverage expressed as range of dateTime",
+<strong>    "temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
+    "time:hasTime": {
+        "@type": "time:Interval",
+        "time:hasBeginning": {
+            "@type": "time:Instant",
+
+            "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
+        },
+        "time:hasEnd": {
+            "@type": "time:Instant",
+            "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
+        }
+    }
+    </strong>
 </pre>
 
-Even though `http://sweetontology.net/stateTimeGeologic/Paleocene` is a valid RDF resource, and the natural tendency would be to use it as such:
-```
-"temporalCoverage": { "@id": "http://sweetontology.net/stateTimeGeologic/Paleocene" }
-```
-Because [schema:URL (rdf)](https://schema.org/URL.rdf) is defined as an rdfs:Class, these URLs can be interepreted by harvesters as an RDF resource, but that is a decision left to the harvester, not the publisher. So here, the publisher simply uses the resources URL.
+A geologic age given in millions of years ago (Ma):
+<pre>
+    "@type": "Dataset",
+    "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
+<strong>    "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
+    "time:hasTime": {
+        "@type": "time:Instant",
+        "time:inTimePosition": {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
+            "time:numericPosition": 0.76,
+            }
+        }
+    }
+    </strong>
+</pre>
+
+A geologic age with an uncertainty given at two-sigma:
+<pre>
+    "@type": "Dataset",
+    "description": "Example of a geologic time with an uncertainty. Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
+    "temporalCoverage": "Age of one of the oldest zircon found on Earth from the Jack Hills Austrailia, 4.404 +- 0.008 Ga (2-sigma)",
+    "time:hasTime": {
+        "@type": "time:Instant",
+        "time:inTimePosition": {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
+            "time:numericPosition": 4.404,
+        }
+        "gstime:uncertainty": 0.008,
+        "gstime:uncertaintySigma": 2
+    }
+    </strong>
+</pre>
+
+A geologic interval bounded by two eras:
+<pre>
+    "@type": "Dataset",
+    "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+<strong>    "temporalCoverage": "Triassic to Jurassic",
+
+    "time:hasTime": {
+        "@type": "time:Interval",
+        "time:hasBeginning": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {"@id": "ts:gts2020"},
+                "time:NominalPosition": {
+                    "@value": "icsc:Triassic",
+                    "@type": "xsd:anyURI"
+                }
+            }
+        },
+        "time:hasEnd": {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {"@id": "ts:gts2020"},
+                "time:NominalPosition": {
+                    "@value": "icsc:Jurassic",
+                    "@type": "xsd:anyURI"
+                }
+            }
+        }
+    }
+    </strong>
+</pre>
 
 Back to [top](#top)
 
@@ -609,22 +741,20 @@ Back to [top](#top)
 
 ![Spatial](/assets/diagrams/dataset/dataset_spatial-coverage.svg "Dataset - Spatial")
 
-Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees. 
+Used to document the location on Earth that is the focus of the  dataset content, using  [schema:Place](https://schema.org/Place). Recommended practice is to use the [schema:geo](https://schema.org/geo) property with either a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object to specify a point location, or a [schema:GeoShape](https://schema.org/GeoShape) object to specify a line or area coverage extent. Coordinates describing these extents are expressed as latitude longitude tuples (in that order) using decimal degrees.
 
 Schema.org documentation does not specify a convention for the coordinate reference system, our recommended practice is to use [WGS84](EPSG:3857) for at least one spatial coverage description if applicable. Spatial coverage location using other coordinate systems can be included, see recommendation for specifying coordinate reference systems, [below](#spatial_reference-system).  
 
 #### Point location
-A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties. 
+A point location specified by a  [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with   [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties.
 *Not Recommended* the [schema:Place](https://schema.org/Place) definition allows the latitude and longitude of a point location to be specified as properties directly of place; although this is more succinct, it makes parsing the metadata more complex and should be avoided.
 
-Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location. 
+Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.
 
 <a id="spatial_point"></a> A schema:Dataset that is about a point location would documented in this way:
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton ....",
   ...
@@ -643,7 +773,7 @@ Point locations are recommended for data that is associated with specific sample
 
 <a id="spatial_shape"></a>A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g. a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.  
 
-Be aware that some client applications might only index or display bounding box extents. 
+Be aware that some client applications might only index or display bounding box extents.
 
 * [line](https://schema.org/line) - a series of two or more points.
 * [polygon](https://schema.org/polygon) - a series of four or more points where the first and final points are identical.
@@ -653,7 +783,7 @@ Be aware that some client applications might only index or display bounding box 
 
 Examples
 <a id="geoshape-line">Linear spatial location</a>
-A line spatial location. Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature. 
+A line spatial location. Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature.
 
 <pre>
   <strong>"spatialCoverage": {
@@ -667,14 +797,14 @@ A line spatial location. Useful for data that were collected along a traverse, s
 </pre>
 
 <a id="geoshape-polygon">Polygon spatial location</a>
-A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications. 
+A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications.
 
 <pre>
   <strong>"polygon": "39.3280 120.1633 40.445 123.7878 41 121 39.77 122.42 39.3280 120.1633"</strong>
 </pre>
 
 <a id="geoshape-box">Bounding Boxes</a>
-A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus: 
+A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus:
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
 </pre>
@@ -719,10 +849,10 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 Be aware that some client application might not index or display multiple geometries.
 
 <a id="spatial_reference-system"></a>
-A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees. 
+A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees.
 
-In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of 
-[http://dbpedia.org/resource/Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are: 
+In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of
+[http://dbpedia.org/resource/Spatial_reference_system](http://dbpedia.org/resource/Spatial_reference_system) to identify the property as a spatial reference system, and the schema:PropertyValue/schema:value is a URI (IRI) that identifies a specific SRS. Some commonly used values are:
 
 | Spatial Reference System | IRI                                          |
 |--------------------------|----------------------------------------------|
@@ -731,16 +861,18 @@ In the mean time, to represent an SRS in schema.org, we recommend using the [sch
 | EPSG:26911               | https://spatialreference.org/ref/epsg/nad83-utm-zone-11n/  |
 | EPSG:3413                | https://spatialreference.org/ref/epsg/wgs-84-nsidc-sea-ice-polar-stereographic-north/ |
 
-NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified. 
+NOTE: Beware of coordinate order differences. WGS84 in the table above specifies latitude, longitude coordinate order, whereas CRS84 specifies longitude, latitude order (like GeoJSON). WGS84 is the assumed typical value for coordinates, so in general the SRS does not need to be specified.
 
 A spatial reference system can be added in this way:
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
+  "@context": [
+    "https://schema.org/",
+	{
     <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
-  },
+    }
+  ],
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -769,9 +901,7 @@ People can be linked to datasets using three fields: author, creator, and contri
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -810,14 +940,11 @@ People can be linked to datasets using three fields: author, creator, and contri
     }</strong>
 }
 </pre>
-NOTE that the Role inherits the property `creator` and `contributor` from the Dataset when pointing to the [schema:Person](https://schema.org/Person).
+NOTE that the Role inherits the property `creator` and `contributor` from the Dataset when pointing to the [schema:Person](http://schema.org/Person).
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    ...
-  },
+  "@context": "https://schema.org/",
   <strong>"@type": "Dataset"</strong>,
   ...
   <strong>"creator"</strong>: [
@@ -842,9 +969,7 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -903,7 +1028,7 @@ Back to [top](#top)
 If your repository is the publisher and/or provider of the dataset then you don't have to describe your repository as a [schema:Organziation](https://schema.org/Organization) **if** your repository markup includes the **`@id`**. For example, if you published repository markup such as:
 <pre>
 {
-  "@context": {...},
+  "@context": "https://schema.org/",
   "@type": ["Service", "Organization"],
   ...
   <strong>"@id": "https://www.sample-data-repository.org"</strong>
@@ -915,9 +1040,7 @@ then you can reuse that `@id` here. Harvesters such as Google and Project418 wil
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -934,9 +1057,7 @@ Otherwise, you can define the organization inline in this way:
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   ...
@@ -958,98 +1079,65 @@ Back to [top](#top)
 
 
 ### Funding
+
 ![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
 
-Linking a Dataset to its funding can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object on your webpage. In order to do this, we have to modify the structure of our JSON-LD to include multiple top-level items, and make sure that our Dataset uses the `@id` to identify its URI. This `@id` will be used by the MonetaryGrant to say it funded the Dataset. First, we add the `@id` to our Dataset:
+Data providers should include funding information in their Dataset descriptions to enable discovery and cross-linking. The information that would be useful includes the title, identifier, and url of the grant or award, along with structured information about the funding organization, including its name and identifier. Organizational identifiers are best represented using either a general purpose institutional identifier such as a [ROR](https://ror.org), [GRID](https://grid.ac/), or ISNI identifier, or a more specific [Funder ID](https://api.crossref.org/funders/) from the [Crossref Funder Registry](https://www.crossref.org/services/funder-registry/). The ROR for the National Science Foundation (https://ror.org/021nxhr62), for example, provides linkages to related identifiers as well. The Funder ID has the advantage that it includes both agency funders like the National Science Foundation (http://dx.doi.org/10.13039/100000001), but also provides identifiers for individual funding programs within those agencies, such as the NSF GEO Directorate (https://api.crossref.org/funders/100000085). When possible, providing both a ROR and Funder ID is helpful. Here's an example of identifiers for the National Science Foundation:
+
+![NSF ROR Entry](/assets/images/ror.png "Dataset - Funder Identifiers")
+
+Linking a Dataset to the grants and awards that fund it can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant).  Each `schema:MonetaryGrant` can link to the items that it funds using the `schema:fundedItem` property. However, in our case, we need a property that points from the `schema:Dataset` that we are documenting via a `fundedBy` property to the `schema:MonetaryGrant` that funds it. Unfortunately, schema.org does not currently provide the `fundedBy` property which would be the inverse of `schema:fundedItem`, so we need to use a different mechanism to make the link. JSON-LD provides a very convenient [`@reverse` keyword](https://www.w3.org/TR/json-ld/#reverse-properties) to indicate that the inverse property of a known propery is intended. In our case, instead of saying that `Grant X has a fundedItem of Dataset Y`, we can say that `Dataset Y has the reverse property of fundedItem of Grant X`. This is basically a way of saying that Dataset Y is funded by Grant X. Here's an example use of the `@reverse` applied to fundedItem for two grants that funded a dataset.
+
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  <strong>"@id": "http://www.sample-data-repository.org/dataset/123",</strong>
+  "@context": "https://schema.org/",
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  ...
-}
-</pre>
-
-Next, we must make our JSON-LD allow multiple top-level items by using the `@graph` property.
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  <strong>"@graph":[{</strong>
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      ...
-    <strong>}
-  ]</strong>
-}
-</pre>
-
-You can now see that the Dataset object `{}` is now the first element in the `@graph` array. Next, we add our [schema:MonetaryGrant](https://schema.org/MonetaryGrant) object.
-
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      ...
-    }<strong>,
-    {
-      "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
-      "name": "NSF Award# 143211",
-      "funder": {
-        "@type": "Organization",
-        "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
+  "@id": "https://doi.org/10.18739/A22V2CB44",
+  "name": "Stable water isotope data from Arctic Alaska snow pits in 2019",
+<strong>
+  "@reverse": {
+    "fundedItem": [
+      {
+        "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+        "@type": "MonetaryGrant",
+        "identifier": "1604105",
+        "name": "Collaborative Research: Nutritional Landscapes of Arctic Caribou: Observations, Experiments, and Models Provide Process-Level Understanding of Forage Traits and Trajectories",
+        "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+        "funder": {
+            "@id": "http://dx.doi.org/10.13039/100000001",
+            "@type": "Organization",
+            "name": "National Science Foundation",
+            "identifier": [
+              "http://dx.doi.org/10.13039/100000001",
+              "https://ror.org/021nxhr62"
+            ]
+        }
       },
-      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
-      "identifier": "143211"
-    }
-  ]</strong>
+      {
+        "@type": "MonetaryGrant",
+        "@id": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+        "identifier": "316349",
+        "name": "Where does water go when snow melts? New spatio-temporal resolution in stable water isotopes measurements to inform cold climate hydrological modelling",        
+        "url": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+        "funder": {
+            "@id": "http://dx.doi.org/10.13039/501100002341",
+            "@type": "Organization",
+            "name": "Academy of Finland",
+            "identifier": [
+              "http://dx.doi.org/10.13039/501100002341",
+              "https://ror.org/05k73zm37"
+            ]
+        }
+      }
+    ]
+  }
+</strong>
 }
 </pre>
 
-Now, because there are two top-level items on this webpage, harvesters will be unsure which element is the main resource. But, we can specify this by using the [schema:mainEntityOfPage](https://schema.org/mainEntityOfPage) property.
+We recommend providing as much structured information about the grants that fund a Dataset as possible so that aggregators and harvesters can crosslink to the Funding agencies and grants that provided resources for the Dataset.
 
-<pre>
-{
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
-  "@graph":[{
-      "@id": "http://www.sample-data-repository.org/dataset/123",
-      "@type": "Dataset",
-      "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-      <strong>"mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "http://www.sample-data-repository.org/dataset/123"
-      },</strong>
-      ...
-    },
-    {
-      "@type": "MonetaryGrant",
-      "fundedItem": { "@id": "http://www.sample-data-repository.org/dataset/123" },
-      "name": "NSF Award# 143211",
-      "funder": {
-        "@type": "Organization",
-        "name": "National Science Foundation",
-        "url": "http://www.nsf.gov"
-      },
-      "sameAs": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1435578",
-      "identifier": "143211"
-    }
-  ]
-}
-</pre>
+Note: Although using `@reverse` is a convenient way to simplify the construction of JSON-LD for describing datasets since it places the funders as objects within the `schema:Dataset` object, other equivalent serializations are possible using `@graph`, and consumers should treat them equivalently. For example, one alternative would be to explicitly provide the JSON-LD [`@graph`](https://www.w3.org/TR/json-ld/#named-graphs) keyword in the entry, which allows both `schema:Dataset` and `schema:MonetaryGrant` top-level nodes in the graph. These can then be linked using the `schema:fundedItem` property on the `schema:MonetaryGrant` node. When two or more top level nodes are included in the graph like this, the primary node represented in the page should be indicated using [`schema:mainEntityOfPage`](https://schema.org/docs/datamodel.html#mainEntityBackground). Harvesters and search engines should treat these representations identically and should take appropriate steps to process the content to achieve an expected JSON structure (e.g. with framing) or treat the JSON-LD as an RDF graph and query accordingly.
 
 Back to [top](#top)
 
@@ -1059,9 +1147,7 @@ Link a Dataset to its license to document legal constraints by adding a [schema:
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-  },
+  "@context": "https://schema.org/",
   "@id": "http://www.sample-data-repository.org/dataset/123",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -1075,9 +1161,7 @@ SPDX URIs for each license can be found by finding the appropriate license in th
 While many licenses are ambiguous about the license URI for the license, the Creative Commons licenses and a few others are exceptions in that they provide extremely consistent URIs for each license, and these are in widespread use.  So, while we recommend using the SPDX URI, we recognize that some sites may want to use the CC license URIs directly, which is helpful in recognizing the license.  In this case, we recommend that the SPDX URI still be used as described above, and the other URI also be provided as well in a list. Here's an example using the traditional Creative Commons URI along with the SPDX URI.
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-  },
+  "@context": "https://schema.org/",
   "@id": "http://www.sample-data-repository.org/dataset/123",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -1103,6 +1187,53 @@ The following table contains the SPDX URIs for some of the most common licenses.
 
 Back to [top](#top)
 
+### Checksum
+
+A `schema:Dataset` can be composed of multiple digital objects which are listed in the `schema:distribution` list. For each `schema:DataDownload`, it can be useful to provide an cryptographic checksum value (like SHA 256 or MD5) that can be used to characterize the contents of the object. Aggregators and distributors can use these values to verify that they have retrieved exactly the same content as the original provider made available, and that replica copies of an object are identical to the original, among other uses. Because schema.org does not contain a class for representing checksum values, by convention we recommend using the [`spdx:checksum`](http://spdx.org/rdf/terms#checksum) property, which points at an `spdx:Checksum` instance that provides both the value of the checksum and the algorithm that was used to calculate the checksum.
+
+Here's an example that provides two different checksum values for a single digital object within a `schema:DataDownload` description. Note that providers will need to define the `spdx` prefix in their `@context` block in order to use the prefix as shown in the example.
+
+<pre>
+{
+    "@context": [
+	  "https://schema.org/",
+	  {
+        <strong>"spdx": "http://spdx.org/rdf/terms#"</strong>
+      }
+	],
+    "@type": "Dataset",
+    "@id": "https://dataone.org/datasets/doi%3A10.18739%2FA2NK36607",
+    "sameAs": "https://doi.org/10.18739/A2NK36607",
+    "name": "Conductivity-Temperature-Depth (CTD) data along DBO5 (Distributed Biological Observatory - Barrow Canyon), from the 2009 Circulation, Cross-shelf Exchange, Sea Ice, and Marine Mammal Habitat on the Alaskan Beaufort Sea Shelf cruise on USCGC Healy (HLY0904)",
+    "distribution": {
+        "@type": "DataDownload",
+        "@id": "https://dataone.org/datasets/urn%3Euuid%3E2646d817-9897-4875-9429-9c196be5c2ae",
+        "identifier": "urn:uuid:2646d817-9897-4875-9429-9c196be5c2ae",
+        <strong>"spdx:checksum": [
+            {
+                "@type": "spdx:Checksum",
+                "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
+                "spdx:checksumAlgorithm": {
+                    "@id": "spdx:checksumAlgorithm_sha256"
+                }
+            },
+            {
+                "@type": "spdx:Checksum",
+                "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
+                "spdx:checksumAlgorithm": {
+                    "@id": "spdx:checksumAlgorithm_md5"
+                }
+            }
+        ]</strong>
+    }
+}
+</pre>
+
+The algorithm property is chosen from the controlled [SPDX vocabulary of checksum types](http://spdx.org/rdf/terms#ChecksumAlgorithm), making it easy for processors to recalculate checksum values to verify them. Common algorithms that many providers would use include `spdx:checksumAlgorithm_sha256` and `spdx:checksumAlgorithm_md5`. Note specifically that the `spdx:checksumAlgorithm_sha256` value is inside of an `@id` property so that the SPDX namespace from the context definition is used to define the algorithm URI.
+
+
+Back to [top](#top)
+
 ### Provenance Relationships
 
 High level relationships that link datasets based on their processing workflows and versioning relationships are critical for data consumers and search engines to link different versions of a [schema:Dataset](https://schema.org/Dataset), to clarify when a dataset is derived from one or more source Datasets, and to specify linkages to the software and activities that created these derived datasets for reproducibility. Collectively, this is provenance information.
@@ -1119,10 +1250,12 @@ Link a Dataset to a prior version that it replaces by adding a [`prov:wasRevisio
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#"
-  },
+  "@context": [
+    "https://schema.org/",
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
   "@id": "https://doi.org/10.xxxx/Dataset-2.v2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
@@ -1142,15 +1275,17 @@ In addition to `prov:wasDerivedFrom`, schema.org provides the [`schema:isBasedOn
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#"
-  },
+  "@context": [
+    "https://schema.org/",
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
   "@id": "https://doi.org/10.xxxx/Dataset-2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   <strong>"prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>,
-  <strong>"schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>
+  <strong>"isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" }</strong>
 }
 </pre>
 
@@ -1164,17 +1299,19 @@ Any portion of the software workflow can be described to increase information ab
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
-  },
+  "@context": [
+    "https://schema.org/",
+    {
+      "prov": "http://www.w3.org/ns/prov#",
+      "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+    }
+  ],
   "@id": "https://doi.org/10.xxxx/Dataset-2",
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
   "prov:wasDerivedFrom": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
   "schema:isBasedOn": { "@id": "https://doi.org/10.xxxx/Dataset-1" },
-  <strong>"prov:wasGeneratedBy": 
+  <strong>"prov:wasGeneratedBy":
       {
         "@id": "https://example.org/executions/execution-42",
         "@type": "provone:Execution",
@@ -1184,6 +1321,4 @@ Any portion of the software workflow can be described to increase information ab
 }
 </pre>
 
-
 Back to [top](#top)
-

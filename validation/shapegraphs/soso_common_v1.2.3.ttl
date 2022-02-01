@@ -1,0 +1,189 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix SO: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix soso: <http://science-on-schema.org/1.2.3/validation/shacl#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+
+
+soso:DatasetNS1Shape
+    a sh:NodeShape ;
+    sh:targetClass <http://schema.orgDataset/> ;
+    sh:message "Expecting SO namespace of <http://schema.org/> not <http://schema.org>"@en ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1;
+    ].
+soso:DatasetNS2Shape
+    a sh:NodeShape ;
+    sh:targetClass <https://schema.org/Dataset> ;
+    sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org/>"@en ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1;
+    ].
+soso:DatasetNS3Shape
+    a sh:NodeShape ;
+    sh:targetClass <https://schema.orgDataset/> ;
+    sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org>"@en ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1;
+    ].
+
+soso:IDShape
+    a sh:NodeShape ;
+    sh:targetClass SO:Dataset ;
+    sh:message "Dataset must have an ID"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+    sh:nodeKind sh:IRI ;
+    .
+
+SO:Thing
+    a rdfs:Class ;
+    a sh:NodeShape ;
+    rdfs:comment "The most generic type of item."^^rdf:HTML ;
+    rdfs:label "Thing" ;
+    rdfs:subClassOf owl:Thing ;
+.
+
+SO:CreativeWork
+    a rdfs:Class ;
+    a sh:NodeShape ;
+    rdfs:subClassOf SO:Thing ;
+.
+
+SO:Dataset
+    a rdfs:Class ;
+    a sh:NodeShape ;
+    #sh:targetClass SO:Dataset ; #Implied, https://www.w3.org/TR/shacl/#implicit-targetClass
+    rdfs:comment "A body of structured information describing some topic(s) of interest."^^rdf:HTML ;
+    rdfs:label "Dataset" ;
+    rdfs:subClassOf SO:CreativeWork ;
+    owl:equivalentClass <http://purl.org/dc/dcmitype/Dataset> ;
+    owl:equivalentClass <http://rdfs.org/ns/void#Dataset> ;
+    owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
+    sh:message "Dataset validation"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+    sh:property
+        SO:Dataset-description,
+        SO:Dataset-identifier ,
+        SO:Dataset-isAccessibleForFree ,
+        SO:Dataset-keywords ,
+        SO:Dataset-name,
+        SO:Dataset-sameAs ,
+        SO:Dataset-url ,
+        SO:Dataset-version ;
+.
+
+SO:Dataset-description
+    a sh:PropertyShape ;
+    sh:path SO:description;
+    sh:or (
+       [
+           sh:nodeKind sh:Literal ;
+       ]
+       [
+           sh:class SO:Text ;
+       ]
+    );
+    sh:minCount 1 ;
+    sh:message "Dataset must have a description"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-identifier
+    a sh:PropertyShape ;
+    sh:path SO:identifier;
+    sh:minCount 1 ;
+    sh:or (
+        [
+            sh:nodeKind sh:Literal ;
+        ]
+        [
+            sh:class SO:URL ;
+        ]
+        [
+            sh:class SO:PropertyValue ;
+        ]
+    );
+    sh:message "Dataset identifiers must be a URL, Text or PropertyValue"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#identifier" ;
+.
+
+SO:Dataset-isAccessibleForFree
+    a sh:PropertyShape ;
+    sh:path SO:isAccessibleForFree ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:dataType xsd:boolean ;
+    sh:severity sh:Warning ;
+    sh:message "It is recommended that a Dataset indicates accessibility for free or otherwise"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-keywords
+    a sh:PropertyShape ;
+    sh:path SO:keywords ;
+    sh:minCount 1 ;
+    sh:or (
+        [
+            sh:nodeKind sh:Literal ;
+        ]
+        [
+            sh:class SO:DefinedTerm ;
+        ]
+    ) ;
+    sh:message "A Dataset should include descriptive keywords as literals or DefinedTerm"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-name
+    a sh:PropertyShape ;
+    sh:path SO:name ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:message "Name is required for a Dataset"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-sameAs
+    a sh:PropertyShape ;
+    sh:path SO:sameAs ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:severity sh:Warning ;
+    sh:message "It is recommended that a Dataset includes a sameAs URL"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-url
+    a sh:PropertyShape ;
+    sh:path SO:url ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+    sh:message "Dataset requires a URL for the location of a page describing the dataset"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+
+SO:Dataset-version
+    a sh:PropertyShape ;
+    sh:path SO:version ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:or (
+        [
+            sh:nodeKind sh:Literal ;
+        ]
+        [
+            sh:class SO:Number ;
+        ]
+    );
+    sh:message "Dataset must have a version as Literal or Number"@en ;
+    sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
+.
+

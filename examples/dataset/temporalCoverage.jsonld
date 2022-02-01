@@ -1,0 +1,178 @@
+{
+    "@context": [
+      "https://schema.org/",
+      {      
+        "time": "http://www.w3.org/2006/time#",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "ts": "http://resource.geosciml.org/vocabulary/timescale/",
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
+      }
+    ],
+    "@graph": [
+        {
+            "@type": "Dataset",
+            "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporal coverage expressed as range of dateTime",
+            "temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
+            "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
+                    "time:numericPosition": 0.76
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Example of a geologic time with an uncertainty. Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
+            "temporalCoverage": "Age of one of the oldest zircon found on Earth from the Jack Hills Austrailia, 4.404 +- 0.008 Ga (2-sigma)",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
+                    "time:numericPosition": 4.404
+                },
+                "gstime:uncertainty": 0.008,
+                "gstime:uncertaintySigma": 2
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
+            "temporalCoverage": "Between 18.0 +/- 0.35 and 12.7 +/- 0.4 Ma",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "beginning is older bound of age envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
+                        "time:numericPosition": 18.0
+                    },
+                    "gstime:uncertainty": 0.35,
+                    "gstime:uncertaintySigma": 2
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "rdfs:comment": "ending is younger bound of age envelop",
+                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
+                        "time:numericPosition": 12.7
+                    },
+                    "gstime:uncertainty": 0.4,
+                    "gstime:uncertaintySigma": 2
+                }
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya.",
+            "temporalCoverage": "Carbon dating age BP Calibrated of 2640 +130 -80 (one-sigma)",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
+                    "time:numericPosition": 2460
+                },
+                "gstime:uncertaintyOlder": 130,
+                "gstime:uncertaintyYounger": 80,
+                "gstime:uncertaintySigma": 1
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+            "temporalCoverage": "Bartonian",
+            "time:hasTime": {
+                "@type": "time:Instant",
+                "time:inTimePosition": [
+                    {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "icsc:Bartonian",
+                            "@type": "xsd:anyURI"
+                        }
+                    },
+                    {
+                        "@type": "time:Interval",
+                        "time:hasBeginning": {
+                            "@type": "time:Instant",
+                            "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                            "time:inTimePosition": {
+                                "@type": "time:TimePosition",
+                                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                                "time:numericPosition": {
+                                    "@value": "41.2",
+                                    "@type": "xsd:decimal"
+                                }
+                            }
+                        },
+                        "time:hasEnd": {
+                            "@type": "time:Instant",
+                            "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                            "time:inTimePosition": {
+                                "@type": "time:TimePosition",
+                                "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                                "time:numericPosition": {
+                                    "@value": "37.71",
+                                    "@type": "xsd:decimal"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Dataset",
+            "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+            "temporalCoverage": "Triassic to Jurassic",
+            "time:hasTime": {
+                "@type": "time:Interval",
+                "time:hasBeginning": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "icsc:Triassic",
+                            "@type": "xsd:anyURI"
+                        }
+                    }
+                },
+                "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inTimePosition": {
+                        "@type": "time:TimePosition",
+                        "time:hasTRS": {"@id": "ts:gts2020"},
+                        "time:NominalPosition": {
+                            "@value": "icsc:Jurassic",
+                            "@type": "xsd:anyURI"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

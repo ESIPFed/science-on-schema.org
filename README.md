@@ -13,7 +13,7 @@
 This repository provides guidance for repository operators and others to follow consistent conventions to provide schema.org markup in Dataset landing pages to improve data discovery through search engines. The main guides help describe Datasets and Data Repositories.
 
 * __[Dataset](/guides/Dataset.md)__ - guidelines for schema.org for a scientific Dataset
-* __[Data Repository](/guides/DataRepository.md)__ - guidelines for schema.org for a research data repository
+* __[Data Repository](/guides/DataRepository.md)__ - guidelines for schema.org for describing a research data repository
 * [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
 * [Experimental](/guides/Experimental.md) - some suggestions for more advanced dataset documentation, proposed for inclusion in SOSO recommendations. 
 
