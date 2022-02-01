@@ -127,15 +127,13 @@ SO:Dataset-isAccessibleForFree
 
 SO:Dataset-keywords
     a sh:PropertyShape ;
+    sh:path SO:keywords ;
+    sh:minCount 1 ;
     sh:or (
         [
-            sh:path SO:keywords ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
         ]
         [
-            sh:path SO:keywords ;
-            sh:minCount 1 ;
             sh:class SO:DefinedTerm ;
         ]
     ) ;
