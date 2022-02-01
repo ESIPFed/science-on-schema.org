@@ -129,8 +129,15 @@ SO:Dataset-keywords
     a sh:PropertyShape ;
     sh:path SO:keywords ;
     sh:minCount 1 ;
-    sh:nodeKind sh:Literal ;
-    sh:message "A Dataset should include descriptive keywords"@en ;
+    sh:or (
+        [
+            sh:nodeKind sh:Literal ;
+        ]
+        [
+            sh:class SO:DefinedTerm ;
+        ]
+    ) ;
+    sh:message "A Dataset should include descriptive keywords as literals or DefinedTerm"@en ;
     sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.1.0/guides/Dataset.md#common-properties" ;
 .
 
