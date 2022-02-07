@@ -26,9 +26,9 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 <pre>
 {
   "@context": {
-    "@vocab": "https://schema.org/",
+    "https://schema.org/",
     
-    <strong>"igsn": "http://igsn.org/",</strong>
+    <strong>{"igsn": "http://igsn.org/"}</strong>
   },
   "@type": "Dataset",
   ...,
@@ -36,7 +36,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
     {
       "@type": ["CreativeWork", "http://vocabulary.odm2.org/specimentype/individualSample/"],
       "identifier": {
-        "@id": "igsn.org/WHO000A53",
+        "@id": "igsn:WHO000A53",
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/igsn",
         "url": "http://igsn.org/WHO000A53",
@@ -56,7 +56,7 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
     {
       "@type": ["CreativeWork", "http://vocabulary.odm2.org/specimentype/individualSample/"],
       "identifier": {
-        "@id": "igsn.org/WHO000A67",
+        "@id": "igsn:WHO000A67",
         "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/igsn",
         "url": "http://igsn.org/WHO000A67",
@@ -119,7 +119,7 @@ Example encoding for a variableMeasured that is populated with a controlled voca
 <pre>
  {
     "@type": "PropertyValue",
-    "@id": "ex_variable0007",
+    "@id": "urn:example:ex_variable0007",
     "propertyID": "http://astromat/parameters/0027",
     "name": "calcAvg",
     "alternateName":"can calculate average",     
@@ -140,9 +140,11 @@ Example encoding for a variableMeasured that is populated with a controlled voca
 
 The controlled vocabulary could also be identified by a URI for communities that have identifiers for controlled vocabularies.  In the above example this would be encoded thus:
 
-<pre>
-"rangeincludes":  "https://www.astromat.org/vocab/calcavg"
-</pre>
+
+```
+"rangeincludes": <https://www.astromat.org/vocab/calcavg>
+```
+
 Ideally, the URI can be dereferenced to obtain a schema:DefinedTermSet object that defines the vocabulary elements. Recognizing that in many cases vocabulary representations use SKOS or a tabular text listing, the critical consideration is that the identifier for the vocabulary is something the user community will recognize.
 
 <div id='StructuredValues'/>
@@ -161,7 +163,7 @@ In the first case, variables in an attribute role provide information about one 
   "qudt:dataType": "https://schema.org/Number",
   "valueReference": [
     {"@type": "PropertyValue",
-    "name": "Unit of Measure",
+    "name": "Units",
     "description": "unit of measure for diameter length",
     "qudt:dataType": "https://schema.org/Text",
     "rangeIncludes":"http://qudt.org/schema/qudt/LengthUnit"  },
@@ -229,7 +231,7 @@ Each schema:valueReference is a schema:PropertyValue, which has a schema:propert
 Example for multi-dimensional dataset
 
 ```
-{"@type": [ "Dataset"]
+{"@type": [ "Dataset"],
     "additionalType":[ "http://qudt.org/schema/qudt/MultiDimensionalDataFormat" ],
     "name": "Surface geology and geophysics grid",
 ...
@@ -258,6 +260,7 @@ Example for multi-dimensional dataset
    "description": "tuple with magnetic field intensity, g value, observed outcrop rock type, and elevation",
    "qudt:dataType": "http://qudt.org/schema/qudt/TupleType",
    "valueReference": [
+      "@list":{   
        {"@type": "PropertyValue",
          "name": "mag",
          "alternateName": "magnetic field intensity",
@@ -268,7 +271,7 @@ Example for multi-dimensional dataset
           "name": "acceleration of gravity",
           "propertyID": "http://ex.org/resource/localAccelGravity",
           "alternateName": "Range",
-          "measurementTechnique": "gravimiter model xxx",
+          "measurementTechnique": "gravimeter model xxx",
           "qudt:dataType": "https://schema.org/Number",
           "unitText": "mgal"},
         { "@type": "PropertyValue",
@@ -283,7 +286,7 @@ Example for multi-dimensional dataset
            "description": "elevation relative to MSL, in meters",
            "qudt:dataType": "https://schema.org/Number",
            "unitText": "meters" }
-            ]        }    ]  }
+            ]   }    }    ]  }
 ```
 
-In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.
+In this example each point the measure dimension space is associated with a magnetic field intensity, acceleration of gravity, and outcrop lithology.  Note the use of the @list implementation of the valueReference because the tuple is an ordered list. 
