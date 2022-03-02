@@ -1,6 +1,6 @@
 # Experimental recommendations
 
-This document contains suggestions for recommendations to address use cases and problems that users have identified as possible additions to the science-on-schema.org recommendations. These are presented for discussion and testing. Suggestions here should be linked to issues in the Science-On-Schema.org issue tracker. 
+This document contains suggestions for recommendations to address use cases and problems that users have identified as possible additions to the science-on-schema.org recommendations. These are presented for discussion and testing, and potentially for inclusion in a future release of the guidelines. Suggestions here should be linked to issues in the Science-On-Schema.org issue tracker. 
 
 # Table of contents
 1. [Linking Physical Samples to a Dataset](#LinkingPhysicalSamples)
