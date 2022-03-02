@@ -25,11 +25,12 @@ Currently, there isn't a great semantic property for a Dataset to distinguish th
 
 <pre>
 {
-  "@context": {
+  "@context": [
     "https://schema.org/",
-    
-    <strong>{"igsn": "http://igsn.org/"}</strong>
-  },
+    {    
+    <strong>"igsn": "http://igsn.org/",</strong>
+    } 
+  ],
   "@type": "Dataset",
   ...,
   <strong>"hasPart": [
