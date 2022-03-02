@@ -52,20 +52,22 @@
       "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"
     }
   ],
-  "creator": [
-    {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51159",
-      "name": "Dr Langdon Quetin",
-      "url": "https://www.example-data-repository.org/person/51159"
-    },
-    {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51160",
-      "name": "Dr Robin Ross",
-      "url": "https://www.example-data-repository.org/person/51160"
-    }
-  ],
+  "creator": {
+    "@list": [
+      {
+        "@type": "Person",
+        "@id": "http://lod.example-data-repository.org/id/person/51159",
+        "name": "Dr Langdon Quetin",
+        "url": "https://www.example-data-repository.org/person/51159"
+      },
+      {
+        "@type": "Person",
+        "@id": "http://lod.example-data-repository.org/id/person/51160",
+        "name": "Dr Robin Ross",
+        "url": "https://www.example-data-repository.org/person/51160"
+      }
+    ]
+  },
   "citation": "Quetin, L., Ross, R. (2010) Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project). Example Data Repository. Version 1. doi:10.1234/1234567890 [access date]",
   "version": "1",
   "license": "https://creativecommons.org/licenses/by/4.0/",
