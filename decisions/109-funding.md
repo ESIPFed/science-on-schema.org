@@ -8,15 +8,12 @@ __Accepted__
 
 ## Decision ##
 
-Provide funding information about one or more grants through the `schema:MonetaryGrant`, linking it to `schema:Dataset` using the JSON-LD `@reverse` keyword on the `schema:fundedItem` property.
+Provide funding information about one or more grants through the `schema:MonetaryGrant`, linking it to `schema:Dataset` using the `schema:funding` property that can now be used from a schema:CreativeWork.
 
 ## Context ##
 
-`schema:MonetaryGrant` provides the structured information we need, and is related to the items that a grant funds via the `schema:fundedItem` property. However, the inverse of that property (something like `fundedBy`) does not exist, and so its hard to make the linkage from `Dataset` to `MonetaryGrant`. The JSON-LD `@reverse` property enables one to reference an inverse property without naming it, thereby enabling us to point directly from `Dataset` (which we are describing) to the `MonetaryGrant` that it is `fundedBy`. `schema.org` is considering a `funding` or `fundedBy` property in https://github.com/schemaorg/schemaorg/pull/2618, but it does not yet exist. In the future, if such a property were defined, then people could easily switch to using it.
+Before the `schema:funding` property existed, the `schema:MonetaryGrant` could only be linked to started from a `Dataset` by using the  JSON-LD `@reverse` keyword on the `Grant` property called `fundedItem`. `schema.org` has now created a `funding` property and defined it as the `inverseOf` the `fundedItem`. See https://github.com/schemaorg/schemaorg/issues/3056.
 
 ## Consequences ##
 
-- `@reverse` allows linking directly from `Dataset` to `MonetaryGrant`
-- Compliant JSON-LD parsers correctly interpret these and convert them to the correct set of RDF triples
-- The Google tools do not at this time properly interpret `@reverse`, which needs to be reported
-- Using `@reverse` is a little complex, but not as complex as the alternative, which is to build a `@graph` to hold the nodes
+- With the `funding` property accepted into the core schema.org vocabulary, there are no consequences to no longer using the JSON-LD `@reverse` keyword.
