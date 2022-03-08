@@ -218,25 +218,21 @@
       "description": "local day and decimal time, as 326.5 for the 326th day of the year, or November 22 at 1200 hours (noon)"
     }
   ],
-  "@reverse": {
-    "fundedItem": [
-      {
-        "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
-        "@type": "MonetaryGrant",
-        "identifier": "9909933",
-        "name": "GLOBEC: Winter Ecology of Larval Krill: Quantifying their Interaction with the Pack Ice Habitat",
-        "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
-        "funder": {
-            "@id": "http://dx.doi.org/10.13039/100000001",
-            "@type": "Organization",
-            "name": "National Science Foundation",
-            "identifier": [
-              "http://dx.doi.org/10.13039/100000001",
-              "https://ror.org/021nxhr62"
-            ]
-        }
+  "funding":{
+      "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
+      "@type": "MonetaryGrant",
+      "identifier": "9909933",
+      "name": "GLOBEC: Winter Ecology of Larval Krill: Quantifying their Interaction with the Pack Ice Habitat",
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
+      "funder": {
+          "@id": "http://dx.doi.org/10.13039/100000001",
+          "@type": "Organization",
+          "name": "National Science Foundation",
+          "identifier": [
+            "http://dx.doi.org/10.13039/100000001",
+            "https://ror.org/021nxhr62"
+          ]
       }
-    ]
   },
   "prov:wasDerivedFrom": {
     "@id": "https://doi.org/10.xxxx/Dataset-1"
