@@ -1120,7 +1120,7 @@ Back to [top](#top)
 
 ### Funding
 
-![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
+![Funding](/assets/diagrams/dataset/dataset_funding.png "Dataset - Funding")
 
 Data providers should include funding information in their Dataset descriptions to enable discovery and cross-linking. The information that would be useful includes the title, identifier, and url of the grant or award, along with structured information about the funding organization, including its name and identifier. Organizational identifiers are best represented using either a general purpose institutional identifier such as a [ROR](https://ror.org), [GRID](https://grid.ac/), or ISNI identifier, or a more specific [Funder ID](https://api.crossref.org/funders/) from the [Crossref Funder Registry](https://www.crossref.org/services/funder-registry/). The ROR for the National Science Foundation (https://ror.org/021nxhr62), for example, provides linkages to related identifiers as well. The Funder ID has the advantage that it includes both agency funders like the National Science Foundation (http://dx.doi.org/10.13039/100000001), but also provides identifiers for individual funding programs within those agencies, such as the NSF GEO Directorate (https://api.crossref.org/funders/100000085). When possible, providing both a ROR and Funder ID is helpful. Here's an example of identifiers for the National Science Foundation:
 
