@@ -71,7 +71,8 @@ v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [d
 * Tools
   * [Gleaner](https://gleaner.io) EarthCube developed tools for working with structure data 
   * [`exstruct`](https://github.com/scrapinghub/extruct) python tool for extracting microdata
-  * [Google structured data test tool](https://search.google.com/structured-data/testing-tool/u/0/)
+  * [Schema.org Validator](https://validator.schema.org/)
+  * [Google Rich Results Tool](https://search.google.com/test/rich-results)
   * [Google dataset search](https://toolbox.google.com/datasetsearch)
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)
