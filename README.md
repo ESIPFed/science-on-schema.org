@@ -18,6 +18,7 @@ This repository provides guidance for repository operators and others to follow 
 | __[Data Repository](/guides/DataRepository.md)__ | guidelines for schema.org for a research data repository | [<img src="/assets/images/clipboard-list-solid.svg" height="25px"/>](/guides/DataRepository.md) | [<img src="/assets/images/code-solid.svg" height="25px"/>](/examples/data-repository) | [<img src="/assets/images/list-check-solid.svg" height="25px"/>](/issues?q=is%3Aissue+is%3Aopen+label%3ADataRepository) |
 
 * [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
+* [Experimental](/guides/Experimental.md) - some suggestions for more advanced dataset documentation, proposed for inclusion in future SOSO guidelines. 
 
 ## Citation
 
