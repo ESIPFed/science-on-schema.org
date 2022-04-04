@@ -626,7 +626,8 @@ A geologic age given in millions of years ago (Ma):
         "time:inTimePosition": {
             "@type": "time:TimePosition",
             "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-            "time:numericPosition": 0.76,
+            "time:numericPosition": { "@value": 0.76, "@type": "xsd:decimal"}
+            "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
             }
         }
     }
