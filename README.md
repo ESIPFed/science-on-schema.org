@@ -12,26 +12,32 @@
 
 This repository provides guidance for repository operators and others to follow consistent conventions to provide schema.org markup in Dataset landing pages to improve data discovery through search engines. The main guides help describe Datasets and Data Repositories.
 
-* __[Dataset](/guides/Dataset.md)__ - guidelines for schema.org for a scientific Dataset
-* __[Data Repository](/guides/DataRepository.md)__ - guidelines for schema.org for describing a research data repository
+| Name | | Guideline | Examples | Issues |
+| --:  | --- | :-: | :-: | :-: |
+| __[Dataset](/guides/Dataset.md)__ | guidelines for schema.org for a scientific Dataset | [<img src="/assets/images/clipboard-list-solid.svg" height="25px"/>](/guides/Dataset.md) | [<img src="/assets/images/code-solid.svg" height="25px"/>](/examples/dataset) | [<img src="/assets/images/list-check-solid.svg" height="25px"/>](/issues?q=is%3Aissue+is%3Aopen+label%3ADataset) |
+| __[Data Repository](/guides/DataRepository.md)__ | guidelines for schema.org for a research data repository | [<img src="/assets/images/clipboard-list-solid.svg" height="25px"/>](/guides/DataRepository.md) | [<img src="/assets/images/code-solid.svg" height="25px"/>](/examples/data-repository) | [<img src="/assets/images/list-check-solid.svg" height="25px"/>](/issues?q=is%3Aissue+is%3Aopen+label%3ADataRepository) |
+
 * [Getting Started](/guides/GETTING-STARTED.md) - explains some useful techniques that will be common across all schema.org types
-
-This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets twice monthly, and all are welcome:
-
-- When: 
-    - 1st Monday at 5pmET
-    - 4th Thursday, 2:30pmET
-- Where: Telecons via Zoom
-    - Connection: https://us02web.zoom.us/j/84043422486?pwd=bGM4YkFyMkFGSW1FZG5yaFRNaGNvdz09
-    - Phone Access: United States: +1 (786) 535-3211
-    - Dial by your location (Find your local number: https://us02web.zoom.us/u/kcKljXMoF0)
-- [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
+* [Experimental](/guides/Experimental.md) - some suggestions for more advanced dataset documentation, proposed for inclusion in future SOSO guidelines. 
 
 ## Citation
 
 Science on Schema.org (SOSO) releases are archived on Zenodo, and the current release should be cited as:
 
 >  Matthew B. Jones, Stephen Richard,  Dave Vieglais, Adam Shepherd, Ruth Duerr, Doug Fils, Lewis McGibbney. (2021). Science-on-Schema.org v1.2.0 (Version 1.2.0). Zenodo. https://doi.org/10.5281/zenodo.4477164
+
+## Community 
+
+This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets twice monthly, and all are welcome:
+
+- When: 
+    - 1st Monday at 5pm ET
+    - 4th Thursday, 2:30pm ET
+- Where: Telecons via Zoom
+    - Connection: https://us02web.zoom.us/j/84043422486?pwd=bGM4YkFyMkFGSW1FZG5yaFRNaGNvdz09
+    - Phone Access: United States: +1 (786) 535-3211
+    - Dial by your location (Find your local number: https://us02web.zoom.us/u/kcKljXMoF0)
+- [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
 ## Upcoming Work
 
@@ -66,7 +72,8 @@ v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [d
 * Tools
   * [Gleaner](https://gleaner.io) EarthCube developed tools for working with structure data 
   * [`exstruct`](https://github.com/scrapinghub/extruct) python tool for extracting microdata
-  * [Google structured data test tool](https://search.google.com/structured-data/testing-tool/u/0/)
+  * [Schema.org Validator](https://validator.schema.org/)
+  * [Google Rich Results Tool](https://search.google.com/test/rich-results)
   * [Google dataset search](https://toolbox.google.com/datasetsearch)
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)

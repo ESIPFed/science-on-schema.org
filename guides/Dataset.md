@@ -448,18 +448,9 @@ For variable with numeric measured values, other properties of schema:PropertyVa
 Example:
 <pre>
 {
-<<<<<<< HEAD
   "@context": {
     "@vocab": "https://schema.org/"
   },
-=======
-  "@context": [
-    "https://schema.org/",
-	{
-      "gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"
-    }
-  ],
->>>>>>> origin/feature_151_context_namespace
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
 
@@ -945,7 +936,47 @@ Back to [top](#top)
 
 ### Roles of People
 
-People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable. Becuase there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
+People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable.
+
+NOTE: Because JSON-LD doesn't preserve the order of its collection values, for more see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list), we can preserve the order of people roles by applying the `@list` JSON-LD keyword. Given the following `creator` JSON-LD block,:
+	
+```
+{
+  ...
+  "creator:[
+    {
+	"@type": "Person",
+	"name": "Creator #1"
+    },
+    {
+	"@type": "Person",
+	"name": "Creator #2"
+    }
+  ]
+}
+```
+	
+The order of these creators can be preserved by the using the `@list` JSON-LD keyword:
+	
+```
+{
+  ...
+  "creator:{
+    "@list": [
+      {
+	"@type": "Person",
+	"name": "Creator #1"
+      },
+      {
+	"@type": "Person",
+	"name": "Creator #2"
+      }
+    ]
+  }
+}
+```
+	
+Because there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
 
@@ -1130,13 +1161,13 @@ Back to [top](#top)
 
 ### Funding
 
-![Funding](/assets/diagrams/dataset/dataset_funding.svg "Dataset - Funding")
+![Funding](/assets/diagrams/dataset/dataset_funding.png "Dataset - Funding")
 
 Data providers should include funding information in their Dataset descriptions to enable discovery and cross-linking. The information that would be useful includes the title, identifier, and url of the grant or award, along with structured information about the funding organization, including its name and identifier. Organizational identifiers are best represented using either a general purpose institutional identifier such as a [ROR](https://ror.org), [GRID](https://grid.ac/), or ISNI identifier, or a more specific [Funder ID](https://api.crossref.org/funders/) from the [Crossref Funder Registry](https://www.crossref.org/services/funder-registry/). The ROR for the National Science Foundation (https://ror.org/021nxhr62), for example, provides linkages to related identifiers as well. The Funder ID has the advantage that it includes both agency funders like the National Science Foundation (http://dx.doi.org/10.13039/100000001), but also provides identifiers for individual funding programs within those agencies, such as the NSF GEO Directorate (https://api.crossref.org/funders/100000085). When possible, providing both a ROR and Funder ID is helpful. Here's an example of identifiers for the National Science Foundation:
 
 ![NSF ROR Entry](/assets/images/ror.png "Dataset - Funder Identifiers")
 
-Linking a Dataset to the grants and awards that fund it can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant).  Each `schema:MonetaryGrant` can link to the items that it funds using the `schema:fundedItem` property. However, in our case, we need a property that points from the `schema:Dataset` that we are documenting via a `fundedBy` property to the `schema:MonetaryGrant` that funds it. Unfortunately, schema.org does not currently provide the `fundedBy` property which would be the inverse of `schema:fundedItem`, so we need to use a different mechanism to make the link. JSON-LD provides a very convenient [`@reverse` keyword](https://www.w3.org/TR/json-ld/#reverse-properties) to indicate that the inverse property of a known propery is intended. In our case, instead of saying that `Grant X has a fundedItem of Dataset Y`, we can say that `Dataset Y has the reverse property of fundedItem of Grant X`. This is basically a way of saying that Dataset Y is funded by Grant X. Here's an example use of the `@reverse` applied to fundedItem for two grants that funded a dataset.
+Linking a Dataset to the grants and awards that fund it can be acheived by adding a [schema:MonetaryGrant](https://schema.org/MonetaryGrant) through the `schema:funding` property. 
 
 <pre>
 {
@@ -1145,49 +1176,45 @@ Linking a Dataset to the grants and awards that fund it can be acheived by addin
   "@id": "https://doi.org/10.18739/A22V2CB44",
   "name": "Stable water isotope data from Arctic Alaska snow pits in 2019",
 <strong>
-  "@reverse": {
-    "fundedItem": [
-      {
-        "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
-        "@type": "MonetaryGrant",
-        "identifier": "1604105",
-        "name": "Collaborative Research: Nutritional Landscapes of Arctic Caribou: Observations, Experiments, and Models Provide Process-Level Understanding of Forage Traits and Trajectories",
-        "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
-        "funder": {
-            "@id": "http://dx.doi.org/10.13039/100000001",
-            "@type": "Organization",
-            "name": "National Science Foundation",
-            "identifier": [
-              "http://dx.doi.org/10.13039/100000001",
-              "https://ror.org/021nxhr62"
-            ]
-        }
-      },
-      {
-        "@type": "MonetaryGrant",
-        "@id": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
-        "identifier": "316349",
-        "name": "Where does water go when snow melts? New spatio-temporal resolution in stable water isotopes measurements to inform cold climate hydrological modelling",        
-        "url": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
-        "funder": {
-            "@id": "http://dx.doi.org/10.13039/501100002341",
-            "@type": "Organization",
-            "name": "Academy of Finland",
-            "identifier": [
-              "http://dx.doi.org/10.13039/501100002341",
-              "https://ror.org/05k73zm37"
-            ]
-        }
+  "funding": [
+    {
+      "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+      "@type": "MonetaryGrant",
+      "identifier": "1604105",
+      "name": "Collaborative Research: Nutritional Landscapes of Arctic Caribou: Observations, Experiments, and Models Provide Process-Level Understanding of Forage Traits and Trajectories",
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
+      "funder": {
+	    "@id": "http://dx.doi.org/10.13039/100000001",
+	    "@type": "Organization",
+	    "name": "National Science Foundation",
+	    "identifier": [
+	      "http://dx.doi.org/10.13039/100000001",
+	      "https://ror.org/021nxhr62"
+	    ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "MonetaryGrant",
+      "@id": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+      "identifier": "316349",
+      "name": "Where does water go when snow melts? New spatio-temporal resolution in stable water isotopes measurements to inform cold climate hydrological modelling",        
+      "url": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
+      "funder": {
+	    "@id": "http://dx.doi.org/10.13039/501100002341",
+	    "@type": "Organization",
+	    "name": "Academy of Finland",
+	    "identifier": [
+	      "http://dx.doi.org/10.13039/501100002341",
+	      "https://ror.org/05k73zm37"
+	    ]
+      }
+    }
+  ]
 </strong>
 }
 </pre>
 
 We recommend providing as much structured information about the grants that fund a Dataset as possible so that aggregators and harvesters can crosslink to the Funding agencies and grants that provided resources for the Dataset.
-
-Note: Although using `@reverse` is a convenient way to simplify the construction of JSON-LD for describing datasets since it places the funders as objects within the `schema:Dataset` object, other equivalent serializations are possible using `@graph`, and consumers should treat them equivalently. For example, one alternative would be to explicitly provide the JSON-LD [`@graph`](https://www.w3.org/TR/json-ld/#named-graphs) keyword in the entry, which allows both `schema:Dataset` and `schema:MonetaryGrant` top-level nodes in the graph. These can then be linked using the `schema:fundedItem` property on the `schema:MonetaryGrant` node. When two or more top level nodes are included in the graph like this, the primary node represented in the page should be indicated using [`schema:mainEntityOfPage`](https://schema.org/docs/datamodel.html#mainEntityBackground). Harvesters and search engines should treat these representations identically and should take appropriate steps to process the content to achieve an expected JSON structure (e.g. with framing) or treat the JSON-LD as an RDF graph and query accordingly.
 
 Back to [top](#top)
 

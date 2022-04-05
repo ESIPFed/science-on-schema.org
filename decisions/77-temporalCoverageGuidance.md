@@ -50,9 +50,9 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
                 "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
             }  } } }
 ```
-2. Numeric timePosition for interval bounds. When possible, express extent using geologic time as a decimal number in millions of years before present (A.D. 1950). If there is a known uncertainty on a value, express the interval as the outer bounds of the uncertainty envelope. Temporal CRS can be identified with http://schema.geoschemas.org/contexts/temporal#MillionsOfYear; this is the best URI I could find.
+2. Numeric timePosition for interval bounds. When possible, express extent using geologic time as a decimal number in millions of years before present (A.D. 1950). If there is a known uncertainty on a value, it can be expressed as older and younger bounds or as an uncertainty in sigma (1, 1.960, 2, etc.). Other time units and ways to describe time uncertainties can be found at https://geoschemas.org/extensions/temporal.html. This site is maintained by science-on-schema.org members. We welcome suggestions for other geologic timescale references.
 
-*Example: Dataset with single time instant temporal coverage. Context same as last example.*
+*Example: Dataset with single time instant temporal coverage. Context same as example 1.*
 
 ```
 {   "@type": "Dataset",
@@ -69,7 +69,7 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
             }  }  }   }
 ```
 
-*Example: Dataset with temporal coverage that is named time interval* from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+*Example: Dataset with temporal coverage that is named time interval from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). Context same as example 1.*
 
 ```
 { "@type": "Dataset",
