@@ -1,12 +1,10 @@
 {
-    "@context": {
-        "@vocab": "https://schema.org/",
-        "qudt": "http://qudt.org/schema/qudt/",
-        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "unit": "http://qudt.org/vocab/unit/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "quantityKind": "http://qudt.org/vocab/quantitykind/"
-    },
+    "@context": [
+        "https://schema.org/",
+        {      
+            "qudt": "http://qudt.org/schema/qudt/"
+        }
+    ],
     "@id": "ex:dataset/5500",
     "@type":  "Dataset",
     "additionalType" :  "http://qudt.org/schema/qudt/MultiDimensionalDataFormat",

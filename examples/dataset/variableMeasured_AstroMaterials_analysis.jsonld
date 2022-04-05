@@ -1,14 +1,13 @@
 {
-    "@context": {
-        "@vocab": "https://schema.org/",
-        "qudt": "http://qudt.org/schema/qudt/",
-        "rdf": " http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "dct": "http://purl.org/dc/terms/",
-        "unit": "http://qudt.org/vocab/unit/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "quantityKind": "http://qudt.org/vocab/quantitykind/",
-        "qudtschema": "http://qudt.org/schema/qudt/"
-    },
+    "@context": [
+        "https://schema.org/",
+        {      
+            "qudt": "http://qudt.org/schema/qudt/",
+            "dct": "http://purl.org/dc/terms/",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "qudtschema": "http://qudt.org/schema/qudt/"
+        }
+    ],
     "@id": "http://astromat/dataset/data_astromat_analysis/metadata",
     "@type": "Dataset",
     "variableMeasured": [

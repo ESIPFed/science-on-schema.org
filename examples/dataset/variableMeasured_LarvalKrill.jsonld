@@ -1,13 +1,12 @@
 {
-    "@context": {
-        "sdo": "https://schema.org/",
-        "@vocab": "https://schema.org/",
-        "qudt": "http://qudt.org/schema/qudt/",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "unit": "http://qudt.org/vocab/unit/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "quantityKind": "http://qudt.org/vocab/quantitykind/"
-    },
+    "@context": [
+        "https://schema.org/",
+        {      
+            "qudt": "http://qudt.org/schema/qudt/",
+            "dct": "http://purl.org/dc/terms/",
+            "unit": "http://qudt.org/vocab/unit/"
+        }
+    ],
     "@id": "http://lod.example-data-repository.org/id/dataset/3300/metadata",
     "@type": "Dataset",
     "name": "Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project)",

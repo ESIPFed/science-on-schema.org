@@ -1,12 +1,10 @@
 {
-    "@context": {
-        "@vocab": "https://schema.org/",
-        "qudt": "http://qudt.org/schema/qudt/",
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        "unit": "http://qudt.org/vocab/unit/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "quantityKind": "http://qudt.org/vocab/quantitykind/"
-    },
+    "@context": [
+        "https://schema.org/",
+        {      
+            "qudt": "http://qudt.org/schema/qudt/"
+        }
+    ],
     "@type": "Dataset",
     "additionalType": "http://schemas.usgin.org/models/#boreholetemperature",
     "name": "Borehole Temperature data from Pima County, Arizona",
