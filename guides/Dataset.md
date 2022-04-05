@@ -387,7 +387,7 @@ This recommendation outlines several tiers of variable description. Tier 1 is th
 
 #### Tier 1. Simple list of variable names
 
-The simplest approach is to provide a schema:name and a text description of the variable. The schema:name should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using schema:alternateName.
+The simplest approach is to provide a `schema:name` and a textual description of the variable. The `schema:name` should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using `schema:alternateName`. The field `schema:description` is used to provide a definition of the variable/property/attribute that allows others to correctly understand and interpret the values.
 
 Example:
 <pre>
@@ -410,7 +410,7 @@ Example:
 
 #### Tier 2: Names of variables with formal property types
 
-It is highly recommended to provide a [schema:propertyID](https://schema.org/propertyID) in the schema:PropertyValue object. This should be an http URI that  resolves to a web page providing a human-friendly description of the variable.  Ideally, this identifier should also be resolved to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data - i.e., to be more FAIR.  The property can be identified at any level of granularity, depending on what the data provider can determine. For example there might be a propertyID for 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
+In Tier 2, we recommend using a `schema:PropertyValue`object to provide a [schema:propertyID](https://schema.org/propertyID) that better defines the semantics of the variable than plain text can. This `schema:propertyID` should be a URI that resolves to a web page providing a human-friendly description of the variable and, ideally, this identifier should also be resolvable to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation) or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data, i.e., to be more FAIR.  The property can be identified at any level of specificity, depending on what the data provider can determine about the interpretation of the variable. For example, one might use a propertyID for thr property 'temperature', or use a more specific property like 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
 
 Example:
 <pre>
@@ -436,14 +436,14 @@ Example:
 
 #### Tier 3: Numeric values
 
-For variable with numeric measured values, other properties of schema:PropertyValue can add additional useful information:
+For variables with numeric measured values, other properties of schema:PropertyValue can add additional useful information:
 
-- [unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
-- [unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate.
-- [minValue](https://schema.org/minValue). If the value for the variable is numeric, this is the minimum value that occurs in the dataset. Not useful for other value types.
-- [maxValue](https://schema.org/maxValue). If the value for the variable is numeric, this is the maximum value that occurs in the dataset. Not useful for other value types.
-- [measurementTechnique](https://schema.org/measurementTechnique). A text description of the measurement method used to determine values for this variable. If standard measurement protocols are defined and registered, these can be identified via http URI's.
-- [url](https://schema.org/url) Any schema:Thing can have a URL property, but because the value is simply a url the relationship of the linked resource can not be expressed.  Usage is optional. The recommendation is that schema:url should link to a web page that would be useful for a person, but are not intended to be machine-actionable.
+- [schema:unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
+- [schema:unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate.
+- [schema:minValue](https://schema.org/minValue). If the value for the variable is numeric, this is the minimum value that occurs in the dataset. Not useful for other value types.
+- [schema:maxValue](https://schema.org/maxValue). If the value for the variable is numeric, this is the maximum value that occurs in the dataset. Not useful for other value types.
+- [schema:measurementTechnique](https://schema.org/measurementTechnique). A text description of the measurement method used to determine values for this variable. If standard measurement protocols are defined and registered, these can be identified via http URI's.
+- [schema:url](https://schema.org/url) Any schema:Thing can have a URL property, but because the value is simply a url the relationship of the linked resource can not be expressed.  Usage is optional. The recommendation is that `schema:url` should link to a web page that would be useful for a person to interpret the variable, but is not intended to be machine-actionable.
 
 Example:
 <pre>
