@@ -1,7 +1,0 @@
-doi:10.18739/A2G15TB43 (pdf)	data/doi_10.18739_A2G15TB43-METADATA.pdf
-resource_map_doi:10.18739/A2G15TB43	data/resource_map_doi_10_18739_A2W85W.rdf.xml
-doi:10.18739/A2G15TB43	data/science_metadata.xml
-doi:10.18739/A2G15TB43	data/science_metadata.xml
-urn:uuid:9f32ba46-ecba-4f69-8e9d-9fb16c1eec04	data/Frost_environmentData_Alaska_2016.csv
-urn:uuid:48b2c1a1-2c47-445d-b3cd-bcaf90137488	data/Frost_vegCover_Alaska_2016.csv
-urn:uuid:9af049d0-f68a-4cb8-9661-a363357e7b48	data/Frost_shrubMetric_Alaska_2016.csv

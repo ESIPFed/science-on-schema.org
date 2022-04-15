@@ -1,6 +1,0 @@
-d660fbe566f97b601abefce7e0324910  data/doi_10.18739_A2G15TB43-METADATA.pdf
-1ef62bf131f9ea687a5fb6a11c395c1a  data/Frost_environmentData_Alaska_2016.csv
-77ac7b759a876f4cae77b205e21486a8  data/science_metadata.xml
-532e94d14e3aedfe46ac25a7d0ed7de3  data/Frost_shrubMetric_Alaska_2016.csv
-33b0bde935c50fa434df261186b313dc  data/Frost_vegCover_Alaska_2016.csv
-049eb0bc6a8e8c4c1b97d749d3bfe0d1  data/resource_map_doi_10_18739_A2W85W.rdf.xml
