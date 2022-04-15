@@ -374,43 +374,83 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
 `curl --location --request GET "http://doi.org/fg5v" --header "Accept: application/ld+json"`
 
 Back to [top](#top)
-
+<a id="variables"></a>
 ### Variables
 
-Adding the [schema:variableMeasured](https://schema.org/variableMeasured) field can be done in two ways - a text description of each variable or by using the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail. We highly recommend using the [schema:PropertyValue](https://schema.org/PropertyValue).
+A Dataset is a collection of data entities, each of which contains structured and unstructured values for a set of properties about that entity. For example, an hypothetical Dataset might contain three data files: 1) a data table in CSV format containing columns of data that both classify and measure the properties of a set of lakes in a region; 2) an image file containing rasterized geospatial data values for each location for properties like water temperature at multiple depths; and, 3) a text file containing responses to a survey assessing perspectives on water rights, with values for questions containing both natural language responses and responses on a Likert scale. In each of these examples, we are recording the value of attributes (aka properties) about an entity of interest (lake). In schema.org, details about these attributes can be recorded using `schema:variableMeasured`. So, while schema.org uses the term "variable" and the term "measured", it is usually conceptualized as a listing of any of the properties or attributes of an entity that are recorded, and not sensu strictu a measured variable. Thus, we recommend using `schema:variableMeasured` to represent any recordable property of an entity that is found in the dataset. While this includes quantitatively "measured" observations (e.g., rainfaill in mm), it also includes classification values that are asserted or qualitatively assigned (e.g., "moderate velocity"), contextual attributes such as spatial locations, times, or sampling information associated with a value, and textual values such as narrative text.
+
+Information about the variables/attributes in a dataset can enhance discovery and support evaluation of the data. This can be done using the [schema:variableMeasured](https://schema.org/variableMeasured) field. Schema.org allows the value of variableMeasured to be a simple text string, but it is strongly recommended to use the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail.
 
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
-In it's most basic form, the variable as a [schema:PropertyValue](https://schema.org/PropertyValue) can be published as:
+This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3).   See [Experimental Recommendations](), for proposed recommendations to document variables with with non-numeric or enumerated (controlled vocabulary) values, variables whose values are structured objects (e.g. json objects, arrays, gridded data), or are references to external value representations.
 
+#### Tier 1. Simple list of variable names
+
+The simplest approach is to provide a `schema:name` and a textual description of the variable. The `schema:name` should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using `schema:alternateName`. The field `schema:description` is used to provide a definition of the variable/property/attribute that allows others to correctly understand and interpret the values.
+
+Example:
 <pre>
 {
   "@context": "https://schema.org/",
   "@type": "Dataset",
-  "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+  "name": "Removal of organic carbon by natural bacterioplankton communities ...",
   ...
-  <strong>"variableMeasured": [
+  "variableMeasured": [
     {
       "@type": "PropertyValue",
-      "name": "Bottle identifier",
-      "description": "The bottle number for each associated measurement."
+      "name": "latdd",
+      "alternateName":"latitude, decimal degrees",
+      "description": "Latitude where water samples were collected ...",
     },
     ...
-  ]</strong>
+  ]
 }
 </pre>
-<a id="variables_external-vocab-example"></a>
-If a URI is available that identifies the variable, it should be included as the
-[PropertyID](https://schema.org/propertyID):
 
+#### Tier 2: Names of variables with formal property types
+
+In Tier 2, we recommend using a `schema:PropertyValue`object to provide a [schema:propertyID](https://schema.org/propertyID) that better defines the semantics of the variable than plain text can. This `schema:propertyID` should be a URI that resolves to a web page providing a human-friendly description of the variable and, ideally, this identifier should also be resolvable to obtain an RDF representation using a documented vocabulary for machine consumption, for example a [sosa:Observation](https://www.w3.org/TR/vocab-ssn/#SOSAObservation) or [DDI represented variable](https://ddi-lifecycle-technical-guide.readthedocs.io/en/latest/Specific%20Structures/Data%20Description.html#represented-variable). Describing the variables with machine understandable vocabularies is necessary if you want your data to be interoperable with other data, i.e., to be more FAIR.  The property can be identified at any level of specificity, depending on what the data provider can determine about the interpretation of the variable. For example, one might use a propertyID for thr property 'temperature', or use a more specific property like 'water temperature', 'sea surface water temperature', 'sea surface water temperature measured with protocol X, daily average, Kelvins, xsd:decimal'.   If there are choices, the most specific property identifier should be used.
+
+Example:
 <pre>
 {
-  "@context": [
-    "https://schema.org/",
-	{
-      "gsn-quantity": "http://www.geoscienceontology.org/geo-lower/quantity#"
-    }
-  ],
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "name": "Removal of organic carbon by natural bacterioplankton communities ...",
+  ...
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "latdd",
+      "alternateName":"latitude, decimal degrees",
+      <strong>"propertyID":"http://purl.obolibrary.org/obo/NCIT_C68642"</strong>,
+      "description": "Latitude where water samples were collected ...",
+    },
+    ...
+  ]
+}
+</pre>
+
+#### Tier 3: Numeric values
+
+For variables with numeric measured values, other properties of schema:PropertyValue can add additional useful information:
+
+- [schema:unitText](https://schema.org/unitText). A string that identifies a unit of measurement that applies to all values for this variable.
+- [schema:unitCode](https://schema.org/unitCode). Value is expected to be TEXT or URL. We recommend providing an HTTP URI that identifies a unit of measure from a vocabulary accessible on the web.  The QUDT unit vocabulary provides and extensive set of registered units of measure that can be used to populate the schema:unitCode property to specify the units of measure used to report datavalues when that is appropriate.
+- [schema:minValue](https://schema.org/minValue). If the value for the variable is numeric, this is the minimum value that occurs in the dataset. Not useful for other value types.
+- [schema:maxValue](https://schema.org/maxValue). If the value for the variable is numeric, this is the maximum value that occurs in the dataset. Not useful for other value types.
+- [schema:measurementTechnique](https://schema.org/measurementTechnique). A text description of the measurement method used to determine values for this variable. If standard measurement protocols are defined and registered, these can be identified via http URI's.
+- [schema:url](https://schema.org/url) Any schema:Thing can have a URL property, but because the value is simply a url the relationship of the linked resource can not be expressed.  Usage is optional. The recommendation is that `schema:url` should link to a web page that would be useful for a person to interpret the variable, but is not intended to be machine-actionable.
+
+Example:
+<pre>
+{
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
   "@type": "Dataset",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
 
@@ -418,10 +458,11 @@ If a URI is available that identifies the variable, it should be included as the
     {
       "@type": "PropertyValue",
       "name": "latitude",
-      <strong>"propertyID":"http://www.geoscienceontology.org/geo-lower/quantity#latitude"</strong>,
+      "propertyID":"http://purl.obolibrary.org/obo/NCIT_C68642",
       "url": "https://www.sample-data-repository.org/dataset-parameter/665787",
-      "description": "Latitude where water samples were collected; north is positive.",
+      "description": "Latitude where water samples were collected; north is positive. Latitude is a geographic coordinate which refers to the angle from a point on the Earth's surface to the equatorial plane",
       "unitText": "decimal degrees",
+      "unitCode":"http://qudt.org/vocab/unit/DEG",
       "minValue": "45.0",
       "maxValue": "15.0"
     },
