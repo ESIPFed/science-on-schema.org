@@ -18,6 +18,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -32,6 +33,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -46,6 +48,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -60,6 +63,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -74,6 +78,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -88,6 +93,7 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
@@ -102,10 +108,102 @@
       "contributions": [
         "design",
         "code",
+        "content",
         "doc",
         "eventOrganizing",
         "ideas",
         "maintenance"
+      ]
+    },
+    {
+      "login": "amoeba",
+      "name": "Bryce Mecum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/563?v=4",
+      "profile": "https://brycemecum.com/",
+      "contributions": [
+        "code",
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "lewismc",
+      "name": "Lewis John McGibbney",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1165719?v=4",
+      "profile": "http://people.apache.org/keys/committer/lewismc",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "nokome",
+      "name": "Nokome Bentley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1152336?v=4",
+      "profile": "https://github.com/nokome",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "nein09",
+      "name": "Melinda Minch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/547883?v=4",
+      "profile": "http://melindaminch.com/",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "charlesvardeman",
+      "name": "Charles Vardeman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64625?v=4",
+      "profile": "https://github.com/charlesvardeman",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "dr-shorthair",
+      "name": "Simon Cox",
+      "avatar_url": "https://avatars.githubusercontent.com/u/608303?v=4",
+      "profile": "http://people.csiro.au/C/S/Simon-Cox",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "danbri",
+      "name": "Dan Brickley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/170265?v=4",
+      "profile": "https://danbri.org/",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "HPeat",
+      "name": "HPeat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57996021?v=4",
+      "profile": "https://github.com/HPeat",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "graybeal",
+      "name": "John Graybeal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1266896?v=4",
+      "profile": "http://www.linkedin.com/in/johngraybeal/",
+      "contributions": [
+        "content",
+        "doc"
       ]
     }
   ],
