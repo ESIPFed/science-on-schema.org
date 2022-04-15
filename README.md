@@ -24,7 +24,7 @@ This repository provides guidance for repository operators and others to follow 
 
 Science on Schema.org (SOSO) releases are archived on Zenodo, and the current release should be cited as:
 
->  Matthew B. Jones, Stephen Richard,  Dave Vieglais, Adam Shepherd, Ruth Duerr, Doug Fils, Lewis McGibbney. (2021). Science-on-Schema.org v1.2.0 (Version 1.2.0). Zenodo. https://doi.org/10.5281/zenodo.4477164
+>  Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicolas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley. (2022). Science-on-Schema.org v1.3.0. Zenodo. https://doi.org/10.5281/zenodo.4477164
 
 ## Community 
 
@@ -39,10 +39,6 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
     - Dial by your location (Find your local number: https://us02web.zoom.us/u/kcKljXMoF0)
 - [Living Agenda](https://docs.google.com/document/d/1tIlDVnKeocO1E_SSbNaldv0avORfGFdmYDNk_3ub6ik/edit?ts=5d9ed12d)
 
-## Upcoming Work
-
-v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [develop branch](https://github.com/ESIPFed/science-on-schema.org/tree/develop))
-
 ## Version DOIs
 
 | Version | DOI |
@@ -50,6 +46,29 @@ v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [d
 |[1.2.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.2.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4477164.svg"/>](https://doi.org/10.5281/zenodo.4477164)|
 |[1.1.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
 |[1.0.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.0.0)|[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.2628756.svg"/>](https://doi.org/10.5281/zenodo.2628756)|
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.whoi.edu/"><img src="https://avatars.githubusercontent.com/u/2117576?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Adam Shepherd</b></sub></a><br /><a href="#design-ashepherd" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=ashepherd" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=ashepherd" title="Documentation">📖</a> <a href="#eventOrganizing-ashepherd" title="Event Organizing">📋</a> <a href="#ideas-ashepherd" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-ashepherd" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://matt.magisa.org/"><img src="https://avatars.githubusercontent.com/u/766407?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Matt Jones</b></sub></a><br /><a href="#design-mbjones" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=mbjones" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=mbjones" title="Documentation">📖</a> <a href="#eventOrganizing-mbjones" title="Event Organizing">📋</a> <a href="#ideas-mbjones" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-mbjones" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://lab.usgin.org/"><img src="https://avatars.githubusercontent.com/u/513380?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Stephen Richard</b></sub></a><br /><a href="#design-smrgeoinfo" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=smrgeoinfo" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=smrgeoinfo" title="Documentation">📖</a> <a href="#eventOrganizing-smrgeoinfo" title="Event Organizing">📋</a> <a href="#ideas-smrgeoinfo" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-smrgeoinfo" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/njarboe"><img src="https://avatars.githubusercontent.com/u/1278789?v=4?s=50" width="50px;" alt=""/><br /><sub><b>njarboe</b></sub></a><br /><a href="#design-njarboe" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=njarboe" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=njarboe" title="Documentation">📖</a> <a href="#eventOrganizing-njarboe" title="Event Organizing">📋</a> <a href="#ideas-njarboe" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-njarboe" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://people.ku.edu/~vieglais"><img src="https://avatars.githubusercontent.com/u/605409?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Dave Vieglais</b></sub></a><br /><a href="#design-datadavev" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=datadavev" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=datadavev" title="Documentation">📖</a> <a href="#eventOrganizing-datadavev" title="Event Organizing">📋</a> <a href="#ideas-datadavev" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-datadavev" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/fils"><img src="https://avatars.githubusercontent.com/u/57170?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Douglas Fils</b></sub></a><br /><a href="#design-fils" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=fils" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=fils" title="Documentation">📖</a> <a href="#eventOrganizing-fils" title="Event Organizing">📋</a> <a href="#ideas-fils" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-fils" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/rduerr"><img src="https://avatars.githubusercontent.com/u/1544892?v=4?s=50" width="50px;" alt=""/><br /><sub><b>rduerr</b></sub></a><br /><a href="#design-rduerr" title="Design">🎨</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=rduerr" title="Code">💻</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=rduerr" title="Documentation">📖</a> <a href="#eventOrganizing-rduerr" title="Event Organizing">📋</a> <a href="#ideas-rduerr" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-rduerr" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Resources
 
@@ -78,3 +97,4 @@ v1.3 ([issues](https://github.com/ESIPFed/science-on-schema.org/milestone/6), [d
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)
   * [SHACL playground](https://shacl.org/playground/)
+

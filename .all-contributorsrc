@@ -1,0 +1,113 @@
+{
+  "projectName": "science-on-schema",
+  "projectOwner": "ESIPFed",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 50,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "ashepherd",
+      "name": "Adam Shepherd",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2117576?v=4",
+      "profile": "https://www.whoi.edu/",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "mbjones",
+      "name": "Matt Jones",
+      "avatar_url": "https://avatars.githubusercontent.com/u/766407?v=4",
+      "profile": "http://matt.magisa.org/",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "smrgeoinfo",
+      "name": "Stephen Richard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/513380?v=4",
+      "profile": "http://lab.usgin.org/",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "njarboe",
+      "name": "njarboe",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1278789?v=4",
+      "profile": "https://github.com/njarboe",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "datadavev",
+      "name": "Dave Vieglais",
+      "avatar_url": "https://avatars.githubusercontent.com/u/605409?v=4",
+      "profile": "http://people.ku.edu/~vieglais",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "fils",
+      "name": "Douglas Fils",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57170?v=4",
+      "profile": "https://github.com/fils",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "rduerr",
+      "name": "rduerr",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1544892?v=4",
+      "profile": "https://github.com/rduerr",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "eventOrganizing",
+        "ideas",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
