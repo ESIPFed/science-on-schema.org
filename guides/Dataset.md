@@ -97,7 +97,7 @@ For a dataset with the keywords of: `ocean acidification`, `Dissolved Organic Ca
 If you have information about a controlled vocabulary from which keywords come from,  use `schema:DefinedTerm` to descibe that kewyword. The relevant properties of a `schema:DefinedTerm` are:
 
 * [name](https://schema.org/name) - The name of the keyword. (Required)
-* [inDefinedTermSet](https://schema.org/inDefinedTermSet) - The controlled vocabulary responisble for this keyword. (Required)
+* [inDefinedTermSet](https://schema.org/inDefinedTermSet) - The controlled vocabulary responsible for this keyword. (Required)
 * [url](https://schema.org/url) - The canonical URL for the keyword. (Optional)
 * [termCode](https://schema.org/termCode) - A representative code for this keyword in the controlled vocabulary (Optional)
 
