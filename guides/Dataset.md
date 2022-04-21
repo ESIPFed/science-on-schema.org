@@ -13,6 +13,7 @@
 		- [Variables](#variables)
 		- [Catalog](#catalog)
 		- [Metadata](#metadata)
+		- [Dates](#dates)
 		- [Distributions](#distributions)
 			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
 		- [Temporal Coverage](#temporal-coverage)
@@ -541,6 +542,25 @@ An example of a metadata reference to an instance of EML-formatted structured me
 Alternatively, if the schema.org record is meant to describe the metadata record, one could use the inverse property `schema:about` to indicate the linkage back to the Dataset that it describes.  This would be a more rare situation, as typically the schema.org record would be focused on the Dataset itself.
 
 Note that the The `encodingFormat` property contains an array of formats to describe multiple formats to which the document conforms (in this example, the document is both conformant with XML and the EML metadata dialect).
+
+Back to [top](#top)
+
+### Dates
+
+Scientific datasets typically have multiple times associated, including
+
+- the time the dataset was generated (e.g. when the model was run; when data processing was completed; ...)
+- the time the phenomenon described in the dataset applies in the world (which is usually prior to 1. for observational data, and after for forecasts)
+- the time the dataset is valid or recommended for use (esp. for forecasts)
+
+
+Schema.org offers various date properties whose domain includes Thing>Dataset, and these can be used to encode this information. Recommendations:
+
+- dateCreated ::  the time the dataset was generated
+- dateModified :: use to specify when the dataset described by the metadata record was most recently updated.
+- datePublished :: use for when data (e.g. model results) are made available to the public.
+- temporalCoverage :: specifies the period that the content applies to, i.e. the time the phenomenon described in the dataset applies in the world. See details at [temporalCoverage](#temporal-coverage)
+- expires :: Date the content expires and is no longer useful or available. If datePublished is when the resource (dataset, model output) is available, 'expires' can bracket the time the dataset is valid or recommended for use.
 
 Back to [top](#top)
 
