@@ -32,7 +32,8 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                    "time:numericPosition": 0.76,
+                    "time:numericPosition": { "@value": 0.76, "@type": "xsd:decimal" },
+                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
                     }
                 }
             }
@@ -46,10 +47,11 @@
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
-                    "time:numericPosition": 4.404,
-                }
-                "gstime:uncertainty": 0.008,
-                "gstime:uncertaintySigma": 2
+                    "time:numericPosition": { "@value": 4.404, "@type": "xsd:decimal" },
+                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                },
+                "gstime:Uncertainty": { "@value": 0.008, "@type": "xsd:decimal" },
+                "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
             }
         },
         {
@@ -64,10 +66,11 @@
                         "@type": "time:TimePosition",
                         "rdfs:comment": "beginning is older bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": 18.0,
-                    }
-                    "gstime:uncertainty": 0.35,
-                    "gstime:uncertaintySigma": 2
+                        "time:numericPosition": { "@value": 18.0, "@type": "xsd:decimal" },
+                        "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                    },
+                    "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
+                    "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
                 },
                 "time:hasEnd": {
                     "@type": "time:Instant",
@@ -75,27 +78,29 @@
                         "@type": "time:TimePosition",
                         "rdfs:comment": "ending is younger bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": 12.7,
-                    }
-                    "gstime:uncertainty": 0.4,
-                    "gstime:uncertaintySigma": 2
+                        "time:numericPosition": { "@value": 12.7, "@type": "xsd:decimal" },
+                        "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
+
+                    "gstime:Uncertainty": { "@value": 0.4, "@type": "xsd:decimal" },
+                    "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
                 }
             }
         },
         {
             "@type": "Dataset",
             "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya.",
-            "temporalCoverage": "Carbon dating age BP Calibrated of 2640 +130 -80 (one-sigma)",
+            "temporalCoverage": "Carbon dating age BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
             "time:hasTime": {
                 "@type": "time:Instant",
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
-                    "time:hasTRS": {"@id": "gstime:ThousandsOfYears"},
-                    "time:numericPosition": 2460,
-                }
-                "gstime:uncertaintyOlder": 130,
-                "gstime:uncertaintyYounger": 80,
-                "gstime:uncertaintySigma": 1
+                    "time:hasTRS": {"@id": "gstime:BeforePresentCalibrated"},
+                    "time:numericPosition": { "@value": 2460, "@type": "xsd:decimal" },
+                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "BP-CAL, "@type": "xsd:string" }
+                },
+                "gstime:UncertaintyOlder": { "value": 130, "@type": "xsd:string" },
+                "gstime:UncertaintyYounger": { "value": 80, "@type": "xsd:string" },
+                "gstime:UncertaintySigma": { "@value": 1, "@type": "xsd:decimal" }
             }
         },
         {
@@ -108,10 +113,7 @@
                     {
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
-                        "time:NominalPosition": {
-                            "@value": "icsc:Bartonian",
-                            "@type": "xsd:anyURI"
-                        }
+                        "time:NominalPosition": { "@value": "icsc:Bartonian", "@type": "xsd:anyURI" }
                     },
                     {
                         "@type": "time:Interval",
@@ -121,10 +123,8 @@
                             "time:inTimePosition": {
                                 "@type": "time:TimePosition",
                                 "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                                "time:numericPosition": {
-                                    "@value": "41.2",
-                                    "@type": "xsd:decimal"
-                                }
+                                "time:numericPosition": { "@value": 41.2, "@type": "xsd:decimal" },
+                                "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
                             }
                         },
                         "time:hasEnd": {
@@ -133,10 +133,8 @@
                             "time:inTimePosition": {
                                 "@type": "time:TimePosition",
                                 "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                                "time:numericPosition": {
-                                    "@value": "37.71",
-                                    "@type": "xsd:decimal"
-                                }
+                                "time:numericPosition": { "@value": 37.71, "@type": "xsd:decimal" },
+                                "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
                             }
                         }
                     }
@@ -154,10 +152,7 @@
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
-                        "time:NominalPosition": {
-                            "@value": "icsc:Triassic",
-                            "@type": "xsd:anyURI"
-                        }
+                        "time:NominalPosition": { "@value": "icsc:Triassic", "@type": "xsd:anyURI" }
                     }
                 },
                 "time:hasEnd": {
@@ -165,10 +160,7 @@
                     "time:inTimePosition": {
                         "@type": "time:TimePosition",
                         "time:hasTRS": {"@id": "ts:gts2020"},
-                        "time:NominalPosition": {
-                            "@value": "icsc:Jurassic",
-                            "@type": "xsd:anyURI"
-                        }
+                        "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
                     }
                 }
             }
