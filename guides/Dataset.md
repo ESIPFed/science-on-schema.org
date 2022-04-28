@@ -556,10 +556,12 @@ Scientific datasets typically have multiple times associated, including
 
 Schema.org offers various date properties whose domain includes Thing>Dataset, and these can be used to encode this information. Recommendations:
 
+There are two objects that are being labeled with these property labels: the age of the sample being studied and the study itself. "temporalCoverage" describes the age of the sample and the other four describe the data created from measuring the sample. For example, if one took a sample 200 ft down in an ice core, temporalCoverage would describe the age when that layer of ice fell as snow and the others (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
+	
+- temporalCoverage :: specifies the period that the content applies to, i.e. the time the phenomenon described in the dataset applies in the world. See details at [temporalCoverage](#temporal-coverage)
 - dateCreated ::  the time the dataset was generated
 - dateModified :: use to specify when the dataset described by the metadata record was most recently updated.
 - datePublished :: use for when data (e.g. model results) are made available to the public.
-- temporalCoverage :: specifies the period that the content applies to, i.e. the time the phenomenon described in the dataset applies in the world. See details at [temporalCoverage](#temporal-coverage)
 - expires :: Date the content expires and is no longer useful or available. If datePublished is when the resource (dataset, model output) is available, 'expires' can bracket the time the dataset is valid or recommended for use.
 
 Back to [top](#top)
