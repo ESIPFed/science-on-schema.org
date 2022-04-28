@@ -77,6 +77,18 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
     <td align="center"><a href="https://github.com/HPeat"><img src="https://avatars.githubusercontent.com/u/57996021?v=4?s=50" width="50px;" alt=""/><br /><sub><b>HPeat</b></sub></a><br /><a href="#content-HPeat" title="Content">🖋</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=HPeat" title="Documentation">📖</a></td>
     <td align="center"><a href="http://www.linkedin.com/in/johngraybeal/"><img src="https://avatars.githubusercontent.com/u/1266896?v=4?s=50" width="50px;" alt=""/><br /><sub><b>John Graybeal</b></sub></a><br /><a href="#content-graybeal" title="Content">🖋</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=graybeal" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/chantelleverhey"><img src="https://avatars.githubusercontent.com/u/70176780?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Chantelle Verhey</b></sub></a><br /><a href="#content-chantelleverhey" title="Content">🖋</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=chantelleverhey" title="Documentation">📖</a> <a href="#ideas-chantelleverhey" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/ChantelRidsdale"><img src="https://avatars.githubusercontent.com/u/75498385?v=4?s=50" width="50px;" alt=""/><br /><sub><b>ChantelRidsdale</b></sub></a><br /><a href="#content-ChantelRidsdale" title="Content">🖋</a> <a href="https://github.com/ESIPFed/science-on-schema/commits?author=ChantelRidsdale" title="Documentation">📖</a> <a href="#ideas-ChantelRidsdale" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/mcorlando"><img src="https://avatars.githubusercontent.com/u/8259475?v=4?s=50" width="50px;" alt=""/><br /><sub><b>mcorlando</b></sub></a><br /><a href="#content-mcorlando" title="Content">🖋</a> <a href="#eventOrganizing-mcorlando" title="Event Organizing">📋</a></td>
+    <td align="center"><a href="https://github.com/johardi"><img src="https://avatars.githubusercontent.com/u/5062950?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Josef Hardi</b></sub></a><br /><a href="#ideas-johardi" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/steingod"><img src="https://avatars.githubusercontent.com/u/5928452?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Øystein Godøy</b></sub></a><br /><a href="#ideas-steingod" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/RichardWallis"><img src="https://avatars.githubusercontent.com/u/13315406?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Richard Wallis</b></sub></a><br /><a href="#ideas-RichardWallis" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://cires.colorado.edu/~khalsa/"><img src="https://avatars.githubusercontent.com/u/10770264?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Siri Jodha S Khalsa</b></sub></a><br /><a href="#ideas-sjskhalsa" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/mathiasbockwoldt"><img src="https://avatars.githubusercontent.com/u/8100468?v=4?s=50" width="50px;" alt=""/><br /><sub><b>Mathias Bockwoldt</b></sub></a><br /><a href="#ideas-mathiasbockwoldt" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->

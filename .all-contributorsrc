@@ -205,6 +205,83 @@
         "content",
         "doc"
       ]
+    },
+    {
+      "login": "chantelleverhey",
+      "name": "Chantelle Verhey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70176780?v=4",
+      "profile": "https://github.com/chantelleverhey",
+      "contributions": [
+        "content",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "ChantelRidsdale",
+      "name": "ChantelRidsdale",
+      "avatar_url": "https://avatars.githubusercontent.com/u/75498385?v=4",
+      "profile": "https://github.com/ChantelRidsdale",
+      "contributions": [
+        "content",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "mcorlando",
+      "name": "mcorlando",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8259475?v=4",
+      "profile": "https://github.com/mcorlando",
+      "contributions": [
+        "content",
+        "eventOrganizing"
+      ]
+    },
+    {
+      "login": "johardi",
+      "name": "Josef Hardi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5062950?v=4",
+      "profile": "https://github.com/johardi",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "steingod",
+      "name": "Øystein Godøy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5928452?v=4",
+      "profile": "https://github.com/steingod",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "RichardWallis",
+      "name": "Richard Wallis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13315406?v=4",
+      "profile": "https://github.com/RichardWallis",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "sjskhalsa",
+      "name": "Siri Jodha S Khalsa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10770264?v=4",
+      "profile": "http://cires.colorado.edu/~khalsa/",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "mathiasbockwoldt",
+      "name": "Mathias Bockwoldt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8100468?v=4",
+      "profile": "https://github.com/mathiasbockwoldt",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 4
