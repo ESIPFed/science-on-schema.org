@@ -33,7 +33,7 @@
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                     "time:numericPosition": { "@value": 0.76, "@type": "xsd:decimal" },
-                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                    "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
                     }
                 }
             }
@@ -48,7 +48,7 @@
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
                     "time:numericPosition": { "@value": 4.404, "@type": "xsd:decimal" },
-                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                    "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
                 },
                 "gstime:Uncertainty": { "@value": 0.008, "@type": "xsd:decimal" },
                 "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
@@ -67,7 +67,7 @@
                         "rdfs:comment": "beginning is older bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": { "@value": 18.0, "@type": "xsd:decimal" },
-                        "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
                     },
                     "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
                     "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
@@ -79,7 +79,7 @@
                         "rdfs:comment": "ending is younger bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": { "@value": 12.7, "@type": "xsd:decimal" },
-                        "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
+                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
 
                     "gstime:Uncertainty": { "@value": 0.4, "@type": "xsd:decimal" },
                     "gstime:UncertaintySigma": { "@value": 2, "@type": "xsd:decimal" }
@@ -96,7 +96,7 @@
                     "@type": "time:TimePosition",
                     "time:hasTRS": {"@id": "gstime:BeforePresentCalibrated"},
                     "time:numericPosition": { "@value": 2460, "@type": "xsd:decimal" },
-                    "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "BP-CAL, "@type": "xsd:string" }
+                    "gstime:GeologicTimeUnitAbbreviation": { "@value": "BP-CAL, "@type": "xsd:string" }
                 },
                 "gstime:UncertaintyOlder": { "value": 130, "@type": "xsd:string" },
                 "gstime:UncertaintyYounger": { "value": 80, "@type": "xsd:string" },
@@ -124,7 +124,7 @@
                                 "@type": "time:TimePosition",
                                 "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
                                 "time:numericPosition": { "@value": 41.2, "@type": "xsd:decimal" },
-                                "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
+                                "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
                             }
                         },
                         "time:hasEnd": {
@@ -134,7 +134,7 @@
                                 "@type": "time:TimePosition",
                                 "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
                                 "time:numericPosition": { "@value": 37.71, "@type": "xsd:decimal" },
-                                "geosci-time:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
+                                "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma", "@type": "xsd:string" }
                             }
                         }
                     }
