@@ -547,22 +547,16 @@ Back to [top](#top)
 
 ### Dates
 
-Scientific datasets typically have multiple times associated, including
+Scientific datasets typically have multiple associated date or time periods.  Time periods can be specified for 1) the time at which an entity or phenonomon occurred or was measured, and 2) the time periods when a dataset containing that information was created, changed, published, etc. `temporalCoverage` describes the age of the sample and the other dates describe the data created from observations or process. For example, if one took a sample 200 ft down in an ice core, `temporalCoverage` would describe the period when that layer of ice was deposited in geologic time, while other date properties (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice core sample. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
 
-- the time the dataset was generated (e.g. when the model was run; when data processing was completed; ...)
-- the time the phenomenon described in the dataset applies in the world (which is usually prior to 1. for observational data, and after for forecasts)
-- the time the dataset is valid or recommended for use (esp. for forecasts)
+Schema.org offers various date properties that can be used to encode this information. We recommend use of the following fields for Dates:
 
+- `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
 
-Schema.org offers various date properties whose domain includes Thing>Dataset, and these can be used to encode this information. Recommendations:
-
-There are two objects that are being labeled with these property labels: the age of the sample being studied and the study itself. "temporalCoverage" describes the age of the sample and the other four describe the data created from measuring the sample. For example, if one took a sample 200 ft down in an ice core, temporalCoverage would describe the age when that layer of ice fell as snow and the others (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
-	
-- temporalCoverage :: specifies the period that the content applies to, i.e. the time the phenomenon described in the dataset applies in the world. See details at [temporalCoverage](#temporal-coverage)
-- dateCreated ::  the time the dataset was generated
-- dateModified :: use to specify when the dataset described by the metadata record was most recently updated.
-- datePublished :: use for when data (e.g. model results) are made available to the public.
-- expires :: Date the content expires and is no longer useful or available. If datePublished is when the resource (dataset, model output) is available, 'expires' can bracket the time the dataset is valid or recommended for use.
+- `schema:dateCreated` ::  use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
+- `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
+- `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
+- `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
 
 Back to [top](#top)
 
