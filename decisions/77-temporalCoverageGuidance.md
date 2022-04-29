@@ -23,7 +23,7 @@ For temporal extents that can not be expressed using schema:DateTime, use W3C OW
 
 For user-friendliness, include a text statement of the temporal coverage; aggregators might not be able to handle the more precise information in the time:hasTime elements.
 
-1. Temporal interval with dateTime beginning and end. 
+1. Temporal interval with hasTime beginning and end. 
 
   *Example*: 
 
@@ -54,7 +54,7 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
      } 
 }
 ```
-2. Numeric timePosition for a single geological date/age. Use decimal value and appropriate time unit. Include uncertainties in the dates/ages when known.  
+2. Numeric TimePosition for a single geological date/age. Use decimal value and appropriate time unit. Include uncertainties in the dates/ages when known.  
 
 *Example: Dataset with single time instant temporal coverage. Context same as example 1.*
 
@@ -69,14 +69,15 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
             "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
             "time:numericPosition": { "@value": 0.76, "@type": "xsd:decimal" },
             "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" } 
+            "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
         }  
-        "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
         "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
     }   
 }
 ```
 
 *Example: Dataset with temporal coverage that is named time interval from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+Context same as example 1.
 
 ```
 {   
@@ -119,7 +120,7 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
 
 3. Temporal intervals with nominal temporal position that have identifiers. When possible, used temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:hasTime element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
 
-*Example*:
+*Example: Context same as example 1.*:
 
 ```
    {"@type": "Dataset",
@@ -147,9 +148,9 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
     }
 ```
 
-4. Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
+Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
 
-*Example*:
+*Example* Context same as example 1.:
 
 ```
        { "@type": "Dataset",
@@ -164,9 +165,9 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
                         "rdfs:comment": "beginning is older bound of age envelop",
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": { "@value": 18.0, "@type": "xsd:decimal" },
-                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" }
+                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
+                        "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" }
                     },
-                    "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
                     "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
                 },
                 "time:hasEnd": {
@@ -177,17 +178,14 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
                         "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
                         "time:numericPosition": { "@value": 12.7, "@type": "xsd:decimal" },
                         "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
+                        "gstime:Uncertainty": { "@value": 0.4, "@type": "xsd:decimal" }
 
-                    "gstime:Uncertainty": { "@value": 0.4, "@type": "xsd:decimal" },
                     "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
                 }
             }
         }
 ```
-
-
-
-4. Temporal aggregates. Option 1. -- make value of hasTime an array of TemporalEntities. or 2. use [TemporalAggregate](https://w3c.github.io/sdw/time-aggregates/) as value of hasTime. (TBD if there is interest)
+5. Temporal aggregates. Option 1. -- make value of hasTime an array of TemporalEntities. or 2. use [TemporalAggregate](https://w3c.github.io/sdw/time-aggregates/) as value of hasTime. (TBD if there is interest - not done) 
 
 
 ### Discussion
