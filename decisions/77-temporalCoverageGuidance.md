@@ -54,9 +54,10 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
      } 
 }
 ```
+
 2. Numeric TimePosition for a single geological date/age. Use decimal value and appropriate time unit. Include uncertainties in the dates/ages when known.  
 
-*Example: Dataset with single time instant temporal coverage. Context same as example 1.*
+   *Example: Context same as example 1.*
 
 ```
 {   "@type": "Dataset",
@@ -76,8 +77,9 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
 }
 ```
 
-*Example: Dataset with temporal coverage that is named time interval from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
-Context same as example 1.
+3. Example: Dataset with temporal coverage that is named time interval from geologic time scale, provide numeric positions of beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+
+   *Example: Context same as example 1.*
 
 ```
 {   
@@ -118,9 +120,9 @@ Context same as example 1.
 }
 ```
 
-3. Temporal intervals with nominal temporal position that have identifiers. When possible, used temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:hasTime element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
+4. Temporal intervals with nominal temporal position that have identifiers. When possible, used temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:hasTime element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
 
-*Example: Context same as example 1.*:
+   *Example: Context same as example 1.*
 
 ```
    {"@type": "Dataset",
@@ -148,9 +150,9 @@ Context same as example 1.
     }
 ```
 
-Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
+5. Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
 
-*Example* Context same as example 1.:
+   *Example*: Context same as example 1*
 
 ```
        { "@type": "Dataset",
@@ -185,7 +187,7 @@ Temporal intervals with beginning and end specified by numeric positions; source
             }
         }
 ```
-5. Temporal aggregates. Option 1. -- make value of hasTime an array of TemporalEntities. or 2. use [TemporalAggregate](https://w3c.github.io/sdw/time-aggregates/) as value of hasTime. (TBD if there is interest - not done) 
+6. Temporal aggregates. Option 1. -- make value of hasTime an array of TemporalEntities. or 2. use [TemporalAggregate](https://w3c.github.io/sdw/time-aggregates/) as value of hasTime. (TBD if there is interest - not done) 
 
 
 ### Discussion
