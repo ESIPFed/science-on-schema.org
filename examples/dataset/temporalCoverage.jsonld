@@ -1,10 +1,11 @@
 {
     "@context": {
         "@vocab": "http://schema.org/",
-        "time": "http://www.w3.org/2006/time#",
         "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/",
+        "time": "http://www.w3.org/2006/time#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
-        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
     "@graph": [
         {
