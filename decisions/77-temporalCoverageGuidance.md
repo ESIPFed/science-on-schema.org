@@ -3,12 +3,12 @@
 Discussion: [Add OWL-Time and chronometric age extension guidance](https://github.com/ESIPFed/science-on-schema.org/issues/77)
 
 ## Status ##
-Proposed, for discussion
+Accepted
 
 ## Decision ##
 Update the guidance for temporalCoverage description.  Main recommendations:
 1. use [http://www.w3.org/2006/time#hasTime](https://w3c.github.io/sdw/time/#time:hasTime) property from W3C OWL Time ([Cox and Little, 2021-06-29 editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime
-1. Provide numeric age positions, if possible. Use the appropriate time units for the dating method and geologic age (BP,ka,Ma,Ga). Include age uncertainty when known.
+1. Provide numeric age positions, if possible. Use the appropriate time units for the dating method and geologic age (BP,BP-CAL,ka,Ma,Ga). Include age uncertainty when known.
 1. If age is specified based on a time scale, provide nearest subsuming age from the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). Note that the ICS chart is updated on an ad hoc basis, annually or more frequently. It would be useful to cite the specific version used if you are doing precision chronology.
 
 ## Context ##
@@ -23,7 +23,7 @@ For temporal extents that can not be expressed using schema:DateTime, use W3C OW
 
 For user-friendliness, include a text statement of the temporal coverage; aggregators might not be able to handle the more precise information in the time:hasTime elements.
 
-1. Temporal interval with hasTime beginning and end. 
+1. Temporal interval with hasTime with hasBeginning and hasEnd. 
 
   *Example*: 
 
@@ -61,19 +61,25 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
 
 ```
 {   "@type": "Dataset",
-    "description": "Temporal position expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.760 Ma) before present with an error of 0.04 Ma at one sigma.",
+    "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
     "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
     "time:hasTime": {
         "@type": "time:Instant",
         "time:inTimePosition": {
             "@type": "time:TimePosition",
-            "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-            "time:numericPosition": { "@value": 0.76, "@type": "xsd:decimal" },
-            "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" } 
-            "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" },
-        }  
-        "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
-    }   
+            "time:hasTRS": {
+                "@id": "gstime:MillionsOfYears"
+            },
+            "time:numericPosition": {
+                "@value": 0.76,
+                "@type": "xsd:decimal"
+            },
+            "gstime:GeologicTimeUnitAbbreviation": {
+                "@value": "Ma",
+                "@type": "xsd:string"
+            }
+        }
+    }
 }
 ```
 
@@ -155,38 +161,67 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
    *Example*: Context same as example 1*
 
 ```
-       { "@type": "Dataset",
-            "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
-            "temporalCoverage": "Between 18.0 +/- 0.35 and 12.7 +/- 0.4 Ma",
-            "time:hasTime": {
-                "@type": "time:Interval",
-                "time:hasBeginning": {
-                    "@type": "time:Instant",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "rdfs:comment": "beginning is older bound of age envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": { "@value": 18.0, "@type": "xsd:decimal" },
-                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
-                        "gstime:Uncertainty": { "@value": 0.35, "@type": "xsd:decimal" }
-                    },
-                    "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
-                },
-                "time:hasEnd": {
-                    "@type": "time:Instant",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "rdfs:comment": "ending is younger bound of age envelop",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-                        "time:numericPosition": { "@value": 12.7, "@type": "xsd:decimal" },
-                        "gstime:GeologicTimeUnitAbbreviation": { "@value": "Ma, "@type": "xsd:string" },
-                        "gstime:Uncertainty": { "@value": 0.4, "@type": "xsd:decimal" }
+{   
+    "@type": "Dataset", 
+    "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts", 
+    "temporalCoverage": "Between 18.0 +/- 0.35 and 12.7 +/- 0.4 Ma", 
+    "time:hasTime": { 
+        "@type": "time:Interval", 
+        "time:hasBeginning": { 
+            "@type": "time:Instant", 
+            "time:inTimePosition": { 
+                "@type": "time:TimePosition", 
+                "rdfs:comment": "beginning is older bound of age envelop", 
+                "time:hasTRS": { 
+                    "@id": "gstime:MillionsOfYears" 
+                }, 
+                "time:numericPosition": { 
+                    "@value": 18.0, 
+                    "@type": "xsd:decimal" 
+                }, 
+                "gstime:GeologicTimeUnitAbbreviation": { 
+                    "@value": "Ma", 
+                    "@type": "xsd:string" 
+                } 
+            }, 
+            "gstime:Uncertainty": { 
+                "@value": 0.35, 
+                "@type": "xsd:decimal" 
+            }, 
+            "gstime:UncertaintySigma": { 
+                "@value": 2.0, 
+                "@type": "xsd:decimal" 
+            } 
+        }, 
+        "time:hasEnd": { 
+            "@type": "time:Instant", 
+            "time:inTimePosition": { 
+                "@type": "time:TimePosition", 
+                "rdfs:comment": "ending is younger bound of age envelop", 
+                "time:hasTRS": { 
+                    "@id": "gstime:MillionsOfYears" 
+                }, 
+                "time:numericPosition": { 
+                    "@value": 12.7, 
+                    "@type": "xsd:decimal" 
+                }, 
+                "gstime:GeologicTimeUnitAbbreviation": { 
+                    "@value": "Ma", 
+                    "@type": "xsd:string" 
+                } 
+            }, 
+            "gstime:Uncertainty": { 
+                "@value": 0.4, 
+                "@type": "xsd:decimal" 
+            }, 
+            "gstime:UncertaintySigma": { 
+                "@value": 2.0, 
+                "@type": "xsd:decimal" 
+            } 
+        } 
+    } 
+}
 
-                    "gstime:UncertaintySigma": { "@value": 2.0, "@type": "xsd:decimal" }
-                }
-            }
-        }
-```
 6. Temporal aggregates. Option 1. -- make value of hasTime an array of TemporalEntities. or 2. use [TemporalAggregate](https://w3c.github.io/sdw/time-aggregates/) as value of hasTime. (TBD if there is interest - not done) 
 
 

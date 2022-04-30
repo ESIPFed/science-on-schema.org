@@ -9,7 +9,7 @@
 	},
 	"@graph": [{
 			"@type": "Dataset",
-			"description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporal coverage expressed as range of dateTime",
+			"description": "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981; temporal coverage expressed as range of dateTime",
 			"temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
 			"time:hasTime": {
 				"@type": "time:Interval",
@@ -70,7 +70,7 @@
 					"@type": "xsd:decimal"
 				},
 				"gstime:UncertaintySigma": {
-					"@value": 2,
+					"@value": 2.0,
 					"@type": "xsd:decimal"
 				}
 			}
@@ -103,7 +103,7 @@
 						"@type": "xsd:decimal"
 					},
 					"gstime:UncertaintySigma": {
-						"@value": 2,
+						"@value": 2.0,
 						"@type": "xsd:decimal"
 					}
 				},
@@ -129,7 +129,7 @@
 						"@type": "xsd:decimal"
 					},
 					"gstime:UncertaintySigma": {
-						"@value": 2,
+						"@value": 2.0,
 						"@type": "xsd:decimal"
 					}
 				}
@@ -147,7 +147,7 @@
 						"@id": "gstime:BeforePresentCalibrated"
 					},
 					"time:numericPosition": {
-						"@value": 2460,
+						"@value": 2460.0,
 						"@type": "xsd:decimal"
 					},
 					"gstime:GeologicTimeUnitAbbreviation": {
@@ -155,15 +155,15 @@
 						"@type ": "xsd:string" }
 					},
 					"gstime:UncertaintyOlder": {
-						"value": 130,
-						"@type": "xsd:string"
+						"value": 130.0,
+						"@type": "xsd:decimal"
 					},
 					"gstime:UncertaintyYounger": {
-						"value": 80,
-						"@type": "xsd:string"
+						"value": 80.0,
+						"@type": "xsd:decimal"
 					},
 					"gstime:UncertaintySigma": {
-						"@value": 1,
+						"@value": 1.0,
 						"@type": "xsd:decimal"
 					}
 				}
