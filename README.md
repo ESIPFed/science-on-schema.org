@@ -4,7 +4,6 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ESIPFed/science-on-schema.org)
-![GitHub contributors](https://img.shields.io/github/contributors/ESIPFed/science-on-schema.org)
 
 
 <a id="guides"></a>
