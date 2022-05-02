@@ -519,7 +519,7 @@ We use the [schema:DataDownload](https://schema.org/DataDownload) class for Meta
 
 It can be useful to aggregators and other consumers to indicate when the metadata record was last modified using `schema:dateModified`, which can be used to optimize harvesting schedules for search indices and other applications.
 
-An example of a metadata reference to an instance of EML-formatted structured metadata, embedded within a `schema:Dataset` record:
+An example of a metadata reference to an instance of EML-formatted structured metadata, embedded within a `schema:Dataset` record follows:
 
 <pre>
   {
