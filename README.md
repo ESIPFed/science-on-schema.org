@@ -24,7 +24,7 @@ This repository provides guidance for repository operators and others to follow 
 
 Science on Schema.org (SOSO) releases are archived on Zenodo, and the current release should be cited as:
 
->  Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicolas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley. (2022). Science-on-Schema.org v1.3.0. Zenodo. https://doi.org/10.5281/zenodo.4477164
+>  Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicolas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley. (2022). Science-on-Schema.org v1.3.0. Zenodo. https://doi.org/10.5281/zenodo.6502539
 
 ## Community 
 
