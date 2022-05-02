@@ -82,7 +82,7 @@ This section includes suggestions for documenting variable with a wider range of
 ### Variables with non-numeric values
 Scientific datasets might have fields containing many other kinds of values than simple numeric values. These include categorical, nominal, ordinal, boolean, identifiers, structured data objects, and unstructured objects like text, audio, video, or images. Some suggestions for describing these kinds of variable are included here, using some elements from other community vocabularies.
 
-For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure,Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types:
+For variables that have values that are not numeric, the datatype should be specified using a data type vocabulary. Schema.org does not have a data type property, we recommend extending schema.org using the [Quantity, Units of Measure, Dimensions and Types (QUDT) ontology](http://qudt.org/) (qudt:) dataType property. Schema.org defines a schema:DataType class with the following basic data types:
 
 | type  | subtype  | note  |
 |---|---|---|
@@ -113,7 +113,7 @@ Example: a date and time variable data type:
 <div id='ControlledVocabulary'/>
 
 ### Value range is controlled vocabulary
-The schema:DefinedTermSet  class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists.
+The `schema:DefinedTermSet` class can be used to specify a controlled vocabulary that populates a text variable value. This requires using the schema:rangeIncludes property outside of its expected domain, which is schema:Property. The schema:DefinedTerm elements in the schema:DefinedTermSet must at least provide a schema:termCode that corresponds to the strings that will appear in the data. Other labels for the vocabulary value can be provided by schema:name and schema:alternateName, as well as a definition in schema:description, and a URI using schema:identifier, all properties on schema:DefinedTerm. The @id on the schema:DefinedTermSet should provide a URI for the controlled vocabulary if one exists.
 
 Example encoding for a variableMeasured that is populated with a controlled vocabulary, using schema:rangeIncludes/DefinedTermSet:
 
@@ -208,7 +208,7 @@ In this case the PropertyValue should be typed as a qudt Structured Data Type (h
 <div id='References'/>
 
 ### Variables that contain references
-For variables with values that are references to data objects stored elsewhere, use the  qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the referece should use a scheme (like http URI) that can be dereferenced to obtain the value.
+For variables with values that are references to data objects stored elsewhere, use the qudt:ReferenceDataType (http://qudt.org/schema/qudt/ReferenceDatatype). Ideally the reference should use a scheme (like http URI) that can be dereferenced to obtain the value.
 <pre>
     {"@type": "PropertyValue",
      "name": "Link to rock description",
