@@ -11,7 +11,7 @@
 		- [Identifier](#identifier)
 			- [How to reference Short DOIs](#how-to-reference-short-dois)
 		- [Variables](#variables)
-		- [Catalog](#catalog)
+		- [Collections of datasets using schema.org DataCatalog](#collections-of-datasets-using-schemaorg-datacatalog)
 		- [Metadata](#metadata)
 		- [Dates](#dates)
 		- [Distributions](#distributions)
@@ -475,7 +475,7 @@ Example:
 
 Back to [top](#top)
 
-### Catalog
+### Collections of datasets using schema.org DataCatalog
 
 For some repositories, defining a one or many data collections helps contextualize the datasets. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
 
