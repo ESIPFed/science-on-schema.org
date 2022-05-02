@@ -47,7 +47,7 @@ The [guide](https://developers.google.com/search/docs/data-types/dataset) sugges
 * [url](https://schema.org/url) - Location of a page describing the dataset.
 * [sameAs](https://schema.org/sameAs) - Other URLs that can be used to access the dataset page. A link to a page that provides more information about the same dataset, usually in a different repository.
 * [version](https://schema.org/version) - The version number or identifier for this dataset (text or numeric).
-* [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) speficying if the dataset is accessible for free.
+* [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) specifying if the dataset is accessible for free.
 * [keywords](https://schema.org/keywords) - Keywords summarizing the dataset.
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
 * [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
