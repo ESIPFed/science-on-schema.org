@@ -173,7 +173,7 @@ We can specify the **scheme** as being a DOI with this identifiers.org Registry 
 
 [https://registry.identifiers.org/registry/doi](https://registry.identifiers.org/registry/doi)
 
-Looking at the available fields from [schema:PropertyValue](https://schema.org/PropertyValue), we can map our identifier fields as such:
+Looking at the available fields from [schema:PropertyValue](https://schema.org/PropertyValue), we can map our identifier fields as follows:
 
 - `schema:value` as the identifier value `10.5066/F7VX0DMQ`
 - `schema:propertyID` is the registry.identifiers.org URI for the identifier scheme `https://registry.identifiers.org/registry/doi`,
