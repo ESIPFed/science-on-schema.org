@@ -477,15 +477,15 @@ Back to [top](#top)
 
 ### Collections of datasets using schema.org DataCatalog
 
-For some repositories, defining a one or many data collections helps contextualize the datasets. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
+For some repositories, data collections containing multiple data sets are used to help contextualize or organize the data. In schema.org, you define these collections using [schema:DataCatalog](https://schema.org/DataCatalog).
 
 ![DataCatalog](/assets/diagrams/dataset/dataset_datacatalog.svg "Dataset - Data Catalog")
 
-The most optimal way to use these DataCatalogs for a repository is to define these catalogs as an ["offering" of your repository](#repository-offercatalog) and including the `@id` property to be reused in the dataset JSON-LD. For example, the repository JSON-LD defines a [schema:DataCatalog](https://schema.org/DataCatalog) with the
+The best way to use these DataCatalogs is to define these catalogs as an ["offering" of your repository](#repository-offercatalog) and including the offering `@id` in the dataset JSON-LD. For example, the repository JSON-LD defines a [schema:DataCatalog](https://schema.org/DataCatalog) with the
 
 `"@id": "https://www.sample-data-repository.org/collection/biological-data"`.
 
-In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that catalog:
+In the dataset JSON-LD, we reuse that `@id` to say a dataset belongs in that DataCatalog:
 
 <pre>
 {
