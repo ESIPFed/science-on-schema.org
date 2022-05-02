@@ -21,7 +21,7 @@ The schema:temporalCoverage property has rangeIncludes schema:Text, schema:DateT
 ### Solution
 For temporal extents that can not be expressed using schema:DateTime, use W3C OWL time elements from the http://www.w3.org/2006/time# namespace. SOSO is already recommending use of elements from some other namespaces, and OWL time is widely recognized and vetted.
 
-For user-friendliness, include a text statement of the temporal coverage; aggregators might not be able to handle the more precise information in the time:hasTime elements.
+For user-friendliness, include a text statement of the temporal coverage;
 
 1. Temporal interval with hasTime with hasBeginning and hasEnd. 
 
@@ -40,17 +40,14 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
         "@type": "Dataset",
         "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporalCoverage string is ISO8601 time interval; show representation as OWL Time interval for example.",
         "temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
-        "time:hasTime": {
-            "@type": "time:Interval",
-            "time:hasBeginning": {
-                "@type": "time:Instant",
-                "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
-            },
-            "time:hasEnd": {
-                "@type": "time:Instant",
-                "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
-            }  
-         } 
+        "time:hasBeginning": {
+            "@type": "time:Instant",
+            "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
+        },
+        "time:hasEnd": {
+            "@type": "time:Instant",
+            "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
+        }  
      } 
 }
 ```
@@ -63,21 +60,18 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
 {   "@type": "Dataset",
     "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
     "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
-    "time:hasTime": {
-        "@type": "time:Instant",
-        "time:inTimePosition": {
-            "@type": "time:TimePosition",
-            "time:hasTRS": {
-                "@id": "gstime:MillionsOfYears"
-            },
-            "time:numericPosition": {
-                "@value": 0.76,
-                "@type": "xsd:decimal"
-            },
-            "gstime:GeologicTimeUnitAbbreviation": {
-                "@value": "Ma",
-                "@type": "xsd:string"
-            }
+    "time:inTimePosition": {
+        "@type": "time:TimePosition",
+        "time:hasTRS": {
+            "@id": "gstime:MillionsOfYears"
+        },
+        "time:numericPosition": {
+            "@value": 0.76,
+            "@type": "xsd:decimal"
+        },
+        "gstime:GeologicTimeUnitAbbreviation": {
+            "@value": "Ma",
+            "@type": "xsd:string"
         }
     }
 }
@@ -92,38 +86,35 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
     "@type": "Dataset",
     "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
     "temporalCoverage": "Bartonian",
-    "time:hasTime": {
-        "@type": "time:Instant",
-        "time:inTimePosition": [
-            {
-                "@type": "time:TimePosition",
-                "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": { "@value": "isc:Bartonian", "@type": "xsd:anyURI" }
+     "time:inTimePosition": [
+        {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "ts:gts2020"},
+            "time:NominalPosition": { "@value": "isc:Bartonian", "@type": "xsd:anyURI" }
+        },
+        {
+            "@type": "time:Interval",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:numericPosition": { "@value": "41.2", "@type": "xsd:decimal" }  
+                }
             },
-            {
-                "@type": "time:Interval",
-                "time:hasBeginning": {
-                    "@type": "time:Instant",
-                    "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                        "time:numericPosition": { "@value": "41.2", "@type": "xsd:decimal" }  
-                    }
-                },
-                "time:hasEnd": {
-                    "@type": "time:Instant",
-                    "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
-                    "time:inTimePosition": {
-                        "@type": "time:TimePosition",
-                        "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
-                        "time:numericPosition": { "@value": "37.71", "@type": "xsd:decimal" }  
-                    }   
-                }    
-            }
-        ]
-    }   
-}
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "rdfs:comment": "temporal positions from ICS 2020-03 (https://stratigraphy.org/ICSchart/ChronostratChart2020-03.pdf)",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {"@id": "gstime:MillionsOfYear"},
+                    "time:numericPosition": { "@value": "37.71", "@type": "xsd:decimal" }  
+                }   
+            }    
+        }
+    ]
+}   
 ```
 
 4. Temporal intervals with nominal temporal position that have identifiers. When possible, used temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:hasTime element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
@@ -131,29 +122,26 @@ For user-friendliness, include a text statement of the temporal coverage; aggreg
    *Example: Context same as example 1.*
 
 ```
-   {"@type": "Dataset",
+{   "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
     "temporalCoverage": "Triassic to Jurassic",
-    "time:hasTime": {
-        "@type": "time:Interval",
-        "time:hasBeginning": {
-            "@type": "time:Instant",
-            "time:inTimePosition": {
-                "@type": "time:TimePosition",
-                "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": { "@value": "isc:Triassic", "@type": "xsd:anyURI" }
-            }
-        },
-        "time:hasEnd": {
-            "@type": "time:Instant",
-            "time:inTimePosition": {
-                "@type": "time:TimePosition",
-                "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": { "@value": "isc:Jurassic", "@type": "xsd:anyURI" }    
-                }
-            }
+    "time:hasBeginning": {
+        "@type": "time:Instant",
+        "time:inTimePosition": {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "ts:gts2020"},
+            "time:NominalPosition": { "@value": "isc:Triassic", "@type": "xsd:anyURI" }
+        }
+    },
+    "time:hasEnd": {
+        "@type": "time:Instant",
+        "time:inTimePosition": {
+            "@type": "time:TimePosition",
+            "time:hasTRS": {"@id": "ts:gts2020"},
+            "time:NominalPosition": { "@value": "isc:Jurassic", "@type": "xsd:anyURI" }    
         }
     }
+}
 ```
 
 5. Temporal intervals with beginning and end specified by numeric positions; source data specifies uncertainties on the numeric positions.
