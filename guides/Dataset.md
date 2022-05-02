@@ -315,7 +315,6 @@ However, if the identifier is a persistent identifier such as a DOI, ARK, or acc
 
 [schema:Dataset](https://schema.org/Dataset) also defines a field for the [schema:citation](https://schema.org/citation) as either text or a [schema:CreativeWork](https://schema.org/CreativeWork). To provide citation text:
 
-NOTE: If you have a DOI, the citation text can be [automatically generated](https://citation.crosscite.org/docs.html#sec-4-1) for you by querying a DOI URL with the Accept Header of 'text/x-bibliography'.
 
 <pre>
 {
@@ -338,6 +337,8 @@ NOTE: If you have a DOI, the citation text can be [automatically generated](http
   <strong>"citation": "J.Smith 'How I created an awesome dataset’, Journal of Data Science, 1966"</strong>
 }
 </pre>
+
+NOTE: If you have a DOI, the citation text can be [automatically generated](https://citation.crosscite.org/docs.html#sec-4-1) for you by querying a DOI URL with the Accept Header of 'text/x-bibliography'.
 
 #### How to reference Short DOIs
 
