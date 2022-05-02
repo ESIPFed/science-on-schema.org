@@ -127,7 +127,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
 
 ## License
 
-Copyright [2022] [Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicolas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Me    cum, Nokome Bentley]
+Copyright [2022] [Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicolas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
