@@ -116,22 +116,33 @@
       ]
     },
     {
+      "login": "chantelleverhey",
+      "name": "Chantelle Verhey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70176780?v=4",
+      "profile": "https://github.com/chantelleverhey",
+      "contributions": [
+        "content",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "nein09",
+      "name": "Melinda Minch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/547883?v=4",
+      "profile": "http://melindaminch.com/",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
       "login": "amoeba",
       "name": "Bryce Mecum",
       "avatar_url": "https://avatars.githubusercontent.com/u/563?v=4",
       "profile": "https://brycemecum.com/",
       "contributions": [
         "code",
-        "content",
-        "doc"
-      ]
-    },
-    {
-      "login": "lewismc",
-      "name": "Lewis John McGibbney",
-      "avatar_url": "https://avatars.githubusercontent.com/u/1165719?v=4",
-      "profile": "http://people.apache.org/keys/committer/lewismc",
-      "contributions": [
         "content",
         "doc"
       ]
@@ -147,10 +158,10 @@
       ]
     },
     {
-      "login": "nein09",
-      "name": "Melinda Minch",
-      "avatar_url": "https://avatars.githubusercontent.com/u/547883?v=4",
-      "profile": "http://melindaminch.com/",
+      "login": "lewismc",
+      "name": "Lewis John McGibbney",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1165719?v=4",
+      "profile": "http://people.apache.org/keys/committer/lewismc",
       "contributions": [
         "content",
         "doc"
@@ -204,17 +215,6 @@
       "contributions": [
         "content",
         "doc"
-      ]
-    },
-    {
-      "login": "chantelleverhey",
-      "name": "Chantelle Verhey",
-      "avatar_url": "https://avatars.githubusercontent.com/u/70176780?v=4",
-      "profile": "https://github.com/chantelleverhey",
-      "contributions": [
-        "content",
-        "doc",
-        "ideas"
       ]
     },
     {
