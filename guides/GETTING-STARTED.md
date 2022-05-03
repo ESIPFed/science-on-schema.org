@@ -161,7 +161,7 @@ if this is necessary. That said, most user's should not have need to define `@vo
 <a id="sitemaps"></a>
 ### Provide a Sitemap.xml file
 
-Many harvesters and aggregators depend on the existence of a `sitemap.xml` file on your site that lists all of the dataset landing pages from your site that you want to be harvested and indexed for search. Google Dataset Search, DataONE, and Geocodes all can make use of a sitemap to more efficietly harvest your site. A sitemap is a simple text file that lists each page that you want harvested. This can contain any webpage, but in this context we specifically want to list pages that contain a `schema:Dataset` entry to be harvested. Here's an example `sitemap.xml` file listing two Dataset landing pages, along with their `lastmod` date:
+Many harvesters and aggregators depend on the existence of a `sitemap.xml` file on your site that lists all of the dataset landing pages from your site that you want to be harvested and indexed for search. Google Dataset Search, DataONE, and Geocodes all can make use of a sitemap to more efficiently harvest your site. A sitemap is a simple text file that lists each page that you want harvested. This can contain any webpage, but in this context we specifically want to list pages that contain a `schema:Dataset` entry to be harvested. Here's an example `sitemap.xml` file listing two Dataset landing pages, along with their `lastmod` date:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
