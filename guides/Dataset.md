@@ -532,9 +532,10 @@ An example of a metadata reference to an instance of EML-formatted structured me
     },
     <strong>"subjectOf": {
       "@type": "DataDownload",
-      "name": "eml-metadata.xml",
+      "name": "EML metadata for dataset",
       "description": "EML metadata describing the dataset",
       "encodingFormat": ["application/xml", "https://eml.ecoinformatics.org/eml-2.2.0"],
+      "contentURL":"https://example.com/metadata/eml-metadata.xml",
       "dateModified":"2019-06-12T14:44:15Z"
     }</strong>
   }
