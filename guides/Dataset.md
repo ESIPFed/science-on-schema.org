@@ -543,7 +543,7 @@ An example of a metadata reference to an instance of EML-formatted structured me
 
 Alternatively, if the schema.org record is meant to describe the metadata record, one could use the inverse property `schema:about` to indicate the linkage back to the Dataset that it describes.  This should be a rare situation, as typically the schema.org record will describe the Dataset itself.
 
-Note that the The `encodingFormat` property contains an array of formats to describe multiple formats to which the document conforms (in this example, the document is both conformant with XML and the EML metadata dialect).
+Note that the `encodingFormat` property contains an array of formats to describe multiple formats to which the document conforms (in this example, the document is both conformant with XML and the EML metadata dialect).
 
 Back to [top](#top)
 
