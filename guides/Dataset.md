@@ -42,7 +42,7 @@ Google has drafted a [guide to help publishers](https://developers.google.com/se
 }
 </pre>
 
-The [guide](https://developers.google.com/search/docs/data-types/dataset) suggests the following recommended fields:
+The [Google guide](https://developers.google.com/search/docs/data-types/dataset) also recommends following fields:
 
 * [url](https://schema.org/url) - Location of a page describing the dataset.
 * [sameAs](https://schema.org/sameAs) - Other URLs that can be used to access the dataset page. A link to a page that provides more information about the same dataset, usually in a different repository.
