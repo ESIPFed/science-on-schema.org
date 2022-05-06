@@ -968,7 +968,9 @@ Back to [top](#top)
 
 People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable.
 
-NOTE: Because JSON-LD doesn't preserve the order of its collection values, for more see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list), we can preserve the order of people roles by applying the `@list` JSON-LD keyword. Given the following `creator` JSON-LD block,:
+NOTE: JSON-LD doesn't preserve the order of its collection values, so if you need to preserve the order of people's names (e.g., for a citation) you can do so by applying the `@list` JSON-LD keyword (for more information about this see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list)). 
+	
+Given the following `creator` JSON-LD block,:
 	
 ```
 {
@@ -1136,7 +1138,7 @@ Back to [top](#top)
 
 ![Publisher/Provider](/assets/diagrams/dataset/dataset_publisher-provider.svg "Dataset - Publisher/Provider")
 
-If your repository is the publisher and/or provider of the dataset then you don't have to describe your repository as a [schema:Organziation](https://schema.org/Organization) **if** your repository markup includes the **`@id`**. For example, if you published repository markup such as:
+If your repository is the publisher and/or provider of the dataset then you don't have to describe your repository as a [schema:Organization](https://schema.org/Organization) **if** your repository markup includes the **`@id`**. For example, if you published repository markup such as:
 <pre>
 {
   "@context": "https://schema.org/",
