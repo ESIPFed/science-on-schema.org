@@ -12,13 +12,31 @@
 
 soso:DatasetNS1Shape
     a sh:NodeShape ;
-    sh:targetClass <http://schema.org/Dataset> ;
-    sh:message "Expecting SO namespace of <https://schema.org/> not <http://schema.org>"@en ;
+    sh:targetClass <http://schema.orgDataset/> ;
+# check for missing backslash on namespace URI
+    sh:message "Expecting SO namespace of <http://schema.org/> not <http://schema.org>"@en ;
     sh:not [
         sh:path rdf:type ;
         sh:minCount 1;
     ].
-
+soso:DatasetNS2Shape
+    a sh:NodeShape ;
+# check for wrong http protocol (https)
+    sh:targetClass <https://schema.org/Dataset> ;
+    sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org/>"@en ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1;
+    ].
+soso:DatasetNS3Shape
+    a sh:NodeShape ;
+    sh:targetClass <https://schema.orgDataset/> ;
+# check for wrong http protocol (https) and missing backslash on namespace URI
+    sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org>"@en ;
+    sh:not [
+        sh:path rdf:type ;
+        sh:minCount 1;
+    ].				  
 
 soso:IDShape
     a sh:NodeShape ;
