@@ -1,9 +1,12 @@
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
-  },
+  "@context": [
+    "https://schema.org/",
+    {      
+      "prov": "http://www.w3.org/ns/prov#",
+      "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#",
+      "spdx": "http://spdx.org/rdf/terms#"
+    }
+  ],
   "@id": "http://lod.example-data-repository.org/id/dataset/3300",
   "identifier": {
     "@type": "PropertyValue",
@@ -24,24 +27,47 @@
   },
   "datePublished": "2010-02-03",
   "keywords": [
-    "krill",
-    "biota",
-    "oceans"
-  ],
-  "creator": [
     {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51159",
-      "name": "Dr Langdon Quetin",
-      "url": "https://www.example-data-repository.org/person/51159"
+      "@type": "DefinedTerm",
+      "name": "OCEANS",
+      "inDefinedTermSet": "https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords",
+      "url": "https://gcmd.earthdata.nasa.gov/kms/concept/91697b7d-8f2b-4954-850e-61d5f61c867d",
+      "termCode": "91697b7d-8f2b-4954-850e-61d5f61c867d"
     },
     {
-      "@type": "Person",
-      "@id": "http://lod.example-data-repository.org/id/person/51160",
-      "name": "Dr Robin Ross",
-      "url": "https://www.example-data-repository.org/person/51160"
+      "@type": "DefinedTerm",
+      "name": "ice core studies",
+      "inDefinedTermSet": "https://vocabularyserver.com/cnr/ml/snowterm/en/",
+      "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/index.php?tema=29330",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/ark",
+        "value": "ark:/99152/t3v4yo3eeqepj0",
+        "url": "https://vocabularyserver.com/cnr/ml/snowterm/en/?ark=ark:/99152/t3v4yo3eeqepj0"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Baked Clay",
+      "inDefinedTermSet": "https://www2.earthref.org/vocabularies/controlled"
     }
   ],
+  "creator": {
+    "@list": [
+      {
+        "@type": "Person",
+        "@id": "http://lod.example-data-repository.org/id/person/51159",
+        "name": "Dr Langdon Quetin",
+        "url": "https://www.example-data-repository.org/person/51159"
+      },
+      {
+        "@type": "Person",
+        "@id": "http://lod.example-data-repository.org/id/person/51160",
+        "name": "Dr Robin Ross",
+        "url": "https://www.example-data-repository.org/person/51160"
+      }
+    ]
+  },
   "citation": "Quetin, L., Ross, R. (2010) Larval krill studies - fluorescence and clearance from ARSV Laurence M. Gould LMG0106, LMG0205 in the Southern Ocean from 2001-2002 (SOGLOBEC project). Example Data Repository. Version 1. doi:10.1234/1234567890 [access date]",
   "version": "1",
   "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -82,7 +108,23 @@
       "@type": "DataDownload",
       "contentUrl": "https://www.example-data-repository.org/dataset/3300/data/larval-krill.tsv",
       "encodingFormat": "text/tab-separated-values",
-      "datePublished": "2010-02-03"
+      "datePublished": "2010-02-03",
+      "spdx:checksum": [
+        {
+          "@type": "spdx:Checksum",
+          "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
+          "spdx:checksumAlgorithm": {
+            "@id": "spdx:checksumAlgorithm_sha256"
+          }
+        },
+        {
+          "@type": "spdx:Checksum",
+          "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
+          "spdx:checksumAlgorithm": {
+            "@id": "spdx:checksumAlgorithm_md5"
+          }
+        }
+      ]
     }
   ],
   "measurementTechnique": [
@@ -176,28 +218,22 @@
       "description": "local day and decimal time, as 326.5 for the 326th day of the year, or November 22 at 1200 hours (noon)"
     }
   ],
-  "funder": [
-    {
-      "@type": "FundingAgency",
-      "name": "NSF Antarctic Sciences",
-      "alternateName": "NSF ANT",
-      "legalName": "NSF Antarctic Sciences",
-      "makesOffer": [
-        {
-          "@id": "urn:local:55102",
-          "@type": "Offer",
-          "name": "ANT-9909933",
-          "identifier": "https://www.example-data-repository.org/award/55102",
-          "sameAs": "http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=9909933",
-          "offeredBy": {
-            "@type": "Person",
-            "name": "Dr Roberta Marinelli",
-            "identifier": "https://orcid.org/0000-0001-7775-xxxx"
-          }
-        }
-      ]
-    }
-  ],
+  "funding":{
+      "@id": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
+      "@type": "MonetaryGrant",
+      "identifier": "9909933",
+      "name": "GLOBEC: Winter Ecology of Larval Krill: Quantifying their Interaction with the Pack Ice Habitat",
+      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=9909933",
+      "funder": {
+          "@id": "http://dx.doi.org/10.13039/100000001",
+          "@type": "Organization",
+          "name": "National Science Foundation",
+          "identifier": [
+            "http://dx.doi.org/10.13039/100000001",
+            "https://ror.org/021nxhr62"
+          ]
+      }
+  },
   "prov:wasDerivedFrom": {
     "@id": "https://doi.org/10.xxxx/Dataset-1"
   },

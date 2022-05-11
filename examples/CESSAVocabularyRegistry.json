@@ -1,0 +1,141 @@
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "dct": "http://purl.org/dc/terms/conformsTo",
+        "ecrro": "http://cor.esipfed.org/ont/earthcube/",
+        "ecrr": "https://n2t.net/ark:/23942/g2"
+    },
+    "@id": "ark:/99999/fk49s35d9g",
+    "@type": [
+        "CreativeWork",
+        "Product"
+    ],
+    "name": "Consortium of European Social Science Data Archives Vocabulary Register",
+    "subjectOf": {
+        "@type": "CreativeWork",
+        "name": "About page",
+        "URL": " https://vocabularies.cessda.eu/about"
+    },
+    "description": "CESSDA Vocabulary Service enables users to discover, browse, and download controlled vocabularies in a variety of languages.  The service is provided by the Consortium of European Social Science Data Archives (CESSDA).  The majority of the source (English) vocabularies included in the service have been created by the DDI Alliance. The Data Documentation Initiative (DDI) is an international standard for describing data produced by surveys and other observational methods in the social, behavioural, economic, and health sciences.  The language versions of the DDI vocabularies have been mainly been provided by CESSDA member and associated organisations in different countries. However, as DDI vocabularies are used worldwide, organisations willing to produce and maintain a non-CESSDA language version are welcome and should contact the service user management team through the 'Report a problem' at bottom right of the page.   The service also contains an Editor, where authorised users create, manage and translate the vocabularies. Access rights to the Editor are granted by the user management team. The tool can also be used for in-house vocabularies of new agencies.",
+    "dc:BibliographicCitation": "Consortium of European Social Science Data Archives (CESSDA), 2020, Vocabulary Registry: accessed at https://vocabularies.cessda.eu/, November 25, 2020.",
+    "keywords": "Aggregation,analysis,identifier,commonality,contributor",
+    "license": {
+        "@type": "CreativeWork",
+        "name": "https://www.cessda.eu/Acceptable-Use-Policy",
+        "identifier": "undefined"
+    },
+    "audience": [
+        {
+            "@type": "Audience",
+            "audienceType": "Data Producers",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/AUT_0000001"
+        },
+        {
+            "@type": "Audience",
+            "audienceType": "Data Managers",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/AUT_0000005"
+        },
+        {
+            "@type": "Audience",
+            "audienceType": "Developers",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/AUT_0000006"
+        },
+        {
+            "@type": "Audience",
+            "audienceType": "Infomaticists",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/AUT_0000008"
+        }
+    ],
+    "about": [
+        {
+            "@type": "DefinedTerm",
+            "name": "Anthropology",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/ADO_0000012"
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Human Geography",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/ADO_0000015"
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Statistics and Probability",
+            "identifier": "http://cor.esipfed.org/ont/earthcube/ADO_0002269"
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Social Sciences",
+            "identifier": "undefined"
+        },
+        {
+            "@type": "DefinedTerm",
+            "name": "Semantic Resource",
+            "identifier": "undefined"
+        }
+    ],
+    "mainEntity": {
+        "@type": "CreativeWork",
+        "url": "http://cor.esipfed.org/ont/earthcube/ECRRO_0000212",
+        "name": "EC CatalogRegistry"
+    },
+    "additionalProperty": [
+        {
+            "@type": "PropertyValue",
+            "propertyID": "ecrro:0000138",
+            "name": "has maturity state",
+            "value": {
+                "@type": "StructuredValue",
+                "name": "In production",
+                "identifier": "http://cor.esipfed.org/ont/earthcube/MTU_0000002"
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "ecrro:0000219",
+            "name": "expected lifetime",
+            "value": {
+                "@type": "StructuredValue",
+                "name": "1 - 5 years",
+                "identifier": "http://cor.esipfed.org/ont/earthcube/ELT_0000003"
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "ecrro:0000218",
+            "name": "stewarded by",
+            "value": {
+                "@type": "Organization",
+                "name": "CESSDA ERIC",
+                "identifier": "https://ror.org/02wg9xc72"
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "ecrro:0000017",
+            "name": "has usage",
+            "value": {
+                "@type": "StructuredValue",
+                "name": "Some usage (10-50 adopters)",
+                "identifier": "http://cor.esipfed.org/ont/earthcube/UBA_0000002"
+            }
+        },
+        {
+            "@type": "PropertyValue",
+            "propertyID": "ecrro:00001301",
+            "name": "registration metadata",
+            "value": {
+                "@type": "StructuredValue",
+                "additionalType": "ecrro:0001300",
+                "contributor": {
+                    "@type": "Person",
+                    "name": "Stephen M. Richard",
+                    "identifier": "https://orcid.org/0000-0001-6041-5302"
+                },
+                "datePublished": "11/25/2020",
+                "dateModified": "unknown"
+            }
+        }
+    ]
+}
