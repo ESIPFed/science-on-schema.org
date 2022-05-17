@@ -7,7 +7,7 @@ Discussion: [Add OWL-Time and chronometric age extension guidance](https://githu
 
 ## Decision ##
 Update the guidance for temporalCoverage description.  Main recommendations:
-1. Use [http://www.w3.org/2006/time#](https://w3c.github.io/sdw/time#) classes and properties from W3C OWL Time ([Cox and Little, 2022-04-21 editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime.
+1. Use [http://www.w3.org/2006/time#](https://www.w3.org/2006/time#) classes and properties from W3C OWL Time ([Cox and Little, 2022-04-21 editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime.
 1. Use [https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs) temporal reference systems (TRS) with the [http://www.w3.org/2006/time#hasTRS](http://www.w3.org/2006/time#hasTRS) property. 
 1. Provide numeric age positions, if possible. Use the appropriate time abbreviations from [https://geoschemas.org/extensions/temporal.html](https://geoschemas.org/extensions/temporal.html) for the dating method(s) and geologic date(s)/age(s) (BP,BP-CAL,ka,Ma,Ga). Include age uncertainty when known.
 1. If age is specified based on a time scale, provide nearest subsuming age from the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). Note that the ICS chart is updated on an ad hoc basis, annually or more frequently. It would be useful to cite the specific version used if you are doing precision chronology.
