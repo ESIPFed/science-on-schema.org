@@ -25,7 +25,7 @@ For temporal extents that can not be expressed using schema:DateTime, use W3C OW
 
 For user-friendliness, include a text statement of the temporal coverage;
 
-1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time).
+1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time). The human readable description can be found in the description field: "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981".
 
   *Example*: 
 
@@ -51,7 +51,8 @@ For user-friendliness, include a text statement of the temporal coverage;
 }
 ```
 
-2. The dataset described using the time:Instant, time:inTimePosition, and time:numericPosition elements for a single geological date/age without uncertainties (from [OWL Time](http://www.w3.org/2006/time)).  Use a decimal value with appropriate timescale temporal reference system(TRS) and date/age abbreviation.
+2. The dataset described using the time:Instant, time:inTimePosition, and time:numericPosition elements for a single geological date/age without uncertainties (from [OWL Time](http://www.w3.org/2006/time)).  Use a decimal value with appropriate timescale temporal reference system(TRS) and date/age abbreviation. The human readable description can be found in the description field: " Eruption of Bishop Tuff, about 760,000 years ago".
+
 
    *Example*:
 
