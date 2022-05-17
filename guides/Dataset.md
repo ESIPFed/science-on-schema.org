@@ -912,7 +912,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 	},
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
-    "temporalCoverage": ["Triassic to Jurassic", {
+<strong>    "temporalCoverage": ["Triassic to Jurassic", {
         "time:hasBeginning": {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -929,7 +929,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                 "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
             }
         }
-	}]
+	}]</strong>
 }
 </pre>
 
