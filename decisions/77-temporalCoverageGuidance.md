@@ -3,13 +3,13 @@
 Discussion: [Add OWL-Time and chronometric age extension guidance](https://github.com/ESIPFed/science-on-schema.org/issues/77)
 
 ## Status ##
-
+Accepted
 
 ## Decision ##
 Update the guidance for temporalCoverage description.  Main recommendations:
-1. Use [http://www.w3.org/2006/time#](https://www.w3.org/2006/time#) classes and properties from W3C OWL Time ([Cox and Little, editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime.
-1. Use [https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs) temporal reference systems (TRS) with the [http://www.w3.org/2006/time#hasTRS](http://www.w3.org/2006/time#hasTRS) property. 
-1. Provide numeric age positions, if possible. Use the appropriate time abbreviations from [https://geoschemas.org/extensions/temporal.html](https://geoschemas.org/extensions/temporal.html) for the dating method(s) and geologic date(s)/age(s) (BP, BP-CAL, ka, Ma, Ga). Include [age uncertainties](https://geoschemas.org/extensions/temporal.html#Uncertainty) when known.
+1. Use http://www.w3.org/2006/time# classes and properties from W3C OWL Time ([Cox and Little, editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime.
+1. Use https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs temporal reference systems (TRS) with the http://www.w3.org/2006/time#hasTRS property. 
+1. Provide numeric age positions, if possible. Use the appropriate time abbreviations from https://geoschemas.org/extensions/temporal.html for the dating method(s) and geologic date(s)/age(s) (BP, BP-CAL, ka, Ma, Ga). Include [age uncertainties](https://geoschemas.org/extensions/temporal.html#Uncertainty) when known.
 1. If age is specified based on a time scale, provide nearest subsuming age from the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). Note that the ICS chart is updated on an ad hoc basis, annually or more frequently. It would be useful to cite the specific version used if you are doing precision chronology.
 
 
@@ -21,7 +21,7 @@ Temporal coverage is defined as "the time period during which data was collected
 The schema:temporalCoverage properties includes schema:Text, schema:DateTime, and schema:URL. Specifying temporalCoverage as text would probably be useful for someone reading the metadata record, but as far as interoperability, it wouldn't be useful unless there were detailed conventions about the text that would be used (controlled vocabulary and syntax that could be validated). The same problem holds for specifying temporalCoverage with a URL. Aggregators would have to understand the semantics of the URL to integrate the information in a search interface. Also, there is no way to express a temporalCoverage with the beginning and end of a time interval unless it can be expressed as an ISO8601 DateTime range. 
 
 ### Solution
-For temporal extents that can not be expressed using schema:DateTime, use W3C OWL time elements from the http://www.w3.org/2006/time# namespace. Science-on-Schema.org (SOSO) is already recommending use of elements from some other namespaces, and OWL time is widely recognized and vetted. A variaty of Temporal Reference Systems are availabe at the Queensland Department of Natural Resources, Mines and Energy: [https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs) and date/age uncertainies can be described using Named Individuals at geoschemas.org: https://geoschemas.org/extensions/temporal.html.  
+For temporal extents that can not be expressed using schema:DateTime, use W3C OWL time elements from the http://www.w3.org/2006/time# namespace. Science-on-Schema.org (SOSO) is already recommending use of elements from some other namespaces, and OWL time is widely recognized and vetted. A variaty of Temporal Reference Systems are availabe at the Queensland Department of Natural Resources, Mines and Energy: https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs and date/age uncertainies can be described using Named Individuals at geoschemas.org: https://geoschemas.org/extensions/temporal.html.  
 
 For user-friendliness, include a text statement of the temporal coverage;
 
