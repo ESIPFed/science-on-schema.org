@@ -14,7 +14,7 @@ Update the guidance for temporalCoverage description.  Main recommendations:
 
 
 ## Context ##
-Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case-- the time period that data are linked to thematically. 
+Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case -- the time period that data are linked to thematically. 
 
 [Current guidance for temporal coverage](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#temporal-coverage) accounts for [ISO8601 DateTime and DateTime ranges](https://en.wikipedia.org/wiki/ISO_8601), and this guidance is sufficient to account for temporal coverages that are in the range of the [Gregorian calendar](https://en.wikipedia.org/wiki/Gregorian_calendar). 
 
@@ -86,7 +86,7 @@ For user-friendliness, include a text statement of the temporal coverage;
 }
 ```
 
-3. The dataset's temporalCoverage is described using the time:Instant, time:TimePosition, time numericPosition (from [OWL Time](http://www.w3.org/2006/time)) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)"
+3. The dataset's temporalCoverage is described using the time:Instant, time:TimePosition, time numericPosition (from [OWL Time](http://www.w3.org/2006/time)) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)".
  
    *Example*:
 
@@ -130,7 +130,10 @@ For user-friendliness, include a text statement of the temporal coverage;
     }
 }
 ```
-4. The dataset's temporalCoverage is described using the time:Interval, time:Instant, time:TimePosition, time:inTimePosition elements from ([OWL Time](http://www.w3.org/2006/time)) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts"
+4. The dataset's temporalCoverage is described using the time:Interval, time:Instant, time:TimePosition, time:inTimePosition elements from ([OWL Time](http://www.w3.org/2006/time)) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts".
+
+   *Example*:
+
 ```
 {    
     "@context": {
