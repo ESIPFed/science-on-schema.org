@@ -647,8 +647,8 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                     "value": "Ma"
                 }
             }
-        }]
-    }</strong>
+        }]</strong>
+    }
 }
 </pre>
 
@@ -692,8 +692,8 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                     "value": 2.0
                 }
             }
-        }]
-    }</strong>
+        }]</strong>
+    }
 }
 </pre>
 
@@ -769,8 +769,8 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                      "value": 2.0
                 }
             }
-        }]
-    }</strong>
+        }]</strong>
+    }
 }
 </pre>
 
@@ -819,8 +819,8 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                      "value": 1.0
                 }
             }
-        }]
-    }</strong>
+        }]</strong>
+    }
 }
 </pre>
 
@@ -892,8 +892,8 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
                     }
                 }
             }
-        }]
-    }</strong>
+        }]</strong>
+    }
 }
 </pre>
 
