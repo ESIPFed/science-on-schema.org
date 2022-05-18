@@ -256,7 +256,7 @@ For user-friendliness, include a text statement of the temporal coverage;
 }
 ```
 
-6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with the with temporal coverage that is named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time). With temporal coverage that is a named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
 
    *Example:*
 
