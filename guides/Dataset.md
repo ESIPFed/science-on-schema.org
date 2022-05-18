@@ -931,7 +931,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                 "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
             }
         }
-	}]</strong>
+    }]</strong>
 }
 </pre>
 
