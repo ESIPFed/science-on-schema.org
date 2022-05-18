@@ -9,7 +9,7 @@ Accepted
 Update the guidance for temporalCoverage description.  Main recommendations:
 1. Use http://www.w3.org/2006/time# classes and properties from W3C OWL Time ([Cox and Little, editors draft](https://w3c.github.io/sdw/time/)) to document temporalCoverages that can not be expressed using schema:DateTime.
 1. Use https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs temporal reference systems (TRS) with the http://www.w3.org/2006/time#hasTRS property. 
-1. Provide numeric age positions, if possible. Use the appropriate time abbreviations from https://geoschemas.org/extensions/temporal.html for the dating method(s) and geologic date(s)/age(s) (BP, BP-CAL, ka, Ma, Ga). Include [age uncertainties](https://geoschemas.org/extensions/temporal.html#Uncertainty) when known.
+1. Provide numeric age positions, if possible. Use the appropriate time unit abbreviations from https://geoschemas.org/extensions/temporal.html for the dating method(s) and geologic date(s)/age(s) (BP, BP-CAL, ka, Ma, Ga). Include [age uncertainties](https://geoschemas.org/extensions/temporal.html#Uncertainty) when known.
 1. If age is specified based on a time scale, provide nearest subsuming age from the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). Note that the ICS chart is updated on an ad hoc basis, annually or more frequently. It would be useful to cite the specific version used if you are doing precision chronology.
 
 
@@ -51,7 +51,7 @@ For user-friendliness, include a text statement of the temporal coverage;
 }
 ```
 
-2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system(TRS) and date/age abbreviation. Also provide a text form of the temporalCoverage (here "760 ka"). The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago".
+2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system (TRS) and date/age unit abbreviation. Also provide a text form of the temporalCoverage (here "760 ka"). The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago".
 
    *Example*:
 
@@ -86,7 +86,7 @@ For user-friendliness, include a text statement of the temporal coverage;
 }
 ```
 
-3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, the uncertainty value and specify at what sigma. Also provide a text form of the temporalCoverage (here "4.404 +/-+/- 0.008 Ga"). "+/-+/-" indicates the uncertainty is given at 2-sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)".
+3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the uncertainty value and specify at what sigma. Also provide a text form of the temporalCoverage (here "4.404 +/-+/- 0.008 Ga"). "+/-+/-" indicates the uncertainty is given at 2-sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)".
  
    *Example*:
 
@@ -130,7 +130,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     }
 }
 ```
-4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts".
+4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts".
 
    *Example*:
 
@@ -206,7 +206,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     }
 }
 ```
-5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
+5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
 
    *Example:*
 
