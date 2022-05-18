@@ -591,7 +591,7 @@ Schema.org also lets you provide date ranges and other temporal coverages throug
 Dates or ages used for describing geological, archeological, paleontologic, etc. samples range from the very simple to highly complex. A lava rock could have a simple age of 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal could have an age reported as 456.4 +/- 1.4  billion years old (Ga) with an standard error of 2-sigma, a sediment core could sample rocks from the Triassic to the Jurassic, a carbon date of a bone could give a date with non-symetrical uncertainly like 3242 +160 -400 years. We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [Named Individuals](geoschemas.org/contexts/temporal). These methods could also be used to describe the temporal coverage (range) for other disciplines as well. 
 
 
-1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time). The human readable description can be found in the description field: "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981".
+1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time). The human readable description can be found in the description field: "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981". 
 
   *Example*:
 
@@ -617,7 +617,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }</strong>
 </pre>
 
-2. The dataset described using the time:Instant, time:inTimePosition, and time:numericPosition elements for a single geological date/age without uncertainties (from [OWL Time](http://www.w3.org/2006/time)).  Use a decimal value with appropriate timescale temporal reference system(TRS) and date/age abbreviation. The human readable description can be found in the description field: " Eruption of Bishop Tuff, about 760,000 years ago".
+2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system (TRS) and date/age unit abbreviation. Also provide a text form of the temporalCoverage (here "760 ka"). The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago". 
 
    *Example*:
 
@@ -652,7 +652,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }
 </pre>
 
-3. The dataset's temporalCoverage is described using the time:Instant, time:TimePosition, time numericPosition (from [OWL Time](http://www.w3.org/2006/time)) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)".
+3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the uncertainty value and specify at what sigma. Also provide a text form of the temporalCoverage (here "4.404 +/-+/- 0.008 Ga"). "+/-+/-" indicates the uncertainty is given at 2-sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)". 
 
    *Example*:
 
@@ -697,7 +697,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }
 </pre>
 
-4. The dataset's temporalCoverage is described using the time:Interval, time:Instant, time:TimePosition, time:inTimePosition elements from ([OWL Time](http://www.w3.org/2006/time)) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts".
+4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts". 
 
    *Example*:
 
@@ -774,7 +774,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }
 </pre>
 
-5. The dataset's temporalCoverage is described using the time:Instant class ([OWL Time](http://www.w3.org/2006/time)) with an archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age abbreviation, the older and younger uncertainty values and at what sigma. The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
+5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
 
    *Example:*
 
@@ -824,7 +824,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }
 </pre>
 
-6. The Dataset temporalCoverage is described using time:Instant ([OWL Time](http://www.w3.org/2006/time))  with the with temporal coverage that is named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time). With temporal coverage that is a named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
 
    *Example:*
 
@@ -897,7 +897,7 @@ Dates or ages used for describing geological, archeological, paleontologic, etc.
 }
 </pre>
 
-7. Temporal intervals with nominal temporal position that have identifiers. When possible, use temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/).  If temporal intervals with identifies from other schemes are available, they can be included in a separate time:ProperInterval or time:Instant element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
+7. Temporal intervals with nominal temporal position that have identifiers. When possible, use temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/). If temporal intervals with identifies from other schemes are available, they can be included in a separate time:ProperInterval or time:Instant element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
 
    *Example:*
 
