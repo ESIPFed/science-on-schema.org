@@ -612,7 +612,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                      "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
                  },
                  "time:hasEnd": {
-                      "@type": "time:Instant",
+                    "@type": "time:Instant",
                     "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
                  }
             }]
