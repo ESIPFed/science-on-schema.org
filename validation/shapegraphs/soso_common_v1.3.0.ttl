@@ -15,6 +15,7 @@ soso:DatasetNS1Shape
     sh:targetClass <http://schema.orgDataset/> ;
 # check for missing backslash on namespace URI
     sh:message "Expecting SO namespace of <http://schema.org/> not <http://schema.org>"@en ;
+	sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/GETTING-STARTED.md#specifying-the-context" ;
     sh:not [
         sh:path rdf:type ;
         sh:minCount 1;
@@ -24,6 +25,7 @@ soso:DatasetNS2Shape
 # check for wrong http protocol (https)
     sh:targetClass <https://schema.org/Dataset> ;
     sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org/>"@en ;
+	sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/GETTING-STARTED.md#specifying-the-context" ;
     sh:not [
         sh:path rdf:type ;
         sh:minCount 1;
@@ -33,6 +35,7 @@ soso:DatasetNS3Shape
     sh:targetClass <https://schema.orgDataset/> ;
 # check for wrong http protocol (https) and missing backslash on namespace URI
     sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org>"@en ;
+	sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/GETTING-STARTED.md#specifying-the-context" ;
     sh:not [
         sh:path rdf:type ;
         sh:minCount 1;
@@ -237,7 +240,7 @@ SO:PropertyValue-nameOrPropertyID
     sh:path  [ sh:alternativePath ( SO:name  SO:propertyID ) ];
     sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
-    sh:message "Each property must have a name that matches the label for the property in the dataset, or a propertyID that specifies the semantics"@en ;
+    sh:message "Each property must have a name that matches the label for the property in the dataset, or a propertyID that specifies the semantics (preferably both!)"@en ;
     sh:description "https://github.com/ESIPFed/science-on-schema.org/blob/1.2.0/guides/Dataset.md#variables" 
 .
 

@@ -1,0 +1,45 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix SO: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix soso: <http://science-on-schema.org/1.2.3/validation/shacl#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+
+
+SOgood:
+	sh:declare [
+		sh:prefix "SOgood" ;
+		sh:namespace <http://schema.org/> ;
+	] .
+	
+SObad1:
+	sh:declare [
+		sh:prefix "SOgood" ;
+		sh:namespace <https://schema.org/> ;
+	] .
+	
+SObad2:
+	sh:declare [
+		sh:prefix "SOgood" ;
+		sh:namespace <https://schema.org> ;
+	] .
+
+soso:DatasetNS1Shape
+    a sh:NodeShape ;
+    sh:target [
+		a sh:SPARQLTarget ;
+		sh:prefixes ex: ;
+		sh:select """
+			SELECT ?this
+			WHERE {
+				?this a ex:Person .
+				?this ex:bornIn ex:USA .
+			}
+			""" ;
+	] ;
+	
+	
+	.
