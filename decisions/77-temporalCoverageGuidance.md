@@ -69,6 +69,7 @@ For user-friendliness, include a text statement of the temporal coverage;
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
+				"@type": "time:TimePosition",
                 "time:hasTRS": {
                     "@id": "gsqtime:MillionsOfYearsAgo"
                 },
@@ -289,7 +290,7 @@ For user-friendliness, include a text statement of the temporal coverage;
             }
         },
         {
-            "@type": "time:Interval",
+            "@type": "time:ProperInterval",
             "time:hasBeginning": {
                 "@type": "time:Instant",
                 "time:inTimePosition": {
@@ -345,6 +346,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
     "temporalCoverage": ["Triassic to Jurassic", {
+        "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
             "time:inTimePosition": {
