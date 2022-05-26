@@ -1,12 +1,14 @@
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": "Dataset",
+  "@id": "https://example.org/datasets/1234567890",
+  "identifier": "doi:10.1234/1234567890",
   "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-  "description": "This dataset includes results of laboratory experiments which measured dissolved organic carbon (DOC) usage by natural bacteria in seawater at different pCO2 levels. &amp;nbsp;Included in this dataset are; bacterial&amp;nbsp;abundance, total organic carbon (TOC), what DOC was added to the experiment, target pCO2 level. &amp;nbsp;The experiments were conducted between 2012 and 2016 during the R/V Kilo Moana cruise KM1416, at the Bermuda Institute for Ocean Sciences (BIOS), and the University of Santa Barbara.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Factors that affect the removal of organic carbon by heterotrophic bacterioplankton can impact the rate and magnitude of organic carbon loss in the ocean through the conversion of a portion of consumed organic carbon to CO2. Through enhanced rates of consumption, surface bacterioplankton communities can also reduce the amount of dissolved organic carbon (DOC) available for export from the surface ocean. The present study investigated the direct effects of elevated pCO2 on bacterioplankton removal of several forms of DOC ranging from glucose to complex phytoplankton exudate and lysate, and naturally occurring DOC. Elevated pCO2 (1000 &ndash; 1500 ppm) enhanced both the rate and magnitude of organic carbon removal by bacterioplankton communities compared to low (pre-industrial and ambient) pCO2 (250 &ndash; ~400 ppm). The increased removal was largely due to enhanced respiration, rather than enhanced production of bacterioplankton biomass.",
-  "url": "https://www.example-data-repository.org/dataset/472032",
+  "description": "A description between 50 and 5000 characters.",
+  "url": "https://example.org/datasets/1234567890",
   "version": "2013-11-21",
-  "keywords": ["ocean acidification", "OA", "Dissolved Organic Carbon", "DOC", "bacterioplankton respiration", "pCO2", "carbon dioxide", "elevated pCO2", "oceans"],
-  "license": "CC-BY-4.0"
+  "keywords": ["ocean acidification", "OA", "oceans"],
+  "license": "CC-BY-4.0",
+  "sameAs": "https://doi.org/10.1234/1234567890",
+  "isAccessibleForFree": "true"
 }

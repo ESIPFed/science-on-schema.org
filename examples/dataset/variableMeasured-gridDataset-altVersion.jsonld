@@ -1,0 +1,87 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {      
+            "qudt": "http://qudt.org/schema/qudt/"
+        }
+    ],
+    "@id": "ex:dataset/5500",
+    "@type":  "Dataset",
+    "additionalType" :  "http://qudt.org/schema/qudt/MultiDimensionalDataFormat",
+    "name": "Surface geology and geophysics grid",
+    "description": "Grid of sample locations on earth surface with site lithology, gravity, elevation, and magnetic field observations",
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoShape",
+            "box": "-68.4817,-75.8183 -65.08,-68.5033"
+        }
+    },
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "name": "latitude",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measureDimension",
+                "http://semanticscience.org/resource/latitude"
+            ],
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "unitText": "decimal degree"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "longitude",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measureDimension",
+                "http://semanticscience.org/resource/longitude"
+            ],
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "unitText": "decimal degree"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "mag",
+            "alternateName": "magnetic field intensity",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measure",
+                "http://semanticscience.org/resource/magneticFieldIntensity"
+            ],
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "unitText": "amperes per metre"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "acceleration of gravity",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measure",
+                "http://semanticscience.org/resource/localAccelGravity"
+            ],
+            "alternateName": "Range",
+            "measurementTechnique": "gravimiter model xxx",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "unitText": "mgal"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "lith",
+            "alternateName": "Outcrop lithology",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measure",
+                "http://www.opengis.net/def/property/geosciml/rocktype"
+            ],
+            "qudt:dataType": "https://schema.org/Text",
+            "rangeIncludes": "https://geosciml.org/vocab/simpleLithology"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "elevation",
+            "propertyID": [
+                "http://purl.org/linked-data/cube#measure",
+                "http://www.opengis.net/def/property/elevation"
+            ],
+            "description": "elevation relative to mean sea level, in meters",
+            "qudt:dataType": "http://www.w3.org/2001/XMLSchema#decimal",
+            "unitText": "meters"
+        }
+    ]
+}

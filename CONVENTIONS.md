@@ -102,10 +102,10 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 <a id="why-jsonld"></a>
 ## Why JSON-LD? ##
 
-Schema.org allows can be described using Microdata, RDFa, and JSON-LD. In this guide, we will use JSON-LD because:
+Schema.org allows descriptions using Microdata, RDFa, and JSON-LD. In this guide, we will use JSON-LD because:
 
 1. **Simplicity** - JSON-LD is the *most succinct* of the formats for communicating our *intent* with the recommendations.
-2. **Tersenees** - the JSON-LD ```[@context](https://json-ld.org/spec/latest/json-ld/#the-context)``` property allows publishers to express the data type of a specific properties of the data graph. 
+2. **Terseness** - the JSON-LD ```[@context](https://json-ld.org/spec/latest/json-ld/#the-context)``` property allows publishers to express the data type of a specific properties of the data graph.
 
 *NOTE: Our intent is not to override [https://schema.org/](https://schema.org/) classes and properties, but to provide flexibility to our examples and recommendations when using external vocabularies.*
 
@@ -151,12 +151,12 @@ or:
 
 When data is harvested using `schema:additionalType` the URLs in these fields are not automatically converted into types as content in the `@type` field would be. Searching the results of that harvester for all data typed as `http://vocabulary.example.org/ScientificInstrument` would not automatically work. We recommend following the JSON-LD best practice of using the `@type` field as shown above.
 
-**Google Structured Data Testing Tool**
+**Google Rich Results Tool**
 
-One impact of this change is that the Google Structured Data Testing Tool presently considers all external vocabulary references as an error. This tool is ONLY checking for conformance to Google's interpretation of schema.org (see the [Google Dataset recommendations](https://developers.google.com/search/docs/data-types/dataset)). This might influence a publisher to think that their schema.org markup is wrong when in fact it is not. The errors simply mean that your schema.org markup doesn't conform to Google's preference. Nevertheless, Google still accepts, harvests, and makes available JSON-LD compliant schema.org markup that does not conform to their preference; the additional types and content are simply ignored by Google, but can be used by other applications. Results have shown this to be evident at the [Google Dataset Search](https://datasetsearch.research.google.com/).
+One impact of this change is that the Google Rich Results Tool presently considers all external vocabulary references as an error. This tool is ONLY checking for conformance to Google's interpretation of schema.org (see the [Google Dataset recommendations](https://developers.google.com/search/docs/data-types/dataset)). This might influence a publisher to think that their schema.org markup is wrong when in fact it is not. The errors simply mean that your schema.org markup doesn't conform to Google's preference. Nevertheless, Google still accepts, harvests, and makes available JSON-LD compliant schema.org markup that does not conform to their preference; the additional types and content are simply ignored by Google, but can be used by other applications. Results have shown this to be evident at the [Google Dataset Search](https://datasetsearch.research.google.com/).
 
 **Using external vocabulary prefixes**
-In addition, if one uses [schema:additionalType](https://schema.org/additionalType), then one can not use prefixes defined in the `@context` section when referencing these external concepts.  Instead, the concept must be specified with its full URL. This is illustrated in the example above, where we have to use `"additionalType": "http://vocabulary.example.org/ScientificInstrument"`  rather than the more compact prefixed version `"@type": ["ex:ScientificInstrument"]`.
+In addition, if one uses [schema:additionalType](https://schema.org/additionalType), then one cannot use prefixes defined in the `@context` section when referencing these external concepts.  Instead, the concept must be specified with its full URL. This is illustrated in the example above, where we have to use `"additionalType": "http://vocabulary.example.org/ScientificInstrument"`  rather than the more compact prefixed version `"@type": ["ex:ScientificInstrument"]`.
 
-If one does decide to use `additionalType`, then opening the example in the JSON-LD Playground will show how the element type is nnot expanded and there is no triple generated for the additionalType.  Thus, we recommend using the `@type` field directly for associating fields with types so that they become part of the knowledge graph for the Dataset.
+If one does decide to use `additionalType`, then opening the example in the JSON-LD Playground will show how the element type is not expanded and there is no triple generated for the additionalType.  Thus, we recommend using the `@type` field directly for associating fields with types so that they become part of the knowledge graph for the Dataset.
 

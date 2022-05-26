@@ -15,13 +15,11 @@
 
 [![Repository  - Overview](/assets/diagrams/repository/repository-overview.svg "Repository - Overview")](#)
 
-In schema.org, we model a repository as both an [schema:ResearchProject](https://schema.org/ResearchProject), a sub-class of an Organization, and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization. 
+In schema.org, we model a repository as both an [schema:ResearchProject](https://schema.org/ResearchProject), a sub-class of an Organization, and a [schema:Service](https://schema.org/Service). This double-typing gives us the most flexibility in describing the characteristics of the organization providing the service and the services offered by the organization.
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   <strong>"@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO"
@@ -44,9 +42,7 @@ The other fields you can use to describe the Organziation and the Service are:
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -69,9 +65,7 @@ The other fields you can use to describe the Organziation and the Service are:
 If you are using the "@id" attribute for your Repository, and the provider of the repository's services is the same Organziation, you can specify the [schema:provider](https://schema.org/provider)  of the [schema:Service](https://schema.org/Service) in this way:
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   <strong>"@id": "https://www.sample-data-repository.org",</strong>
   "legalName": "Sample Data Repository Office",
@@ -92,9 +86,7 @@ However, if your repository has a situation where multiple organizations act as 
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -125,9 +117,7 @@ Adding additional fields of [schema:ResearchProject](https://schema.org/Research
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -167,9 +157,7 @@ If this ResearchProject, or Organization, has a parent entity such as a college,
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -212,9 +200,7 @@ Some organizations may have a persistent identifier (DOI) assigned to their orga
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -249,9 +235,7 @@ To describe the funding source of a repository, you use the [schema:funder](http
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -333,9 +317,7 @@ For repositories might offer services for accessing data as opposed to directly 
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -377,9 +359,7 @@ If your repository has a concept of a data collection, some grouping of a number
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": "https://schema.org/",
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
@@ -427,11 +407,13 @@ The SWEET ontology defines a number of science disciplines and a repository coul
 
 <pre>
 {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    <strong>"sweet-rel": "http://sweetontology.net/rela/",
-    "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
-  },
+  "@context": [
+    "https://schema.org/",
+    {
+      <strong>"sweet-rel": "http://sweetontology.net/rela/",
+      "sweet-kd": "http://sweetontology.net/humanKnowledgeDomain/"</strong>
+    }
+  ],
   "@type": ["Service", "ResearchProject"],
   "legalName": "Sample Data Repository Office",
   "name": "SDRO",
