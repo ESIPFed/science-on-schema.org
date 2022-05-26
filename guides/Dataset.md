@@ -595,11 +595,11 @@ There are two main types of geologic time: Proper Intervals and Instants. They a
 
   *Proper Interval*
 
-![Geologic Time 1](/assets/diagrams/dataset/dataset_geologic_time_1.svg "Dataset - Geologic Time 1")
+![Geologic Time 1](/assets/diagrams/dataset/dataset_temporal-coverage_geo-time_properInterval.svg "Dataset - Geologic Time - Proper Interval")
 
   *Instant*
 
-![Geologic Time 2](/assets/diagrams/dataset/dataset_geologic_time_2.svg "Dataset - Geologic Time 2")
+![Geologic Time 2](/assets/diagrams/dataset/dataset_temporal-coverage_geo-time_instant.svg "Dataset - Geologic Time - Instant")
 
 These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](
 https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/temporalCoverage.jsonld)
