@@ -637,6 +637,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
+				"@type": "time:TimePosition",
                 "time:hasTRS": {
                     "@id": "gsqtime:MillionsOfYearsAgo"
                 },

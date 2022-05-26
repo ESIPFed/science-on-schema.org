@@ -69,6 +69,7 @@ For user-friendliness, include a text statement of the temporal coverage;
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
+				"@type": "time:TimePosition",
                 "time:hasTRS": {
                     "@id": "gsqtime:MillionsOfYearsAgo"
                 },
