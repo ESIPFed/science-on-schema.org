@@ -15,6 +15,7 @@
 		- [Distributions](#distributions)
 			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
 		- [Temporal Coverage](#temporal-coverage)
+			- [Geologic Time](#geologic-time)
 		- [Spatial Coverage](#spatial-coverage)
 		- [Roles of People](#roles-of-people)
 		- [Publisher / Provider](#publisher-provider)
@@ -586,7 +587,7 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
-**Geologic Time**
+####Geologic Time####
 
 Dates or ages used for describing geological, archeological, and paleontologic samples range from the very simple to highly complex. A lava rock age could be simlply described as 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal could have an age reported as 456.4 +/- 1.4  billion years old (Ga) with an standard error of 2-sigma, a sediment core could sample rocks from the Triassic to the Jurassic, a carbon date of a bone could give a date with non-symetrical uncertainly (3242 +160 -40 B.C., for example). We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [Named Individuals](geoschemas.org/contexts/temporal) to describe ages and age ranges in high detail. These methods could also be used to describe the temporal coverage for other disciplines as well. 
 
