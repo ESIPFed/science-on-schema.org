@@ -29,6 +29,7 @@
 		"temporalCoverage": ["760 ka", {
 			"@type": "time:Instant",
 			"time:inTimePosition": {
+				"@type": "time:TimePosition",
 				"time:hasTRS": {
 					"@id": "gsqtime:MillionsOfYearsAgo"
 				},
