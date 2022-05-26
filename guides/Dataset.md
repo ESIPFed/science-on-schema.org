@@ -860,7 +860,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
             }
         },
         {
-            "@type": "time:Interval",
+            "@type": "time:ProperInterval",
             "time:hasBeginning": {
                 "@type": "time:Instant",
                 "time:inTimePosition": {
@@ -916,6 +916,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
 <strong>    "temporalCoverage": ["Triassic to Jurassic", {
+        "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
             "time:inTimePosition": {

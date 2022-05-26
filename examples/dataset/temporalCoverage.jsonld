@@ -177,7 +177,7 @@
 			}
 		},
 		{
-			"@type": "time:Interval",
+			"@type": "time:ProperInterval",
 			"time:hasBeginning": {
 				"@type": "time:Instant",
 				"time:inTimePosition": {
@@ -218,7 +218,7 @@
 		"@type": "Dataset",
 		"description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
 		"temporalCoverage": ["Triassic to Jurassic", {
-			"@type": "time:Interval",
+			"@type": "time:ProperInterval",
 			"time:hasBeginning": {
 				"@type": "time:Instant",
 				"time:inTimePosition": {
