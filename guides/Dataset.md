@@ -591,6 +591,16 @@ Schema.org also lets you provide date ranges and other temporal coverages throug
 
 Dates or ages used for describing geological, archeological, and paleontologic samples range from the very simple to highly complex. A lava rock age could be simlply described as 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal could have an age reported as 456.4 +/- 1.4  billion years old (Ga) with an standard error of 2-sigma, a sediment core could sample rocks from the Triassic to the Jurassic, a carbon date of a bone could give a date with non-symetrical uncertainly (3242 +160 -40 B.C., for example). We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [Named Individuals](geoschemas.org/contexts/temporal) to describe ages and age ranges in high detail. These methods could also be used to describe the temporal coverage for other disciplines as well. 
 
+There are two main types of geologic time: Proper Intervals and Instants. They are diagrammed below and used in the examples that follow.
+
+  *Proper Interval*
+
+![Geologic Time 1](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Geologic Time 1")
+
+  *Instant*
+
+![Geologic Time 2](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Geologic Time 2")
+
 These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](
 https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/temporalCoverage.jsonld)
 
