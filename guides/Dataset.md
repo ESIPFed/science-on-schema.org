@@ -17,6 +17,7 @@
 		- [Distributions](#distributions)
 			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
 		- [Temporal Coverage](#temporal-coverage)
+			- [Geologic Time](#geologic-time)
 		- [Spatial Coverage](#spatial-coverage)
 			- [Use GeoCoordinates for Point locations](#use-geocoordinates-for-point-locations)
 			- [Use GeoShape for all other location types](#use-geoshape-for-all-other-location-types)
@@ -652,8 +653,7 @@ Back to [top](#top)
 ### Temporal Coverage
 Temporal coverage is defined as "the time period during which data was collected or observations were made; or a time period that an activity or collection is linked to intellectually or thematically (for example, 1997 to 1998; the 18th century)" ([ARDC RIF-CS](https://documentation.ardc.edu.au/display/DOC/Temporal+coverage)). For documentation of Earth Science, Paleobiology or Paleontology datasets, we are interested in the second case-- the time period that data are linked to thematically.
 
-
-Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We have created our own geologic timescale vocabulary and it is found at [https://geoschemas.org/extensions/temporal.html](https://geoschemas.org/extensions/temporal.html). We ask for your [feedback on any temporal coverages you may have that don't currently fit into schema.org](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues). You can follow [similar issues at the schema.org Github issue queue](https://github.com/schemaorg/schemaorg/issues/242)
+Temporal coverage is a difficult concept to cover across all the possible scenarios. Schema.org uses [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) to describe time intervals and time points, but doesn't provide capabilities for geologic time scales or dynamically generated data up to present time. We ask for your [feedback](https://github.com/earthcubearchitecture-project418/p418Vocabulary/issues) on any temporal coverages you may have that don't currently fit into schema.org. You can follow [similar issues](https://github.com/schemaorg/schemaorg/issues/242) on the schema.org GitHub issue queue. We hope that our examples of the use of [OWL Time](https://www.w3.org/TR/owl-time/) and temporal reference system ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)) elements will help you describe the dates or ages of the entities in a dataset. We have also included examples that describe dataset's [time uncertainties](http://geoschemas.org/extensions/temporal.html).    
 
 ![Temporal](/assets/diagrams/dataset/dataset_temporal-coverage.svg "Dataset - Temporal")
 
@@ -694,93 +694,354 @@ Or an open-ended date range _(thanks to [@lewismc](https://github.com/lewismc) f
 
 Schema.org also lets you provide date ranges and other temporal coverages through the [DateTime](https://schema.org/DateTime) data type and [URL](https://schema.org/URL). For more granular temporal coverages go here: [https://schema.org/DateTime](https://schema.org/DateTime).
 
-**Geologic Time**
+#### Geologic Time
 
-There are many different ways of defining geologic age. See the examples below for a few cases. Descriptions of the vocabulary are at [geoschemas.org](https://geoschemas.org/extensions/temporal.html). More example formats can be found in [temporalCoverage.jsonld](https://github.com/ESIPFed/science-on-schema.org/tree/develop/examples/dataset/temporalCoverage.jsonld)
+Dates or ages used for describing geological, archeological, and paleontologic samples range from the very simple to highly complex. A lava rock age could be simlply described as 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal could have an age reported as 456.4 +/- 1.4  billion years old (Ga) with an standard error of 2-sigma, a sediment core could sample rocks from the Triassic to the Jurassic, a carbon date of a bone could give a date with non-symetrical uncertainly (3242 +160 -40 B.C., for example). We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [Named Individuals](geoschemas.org/contexts/temporal) to describe ages and age ranges in high detail. These methods could also be used to describe the temporal coverage for other disciplines as well. 
 
+There are two main types of geologic time: Proper Intervals and Instants. They are diagrammed below and used in the examples that follow.
 
-A time interval using the ISO 8601 standard:
+  *Proper Interval*
+
+![Geologic Time 1](/assets/diagrams/dataset/dataset_temporal-coverage_geo-time_properInterval.svg "Dataset - Geologic Time - Proper Interval")
+
+  *Instant*
+
+![Geologic Time 2](/assets/diagrams/dataset/dataset_temporal-coverage_geo-time_instant.svg "Dataset - Geologic Time - Instant")
+
+These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](
+https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/temporalCoverage.jsonld)
+
+1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time). The human readable description can be found in the description field: "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981". 
+
+  *Example*:
+
+<pre>
+{    "@context": {
+        "@vocab": "http://schema.org/",
+        "time": "http://www.w3.org/2006/time#",
+    },
+
+    "@type": "Dataset",
+        "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981",
+<strong>        "temporalCoverage": ["1980-03-27T19:36:00/1981-01-03T00:00:00Z",
+            {
+                "@type": "time:ProperInterval",
+                "time:hasBeginning": {
+                     "@type": "time:Instant",
+                     "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
+                 },
+                 "time:hasEnd": {
+                    "@type": "time:Instant",
+                    "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
+                 }
+            }]
+}</strong>
+</pre>
+
+2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system (TRS) and date/age unit abbreviation. Also provide a text form of the temporalCoverage (here "760 ka"). The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago". 
+
+   *Example*:
+
+<pre>
+{    "@context": {
+        "@vocab": "http://schema.org/",
+        "gsqtime": "https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs",
+        "time": "http://www.w3.org/2006/time#",
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
+    },
+    {
+    "@type": "Dataset",
+    "description": "Eruption of Bishop Tuff, about 760,000 years ago",
+<strong>    "temporalCoverage": ["760 ka",
+        {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+				"@type": "time:TimePosition",
+                "time:hasTRS": {
+                    "@id": "gsqtime:MillionsOfYearsAgo"
+                },
+                "time:numericPosition": {
+                    "@type": "xsd:decimal",
+                    "value": 0.76
+                },
+                "gstime:GeologicTimeUnitAbbreviation": {
+                    "@type": "xsd:string",
+                    "value": "Ma"
+                }
+            }
+        }]</strong>
+    }
+}
+</pre>
+
+3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the uncertainty value and specify at what sigma. Also provide a text form of the temporalCoverage (here "4.404 +/-+/- 0.008 Ga"). "+/-+/-" indicates the uncertainty is given at 2-sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)". 
+
+   *Example*:
+
+<pre>
+{    "@context": {
+        "@vocab": "http://schema.org/",
+        "gsqtime": "https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "time": "http://www.w3.org/2006/time#",
+        "xsd": "https://www.w3.org/TR/200 (from [OWL Time](http://www.w3.org/2006/time))4/REC-xmlschema-2-20041028/datatypes.html"
+    },
+    {
+    "@type": "Dataset",
+    "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
+<strong>    "temporalCoverage": ["4.404 +/-+/- 0.008 Ga",
+        {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {
+                    "@id": "gsqtime:BillionsOfYearsAgo"
+                },
+                "time:numericPosition": {
+                    "@type": "xsd:decimal",
+                    "value": 4.404
+                },
+                "gstime:GeologicTimeUnitAbbreviation": {
+                    "@type": "xsd:string",
+                    "value": "Ma"
+                },
+                "gstime:Uncertainty": {
+                    "@type": "xsd:decimal",
+                    "value": 0.008
+                },
+                "gstime:UncertaintySigma": {
+                    "@type": "xsd:decimal",
+                    "value": 2.0
+                }
+            }
+        }]</strong>
+    }
+}
+</pre>
+
+4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts". 
+
+   *Example*:
+
 <pre>
 {
-    "@context": [
-	  "https://schema.org/",
-	  {
-        "time": "http://www.w3.org/2006/time#",
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "gsqtime": "https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs",
         "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "rdfs": "https://www.w3.org/2001/sw/RDFCore/Schema/200212/",
+        "time": "http://www.w3.org/2006/time#",
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
+    },
+    {
+    "@type": "Dataset",
+    "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
+<strong>    "temporalCoverage": ["17.1 +/- 0.15 to 15.7 +/- 0.14 Ma",
+        {
+            "@type": "time:ProperInterval",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                 "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "rdfs:comment": "beginning is older bound of age envelop",
+                    "time:hasTRS": {
+                        "@id": "gsqtime:MillionsOfYearsAgo"
+                    },
+                    "time:numericPosition": {
+                        "@type": "xsd:decimal",
+                        "value": 17.1
+                    },
+                    "gstime:GeologicTimeUnitAbbreviation": {
+                        "@type": "xsd:string",
+                        "value": "Ma"
+                    }
+                },
+                "gstime:Uncertainty": {
+                    "@type": "xsd:decimal",
+                    "value": 0.15
+                },
+                "gstime:UncertaintySigma": {
+                    "@type": "xsd:decimal",
+                    "value": 1.0
+                }
+            },
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "rdfs:comment": "ending is younger bound of age envelop",
+                    "time:hasTRS": {
+                        "@id": "gsqtime:MillionsOfYearsAgo"
+                    },
+                    "time:numericPosition": {
+                        "@type": "xsd:decimal",
+                        "value": 15.7
+                    },
+                    "gstime:GeologicTimeUnitAbbreviation": {
+                        "@type": "xsd:string",
+                        "value": "Ma"
+                    }
+                },
+                "gstime:Uncertainty": {
+                    "@type": "xsd:decimal",
+                    "value": 0.14
+                },
+                "gstime:UncertaintySigma": {
+                    "@type": "xsd:decimal",
+                     "value": 2.0
+                }
+            }
+        }]</strong>
+    }
+}
+</pre>
+
+5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
+
+   *Example:*
+
+<pre>
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "gsqtime": "https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "time": "http://www.w3.org/2006/time#",
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
+    },
+    {
+    "@type": "Dataset",
+    "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
+<strong>    "temporalCoverage": ["2640 +130 -80 BP-CAL (INTCAL20)",
+        {
+            "@type": "time:Instant",
+            "time:inTimePosition": {
+                 "@type": "time:TimePosition",
+                 "time:hasTRS": {
+                     "@id": "gsqtime:BeforePresentCalibrated"
+                 },
+                 "time:numericPosition": {
+                     "@type": "xsd:decimal",
+                     "value": 2460.0
+                 },
+                 "gstime:GeologicTimeUnitAbbreviation": {
+                     "@type": "xsd:string",
+                     "value": "BP-CAL"
+                 },
+                 "gstime:UncertaintyOlder": {
+                     "@type": "xsd:decimal",
+                     "value": 130.0
+                 },
+                 "gstime:UncertaintyYounger": {
+                     "@type": "xsd:decimal",
+                     "value": 80.0
+                 },
+                 "gstime:UncertaintySigma": {
+                     "@type": "xsd:decimal",
+                     "value": 1.0
+                }
+            }
+        }]</strong>
+    }
+}
+</pre>
+
+6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time). With temporal coverage that is a named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+
+   *Example:*
+
+<pre>
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "gsqtime": "https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs",
+        "gstime": "http://schema.geoschemas.org/contexts/temporal#",
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/",
+        "time": "http://www.w3.org/2006/time#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
-        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/"
-      }
-	],
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
+    },
+    {
     "@type": "Dataset",
-    "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980- January 1981; temporal coverage expressed as range of dateTime",
-<strong>    "temporalCoverage": "1980-03-27T19:36:00Z/1981-01-03T00:00:00Z",
-    "time:hasTime": {
-        "@type": "time:Interval",
-        "time:hasBeginning": {
+    "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+<strong>    "temporalCoverage": ["Bartonian",
+        {
             "@type": "time:Instant",
-
-            "time:inXSDDateTimeStamp": "1980-03-27T19:36:00Z"
-        },
-        "time:hasEnd": {
-            "@type": "time:Instant",
-            "time:inXSDDateTimeStamp": "1981-01-03T00:00:00Z"
-        }
-    }
-    </strong>
-</pre>
-
-A geologic age given in millions of years ago (Ma):
-<pre>
-    "@type": "Dataset",
-    "description": "Geologic time expressed numerically scaled in millions of years increasing backwards relative to 1950. To specify a Geologic Time Scale, we use an OWL Time Instant. The example below specifies 760,000 years (0.76 Ma) before present",
-<strong>    "temporalCoverage": "Eruption of Bishop Tuff, about 760,000 years ago",
-    "time:hasTime": {
-        "@type": "time:Instant",
-        "time:inTimePosition": {
-            "@type": "time:TimePosition",
-            "time:hasTRS": {"@id": "gstime:MillionsOfYears"},
-            "time:numericPosition": 0.76,
+            "time:inTimePosition": {
+                "@type": "time:TimePosition",
+                "time:hasTRS": {
+                    "@id": "ts:gts2020"
+                },
+                "time:NominalPosition": {
+                    "@type": "xsd:anyURI",
+                    "value": "icsc:Bartonian"
+                }
             }
-        }
+        },
+        {
+            "@type": "time:ProperInterval",
+            "time:hasBeginning": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {
+                        "@id": "gsqtime:MillionsOfYearAgo"
+                    },
+                    "time:numericPosition": {
+                        "@type": "xsd:decimal",
+                        "value": 41.2
+                    },
+                    "gstime:GeologicTimeUnitAbbreviation": {
+                        "@type": "xsd:string",
+                        "value": "Ma"
+                    }
+                }
+            },
+            "time:hasEnd": {
+                "@type": "time:Instant",
+                "time:inTimePosition": {
+                    "@type": "time:TimePosition",
+                    "time:hasTRS": {
+                        "@id": "gstime:MillionsOfYearAgo"
+                    },
+                    "time:numericPosition": {
+                        "@type": "xsd:decimal",
+                        "value": 37.71
+                    },
+                    "gstime:GeologicTimeUnitAbbreviation": {
+                        "@type": "xsd:string",
+                        "value": "Ma"
+                    }
+                }
+            }
+        }]</strong>
     }
-    </strong>
+}
 </pre>
 
-A geologic age with an uncertainty given at two-sigma:
-<pre>
-    "@type": "Dataset",
-    "description": "Example of a geologic time with an uncertainty. Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
-    "temporalCoverage": "Age of one of the oldest zircon found on Earth from the Jack Hills Austrailia, 4.404 +- 0.008 Ga (2-sigma)",
-    "time:hasTime": {
-        "@type": "time:Instant",
-        "time:inTimePosition": {
-            "@type": "time:TimePosition",
-            "time:hasTRS": {"@id": "gstest:BillionsOfYears"},
-            "time:numericPosition": 4.404,
-        }
-        "gstime:uncertainty": 0.008,
-        "gstime:uncertaintySigma": 2
-    }
-    </strong>
-</pre>
+7. Temporal intervals with nominal temporal position that have identifiers. When possible, use temporal intervals defined by the [International Chronostratigraphic Chart](https://stratigraphy.org/chart), access via [ARDC vocabulary service](https://vocabs.ardc.edu.au/viewById/196), or via [GeoSciML vocabularies landing page](http://geosciml.org/resource/). If temporal intervals with identifies from other schemes are available, they can be included in a separate time:ProperInterval or time:Instant element.  If intervals are not from the ICS chart it is recommended to provide an interval with beginning and end numeric positions for better interoperability.
 
-A geologic interval bounded by two eras:
-<pre>
-    "@type": "Dataset",
-    "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
-<strong>    "temporalCoverage": "Triassic to Jurassic",
+   *Example:*
 
-    "time:hasTime": {
-        "@type": "time:Interval",
+<pre>
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "icsc": "http://resource.geosciml.org/clashttps://vocabs.ardc.edu.au/repository/api/lda/csiro/international-chronostratigraphic-chart/geologic-time-scale-2020/resource?uri=http://resource.geosciml.org/classifier/ics/ischart/Boundariessifier/ics/ischart/",
+        "time": "http://www.w3.org/2006/time#",
+        "ts": "http://resource.geosciml.org/vocabulary/timescale/",
+        "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
+	},
+    "@type": "Dataset",
+    "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
+<strong>    "temporalCoverage": ["Triassic to Jurassic", {
+        "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
             "time:inTimePosition": {
                 "@type": "time:TimePosition",
                 "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": {
-                    "@value": "icsc:Triassic",
-                    "@type": "xsd:anyURI"
-                }
+                "time:NominalPosition": { "@value": "icsc:Triassic", "@type": "xsd:anyURI" }
             }
         },
         "time:hasEnd": {
@@ -788,14 +1049,11 @@ A geologic interval bounded by two eras:
             "time:inTimePosition": {
                 "@type": "time:TimePosition",
                 "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": {
-                    "@value": "icsc:Jurassic",
-                    "@type": "xsd:anyURI"
-                }
+                "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
             }
         }
-    }
-    </strong>
+    }]</strong>
+}
 </pre>
 
 Back to [top](#top)
