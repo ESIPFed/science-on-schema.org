@@ -696,7 +696,7 @@ Schema.org also lets you provide date ranges and other temporal coverages throug
 
 #### Geologic Time
 
-Dates or ages used for describing geological, archeological, and paleontologic samples range from the very simple to highly complex. A lava rock age could be simlply described as 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal could have an age reported as 456.4 +/- 1.4  billion years old (Ga) with an standard error of 2-sigma, a sediment core could sample rocks from the Triassic to the Jurassic, a carbon date of a bone could give a date with non-symetrical uncertainly (3242 +160 -40 B.C., for example). We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [Named Individuals](geoschemas.org/contexts/temporal) to describe ages and age ranges in high detail. These methods could also be used to describe the temporal coverage for other disciplines as well. 
+Dates or ages used for describing geological, archeological, and paleontological samples range from the very simple to highly complex. A lava rock age could be simply described as 1.23 million years. Other ages are more descriptive. Some other examples are: a zircon crystal with an age of 456.4 +/- 1.4  billion years (Ga) at a standard error of 2-sigma, a core with rocks from the Triassic to the Jurassic, a carbon date of a bone with non-symmetrical uncertainties of 3242 (+160 -40) B.C. We make use of the OWL time ([Cox and Little](https://w3c.github.io/sdw/time/)) descriptive tags (elements), the Queensland Department of Natural Resources, Mines and Energy Temporal Reference Systems ([TRS](https://vocabs.gsq.digital/object?uri=http://linked.data.gov.au/def/trs)), and geoschemas' [properties](https://geoschemas.org/extensions/temporal.html#properties) to describe ages and age ranges in detail. These methods could also be used to describe the temporal coverage for other disciplines as well. 
 
 There are two main types of geologic time: Proper Intervals and Instants. They are diagrammed below and used in the examples that follow.
 
@@ -708,8 +708,7 @@ There are two main types of geologic time: Proper Intervals and Instants. They a
 
 ![Geologic Time 2](/assets/diagrams/dataset/dataset_temporal-coverage_geo-time_instant.svg "Dataset - Geologic Time - Instant")
 
-These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](
-https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/temporalCoverage.jsonld)
+These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/examples/dataset/temporalCoverage.jsonld)
 
 1. The dataset's temporalCoverage is described using ProperInterval, hasBeginning, and hasEnd elements from [OWL Time](http://www.w3.org/2006/time). The human readable description can be found in the description field: "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981". 
 
@@ -756,7 +755,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
-				"@type": "time:TimePosition",
+		"@type": "time:TimePosition",
                 "time:hasTRS": {
                     "@id": "gsqtime:MillionsOfYearsAgo"
                 },
@@ -764,7 +763,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                     "@type": "xsd:decimal",
                     "value": 0.76
                 },
-                "gstime:GeologicTimeUnitAbbreviation": {
+                "gstime:geologicTimeUnitAbbreviation": {
                     "@type": "xsd:string",
                     "value": "Ma"
                 }
@@ -801,15 +800,15 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                     "@type": "xsd:decimal",
                     "value": 4.404
                 },
-                "gstime:GeologicTimeUnitAbbreviation": {
+                "gstime:geologicTimeUnitAbbreviation": {
                     "@type": "xsd:string",
                     "value": "Ma"
                 },
-                "gstime:Uncertainty": {
+                "gstime:uncertainty": {
                     "@type": "xsd:decimal",
                     "value": 0.008
                 },
-                "gstime:UncertaintySigma": {
+                "gstime:uncertaintySigma": {
                     "@type": "xsd:decimal",
                     "value": 2.0
                 }
@@ -851,16 +850,16 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                         "@type": "xsd:decimal",
                         "value": 17.1
                     },
-                    "gstime:GeologicTimeUnitAbbreviation": {
+                    "gstime:geologicTimeUnitAbbreviation": {
                         "@type": "xsd:string",
                         "value": "Ma"
                     }
                 },
-                "gstime:Uncertainty": {
+                "gstime:uncertainty": {
                     "@type": "xsd:decimal",
                     "value": 0.15
                 },
-                "gstime:UncertaintySigma": {
+                "gstime:uncertaintySigma": {
                     "@type": "xsd:decimal",
                     "value": 1.0
                 }
@@ -877,16 +876,16 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                         "@type": "xsd:decimal",
                         "value": 15.7
                     },
-                    "gstime:GeologicTimeUnitAbbreviation": {
+                    "gstime:geologicTimeUnitAbbreviation": {
                         "@type": "xsd:string",
                         "value": "Ma"
                     }
                 },
-                "gstime:Uncertainty": {
+                "gstime:uncertainty": {
                     "@type": "xsd:decimal",
                     "value": 0.14
                 },
-                "gstime:UncertaintySigma": {
+                "gstime:uncertaintySigma": {
                     "@type": "xsd:decimal",
                      "value": 2.0
                 }
@@ -924,19 +923,19 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                      "@type": "xsd:decimal",
                      "value": 2460.0
                  },
-                 "gstime:GeologicTimeUnitAbbreviation": {
+                 "gstime:geologicTimeUnitAbbreviation": {
                      "@type": "xsd:string",
                      "value": "BP-CAL"
                  },
-                 "gstime:UncertaintyOlder": {
+                 "gstime:uncertaintyOlder": {
                      "@type": "xsd:decimal",
                      "value": 130.0
                  },
-                 "gstime:UncertaintyYounger": {
+                 "gstime:uncertaintyYounger": {
                      "@type": "xsd:decimal",
                      "value": 80.0
                  },
-                 "gstime:UncertaintySigma": {
+                 "gstime:uncertaintySigma": {
                      "@type": "xsd:decimal",
                      "value": 1.0
                 }
@@ -972,7 +971,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                 "time:hasTRS": {
                     "@id": "ts:gts2020"
                 },
-                "time:NominalPosition": {
+                "time:nominalPosition": {
                     "@type": "xsd:anyURI",
                     "value": "icsc:Bartonian"
                 }
@@ -991,7 +990,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                         "@type": "xsd:decimal",
                         "value": 41.2
                     },
-                    "gstime:GeologicTimeUnitAbbreviation": {
+                    "gstime:geologicTimeUnitAbbreviation": {
                         "@type": "xsd:string",
                         "value": "Ma"
                     }
@@ -1002,13 +1001,13 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
                 "time:inTimePosition": {
                     "@type": "time:TimePosition",
                     "time:hasTRS": {
-                        "@id": "gstime:MillionsOfYearAgo"
+                        "@id": "gsqtime:MillionsOfYearAgo"
                     },
                     "time:numericPosition": {
                         "@type": "xsd:decimal",
                         "value": 37.71
                     },
-                    "gstime:GeologicTimeUnitAbbreviation": {
+                    "gstime:geologicTimeUnitAbbreviation": {
                         "@type": "xsd:string",
                         "value": "Ma"
                     }
@@ -1041,7 +1040,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
             "time:inTimePosition": {
                 "@type": "time:TimePosition",
                 "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": { "@value": "icsc:Triassic", "@type": "xsd:anyURI" }
+                "time:nominalPosition": { "@value": "icsc:Triassic", "@type": "xsd:anyURI" }
             }
         },
         "time:hasEnd": {
@@ -1049,7 +1048,7 @@ https://github.com/ESIPFed/science-on-schema.org/blob/master/examples/dataset/te
             "time:inTimePosition": {
                 "@type": "time:TimePosition",
                 "time:hasTRS": {"@id": "ts:gts2020"},
-                "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
+                "time:nominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }
             }
         }
     }]</strong>
