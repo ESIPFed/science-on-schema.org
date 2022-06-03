@@ -748,10 +748,9 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Eruption of Bishop Tuff, about 760,000 years ago",
-<strong>    "temporalCoverage": ["760 ka",
+    <strong>"temporalCoverage": ["760 ka",
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -768,8 +767,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     "value": "Ma"
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -785,10 +784,9 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/200 (from [OWL Time](http://www.w3.org/2006/time))4/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
-<strong>    "temporalCoverage": ["4.404 +/-+/- 0.008 Ga",
+    <strong>"temporalCoverage": ["4.404 +/-+/- 0.008 Ga",
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -813,8 +811,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     "value": 2.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -832,10 +830,9 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
-<strong>    "temporalCoverage": ["17.1 +/- 0.15 to 15.7 +/- 0.14 Ma",
+    <strong>"temporalCoverage": ["17.1 +/- 0.15 to 15.7 +/- 0.14 Ma",
         {
             "@type": "time:ProperInterval",
             "time:hasBeginning": {
@@ -890,8 +887,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                      "value": 2.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -908,10 +905,9 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
-<strong>    "temporalCoverage": ["2640 +130 -80 BP-CAL (INTCAL20)",
+    <strong>"temporalCoverage": ["2640 +130 -80 BP-CAL (INTCAL20)",
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -940,8 +936,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                      "value": 1.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -960,10 +956,9 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
-<strong>    "temporalCoverage": ["Bartonian",
+    <strong>"temporalCoverage": ["Bartonian",
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -1013,8 +1008,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     }
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -1033,7 +1028,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
-<strong>    "temporalCoverage": ["Triassic to Jurassic", {
+    <strong>"temporalCoverage": ["Triassic to Jurassic", {
         "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
