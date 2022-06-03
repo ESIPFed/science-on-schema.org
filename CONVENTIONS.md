@@ -63,29 +63,57 @@ Figure example:
 ```
 
 <a id="syntax-namespace"></a>
-6. **Namespace for `schema.org`.** Use `https://schema.org/`. 
+6. **Namespace for `schema.org`.** 
 
-  Consistent representation of namespaces simplifies programmatic processing of markup. For example, even though conceptually it is clear the terms `http://schema.org/Dataset` and `https://schema.org/Dataset` (note the protocol difference) are referring to [https://schema.org/Dataset](https://schema.org/Dataset), these are programmatically treated as different entities. The [schema.org guidelines](https://schema.org/docs/faq.html#19) are somewhat ambivalent on the topic, with perhaps emphasis on `"https"`. 
+We recommend that the namespace URI for the schema.org vocabulary be consistently set to the value `http://schema.org/`.
 
-  The trailing slash (`/`) is also important. Without it, common RDF processing libraries such as [rdflib](https://rdflib.readthedocs.io/en/stable/) will construct a term like `"https://schema.orgDataset"`. For example:
+ Consistent representation of namespaces simplifies programmatic processing of schema.org markup. For example, even though conceptually it is clear that the terms `http://schema.org/Dataset` and `https://schema.org/Dataset` (note the protocol difference) are referring to [http://schema.org/Dataset](https://schema.org/Dataset), these are programmatically treated as different entities. The [schema.org guidelines](https://schema.org/docs/faq.html#19) are somewhat ambivalent on the topic. Their context files maintain an `http` namespace for all terms, but can also be resolved from `https`-based addresses.
 
-  ``` python console
-  >>> from rdflib import ConjunctiveGraph
-  >>> json = """{
-  ...    "@context": {"@vocab": "https://schema.org"},
-  ...    "@id":"demo",
-  ...    "@type":"Dataset"
-  ... } """
-  >>> g = ConjunctiveGraph().parse(data=json, format="json-ld", publicID="https://my.data/")
-  >>> for s,p,o in g:
-  ...     print(f'"{str(s)}", "{str(p)}", "{str(o)}"')
-  ...
-  "https://my.data/demo", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "https://schema.orgDataset/"
-  ```
-  Including the trailing slash will make the literal representation of terms align with the Internet location of the term definition, and so be clearer for readers and other processors.
+While the schema.org context is resolvable at both the original `http` address and the newer `https` address, changing the namespace to `https` references would also effectively change the namespace of the terms to a new namespace. While schema.org maintainers have clarified that both namespaces have been actively recommended for 5 years, and are considered synonomous, the official context file that is retrieved from both `https://schema.org/` and `http://schema.org` define the namespace URI for the vocabulary as `http://schema.org/`. For consistency, we thus recommend using the `http`-based namespace so that term URIs stay comparable over time, but also that harvesters consumers treat the http and https namespaced terms as logical synonyms.
 
-  It is further recommended that the prefix `SO:` is used in documentation and other locations when specifically referring to `https://schema.org/`.
-  
+One consistent mechanism to use the `http`-based namespace is to load the context from the context file maintained by schema.org. This can be accomplished using:
+
+```json
+{
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "name": "Example dataset title"
+}
+```
+
+While that context is loaded from the `https` address above, the resulting JSON-LD fragment uses the `http` namespace when it is expanded:
+
+```json
+[
+  {
+    "@type": [
+      "http://schema.org/Dataset"
+    ],
+    "http://schema.org/name": [
+      {
+        "@value": "Example dataset title"
+      }
+    ]
+  }
+]
+```
+
+Finally, if referencing the namespace inside context definitions using `@vocab` or when defining a prefix, then the `http`-baased namespace should be used. For example:
+
+```json
+{
+    "@context": {
+        "@vocab": "http://schema.org/",
+        "schema": "http://schema.org/"
+    },
+    "@type": "Dataset",
+    "name": "Example dataset title",
+    "schema:isAccessibleForFree": true
+}
+```
+
+In addition to the `http`, we also need the trailing slash to be consistently applied, so that term URIs that are constructed become properly expanded. For example, `schema:Dataset` should expand to `http://schema.org/Dataset`. Without the trailing slash, it would expand to the incorrect `http://schema.orgDataset`.
+
   See also discussion at [issue #52](https://github.com/ESIPFed/science-on-schema.org/issues/52)
 
 <a id="versioning"></a>
