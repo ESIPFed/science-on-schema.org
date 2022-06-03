@@ -13,9 +13,9 @@
     - [Variables](#variables)
     - [Collections of datasets using schema.org DataCatalog](#collections-of-datasets-using-schemaorg-datacatalog)
     - [Metadata](#metadata)
-    - [Dates](#dates)
     - [Distributions](#distributions)
         - [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
+    - [Dates](#dates)
     - [Temporal Coverage](#temporal-coverage)
         - [Geologic Time](#geologic-time)
     - [Spatial Coverage](#spatial-coverage)
@@ -552,21 +552,6 @@ Note that the `encodingFormat` property contains an array of formats to describe
 
 Back to [top](#top)
 
-### Dates
-
-Scientific datasets typically have multiple associated date or time periods.  Time periods can be specified for 1) the time at which an entity or phenonomon occurred or was measured, and 2) the time periods when a dataset containing that information was created, changed, published, etc. `temporalCoverage` describes the age of the sample and the other dates describe the data created from observations or process. For example, if one took a sample 200 ft down in an ice core, `temporalCoverage` would describe the period when that layer of ice was deposited in geologic time, while other date properties (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice core sample. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
-
-Schema.org offers various date properties that can be used to encode this information. We recommend use of the following fields for Dates:
-
-- `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
-
-- `schema:dateCreated` ::  use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
-- `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
-- `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
-- `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
-
-Back to [top](#top)
-
 ### Distributions
 
 While the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
@@ -647,6 +632,21 @@ If access to the data requires some input parameters before a download can occur
 </pre>
 
 Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the query parameters and HTTP methods so that machines can build user interfaces to collect those query parmaeters and actuate a request to provide the user what they are looking for.
+
+Back to [top](#top)
+
+### Dates
+
+Scientific datasets typically have multiple associated date or time periods.  Time periods can be specified for 1) the time at which an entity or phenonomon occurred or was measured, and 2) the time periods when a dataset containing that information was created, changed, published, etc. `temporalCoverage` describes the age of the sample and the other dates describe the data created from observations or process. For example, if one took a sample 200 ft down in an ice core, `temporalCoverage` would describe the period when that layer of ice was deposited in geologic time, while other date properties (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice core sample. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
+
+Schema.org offers various date properties that can be used to encode this information. We recommend use of the following fields for Dates:
+
+- `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
+
+- `schema:dateCreated` ::  use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
+- `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
+- `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
+- `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
 
 Back to [top](#top)
 
