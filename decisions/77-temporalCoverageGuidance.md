@@ -36,7 +36,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     },
     "@type": "Dataset",
         "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981",
-        "temporalCoverage": ["1980-03-27T19:36:00/1981-01-03T00:00:00Z",
+        "temporalCoverage": [
             {
                 "@type": "time:ProperInterval",
                 "time:hasBeginning": {
@@ -65,7 +65,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     {
     "@type": "Dataset",
     "description": "Eruption of Bishop Tuff, about 760,000 years ago",
-    "temporalCoverage": ["760 ka",
+    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -102,7 +102,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     {
     "@type": "Dataset",
     "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
-    "temporalCoverage": ["4.404 +/-+/- 0.008 Ga",
+    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -148,7 +148,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     {
     "@type": "Dataset",
     "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
-    "temporalCoverage": ["17.1 +/- 0.15 to 15.7 +/- 0.14 Ma",
+    "temporalCoverage": [
         {
             "@type": "time:ProperInterval",
             "time:hasBeginning": {
@@ -223,7 +223,7 @@ For user-friendliness, include a text statement of the temporal coverage;
     {
     "@type": "Dataset",
     "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
-    "temporalCoverage": ["2640 +130 -80 BP-CAL (INTCAL20)",
+    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -274,8 +274,8 @@ For user-friendliness, include a text statement of the temporal coverage;
     },
     {
     "@type": "Dataset",
-    "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
-    "temporalCoverage": ["Bartonian",
+    "description": "Temporal position of the Bartonian expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
+    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -344,8 +344,8 @@ For user-friendliness, include a text statement of the temporal coverage;
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
 	},
     "@type": "Dataset",
-    "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
-    "temporalCoverage": ["Triassic to Jurassic", {
+    "description": "Temporal position of Triassic to Jurassic expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
+    "temporalCoverage": [{
         "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
