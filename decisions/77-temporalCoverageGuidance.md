@@ -32,7 +32,7 @@ For user-friendliness, include a text statement of the temporal coverage;
 ```
 {    "@context": {
         "@vocab": "http://schema.org/",
-        "time": "http://www.w3.org/2006/time#",
+        "time": "http://www.w3.org/2006/time#"
     },
     "@type": "Dataset",
         "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981",
@@ -62,7 +62,6 @@ For user-friendliness, include a text statement of the temporal coverage;
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Eruption of Bishop Tuff, about 760,000 years ago",
     "temporalCoverage": [
@@ -82,8 +81,7 @@ For user-friendliness, include a text statement of the temporal coverage;
                     "value": "Ma"
                 }
             }
-        }]
-    }
+        }]    
 }
 ```
 
@@ -99,7 +97,6 @@ For user-friendliness, include a text statement of the temporal coverage;
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/200 (from [OWL Time](http://www.w3.org/2006/time))4/REC-xmlschema-2-20041028/datatypes.html"
     },  
-    {
     "@type": "Dataset",
     "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
     "temporalCoverage": [
@@ -128,7 +125,6 @@ For user-friendliness, include a text statement of the temporal coverage;
                 }       
             }       
         }]          
-    }
 }
 ```
 4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts".
@@ -145,7 +141,6 @@ For user-friendliness, include a text statement of the temporal coverage;
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
     "temporalCoverage": [
@@ -204,7 +199,6 @@ For user-friendliness, include a text statement of the temporal coverage;
                 }
             }
         }]
-    }
 }
 ```
 5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
@@ -220,7 +214,6 @@ For user-friendliness, include a text statement of the temporal coverage;
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
     "temporalCoverage": [
@@ -253,7 +246,6 @@ For user-friendliness, include a text statement of the temporal coverage;
                 }
             }
         }]
-    }
 }
 ```
 
@@ -272,7 +264,6 @@ For user-friendliness, include a text statement of the temporal coverage;
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Temporal position of the Bartonian expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
     "temporalCoverage": [
@@ -326,7 +317,6 @@ For user-friendliness, include a text statement of the temporal coverage;
                 }
             }
         }]
-    }
 }
 ```
 
@@ -363,7 +353,7 @@ For user-friendliness, include a text statement of the temporal coverage;
                 "time:NominalPosition": { "@value": "icsc:Jurassic", "@type": "xsd:anyURI" }    
             }
         }
-	}]
+    }]
 }
 ```
 
