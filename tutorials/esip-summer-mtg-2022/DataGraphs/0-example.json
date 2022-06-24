@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/"
+    },
+    "@type": "Dataset",
+    "@id": "https://obis.org/dataset/dcbb8f12-c869-4d31-aa8b-23abb27898ce",
+    "name": "MIRC NAVFAC MISTCS Vessel Surveys Jan-Apr 2007",
+    "description": "Original provider:\nHDR Environmental, Operations and Construction, Inc.\n\nDataset credits:\nThe U.S. Navy Marine Species Monitoring Program\n\nAbstract:\nFeatures in this feature class represent sightings from the NAVFAC MISTCS Vessel Surveys Jan-Apr 2007.",
+    "url": "https://obis.org/dataset/dcbb8f12-c869-4d31-aa8b-23abb27898ce"
+}
