@@ -2,13 +2,19 @@
 
 ## Agenda
 
-1. Intro to Schema.org
-2. Walkthrough - Build a basic schema.org entry (goal: it's not complicated)
-3. Walkthrough - 2nd pass - improving the record
-4. Wrap-up (not hands-on) Extend it with more complicated stuff
+1. [Intro to Schema.org](#intro)
+2. [Walkthrough - Build a basic schema.org entry (goal: it's not complicated)](#walkthrough-basic)
+3. [Walkthrough - 2nd pass - improving the record](#walkthrough-improve)
+4. [Wrap-up (not hands-on) Extend it with more complicated stuff](#advanced-techniques)
 
+<a name="intro"></a>
 ### Intro to Schema.org
 
+1. What is Schema.org?
+2. What is actionable content?
+3. Science-on-schema.org guidelines
+
+<a name="walkthrough-basic"></a>
 ### Walkthrough - Basic Dataset
 
 1. Basic Fields (title, description, isAccess….)
@@ -22,6 +28,7 @@
 9. Whole Dataset Landing page URL
 10. SameAs (same dataset in different locations)
 
+<a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
 
 1. Authors - JSON-LD arrays & lists
@@ -35,6 +42,7 @@
 9. Linking to metadata records
 10. Validate - SHACL Playground: https://shacl-playground.zazuko.com/ 
 
+<a name="advanced-techniques"></a>
 ### Advanced Techniques
 
 1. Extending the context
