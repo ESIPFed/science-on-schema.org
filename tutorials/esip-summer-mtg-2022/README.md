@@ -9,6 +9,10 @@
 
 ### Intro to Schema.org
 
+1. What is Schema.org?
+2. What is actionable content?
+3. Science-on-schema.org guidelines
+
 ### Walkthrough - Basic Dataset
 
 1. Basic Fields (title, description, isAccess….)
