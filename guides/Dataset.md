@@ -24,7 +24,7 @@
         - [Handling multiple locations](#handling-multiple-locations)
         - [Spatial Reference Systems](#spatial-reference-systems)
     - [Roles of People](#roles-of-people)
-    - [Publisher / Provider](#publisher-provider)
+    - [Publisher / Provider](#publisher--provider)
     - [Funding](#funding)
     - [License](#license)
     - [Checksum](#checksum)
