@@ -16,6 +16,7 @@
 
 ```
 {
+  "@context": "https://schema.org/",
   "identifier": "doi:10.26008/1912/bco-dmo.775849.1"
 }
 ```
@@ -24,6 +25,7 @@
 
 ```
 {
+  "@context": "https://schema.org/",
   "identifier": "[doi:10.26008/1912/bco-dmo.775849.1](https://doi.org/10.26008/1912/bco-dmo.775849.1)"
 }
 ```
@@ -36,6 +38,7 @@ DOI: https://registry.identifiers.org/registry/doi
 
 ```
 {
+  "@context": "https://schema.org/",
   "identifier": {
     "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
     "@type": "PropertyValue",
@@ -66,6 +69,9 @@ Protein Data Bank: https://registry.identifiers.org/registry/pdb
   "url": "https://www.bco-dmo.org/dataset/775849",
   "version": "1",
   "isAccessibleForFree": "true",
+  "dateCreated": "2019-08-22",
+  "dateModified": "2019-08-22",
+  "datePublished": "2022-06-08",
   "keywords": [
     "nitrous oxide", 
     "Central Pacific", 
