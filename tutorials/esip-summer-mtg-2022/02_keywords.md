@@ -10,12 +10,13 @@
 [Keywords](/guides/Dataset.md#keywords)
 
 **Source:**
-[Lines 6-19](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L6-L19)
+[Lines 9-26](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L9-L26)
 
 #### Keywords as Text
 
 ```
 {
+  "@context": "https://schema.org/",
   "keywords": [
     "nitrous oxide", 
     "Central Pacific", 
@@ -31,6 +32,7 @@
 
 ```
 {
+  "@context": "https://schema.org/",
   "keywords": [
     {
       "@type": "DefinedTerm",
@@ -53,6 +55,7 @@
 
 ```
 {
+  "@context": "https://schema.org/",
   "keywords": [
     "nitrous oxide", 
     "Central Pacific", 
@@ -77,7 +80,7 @@
 
 ### Updated Markup - Keywords
 
-```
+<pre>
 {
   "@context": "https://schema.org/",
   "@type": "Dataset",
@@ -86,7 +89,10 @@
   "url": "https://www.bco-dmo.org/dataset/775849",
   "version": "1",
   "isAccessibleForFree": "true",
-  "keywords": [
+  "dateCreated": "2019-08-22",
+  "dateModified": "2019-08-22",
+  "datePublished": "2022-06-08",
+  <strong>"keywords": [
     "nitrous oxide", 
     "Central Pacific", 
     "headspace equilibration", 
@@ -104,8 +110,8 @@
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
       "termCode": "LAB02"
     }
-  ]
+  ]</strong>
 }
-```
+</pre>
 
-[Section #3: Identifiers >>](02_identifiers.md)
+[Section #3: Identifiers >>](03_identifiers.md)
