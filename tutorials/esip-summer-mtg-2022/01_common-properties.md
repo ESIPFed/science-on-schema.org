@@ -33,4 +33,4 @@
 }
 ```
 
-[(next ->)](02_keywords.md)
+[Section #2: Keywords >>](02_keywords.md)
