@@ -12,10 +12,14 @@ keywords:
     identifier:
       name: "CTD"
       uri: "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      source:
+        name: "SeaDataNet device categories"
+        url: "http://vocab.nerc.ac.uk/collection/L05/current/"
     
   - name: "Gas Chromatograph"
     identifier:
       name: "gas chromatographs"
+      id: "LAB02"
       uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
 author:
   - name: "Alyson E. Santoro"
