@@ -3,6 +3,20 @@ url: "https://www.bco-dmo.org/dataset/775849"
 abstract: "Dissolved N2O concentrations from were measured in discrete samples on a research expedition to the Equatorial Pacific. Water samples were collected using a 24 bottle Niskin rosette equipped with a CTD. N₂O concentrations were measured using a headspace equilibration method and analyzed on a SRI Greenhouse Gas Monitoring Gas Chromatograph."
 doi: "10.26008/1912/bco-dmo.775849.1"
 version: "1"
+keywords:
+  - name: "nitrous oxide"
+  - name: "Central Pacific"
+  - name: "headspace equilibration"
+  - name: "SRI Greenhouse Gas Monitoring Gas Chromatograph"
+  - name: "CTD profiler"
+    identifier:
+      name: "CTD"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+    
+  - name: "Gas Chromatograph"
+    identifier:
+      name: "gas chromatographs"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
 author:
   - name: "Alyson E. Santoro"
     orcid: "0000-0003-2503-8219"
@@ -41,7 +55,7 @@ collectionDate:
   start: "2016-01-17"
   end: "2016-02-04"
 instrumentation:
-  -  name: "CTD profiler"
+  - name: "CTD profiler"
   - name: "Gas Chromatograph"
 files:
   - 
