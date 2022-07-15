@@ -1,8 +1,8 @@
 title: "Nitrous oxide concentrations from the R/V Falkor expedition FK160115 in the Central Pacific from January to February 2016"
 url: "https://www.bco-dmo.org/dataset/775849"
 abstract: "Dissolved N2O concentrations from were measured in discrete samples on a research expedition to the Equatorial Pacific. Water samples were collected using a 24 bottle Niskin rosette equipped with a CTD. N₂O concentrations were measured using a headspace equilibration method and analyzed on a SRI Greenhouse Gas Monitoring Gas Chromatograph."
-doi: "10.26008/1912/bco-dmo.775849.1"
 version: "1"
+doi: "10.26008/1912/bco-dmo.775849.1"
 keywords:
   - name: "nitrous oxide"
   - name: "Central Pacific"
