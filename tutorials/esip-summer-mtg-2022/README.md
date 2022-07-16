@@ -17,35 +17,32 @@
 <a name="walkthrough-basic"></a>
 ### Walkthrough - Basic Dataset
 
-1. Basic Fields (title, description, isAccess….)
-2. Context (basic) - explain downloading the schema file to define all the terms
-3. Dates
-4. Authors - just one author
-5. Identifier - single DOI
-6. Space/Time - simple
-7. Keywords - free text
-8. License - CC BY 0
-9. Whole Dataset Landing page URL
-10. SameAs (same dataset in different locations)
+1. Context (basic) - explain downloading the schema file to define all the terms
+2. Basic Fields (title, description, isAccess….)
+3. Keywords (lesson - strings)
+4. License (lesson - CC BY 0)
+5a. Identifiers (lesson - simple - good & better)
+5b. SameAs (same dataset in different locations)
+6. Publisher - single publisher
+7. Authors / Contributors - (1 author; 1 contributor)
+8. Space/Time - (simple - WKT correctly)
 
 <a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
-
-1. Authors - JSON-LD arrays & lists
-2. Identifiers - JSON-LD `@id` as
-3. `@id` vs. url 
-4. Space/Time - WKT correctly
-5. Keywords - DefinedTerm
-6. Funding
+1. Keywords (lesson - DefinedTerm)
+2. License (lesson - expressivity of RDF)
+3. Identifiers - (lesson - Identifiers.org - best)
+4. Publisher/Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
+5. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
+6. Funding & Awards
 7. Data Distributions
-8. Individual files and their checksum
-9. Linking to metadata records
+8. Metadata Records
+9. Checksums
 10. Validate - SHACL Playground: https://shacl-playground.zazuko.com/ 
 
 <a name="advanced-techniques"></a>
 ### Advanced Techniques
 
-1. Extending the context
-2. Variables [Adam or Matt]
-3. Provenance [Matt]
-4. Geologic Time [Nick]
+1. Variables (using external vocabs)
+2. Provenance (extending the context)
+3. Geologic Time
