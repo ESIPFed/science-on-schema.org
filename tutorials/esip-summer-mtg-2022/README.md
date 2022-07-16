@@ -25,7 +25,8 @@
     b. SameAs (same dataset in different locations)
 6. Publisher - single publisher
 7. Authors / Contributors - (1 author; 1 contributor)
-8. Space/Time - (simple - WKT correctly)
+8. Temporal Coverage
+9. Spatial Coverage (simple - WKT correctly)
 
 <a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
