@@ -21,8 +21,8 @@
 2. Basic Fields (title, description, isAccess….)
 3. Keywords (lesson - strings)
 4. License (lesson - CC BY 0)
-5a. Identifiers (lesson - simple - good & better)
-5b. SameAs (same dataset in different locations)
+5. Identifiers (lesson - simple - good & better)
+    b. SameAs (same dataset in different locations)
 6. Publisher - single publisher
 7. Authors / Contributors - (1 author; 1 contributor)
 8. Space/Time - (simple - WKT correctly)
