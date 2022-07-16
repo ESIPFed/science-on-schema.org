@@ -50,7 +50,7 @@ doi: "10.26008/1912/bco-dmo.775849.1"
 }
 </pre>
 
-### Updated Markup - License
+### Updated Markup - Identifier
 
 <pre>
 {
