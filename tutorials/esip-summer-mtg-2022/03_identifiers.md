@@ -26,7 +26,7 @@
 ```
 {
   "@context": "https://schema.org/",
-  "identifier": "[doi:10.26008/1912/bco-dmo.775849.1](https://doi.org/10.26008/1912/bco-dmo.775849.1)"
+  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
 }
 ```
 
