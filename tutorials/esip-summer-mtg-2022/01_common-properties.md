@@ -30,7 +30,6 @@
   "url": "https://www.bco-dmo.org/dataset/775849",
   "version": "1",
   "isAccessibleForFree": "true"</strong>
-  
 }
 </pre>
 
