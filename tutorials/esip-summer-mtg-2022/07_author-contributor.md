@@ -84,6 +84,13 @@ contributor:
     "Gas Chromatograph"
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "publisher": {
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  },
   <strong>"creator": {
     "@list":[
       {
