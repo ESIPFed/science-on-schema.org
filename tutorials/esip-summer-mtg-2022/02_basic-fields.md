@@ -6,6 +6,13 @@
 **Source:**
 [Lines 1-4](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L1-L4)
 
+```
+title: "Nitrous oxide concentrations from the R/V Falkor expedition FK160115 in the Central Pacific from January to February 2016"
+url: "https://www.bco-dmo.org/dataset/775849"
+abstract: "Dissolved N2O concentrations from were measured in discrete samples on a research expedition to the Equatorial Pacific. Water samples were collected using a 24 bottle Niskin rosette equipped with a CTD. N₂O concentrations were measured using a headspace equilibration method and analyzed on a SRI Greenhouse Gas Monitoring Gas Chromatograph."
+version: "1"
+```
+
 <pre>
 {
   "@context": "https://schema.org/",
@@ -25,6 +32,12 @@
 
 **Source:**
 [Lines 5-7](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L5-L7)
+
+```
+createdDate: "2019-08-22"
+modifiedDate: "2019-08-22"
+publishedDate: "2022-06-08"
+```
 
 <pre>
 {
