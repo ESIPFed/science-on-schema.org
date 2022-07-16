@@ -117,7 +117,7 @@ contributor:
 
 <hr/>
 
-[Section #8: Space & Time >>](08_space-time.md)
+[Section #8: Spatial Coverage >>](08_spatial.md)
 
 <hr/>
 
