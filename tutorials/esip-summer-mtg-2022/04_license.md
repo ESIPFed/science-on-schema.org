@@ -62,7 +62,7 @@ OR, include both the SPDX and the Creative Commons URLs in an array:
 }
 </pre>
 
-### Updated Markup - Keywords
+### Updated Markup - License
 
 <pre>
 {
