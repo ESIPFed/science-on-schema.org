@@ -13,9 +13,10 @@ doi: "10.26008/1912/bco-dmo.775849.1"
 ### Schema.org Identifier
 
 - https://schema.org/identifier
-    - `URL`
+    - <strong>`Text`
+    - `URL`</strong>
     - `PropertyValue`
-    - <strong>`Text`</strong>
+
 
 #### Identifiers as Text - Good
 
@@ -36,6 +37,46 @@ doi: "10.26008/1912/bco-dmo.775849.1"
 }
 </pre>
 
+### SameAs
+
+- https://schema.org/sameAs
+    - `URL`
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  <strong>"sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1"</strong>
+}
+</pre>
+
+### Updated Markup - License
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Nitrous oxide concentrations from the R/V Falkor expedition FK160115 in the Central Pacific from January to February 2016",
+  "description": "Dissolved N2O concentrations from were measured in discrete samples on a research expedition to the Equatorial Pacific. Water samples were collected using a 24 bottle Niskin rosette equipped with a CTD. N₂O concentrations were measured using a headspace equilibration method and analyzed on a SRI Greenhouse Gas Monitoring Gas Chromatograph.",
+  "url": "https://www.bco-dmo.org/dataset/775849",
+  "version": "1",
+  "isAccessibleForFree": "true",
+  "dateCreated": "2019-08-22",
+  "dateModified": "2019-08-22",
+  "datePublished": "2022-06-08",
+  "keywords": [
+    "nitrous oxide", 
+    "Central Pacific", 
+    "headspace equilibration", 
+    "SRI Greenhouse Gas Monitoring Gas Chromatograph",
+    "CTD profiler",
+    "Gas Chromatograph"
+  ],
+  "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  <strong>"identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1"</strong>
+}
+</pre>
 <hr/>
 
 [Section #6: Publisher >>](06_publisher.md)
