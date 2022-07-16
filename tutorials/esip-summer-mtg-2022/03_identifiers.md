@@ -51,10 +51,10 @@ DOI: https://registry.identifiers.org/registry/doi
 
 ##### Other Common Identifiers.org Types
 
-ARK: https://registry.identifiers.org/registry/ark
-PubMed: https://registry.identifiers.org/registry/pubmed
-PaleoDB: https://registry.identifiers.org/registry/paleodb
-Protein Data Bank: https://registry.identifiers.org/registry/pdb
+- ARK: https://registry.identifiers.org/registry/ark
+- PubMed: https://registry.identifiers.org/registry/pubmed
+- PaleoDB: https://registry.identifiers.org/registry/paleodb
+- Protein Data Bank: https://registry.identifiers.org/registry/pdb
 
 
 
