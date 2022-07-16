@@ -101,4 +101,4 @@ DOI: https://registry.identifiers.org/registry/doi
 }
 </pre>
 
-[Section #4: Authors/Contributors >>](04_authors-contributors.md)
+[Section #4: Publisher/Provider >>](04_publisher-provider.md)
