@@ -12,6 +12,10 @@
 **Source:**
 [Line 5](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L5)
 
+```
+doi: "10.26008/1912/bco-dmo.775849.1"
+```
+
 #### Identifiers as Text - Good
 
 ```
