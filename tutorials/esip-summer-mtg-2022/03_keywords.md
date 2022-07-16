@@ -6,6 +6,18 @@
 **Source:**
 [Lines 9-26](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L9-L26)
 
+```
+keywords:
+  - name: "nitrous oxide"
+  - name: "Central Pacific"
+  - name: "headspace equilibration"
+  - name: "SRI Greenhouse Gas Monitoring Gas Chromatograph"
+  - name: "CTD profiler"
+      ...
+  - name: "Gas Chromatograph"
+      ...
+```
+
 #### Keywords as Text
 
 ```
