@@ -1,4 +1,4 @@
-# 5. Publisher
+# 6. Publisher
 
 **Guidelines:** 
 [Publisher / Provider](/guides/Dataset.md#publisher--provider)
@@ -64,7 +64,7 @@ publisher:
 </pre>
 <hr/>
 
-[Section #6: Author / Contributor >>](06_author-contributor.md)
+[Section #7: Author / Contributor >>](07_author-contributor.md)
 
 <hr/>
 
