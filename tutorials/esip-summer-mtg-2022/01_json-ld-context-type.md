@@ -18,3 +18,8 @@ For more information, see:
 
 [Section #2: Basic Fields >>](02_basic-fields.md)
 
+<hr/>
+
+### Resources
+- **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
+- **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
