@@ -89,7 +89,7 @@ OR, include both the SPDX and the Creative Commons URLs in an array:
 </pre>
 <hr/>
 
-[Section #5: Publisher >>](05_publisher.md)
+[Section #5: Identifier >>](05_identifier.md)
 
 <hr/>
 
