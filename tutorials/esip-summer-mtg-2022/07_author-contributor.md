@@ -1,4 +1,4 @@
-# 6. Authors / Contributors
+# 7. Authors / Contributors
 
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#roles-of-people)
@@ -110,7 +110,7 @@ contributor:
 
 <hr/>
 
-[Section #7: Space & Time >>](07_space-time.md)
+[Section #8: Space & Time >>](08_space-time.md)
 
 <hr/>
 
