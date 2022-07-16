@@ -26,7 +26,7 @@ contributor:
 
 ### Authors
 
-```
+<pre>
 {
   "@context": "https://schema.org/",
   <strong>"creator":</strong> {
@@ -42,7 +42,7 @@ contributor:
     ]
   }
 }
-```
+</pre>
 
 #### Contributors
 
