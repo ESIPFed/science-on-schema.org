@@ -10,7 +10,7 @@ Examples for:
 - open-ended date range
 
 **Source:**
-[Lines L61-L63](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L61-L63)
+[Lines L64-L66](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L64-L66)
 
 ```
 collectionDate:
