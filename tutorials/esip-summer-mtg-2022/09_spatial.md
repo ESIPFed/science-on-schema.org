@@ -4,7 +4,7 @@
 [Spatial Coverage](/guides/Dataset.md#spatial-coverage)
 
 **Source:**
-[Lines L54-L60](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L54-L60)
+[Lines L54-L63](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L54-L63)
 
 ```
 spatial:
@@ -14,6 +14,9 @@ spatial:
     south: -10.563
     east: 156
     north: 17
+  centroid: 
+    lat: 3.2185
+    lon: 147.9
 ```
 
 ### Schema.org Spatial
@@ -29,8 +32,23 @@ spatial:
         - `latitude`
         - `longitude`
         - `elevation`
+ 
+### Spatial Coverage - GeoCoordinates
 
-### Spatial Coverage - Box
+<pre>
+{
+  "@context": "https://schema.org/",
+  <strong>"spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 3.2185,
+      "longitude": 147.9
+    }</strong>
+}
+</pre>
+
+### Spatial Coverage - GeoShape >> Box
 
 <pre>
 {
@@ -44,7 +62,7 @@ spatial:
 }
 </pre>
 
-### Spatial Coverage - Polygon
+### Spatial Coverage - GeoShape >> Polygon
 
 <pre>
 {
