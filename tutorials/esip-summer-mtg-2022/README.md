@@ -30,20 +30,20 @@
 
 <a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
-1. Keywords (lesson - DefinedTerm)
-2. License (lesson - expressivity of RDF)
-3. Identifiers - (lesson - Identifiers.org - best)
-4. Publisher/Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
-5. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
-6. Funding & Awards
-7. Data Distributions
-8. Metadata Records
-9. Checksums
-10. Validate - SHACL Playground: https://shacl-playground.zazuko.com/ 
+10. Keywords (lesson - DefinedTerm)
+11. Publisher/Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
+12. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
+13. Identifiers - (lesson - Identifiers.org - best)
+14. Funding & Awards
+15. Variables
+16. Data Distributions
+17. Metadata Records
+18. Checksums
 
 <a name="advanced-techniques"></a>
 ### Advanced Techniques
 
-1. Variables (using external vocabs)
+1. Geologic Time
 2. Provenance (extending the context)
-3. Geologic Time
+3. Validate - SHACL Playground: https://shacl-playground.zazuko.com/ 
+
