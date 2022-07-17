@@ -1,4 +1,4 @@
-# 3. Keywords from a Controlled Vocabulary
+# 10. Keywords from a Controlled Vocabulary
 
 **Guidelines:** 
 [Keywords](/guides/Dataset.md#keywords)
@@ -26,6 +26,9 @@ keywords:
       id: "LAB02"
       uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
 ```
+> NOTE: 
+> * `CTP profiler` was a phrase used in this project. It was annotated with the controlled vocabulary term `CTD`.
+> * `Gas Chromatograph` was annotated with the controlled vocaublary term `gas chromatographs`.
 
 ### Schema.org Keywords
 
@@ -51,55 +54,65 @@ keywords:
 
 #### Keywords as DefinedTerm
 
-```
-{
-  "@context": "https://schema.org/",
-  "keywords": [
-    {
-      "@type": "DefinedTerm",
-      "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/"
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02"
-    }
-  ]
-}
-```
-
-#### Keywords as Mixed
+##### Exercise #1
 
 ```
 {
   "@context": "https://schema.org/",
   "keywords": [
-    "nitrous oxide", 
-    "Central Pacific", 
-    "headspace equilibration", 
-    "SRI Greenhouse Gas Monitoring Gas Chromatograph",
+    "CTD profiler",
     {
       "@type": "DefinedTerm",
       "name": "CTD",
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
       "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/"
     },
+    "Gas Chromatograph",
     {
       "@type": "DefinedTerm",
-      "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
+      "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02"
+      "termCode": "LAB02",
+      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
     }
   ]
 }
 ```
 
-### Updated Markup - Keywords
+##### Exercise #2
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "keywords": [
+    "CTD profiler",
+    {
+      "@type": "DefinedTerm",
+      "name": "CTD",
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
+      <strong>"inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/",
+        "@type" : "DefinedTermSet",
+        "name": "SeaDataNet device categories"
+      }</strong>
+    },
+    "Gas Chromatograph",
+    {
+      "@type": "DefinedTerm",
+      "name": "gas chromatographs",
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
+      "termCode": "LAB02",
+      <strong>"inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
+      }</strong>
+    }
+  ]
+}
+</pre>
+
+[>> JSON-LD Playground](https://json-ld.org/playground/#startTab=tab-normalized&json-ld=%7B%22%40context%22%3A%22https%3A%2F%2Fschema.org%2F%22%2C%22keywords%22%3A%5B%22CTD%20profiler%22%2C%7B%22%40type%22%3A%22DefinedTerm%22%2C%22name%22%3A%22CTD%22%2C%22url%22%3A%22http%3A%2F%2Fvocab.nerc.ac.uk%2Fcollection%2FL05%2Fcurrent%2F130%2F%22%2C%22inDefinedTermSet%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fvocab.nerc.ac.uk%2Fcollection%2FL05%2Fcurrent%2F%22%2C%22%40type%22%3A%22DefinedTermSet%22%2C%22name%22%3A%22SeaDataNet%20device%20categories%22%7D%7D%2C%22Gas%20Chromatograph%22%2C%7B%22%40type%22%3A%22DefinedTerm%22%2C%22name%22%3A%22gas%20chromatographs%22%2C%22url%22%3A%22http%3A%2F%2Fvocab.nerc.ac.uk%2Fcollection%2FL05%2Fcurrent%2FLAB02%2F%22%2C%22termCode%22%3A%22LAB02%22%2C%22inDefinedTermSet%22%3A%7B%22%40id%22%3A%22http%3A%2F%2Fvocab.nerc.ac.uk%2Fcollection%2FL05%2Fcurrent%2F%22%7D%7D%5D%7D&frame=%7B%7D&context=%7B%7D)
+
+### Updated Markup - Keywords w. Controlled Vocabulary
 
 <pre>
 {
@@ -113,30 +126,38 @@ keywords:
   "dateCreated": "2019-08-22",
   "dateModified": "2019-08-22",
   "datePublished": "2022-06-08",
-  <strong>"keywords": [
+  "keywords": [
     "nitrous oxide", 
     "Central Pacific", 
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph",
-    {
+    "CTD profiler",
+    "Gas Chromatograph",
+    <strong>{
       "@type": "DefinedTerm",
       "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/",
+        "@type" : "DefinedTermSet",
+        "name": "SeaDataNet device categories"
+      }
     },
     {
       "@type": "DefinedTerm",
-      "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
+      "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02"
-    }
-  ]</strong>
+      "termCode": "LAB02",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
+      }
+    }</strong>
+  ]
 }
 </pre>
 <hr/>
 
-[Section #4: License >>](04_license.md)
+[Section #11: Identifiers using `PropertyValue` >>](11_identifiers-propertyvalue.md)
 
 <hr/>
 
