@@ -18,6 +18,12 @@ keywords:
       ...
 ```
 
+### Schema.org Keywords
+
+- <strong>`Text`</strong>
+- `URL`
+- `DefinedTerm`
+
 #### Keywords as Text
 
 ```
@@ -67,5 +73,6 @@ keywords:
 <hr/>
 
 ### Resources
+- <strong>Tutorial:</strong> [Section #10: Keywords from a Controlled Vocabulary](10_keywords-vocabulary.md)
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
