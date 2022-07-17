@@ -133,7 +133,8 @@ spatial:
     "geo": {
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
-    }</strong>
+    }
+  }</strong>
 }
 </pre>
 
