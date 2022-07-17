@@ -193,7 +193,7 @@ keywords:
 </pre>
 <hr/>
 
-[Section #11: Publisher & Provider >>](11_publisher-provider.md)
+[Section #11: Identifiers as `PropertyValue` >>](11_identifiers-propertyvalue.md)
 
 <hr/>
 
