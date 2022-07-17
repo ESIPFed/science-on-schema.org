@@ -105,4 +105,4 @@ DOI: https://registry.identifiers.org/registry/doi
 }
 </pre>
 
-[Section #4: Publisher/Provider >>](04_publisher-provider.md)
+[Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor-orcid.md)
