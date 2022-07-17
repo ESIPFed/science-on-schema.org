@@ -31,9 +31,9 @@
 <a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
 10. Keywords (lesson - DefinedTerm)
-11. Publisher/Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
+11. Identifiers - (lesson - Identifiers.org - best)
 12. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
-13. Identifiers - (lesson - Identifiers.org - best)
+13. Publisher/Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
 14. Funding & Awards
 15. Variables
 16. Data Distributions
