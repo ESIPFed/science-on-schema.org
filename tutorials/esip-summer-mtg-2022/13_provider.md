@@ -1,4 +1,4 @@
-# 11. Publisher & Provider
+# 13. Provider
 
 - For this section, we are no longer the publisher, 'Biological and Chemical Data Management Office'
 - Rather, imagine we are a downstream **provider** called 'Woods Hole Open Access Server' for this very same dataset. 
