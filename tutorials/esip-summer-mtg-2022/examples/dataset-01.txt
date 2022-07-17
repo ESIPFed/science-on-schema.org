@@ -58,6 +58,9 @@ spatial:
     south: -10.563
     east: 156
     north: 17
+  centroid: 
+    lat: 3.2185
+    lon: 147.9
 collectionDate:
   start: "2016-01-17"
   end: "2016-02-04"
