@@ -1,4 +1,4 @@
-# 3. Keywords
+# 3. Keywords from a Controlled Vocabulary
 
 **Guidelines:** 
 [Keywords](/guides/Dataset.md#keywords)
@@ -6,21 +6,48 @@
 **Source:**
 [Lines 9-26](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L9-L26)
 
-#### Keywords as Text
-
 ```
+keywords:
+  - name: "nitrous oxide"
+  - name: "Central Pacific"
+  - name: "headspace equilibration"
+  - name: "SRI Greenhouse Gas Monitoring Gas Chromatograph"
+  - name: "CTD profiler"
+    identifier:
+      name: "CTD"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      source:
+        name: "SeaDataNet device categories"
+        url: "http://vocab.nerc.ac.uk/collection/L05/current/"
+    
+  - name: "Gas Chromatograph"
+    identifier:
+      name: "gas chromatographs"
+      id: "LAB02"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
+```
+
+### Schema.org Keywords
+
+- Text
+- <strong>`URL`
+- `DefinedTerm`</strong>
+
+### Keywords as URL
+
+<pre>
 {
   "@context": "https://schema.org/",
-  "keywords": [
+  "keywords": "keywords": [
     "nitrous oxide", 
     "Central Pacific", 
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph", 
-    "CTD profiler", 
+    <strong>"http://vocab.nerc.ac.uk/collection/L05/current/130/",</strong> 
     "Gas Chromatograph"
   ]
 }
-```
+</pre>
 
 #### Keywords as DefinedTerm
 
