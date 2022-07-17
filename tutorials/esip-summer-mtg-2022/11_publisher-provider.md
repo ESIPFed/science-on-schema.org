@@ -1,10 +1,10 @@
-# Basic Dataset
+# 11. Publisher & Provider
 
-**Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
+- For this section, we are no longer the publisher, 'Biological and Chemical Data Management Office'
+- Rather, imagine we are a downstream **provider** called 'Woods Hole Open Access Server' for this very same dataset. 
+- We have a webpage describing our copy of the dataset at url https://darchive.mblwhoilibrary.org/handle/1912/28977
 
-**Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
-
-## 4. Publisher & Provider
+_NOTE: A provider may be a metadata aggregator or another repository with a duplicate copy._
 
 **Guidelines:** 
 [Publisher / Provider](/guides/Dataset.md#publisher--provider)
@@ -12,55 +12,132 @@
 **Source:**
 [Line 39-41](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L39-L41)
 
-#### Publisher
+```
+publisher:
+  name: "Biological and Chemical Data Management Office (BCO-DMO)"
+  url: "https://www.bco-dmo.org"
+```
+
+> New Data about a provider
 
 ```
-{
-  "@context": "https://schema.org/",
-  "publisher": {
-    "@type": "Organization",
-    "legalName": "Biological and Chemical Data Management Office",
-    "name": "BCO-DMO",
-    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
-    "url": "[https://www.sample-data-repository.org](https://www.bco-dmo.org)"
-  }
-}
+provider:
+  name: "Woods Hole Open Access Server"
+  url: "https://darchive.mblwhoilibrary.org/"
+  dataset: "https://darchive.mblwhoilibrary.org/handle/1912/28977"
 ```
+
 #### Provider
 
-```
-{
-  "@context": "https://schema.org/",
-  "provider": {
-    "@type": "Organization",
-    "legalName": "Biological and Chemical Data Management Office",
-    "name": "BCO-DMO",
-    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
-    "url": "[https://www.sample-data-repository.org](https://www.bco-dmo.org)"
-  }
-}
+##### Exercise #1
 
-```
-##### Using '@id'
+> As the provider, create schema.org markup for the `publisher` and the `provider`
 
 <pre>
 {
   "@context": "https://schema.org/",
+  "@type": "Dataset",
+  <strong>"url": "https://darchive.mblwhoilibrary.org/handle/1912/28977",</strong>
   "publisher": {
-    <strong>"@id": "https://www.bco-dmo.org",</strong>
     "@type": "Organization",
     "legalName": "Biological and Chemical Data Management Office",
-    "name": "BCO-DMO",
-    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
-    "url": "[https://www.sample-data-repository.org](https://www.bco-dmo.org)"
+    "url": "https://www.bco-dmo.org"
   },
   <strong>"provider": {
-    "@id": "https://www.bco-dmo.org"
+    "@type": "Organization",
+    "legalName": "Woods Hole Open Access Server",
+    "url": "https://darchive.mblwhoilibrary.org/"
   }</strong>
 }
 </pre>
 
-### Updated Markup - Publisher/Provider
+
+#### Using `sameAs`
+
+##### Exercise #2
+
+> As the provider, link your copy of the dataset (provider) to the publisher's copy
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "url": "https://darchive.mblwhoilibrary.org/handle/1912/28977",
+  <strong>"sameAs": "https://www.bco-dmo.org/dataset/775849",</strong>
+  "publisher": {
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  },
+  "provider": {
+    "@type": "Organization",
+    "legalName": "Woods Hole Open Access Server",
+    "url": "https://darchive.mblwhoilibrary.org/"
+  }
+}
+</pre>
+
+##### Exercise #3
+
+> Specify the DOI landing page using `sameAs`
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "url": "https://darchive.mblwhoilibrary.org/handle/1912/28977",
+  <strong>"sameAs": ["https://www.bco-dmo.org/dataset/775849", "https://doi.org/10.26008/1912/bco-dmo.775849.1"],</strong>
+  "publisher": {
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  },
+  "provider": {
+    "@type": "Organization",
+    "legalName": "Woods Hole Open Access Server",
+    "url": "https://darchive.mblwhoilibrary.org/"
+  }
+}
+</pre>
+
+##### Exercise #4
+
+- Now that we've seen what schema.org looks like from a downstream dataset provider,
+- Let's go back to being the publisher 'Biological and Chemical Data Management Office'
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "url": "https://www.bco-dmo.org/dataset/775849",
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  <strong>"publisher": {
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  }</strong>
+}
+</pre>
+
+> Add schema.org markup specifying that you are both the `publisher` and `provider`
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "url": "https://www.bco-dmo.org/dataset/775849",
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "publisher": {
+    <strong>"@id": "https://www.bco-dmo.org",</strong>
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  },
+  <strong>"provider": { "@id": "https://www.bco-dmo.org" }</strong>
+}
+</pre>
+
+### Updated Markup - Adding a Provider
 
 <pre>
 {
@@ -79,39 +156,76 @@
     "Central Pacific", 
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph",
+    "CTD profiler",
+    "Gas Chromatograph",
     {
       "@type": "DefinedTerm",
       "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/",
+        "@type" : "DefinedTermSet",
+        "name": "SeaDataNet device categories"
+      }
     },
     {
       "@type": "DefinedTerm",
-      "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
+      "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02"
+      "termCode": "LAB02",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
+      }
     }
   ],
- "identifier": {
-    "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
-    "@type": "PropertyValue",
-    "propertyID": "https://registry.identifiers.org/registry/doi",
-    "value": "doi:10.26008/1912/bco-dmo.775849.1",
-    "url": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
-  },
-  <strong>"publisher": {
+  "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
+  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "publisher": {
     <strong>"@id": "https://www.bco-dmo.org",</strong>
     "@type": "Organization",
     "legalName": "Biological and Chemical Data Management Office",
-    "name": "BCO-DMO",
-    "sameAs": "http://www.re3data.org/repository/r3dxxxxxxxxx",
-    "url": "[https://www.sample-data-repository.org](https://www.bco-dmo.org)"
+    "url": "https://www.bco-dmo.org"
   },
-  "provider": {
-    "@id": "https://www.bco-dmo.org"
-  }</strong>
+  <strong>"provider": { "@id": "https://www.bco-dmo.org" }</strong>
+  "creator": {
+    "@list":[
+      {
+        "@type": "Person",
+        "name": "Alyson E. Santoro"
+      },
+      {
+        "@type": "Person",
+        "name": "Sarah Marie Laperriere"
+      }
+    ]
+  },
+  "contributor": {
+    "@list":[
+      {
+        "@type": "Person",
+        "name": "Makoto Saito"
+      }
+    ]
+  },
+  "temporalCoverage": "2016-01-17/2016-02-04",
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoShape",
+      "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
+    }
+  }
 }
 </pre>
+<hr/>
 
-[Section 5. Authors/Contributors >>](05_authors-contributors.md)
+[Section #11: Publisher & Provider >>](11_publisher-provider.md)
+
+<hr/>
+
+### Resources
+- **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
+- **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
+
+
