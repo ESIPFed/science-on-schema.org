@@ -1,4 +1,4 @@
-# 14. Funding & Awards
+# 15. Funding & Awards
 
 **Guidelines:** 
 [Funding](/guides/Dataset.md#funding)
@@ -207,13 +207,21 @@ doi:10.13039/100016377
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]
 } 
 </pre>
 
 <hr/>
 
-[Section #15: Variables >>](15_variables.md)
+[Section #16: Variables >>](16_variables.md)
 
 <hr/>
 
