@@ -227,7 +227,7 @@ One way to let harvesters know that data or metadata has changed, would be to ad
       "@type": "PropertyValue",
       "name": "ISO_DateTime_UTC",
       "description": "Date time time of cast following ISO 8601 convention in UTC",
-      <strong>"propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/",</strong>
+      "propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/",
     },
     {
       "@type": "PropertyValue",
@@ -239,8 +239,8 @@ One way to let harvesters know that data or metadata has changed, would be to ad
       "name": "temperature",
       "description": "Temperature from CTD",
       "propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/",
-      <strong>"unitText": "Celsius (C)",
-      "unitCode": "https://qudt.org/vocab/unit/DEG_C"</strong>
+      "unitText": "Celsius (C)",
+      "unitCode": "https://qudt.org/vocab/unit/DEG_C"
     }
   ],
   <strong>"subjectOf": { 
