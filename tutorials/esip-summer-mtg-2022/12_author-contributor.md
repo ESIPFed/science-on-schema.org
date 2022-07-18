@@ -113,7 +113,7 @@
 }
 </pre>
 
-### Update Schema.org Markup - Author/Contributor
+### Updated Markup - Author/Contributor
 
 <pre>
 {
