@@ -24,13 +24,17 @@ contributor:
     - Organization
     - <strong>Person</strong>
 
+### Preserving list order
+
+> In support of proper citation, the order in which authors are listed can be preserved by using [`@list`](https://json-ld.org/spec/latest/json-ld/#dfn-list)
+
 ### Authors
 
 <pre>
 {
   "@context": "https://schema.org/",
-  <strong>"creator":</strong> {
-    "@list":[
+  <strong>"creator": {
+    "@list":</strong>[
       {
         "@type": "Person",
         "name": "Alyson E. Santoro"
@@ -49,8 +53,8 @@ contributor:
 <pre>
 {
   "@context": "https://schema.org/",
-  <strong>"contributor":</strong> {
-    "@list":[
+  <strong>"contributor":{
+    "@list":</strong>[
       {
         "@type": "Person",
         "name": "Makoto Saito"
