@@ -220,4 +220,12 @@
 }
 </pre>
 
+<hr/>
+
 [Section #13: Adding a Provider >>](13_provider.md)
+
+<hr/>
+
+### Resources
+- **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
+- **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
