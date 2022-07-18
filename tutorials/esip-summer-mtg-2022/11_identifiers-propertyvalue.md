@@ -123,4 +123,12 @@ DOI: https://registry.identifiers.org/registry/doi
 }
 </pre>
 
+<hr/>
+
 [Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor.md)
+
+<hr/>
+
+### Resources
+- **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
+- **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
