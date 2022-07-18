@@ -83,6 +83,7 @@ files:
     bytesize: 58700
     mimetype: "application/pdf"
     md5: "9d1792cb73de2074199a0b6095f14135"
+metadata:
   - 
     url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml"
     bytesize: 64855
