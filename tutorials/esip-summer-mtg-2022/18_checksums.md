@@ -6,15 +6,11 @@
 **Source:**
 [Line 70-92](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L70-L92)
 
-> Abbreviated list of files from the source data for brevity
+> Abbreviated list of files from the source data for brevity. 
+> The same concepts apply to all files
 
 ```
 files:
-  - 
-    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv"
-    bytesize: 15077
-    mimetype: "text/tab-separated-values"
-    md5: "76d40298217986657af66bfadba28623"
   ...
 metadata:
   - 
@@ -28,7 +24,7 @@ metadata:
 ### Using External Vocabularies
 
 - Schema.org Vocabulary doesn't have properties to describe checksums in detail
-- The [SPDX vocabulary](http://spdx.org/rdf/terms#) `http://spdx.org/rdf/terms#` has terms describing checksum values and algorithms
+- The [SPDX vocabulary](https://spdx.org/rdf/terms/) `https://spdx.org/rdf/terms/` has terms describing checksum values and algorithms
 - To use an external vocabulary, add its URI and a prefix to the `@context`
     1. Make `@context` an array
     2. Include a new JSON object with the prefix as a property and the URI of the vocabulary as the proeprty's value. 
@@ -44,52 +40,77 @@ metadata:
 }
 </pre>
 
-### 
+### Using SPDX Checksum class and properties
+
+- [`spdx:Checksum`](https://spdx.org/rdf/terms/#d4e1930)
+    - [`spdx:checksumValue`](https://spdx.org/rdf/terms/#d4e1111)
+    - [`spdx:algorithm`](https://spdx.org/rdf/terms/#d4e52) >> [`spdx:ChecksumAlgorithm`](https://spdx.org/rdf/terms/#d4e1968)
+    
+#### Specifying the `spdx:checksumValue`
 
 <pre>
 {
-  "@context": "https://schema.org/",
-  <strong>"subjectOf": { 
-    "@type": "DataDownload",
-    "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
-    "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
-    "contentSize": "64855 bytes"
-  }</strong>
-}
-</pre>
-
-#### Using `about` 
-
-<pre>
-{
-  "@context": "https://schema.org/",
-  <strong>"@id": "https://www.bco-dmo.org/dataset/775849",</strong>
+  "@context": [
+    "https://schema.org/",
+    {
+      "spdx": "http://spdx.org/rdf/terms#"
+    }
+  ],
   "subjectOf": { 
     "@type": "DataDownload",
     "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
-    <strong>"about": { "@id": "https://www.bco-dmo.org/dataset/775849" }</strong>
+    <strong>"spdx:checksum": {
+      {
+          "@type": "spdx:Checksum",
+          "spdx:checksumValue": "77584383325794d3d9b7be42024687f6",
+      }
+    }</strong>
   }
 }
 </pre>
 
-#### Signaling when (meta)data changes
+#### Specifying the `spdx:algorithm`
 
-- [`dateModified`](https://schema.org/dateModified)
+- The values of `spdx:algorithm` needs to be of type `spdx:ChecksumAlgorithm`. 
+- SPDX gives us URIs that we can reuse for many common checksum algorithms.
+- Using a URI form an external vocabulary requires that we use a JSON-LD object with an `@id` property for the URI
 
-One way to let harvesters know that data or metadata has changed, would be to add a `dateModified` property:
+| Algorithm Type | SPDX ChecksumAlgorithm URI |
+| -- | -- |
+| MD2 | [`spdx:checksumAlgorithm_md2`](https://spdx.org/rdf/terms/#d4e3691) |
+| MD4 | [`spdx:checksumAlgorithm_md4`](https://spdx.org/rdf/terms/#d4e3704) |
+| MD5 | [`spdx:checksumAlgorithm_md5`](https://spdx.org/rdf/terms/#d4e3717) |
+| MD6 | [`spdx:checksumAlgorithm_md6`](https://spdx.org/rdf/terms/#d4e3731) |
+| SHA-1 | [`spdx:checksumAlgorithm_sha1`](https://spdx.org/rdf/terms/#d4e3744) |
+| SHA224 | [`spdx:checksumAlgorithm_sha224`](https://spdx.org/rdf/terms/#d4e3757) |
+| SHA256 | [`spdx:checksumAlgorithm_sha256`](https://spdx.org/rdf/terms/#d4e3771) |
+| SHA384 | [`spdx:checksumAlgorithm_sha384`](https://spdx.org/rdf/terms/#d4e3784) |
+| SHA512 | [`spdx:checksumAlgorithm_sha512`](https://spdx.org/rdf/terms/#d4e3797) |
+
 <pre>
 {
-  "@context": "https://schema.org/",
-  "@id": "https://www.bco-dmo.org/dataset/775849",
-  "subjectOf": { 
+  "@context": [
+    "https://schema.org/",
+    {
+      "spdx": "http://spdx.org/rdf/terms#"
+    }
+  ],
+  <strong>"subjectOf": { 
     "@type": "DataDownload",
     "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
-    "about": { "@id": "https://www.bco-dmo.org/dataset/775849" },
-    <strong>"dateModified": "2022-07-18T20:44:15Z"</strong>
+    "spdx:checksum": {
+      {
+        "@type": "spdx:Checksum",
+        "spdx:checksumValue": "77584383325794d3d9b7be42024687f6",
+        <strong>"spdx:checksumAlgorithm": {
+          "@id": "spdx:checksumAlgorithm_md5"
+        }</strong>
+      }
+    }
   }
 }
 </pre>
@@ -256,20 +277,29 @@ One way to let harvesters know that data or metadata has changed, would be to ad
       "unitCode": "https://qudt.org/vocab/unit/DEG_C"</strong>
     }
   ],
-  <strong>"subjectOf": { 
+  "subjectOf": { 
     "@type": "DataDownload",
     "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
     "about": { "@id": "https://www.bco-dmo.org/dataset/775849" },
-    "dateModified": "2022-07-18T20:44:15Z"
-  }</strong>
+    "dateModified": "2022-07-18T20:44:15Z",
+    <strong>"spdx:checksum": {
+      {
+        "@type": "spdx:Checksum",
+        "spdx:checksumValue": "77584383325794d3d9b7be42024687f6",
+        "spdx:checksumAlgorithm": {
+          "@id": "spdx:checksumAlgorithm_md5"
+        }
+      }
+    }</strong>
+  }
 } 
 </pre>
 
 <hr/>
 
-[Section #18: Checksums >>](18_checksums.md)
+[Advanced Techniques >>](advanced-techniques.md)
 
 <hr/>
 
