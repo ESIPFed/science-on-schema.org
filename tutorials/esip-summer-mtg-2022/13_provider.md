@@ -172,31 +172,50 @@ provider:
       "@type": "DefinedTerm",
       "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02",
       "inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
-      }
+      },
+      "termCode": "LAB02",
     }
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
-  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "identifier": {
+    "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+    "@type": "PropertyValue",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.26008/1912/bco-dmo.775849.1",
+    "url": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
+  },
   "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
   "publisher": {
-    <strong>"@id": "https://www.bco-dmo.org",</strong>
     "@type": "Organization",
     "legalName": "Biological and Chemical Data Management Office",
     "url": "https://www.bco-dmo.org"
   },
-  <strong>"provider": { "@id": "https://www.bco-dmo.org" }</strong>
+  <strong>"provider": { "@id": "https://www.bco-dmo.org" },</strong>
   "creator": {
     "@list":[
       {
         "@type": "Person",
-        "name": "Alyson E. Santoro"
+        "name": "Alyson E. Santoro",
+        "identifier": {
+          "@id": "https://orcid.org/0000-0003-2503-8219",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/orcid",
+          "url": "https://orcid.org/0000-0003-2503-8219",
+          "value": "orcid:0000-0003-2503-8219"
+        }
       },
       {
         "@type": "Person",
-        "name": "Sarah Marie Laperriere"
+        "name": "Sarah Marie Laperriere",
+        "identifier": {
+          "@id": "https://orcid.org/0000-0003-4691-8741",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/orcid",
+          "url": "https://orcid.org/0000-0003-4691-8741",
+          "value": "orcid:0000-0003-4691-8741"
+        }
       }
     ]
   },
@@ -204,7 +223,14 @@ provider:
     "@list":[
       {
         "@type": "Person",
-        "name": "Makoto Saito"
+        "name": "Makoto Saito",
+        "identifier": {
+          "@id": "https://orcid.org/0000-0001-6040-9295",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/orcid",
+          "url": "https://orcid.org/0000-0001-6040-9295",
+          "value": "orcid:0000-0001-6040-9295"
+        }
       }
     ]
   },
@@ -216,11 +242,12 @@ provider:
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
   }
-}
+} 
 </pre>
+
 <hr/>
 
-[Section #11: Publisher & Provider >>](11_publisher-provider.md)
+[Section #14: Funding & Awards >>](14_funding-awards.md)
 
 <hr/>
 
