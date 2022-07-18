@@ -1,4 +1,4 @@
-# 17. Checksums for Data Files and Metadata Records
+# 18. Checksums for Data Files and Metadata Records
 
 **Guidelines:** 
 [Checksums](/guides/Dataset.md#checksum)
