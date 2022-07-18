@@ -123,4 +123,4 @@ DOI: https://registry.identifiers.org/registry/doi
 }
 </pre>
 
-[Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor-orcid.md)
+[Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor.md)
