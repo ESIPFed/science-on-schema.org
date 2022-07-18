@@ -1,4 +1,4 @@
-# 13. Provider
+# 14. Provider
 
 - For this section, we are no longer the publisher, 'Biological and Chemical Data Management Office'
 - Rather, imagine we are a downstream **provider** called 'Woods Hole Open Access Server' for this very same dataset. 
@@ -241,13 +241,21 @@ provider:
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]
 } 
 </pre>
 
 <hr/>
 
-[Section #14: Funding & Awards >>](14_funding-awards.md)
+[Section #15: Funding & Awards >>](15_funding-awards.md)
 
 <hr/>
 
