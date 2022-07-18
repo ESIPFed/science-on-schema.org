@@ -36,7 +36,7 @@
 13. Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
 14. Funding & Awards
 15. Variables
-16. Data Distributions
+16. Data Files
 17. Metadata Records
 18. Checksums
 
