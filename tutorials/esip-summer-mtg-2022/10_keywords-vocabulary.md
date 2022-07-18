@@ -27,7 +27,7 @@ keywords:
       uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
 ```
 > NOTE: 
-> * `CTP profiler` was a phrase used in this project. It was annotated with the controlled vocabulary term `CTD`.
+> * `CTD profiler` was a phrase used in this project. It was annotated with the controlled vocabulary term `CTD`.
 > * `Gas Chromatograph` was annotated with the controlled vocaublary term `gas chromatographs`.
 
 ### Schema.org Keywords
@@ -46,8 +46,10 @@ keywords:
     "Central Pacific", 
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph", 
+    "CTD profiler",
     <strong>"http://vocab.nerc.ac.uk/collection/L05/current/130/",</strong> 
-    "Gas Chromatograph"
+    "Gas Chromatograph",
+    <strong>"http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"</strong>
   ]
 }
 </pre>
@@ -56,28 +58,28 @@ keywords:
 
 ##### Exercise #1
 
-```
+<pre>
 {
   "@context": "https://schema.org/",
   "keywords": [
     "CTD profiler",
-    {
+    <strong>{
       "@type": "DefinedTerm",
       "name": "CTD",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-    },
+      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/"
+    },</strong>
     "Gas Chromatograph",
-    {
+    <strong>{
       "@type": "DefinedTerm",
       "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02",
       "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-    }
+      "termCode": "LAB02"
+    }</strong>
   ]
 }
-```
+</pre>
 
 ##### Exercise #2
 
@@ -101,10 +103,10 @@ keywords:
       "@type": "DefinedTerm",
       "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02",
       <strong>"inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
-      }</strong>
+      },</strong>
+      "termCode": "LAB02"
     }
   ]
 }
@@ -147,10 +149,10 @@ keywords:
       "@type": "DefinedTerm",
       "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02",
       "inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
-      }
+      },
+      "termCode": "LAB02",
     }</strong>
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
