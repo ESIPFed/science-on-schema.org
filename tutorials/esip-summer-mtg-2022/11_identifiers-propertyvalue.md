@@ -56,6 +56,8 @@ DOI: https://registry.identifiers.org/registry/doi
     "Central Pacific", 
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph",
+    "CTD profiler",
+    "Gas Chromatograph",
     {
       "@type": "DefinedTerm",
       "name": "CTD",
@@ -68,19 +70,56 @@ DOI: https://registry.identifiers.org/registry/doi
     },
     {
       "@type": "DefinedTerm",
-      "name": "CTD",
+      "name": "gas chromatographs",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
+      },
       "termCode": "LAB02",
-      "inDefinedTermSet": { "@id": "http://vocab.nerc.ac.uk/collection/L05/current/" }
     }
   ],
+  "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
   <strong>"identifier": {
     "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
     "@type": "PropertyValue",
     "propertyID": "https://registry.identifiers.org/registry/doi",
     "value": "doi:10.26008/1912/bco-dmo.775849.1",
     "url": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
-  }</strong>
+  },</strong>
+  "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
+  "publisher": {
+    "@type": "Organization",
+    "legalName": "Biological and Chemical Data Management Office",
+    "url": "https://www.bco-dmo.org"
+  },
+  "creator": {
+    "@list":[
+      {
+        "@type": "Person",
+        "name": "Alyson E. Santoro"
+      },
+      {
+        "@type": "Person",
+        "name": "Sarah Marie Laperriere"
+      }
+    ]
+  },
+  "contributor": {
+    "@list":[
+      {
+        "@type": "Person",
+        "name": "Makoto Saito"
+      }
+    ]
+  },
+  "temporalCoverage": "2016-01-17/2016-02-04",
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoShape",
+      "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
+    }
+  }
 }
 </pre>
 
