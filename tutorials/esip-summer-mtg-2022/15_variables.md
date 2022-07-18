@@ -4,7 +4,7 @@
 [Variables](/guides/Dataset.md#variables)
 
 **Source:**
-[Line 92-155](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L92-L155)
+[Line 93-155](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L93-L155)
 
 > Abbreviated list of variables from the source data for brevity
 
