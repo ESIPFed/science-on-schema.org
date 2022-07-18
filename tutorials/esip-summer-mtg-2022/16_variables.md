@@ -114,7 +114,7 @@ Similar to [Keywords in Section 3](03_keywords.md)
 }
 </pre>
 
-### Unpdated Markup - Variables
+### Updated Markup - Variables
 
 <pre>
 {
