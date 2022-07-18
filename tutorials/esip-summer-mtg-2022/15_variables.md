@@ -6,7 +6,7 @@
 **Source:**
 [Line 92-155](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L92-L155)
 
-> Abbreviated lis of variables from the source data for brevity
+> Abbreviated list of variables from the source data for brevity
 
 ```
 parameters:
