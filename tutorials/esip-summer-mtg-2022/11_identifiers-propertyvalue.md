@@ -1,10 +1,4 @@
-# Basic Dataset
-
-**Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
-
-**Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
-
-## 3. Identifiers
+# 11. Identifiers
 
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#identifier)
@@ -16,25 +10,7 @@
 doi: "10.26008/1912/bco-dmo.775849.1"
 ```
 
-#### Identifiers as Text - Good
-
-```
-{
-  "@context": "https://schema.org/",
-  "identifier": "doi:10.26008/1912/bco-dmo.775849.1"
-}
-```
-
-#### Identifiers as URL - Better
-
-```
-{
-  "@context": "https://schema.org/",
-  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
-}
-```
-
-#### Using Identifiers.org - Best
+### Using Identifiers.org - Best
 
 https://registry.identifiers.org/registry
 
@@ -53,13 +29,12 @@ DOI: https://registry.identifiers.org/registry/doi
 }
 ```
 
-##### Other Common Identifiers.org Types
+#### Other Common Identifiers.org Types
 
 - ARK: https://registry.identifiers.org/registry/ark
 - PubMed: https://registry.identifiers.org/registry/pubmed
 - PaleoDB: https://registry.identifiers.org/registry/paleodb
 - Protein Data Bank: https://registry.identifiers.org/registry/pdb
-
 
 
 ### Updated Markup - Identifiers
@@ -84,15 +59,19 @@ DOI: https://registry.identifiers.org/registry/doi
     {
       "@type": "DefinedTerm",
       "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
+      "inDefinedTermSet": {
+        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/",
+        "@type" : "DefinedTermSet",
+        "name": "SeaDataNet device categories"
+      }
     },
     {
       "@type": "DefinedTerm",
       "name": "CTD",
-      "inDefinedTermSet": "http://vocab.nerc.ac.uk/collection/L05/current/",
       "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "termCode": "LAB02"
+      "termCode": "LAB02",
+      "inDefinedTermSet": { "@id": "http://vocab.nerc.ac.uk/collection/L05/current/" }
     }
   ],
   <strong>"identifier": {
