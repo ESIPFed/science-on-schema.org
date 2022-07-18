@@ -121,7 +121,7 @@ contributor:
 
 <hr/>
 
-[Section #8: Spatial Coverage >>](08_spatial.md)
+[Section #8: Temporal Coverage >>](08_temporal.md)
 
 <hr/>
 
