@@ -1,4 +1,4 @@
-# 15. Variables
+# 16. Variables
 
 **Guidelines:** 
 [Variables](/guides/Dataset.md#variables)
@@ -246,6 +246,14 @@ Similar to [Keywords in Section 3](03_keywords.md)
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
   },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ],
   <strong>"variableMeasured": [
     {
       "@type": "PropertyValue",
@@ -272,7 +280,7 @@ Similar to [Keywords in Section 3](03_keywords.md)
 
 <hr/>
 
-[Section #16: Data Files >>](16_data-files.md)
+[Section #17: Metadata Records >>](17_metadata-records.md)
 
 <hr/>
 
