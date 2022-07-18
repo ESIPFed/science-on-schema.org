@@ -27,16 +27,16 @@
 7. Authors / Contributors - (1 author; 1 contributor)
 8. Temporal Coverage
 9. Spatial Coverage (simple - WKT correctly)
+10. Data Files
 
 <a name="walkthrough-improve"></a>
 ### Walkthrough - Improving the Dataset
-10. Keywords (lesson - DefinedTerm)
-11. Identifiers - (lesson - Identifiers.org - best)
-12. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
-13. Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
-14. Funding & Awards
-15. Variables
-16. Data Files
+11. Keywords (lesson - DefinedTerm)
+12. Identifiers - (lesson - Identifiers.org - best)
+13. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
+14. Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
+15. Funding & Awards
+16. Variables
 17. Metadata Records
 18. Checksums
 
