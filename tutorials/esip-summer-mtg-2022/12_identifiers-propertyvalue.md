@@ -1,4 +1,4 @@
-# 11. Identifiers
+# 12. Identifiers
 
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#identifier)
@@ -119,13 +119,21 @@ DOI: https://registry.identifiers.org/registry/doi
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]
 }
 </pre>
 
 <hr/>
 
-[Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor.md)
+[Section #13: Authors/Contributor w. ORCiD >>](13_author-contributor.md)
 
 <hr/>
 
