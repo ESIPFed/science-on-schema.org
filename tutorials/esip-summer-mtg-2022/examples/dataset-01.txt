@@ -142,6 +142,7 @@ parameters:
       uri: "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/"
     units:
       name: "Celsius (C)"
+      code: "https://qudt.org/vocab/unit/DEG_C"
   - 
     name: "n2o_1"
     description: "Nitrous oxide concentration replicate 1"
