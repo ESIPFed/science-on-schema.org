@@ -27,7 +27,7 @@
     - #17. [Metadata Records](17_metadata-records.md)
     - #18. [Checksums](18_checksums.md)
 4. [Advanced Techniques](#advanced-techniques)
-    - [Geologic Time](
-    - [Provenance](
-    - [Validating with SHACL]() 
-         - SHACL Playground: https://shacl-playground.zazuko.com/ 
+    - [Geologic Time]()
+    - [Provenance]()
+    - [Validating with SHACL](validation.md) 
+          
