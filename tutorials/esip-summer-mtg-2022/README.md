@@ -2,48 +2,32 @@
 
 ## Agenda
 
-1. [Intro to Schema.org](#intro)
-2. [Walkthrough - Build a basic schema.org entry (goal: it's not complicated)](#walkthrough-basic)
-3. [Walkthrough - 2nd pass - improving the record](#walkthrough-improve)
-4. [Wrap-up (not hands-on) Extend it with more complicated stuff](#advanced-techniques)
-
-<a name="intro"></a>
-### Intro to Schema.org
-
-1. What is Schema.org?
-2. What is actionable content?
-3. Science-on-schema.org guidelines
-
-<a name="walkthrough-basic"></a>
-### Walkthrough - Basic Dataset
-
-1. Context (basic) - explain downloading the schema file to define all the terms
-2. Basic Fields (title, description, isAccess….)
-3. Keywords (lesson - strings)
-4. License (lesson - CC BY 0)
-5. Identifiers (lesson - simple - good & better)
-    b. SameAs (same dataset in different locations)
-6. Publisher - single publisher
-7. Authors / Contributors - (1 author; 1 contributor)
-8. Temporal Coverage
-9. Spatial Coverage (simple - WKT correctly)
-
-<a name="walkthrough-improve"></a>
-### Walkthrough - Improving the Dataset
-10. Keywords (lesson - DefinedTerm)
-11. Identifiers - (lesson - Identifiers.org - best)
-12. Authors / Contributors - (lesson - `@list`; more structured name fields for improved searching)
-13. Provider (lesson - using `@id`; specifying a different org - reuse of a dataset)
-14. Funding & Awards
-15. Variables
-16. Data Distributions
-17. Metadata Records
-18. Checksums
-
-<a name="advanced-techniques"></a>
-### Advanced Techniques
-
-1. Geologic Time
-2. Provenance (extending the context)
-3. Validate - SHACL Playground: https://shacl-playground.zazuko.com/ 
-
+- Intro to Schema.org
+    - What is Schema.org?
+    - Science-on-schema.org guidelines
+- Walkthrough - Build a basic schema.org entry (goal: it's not complicated)
+    - #1. [JSON-LD Context](01_json-ld-context-type.md)
+    - #2. [Basic Fields](02_basic-fields.md)
+    - #3. [Keywords](03_keywords.md)
+    - #4. [License](04_license.md)
+    - #5. [Identifiers](05_identifier.md)
+        - Using sameAs
+    - #6. [Publisher](06_publisher.md)
+    - #7. [Authors / Contributors](07_author-contributor.md)
+    - #8. [Temporal Coverage](08_temporal.md)
+    - #9. [Spatial Coverage](09_spatial.md)
+    - #10. [Data Files](10_data-files.md)
+- Walkthrough - Improving the Dataset
+    - #11. [Keywords](11_keywords-vocabulary.md)
+    - #12. [Identifiers](12_identifiers-propertyvalue.md)
+    - #13. [Authors / Contributors Improved](13_author-contributor.md)
+    - #14. [Provider](14_provider.md)
+    - #15. [Funding & Awards](15_funding-awards.md)
+    - #16. [Variables](16_variables.md)
+    - #17. [Metadata Records](17_metadata-records.md)
+    - #18. [Checksums](18_checksums.md)
+4. [Advanced Techniques](#advanced-techniques)
+    - [Geologic Time](
+    - [Provenance](
+    - [Validating with SHACL]() 
+         - SHACL Playground: https://shacl-playground.zazuko.com/ 

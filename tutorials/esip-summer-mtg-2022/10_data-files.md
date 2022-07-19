@@ -1,43 +1,44 @@
-# 11. Identifiers
+# 15. Data Files aka Distributions
 
 **Guidelines:** 
-[Identifier](/guides/Dataset.md#identifier)
+[Variables](/guides/Dataset.md#distributions)
 
 **Source:**
-[Line 5](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L5)
+[Line 70-91](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L70-L91)
+
+> Files shortened for brevity
 
 ```
-doi: "10.26008/1912/bco-dmo.775849.1"
+files:
+  - 
+    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv"
+    bytesize: 15077
+    mimetype: "text/tab-separated-values"
+    ...
 ```
 
-### Using Identifiers.org - Best
+### Schema.org Data Downloads
 
-https://registry.identifiers.org/registry
+- [`distribution`](https://schema.org/distribution)
+    - DataDownload
 
-DOI: https://registry.identifiers.org/registry/doi
+#### Data Downloads
 
-```
+<pre>
 {
   "@context": "https://schema.org/",
-  "identifier": {
-    "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
-    "@type": "PropertyValue",
-    "propertyID": "https://registry.identifiers.org/registry/doi",
-    "value": "doi:10.26008/1912/bco-dmo.775849.1",
-    "url": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
-  }
+  <strong>"distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]</strong>
 }
-```
+</pre>
 
-#### Other Common Identifiers.org Types
-
-- ARK: https://registry.identifiers.org/registry/ark
-- PubMed: https://registry.identifiers.org/registry/pubmed
-- PaleoDB: https://registry.identifiers.org/registry/paleodb
-- Protein Data Bank: https://registry.identifiers.org/registry/pdb
-
-
-### Updated Markup - Identifiers
+### Unpdated Markup - Variables
 
 <pre>
 {
@@ -57,35 +58,10 @@ DOI: https://registry.identifiers.org/registry/doi
     "headspace equilibration", 
     "SRI Greenhouse Gas Monitoring Gas Chromatograph",
     "CTD profiler",
-    "Gas Chromatograph",
-    {
-      "@type": "DefinedTerm",
-      "name": "CTD",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/130/",
-      "inDefinedTermSet": {
-        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/",
-        "@type" : "DefinedTermSet",
-        "name": "SeaDataNet device categories"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "name": "gas chromatographs",
-      "url": "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/",
-      "inDefinedTermSet": {
-        "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
-      },
-      "termCode": "LAB02"
-    }
+    "Gas Chromatograph"
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
-  <strong>"identifier": {
-    "@id": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
-    "@type": "PropertyValue",
-    "propertyID": "https://registry.identifiers.org/registry/doi",
-    "value": "doi:10.26008/1912/bco-dmo.775849.1",
-    "url": "https://doi.org/10.26008/1912/bco-dmo.775849.1"
-  },</strong>
+  "identifier": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
   "sameAs": "https://doi.org/10.26008/1912/bco-dmo.775849.1",
   "publisher": {
     "@type": "Organization",
@@ -119,13 +95,21 @@ DOI: https://registry.identifiers.org/registry/doi
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  <strong>"distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]</strong>
 }
 </pre>
 
 <hr/>
 
-[Section #12: Authors/Contributor w. ORCiD >>](12_author-contributor.md)
+[Section #11: Keywords (Controlled Vocabulary) >>](11_keywords-vocabulary.md)
 
 <hr/>
 

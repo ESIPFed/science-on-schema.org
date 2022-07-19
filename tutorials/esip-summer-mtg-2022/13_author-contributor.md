@@ -1,4 +1,4 @@
-# 12. Improving Authors / Contributors 
+# 13. Improving Authors / Contributors 
 
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#roles-of-people)
@@ -216,13 +216,21 @@
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]
 }
 </pre>
 
 <hr/>
 
-[Section #13: Adding a Provider >>](13_provider.md)
+[Section #14: Adding a Provider >>](14_provider.md)
 
 <hr/>
 

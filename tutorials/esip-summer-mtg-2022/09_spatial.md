@@ -140,7 +140,7 @@ spatial:
 
 <hr/>
 
-[Section #10: Keywords (Controlled Vocabulary) >>](10_keywords-vocabulary.md)
+[Section #10: Data Files >>](10_data-files.md)
 
 <hr/>
 

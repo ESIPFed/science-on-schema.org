@@ -83,6 +83,7 @@ files:
     bytesize: 58700
     mimetype: "application/pdf"
     md5: "9d1792cb73de2074199a0b6095f14135"
+metadata:
   - 
     url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml"
     bytesize: 64855
@@ -142,6 +143,7 @@ parameters:
       uri: "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/"
     units:
       name: "Celsius (C)"
+      uri: "https://qudt.org/vocab/unit/DEG_C"
   - 
     name: "n2o_1"
     description: "Nitrous oxide concentration replicate 1"

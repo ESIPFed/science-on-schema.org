@@ -1,82 +1,120 @@
-# 14. Funding & Awards
+# 16. Variables
 
 **Guidelines:** 
-[Funding](/guides/Dataset.md#funding)
+[Variables](/guides/Dataset.md#variables)
 
 **Source:**
-[Line 42-53](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L42-L53)
+[Line 93-155](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt#L93-L155)
+
+> Abbreviated list of variables from the source data for brevity
 
 ```
-funding:
-  - award:
-    name: "R/V Falkor 160115 SOI ProteOMZ Expedition"
-    url: "https://www.bco-dmo.org/award/685695"
-    source: 
-        name: "Schmidt Ocean Institute"
-  - award:
-    name: "FG-2016-7129"
-    url: "https://www.bco-dmo.org/award/875341"
-    source:
-        name: "Sloan Foundation"
-        doi: "10.13039/100000879"
+parameters:
+  - 
+    name: "ISO_DateTime_UTC"
+    description: "Date time time of cast following ISO 8601 convention in UTC"
+    format: "YYYY-MM-DDTHH:MM:SS[.xx]Z"
+    identifier:
+      uri: "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/"
+  ...
+  -  
+    name: "cast"
+    description: "CTD cast number"
+  ...
+  - 
+    name: "temperature"
+    description: "Temperature from CTD"
+    identifier:
+      name: "water temperature"
+      uri: "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/"
+    units:
+      name: "Celsius (C)"
+      uri: "https://qudt.org/vocab/unit/DEG_C"
+  ...
 ```
 
-### Schema.org - Funding
+### Schema.org Variables
 
-If you have information about the awards that funded the Dataset,
+- [`variableMeasured`](https://schema.org/variableMeasured)
+    - Text
+    - PropertyValue
 
-- <strong>[`funding`](https://schema.org/funding)</strong>
-    - [`funder`](https://schema.org/funder) (if you have information about the source of the award(s)
+#### Variables as Text - Good
 
-OR, if you only have information about the funding source of the Dataset,
-
-- [`funder`](https://schema.org/funder)
-
-> `funding` wants to be a `Grant`. `Grant` has more specific [sub-types including `MonetaryGrant`](https://schema.org/Grant#subtypes). In this example, we use `MonetaryGrant` but `Grant` may be used in cases where the Dataset was generated under some funding that did not provide financial support.
-
-### Awards
+Similar to [Keywords in Section 3](03_keywords.md)
 
 <pre>
 {
   "@context": "https://schema.org/",
-  "funding": [
+  <strong>"variableMeasured": [
+    "ISO_DateTime_UTC", 
+    "cast", 
+    "temperature"
+  ]</strong>
+}
+</pre>
+
+#### Variables as PropertyValue - Better
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  <strong>"variableMeasured": [
     {
-      <strong>"@type": "MonetaryGrant",</strong>
-      "name": "R/V Falkor 160115 SOI ProteOMZ Expedition",
-      "url": "https://www.bco-dmo.org/award/685695",
-      "funder": {
-        "@type": "Organization",
-        "name": "Schmidt Ocean Institute"
-      }
+      "@type": "PropertyValue",
+      "name": "cast",
+      "description": "CTD cast number"
+    }</strong>
+  ]
+}
+</pre>
+
+#### Variables as PropertyValue w. propertyID - Best
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "ISO_DateTime_UTC",
+      "description": "Date time time of cast following ISO 8601 convention in UTC",
+      <strong>"propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/",</strong>
     },
     {
-      "@type": "MonetaryGrant",
-      "name": "FG-2016-7129",
-      "url": "https://www.bco-dmo.org/award/875341",
-      "funder": {
-        "@type": "Organization",
-        "name": "Sloan Foundation",
-        <strong>"identifier": {
-          "@id": "https://doi.org/10.13039/100000879",
-          "@type": "PropertyValue",
-          "propertyID": "https://registry.identifiers.org/registry/doi",
-          "value": "doi:10.13039/100000879",
-          "url": "https://doi.org/10.13039/100000879"
-        }</strong>
-      }
+      "@type": "PropertyValue",
+      "name": "cast",
+      "description": "CTD cast number"
     }
   ]
 }
 </pre>
 
-#### Funder Registry - Finding the DOI for a funder
+### Variables with Units
 
-https://doi.crossref.org/funderNames
+#### Schema.org PropertyValue + Units
 
-**Schmidt Ocean Institute**
-doi:10.13039/100016377
+- `variableMeasured` >> [`PropertyValue`]((https://schema.org/PropertyValue)
+    - <strong>`unitText`</strong> - a unit description.
+    - <strong>`unitCode`</strong> - Can be text or URL. We recommend a URI from a controlled vocabulary like [QUDT](https://www.qudt.org/2.1/catalog/qudt-catalog.html)
+    - 
+<pre>
+{
+  "@context": "https://schema.org/",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "temperature",
+      "description": "Temperature from CTD",
+      "propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/",
+      <strong>"unitText": "Celsius (C)",
+      "unitCode": "https://qudt.org/vocab/unit/DEG_C"</strong>
+    }
+  ]
+}
+</pre>
 
-### Updated Markup - Funding & Awards
+### Updated Markup - Variables
 
 <pre>
 {
@@ -114,7 +152,7 @@ doi:10.13039/100016377
       "inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
       },
-      "termCode": "LAB02"
+      "termCode": "LAB02",
     }
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
@@ -173,7 +211,7 @@ doi:10.13039/100016377
       }
     ]
   },
-  <strong>"funding": [
+  "funding": [
     {
       "@type": "MonetaryGrant",
       "name": "R/V Falkor 160115 SOI ProteOMZ Expedition",
@@ -191,7 +229,7 @@ doi:10.13039/100016377
         "@type": "Organization",
         "name": "Sloan Foundation",
         "identifier": {
-          "@id": "https://doi.org/10.13039/100000879",
+          @id": "https://doi.org/10.13039/100000879",
           "@type": "PropertyValue",
           "propertyID": "https://registry.identifiers.org/registry/doi",
           "value": "doi:10.13039/100000879",
@@ -199,7 +237,7 @@ doi:10.13039/100016377
         }
       }
     }
-  ],</strong>
+  ],
   "temporalCoverage": "2016-01-17/2016-02-04",
   "spatialCoverage": {
     "@type": "Place",
@@ -207,17 +245,45 @@ doi:10.13039/100016377
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ],
+  <strong>"variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "ISO_DateTime_UTC",
+      "description": "Date time time of cast following ISO 8601 convention in UTC",
+      <strong>"propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/",</strong>
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "cast",
+      "description": "CTD cast number"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "temperature",
+      "description": "Temperature from CTD",
+      "propertyID": "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/",
+      <strong>"unitText": "Celsius (C)",
+      "unitCode": "https://qudt.org/vocab/unit/DEG_C"</strong>
+    }
+  ]</strong>
 } 
 </pre>
 
 <hr/>
 
-[Section #15: Variables >>](15_variables.md)
+[Section #17: Metadata Records >>](17_metadata-records.md)
 
 <hr/>
 
 ### Resources
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
-

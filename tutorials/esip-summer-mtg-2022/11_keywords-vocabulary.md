@@ -1,4 +1,4 @@
-# 10. Keywords from a Controlled Vocabulary
+# 11. Keywords from a Controlled Vocabulary
 
 **Guidelines:** 
 [Keywords](/guides/Dataset.md#keywords)
@@ -190,12 +190,20 @@ keywords:
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
     }
-  }
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv",
+      "encodingFormat": "text/tab-separated-values",
+      "contentSize": "15077 bytes"
+    }
+  ]
 }
 </pre>
 <hr/>
 
-[Section #11: Identifiers as `PropertyValue` >>](11_identifiers-propertyvalue.md)
+[Section #12: Identifiers as `PropertyValue` >>](12_identifiers-propertyvalue.md)
 
 <hr/>
 
