@@ -246,6 +246,11 @@ metadata:
     "geo": {
       "@type": "GeoShape",
       "polygon": "-10.563,139.8 17,139.8 17,156 -10.563,156 -10.563,139.8"
+    },
+    "additionalProperty": {
+      "@type": "PropertyValue",
+      "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
     }
   },
   "distribution": [
