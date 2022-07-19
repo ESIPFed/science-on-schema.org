@@ -151,7 +151,7 @@
       "inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
       },
-      "termCode": "LAB02",
+      "termCode": "LAB02"
     }
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],

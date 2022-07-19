@@ -57,7 +57,7 @@ OR, if you only have information about the funding source of the Dataset,
         "@type": "Organization",
         "name": "Sloan Foundation",
         <strong>"identifier": {
-          @id": "https://doi.org/10.13039/100000879",
+          "@id": "https://doi.org/10.13039/100000879",
           "@type": "PropertyValue",
           "propertyID": "https://registry.identifiers.org/registry/doi",
           "value": "doi:10.13039/100000879",
@@ -114,7 +114,7 @@ doi:10.13039/100016377
       "inDefinedTermSet": {
         "@id": "http://vocab.nerc.ac.uk/collection/L05/current/"
       },
-      "termCode": "LAB02",
+      "termCode": "LAB02"
     }
   ],
   "license": ["https://spdx.org/licenses/CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/"],
@@ -191,7 +191,7 @@ doi:10.13039/100016377
         "@type": "Organization",
         "name": "Sloan Foundation",
         "identifier": {
-          @id": "https://doi.org/10.13039/100000879",
+          "@id": "https://doi.org/10.13039/100000879",
           "@type": "PropertyValue",
           "propertyID": "https://registry.identifiers.org/registry/doi",
           "value": "doi:10.13039/100000879",
