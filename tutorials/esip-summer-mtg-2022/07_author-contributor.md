@@ -1,5 +1,10 @@
 # 7. Authors / Contributors
 
+#### Lesson
+> - Create an array of objects
+> - How to preserve ordering in arrays
+
+
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#roles-of-people)
 
@@ -126,5 +131,6 @@ contributor:
 <hr/>
 
 ### Resources
+- **Example `@list` from JSON-LD Spec**: https://json-ld.org/spec/latest/json-ld/#example-51-an-ordered-collection-of-values-in-json-ld
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
