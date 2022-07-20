@@ -79,6 +79,6 @@ keywords:
 
 ### Resources
 - _@see_ https://json-ld.org/spec/latest/json-ld/#sets-and-lists
-- **Advanced Tutorial:** [Section #10: Keywords from a Controlled Vocabulary](10_keywords-vocabulary.md)
+- **Advanced Tutorial:** [Section #11: Keywords from a Controlled Vocabulary](11_keywords-vocabulary.md)
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
