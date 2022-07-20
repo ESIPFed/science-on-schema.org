@@ -99,7 +99,7 @@ Similar to [Keywords in Section 3](03_keywords.md)
 
 #### Schema.org PropertyValue + Units
 
-- `variableMeasured` >> [`PropertyValue`]((https://schema.org/PropertyValue)
+- `variableMeasured` >> [`PropertyValue`](https://schema.org/PropertyValue)
     - <strong>`unitText`</strong> - a unit description.
     - <strong>`unitCode`</strong> - Can be text or URL. We recommend a URI from a controlled vocabulary like [QUDT](https://www.qudt.org/2.1/catalog/qudt-catalog.html)
     - 
