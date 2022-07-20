@@ -23,6 +23,7 @@ THIS TUTORIAL: [bit.ly/soso-tutorial](https://bit.ly/soso-tutorial)
         - ESIP Soil Cluster Presentation ([slides](https://bit.ly/soso-soil-prezi) | [youtube](https://www.youtube.com/watch?v=s0TzXWGsf34))
     - [Science-on-schema.org ESIP Cluster]([https://science-on-schema.org](https://github.com/ESIPFed/science-on-schema.org//#community))
         - v1.3 Guidelines in May 2022 ([release notes](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.3.0)) 
+            - Thank you to the Cluster members, but special thanks to Matt Jones, Stephen Richard, Nick Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch
         - _ESIP Assembly Endorsement_
 - **Build a Dataset** (it's not complicated)
     - #1. [JSON-LD Context](01_json-ld-context-type.md)
