@@ -1,5 +1,10 @@
 # 16. Variables
 
+#### Lesson
+> - Describing variables in detail with `PropertyValue`
+> - Using external vocabulary URIs to describe a variable with `propertyID`
+> - Describing units with `PropertyValue`
+
 **Guidelines:** 
 [Variables](/guides/Dataset.md#variables)
 
