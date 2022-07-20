@@ -8,6 +8,8 @@
 - Any suggestions about this tutorial would be greatly appreciated here: [Github Issue 226](https://github.com/ESIPFed/science-on-schema.org/issues/226)
 
 **Tools**: 
+- [ESIP Summer Meeting - Session Notes](https://docs.google.com/document/d/1SAuEXBMMQIzdntvlmJ_p4E609sGys21jpCUUfeoxs_M/edit) (Google doc)
+    - [Sched Session Page](https://sched.co/12et4)
 - [Google Rich Results Tool](https://search.google.com/test/rich-results) - use to test your markup 
 - [Schema Builder Chrome browser Extension](https://chrome.google.com/webstore/detail/schema-builder-for-struct/klohjdodjjeocpbpadmkcndjoadijgjg?hl=en-US) - use to build markup for an existing Dataset page
     - go to Dataset page, and click the extension, begin building your schema.org
