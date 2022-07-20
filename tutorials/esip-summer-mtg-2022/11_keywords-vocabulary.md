@@ -1,5 +1,10 @@
 # 11. Keywords from a Controlled Vocabulary
 
+#### Lesson
+> - Multiple array values with different types
+> - Introducing the `DefinedTerm` type
+> - Introducing reuse of objects with `@id`
+
 **Guidelines:** 
 [Keywords](/guides/Dataset.md#keywords)
 
@@ -82,6 +87,8 @@ keywords:
 </pre>
 
 ##### Exercise #2
+
+> Using `@id`
 
 <pre>
 {
@@ -213,5 +220,7 @@ keywords:
 <hr/>
 
 ### Resources
+- **Multiple array values w. differing types:** https://json-ld.org/spec/latest/json-ld/#example-50-multiple-array-values-of-different-types
+- **Node Identifiers with `@id`:** https://json-ld.org/spec/latest/json-ld/#node-identifiers
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
