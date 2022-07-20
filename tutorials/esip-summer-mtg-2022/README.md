@@ -1,5 +1,17 @@
 # ESIP Summer Meeting 2022
 
+**Tutorial**
+- using the [source metadata](examples/dataset-01.txt)
+- each section has a lesson or exercise about Schema.org or JSON-LD
+- at the end of every section will be an updated schema.org record for our source metadata
+
+**Source Metadata**: ProteOMZ nitrous oxide data from BCO-DMO at [examples/dataset-01.txt](examples/dataset-01.txt)
+
+**Tools**: 
+- [Google Rich Results Tool](https://search.google.com/test/rich-results) - use to test your markup 
+- [Schema Builder Chrome browser Extension](https://chrome.google.com/webstore/detail/schema-builder-for-struct/klohjdodjjeocpbpadmkcndjoadijgjg?hl=en-US) - use to build markup for an existing Dataset page
+    - go to Dataset page, and click the extension, begin building your schema.org
+
 ## Agenda
 
 - **Intro to Schema.org**
