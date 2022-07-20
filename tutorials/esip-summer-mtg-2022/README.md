@@ -4,6 +4,7 @@
 - using the [source metadata](examples/dataset-01.txt)
 - each section has a lesson or exercise about Schema.org or JSON-LD
 - at the end of every section will be an updated schema.org record for our source metadata
+- __NOTE__: some code snippets are shortened for brevity, but each section's updated markup is valid
 
 **Source Metadata**: ProteOMZ nitrous oxide data from BCO-DMO at [examples/dataset-01.txt](examples/dataset-01.txt)
 
