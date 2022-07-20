@@ -1,5 +1,9 @@
 # 18. Checksums for Data Files and Metadata Records
 
+
+#### Lesson
+> - Using external vocabularies within schema.org markup
+
 **Guidelines:** 
 [Checksums](/guides/Dataset.md#checksum)
 
