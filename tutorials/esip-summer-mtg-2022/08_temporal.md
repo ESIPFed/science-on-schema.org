@@ -1,5 +1,8 @@
 # 8. Temporal Coverage
 
+#### Lesson
+> - how to use `temporalCoverage`
+
 **Guidelines:** 
 [Temporal Coverage](/guides/Dataset.md#temporal-coverage)
 
