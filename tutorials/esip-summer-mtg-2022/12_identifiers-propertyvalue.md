@@ -1,5 +1,9 @@
 # 12. Identifiers
 
+#### Lesson
+> - Introducing Identifiers.org Registry
+> - Using the `PropertyValue` type
+
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#identifier)
 
