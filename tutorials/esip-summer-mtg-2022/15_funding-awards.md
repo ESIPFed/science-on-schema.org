@@ -1,5 +1,11 @@
 # 15. Funding & Awards
 
+#### Lesson
+> - Re-suing Publisher/Provider `Organization` lessons to describe funding sources
+> - Introducing the new `fundedBy` property at schema.org to describe Grants and Awards
+> - Re-using `@id` to reference an existing object
+> - Re-using the identfier "pattern" with the Funder Registry
+
 **Guidelines:** 
 [Funding](/guides/Dataset.md#funding)
 
