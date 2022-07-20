@@ -1,4 +1,4 @@
-# 15. Data Files
+# 10. Data Files
 
 #### Lesson
 > - Introducing the `DataDownload` type
