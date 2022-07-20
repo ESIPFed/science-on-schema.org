@@ -1,5 +1,8 @@
 # 6. Publisher
 
+#### Lesson
+> - Re-using how to create object properties
+
 **Guidelines:** 
 [Publisher / Provider](/guides/Dataset.md#publisher--provider)
 
@@ -13,7 +16,6 @@ publisher:
 ```
 
 ### Schema.org Publisher
-
 
 - https://schema.org/publisher
     - <strong>`Organization`</strong>
