@@ -1,12 +1,11 @@
 # ESIP Summer Meeting 2022
 
 **Tutorial**
-- using the [source metadata](examples/dataset-01.txt)
-- each section has a lesson or exercise about Schema.org or JSON-LD
-- at the end of every section will be an updated schema.org record for our source metadata
-- __NOTE__: some code snippets are shortened for brevity, but each section's updated markup is valid
-
-**Source Metadata**: ProteOMZ nitrous oxide data from BCO-DMO at [examples/dataset-01.txt](examples/dataset-01.txt)
+- Uses source metadata: ProteOMZ nitrous oxide data from BCO-DMO at [examples/dataset-01.txt](examples/dataset-01.txt)
+- Each section has a lesson or exercise about Schema.org or JSON-LD
+- At the end of every section will be an updated schema.org record for our source metadata
+- _NOTE: some code snippets are shortened for brevity, but each section's updated markup is valid_
+- Any suggestions about this tutorial would be greatly appreciated here: [Github Issue 226](https://github.com/ESIPFed/science-on-schema.org/issues/226)
 
 **Tools**: 
 - [Google Rich Results Tool](https://search.google.com/test/rich-results) - use to test your markup 
