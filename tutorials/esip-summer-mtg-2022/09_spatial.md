@@ -1,5 +1,9 @@
 # 9. Spatial Coverage
 
+#### Lesson
+> - Multi-level object properties
+> - Introducing the `PropertyValue` type
+
 **Guidelines:** 
 [Spatial Coverage](/guides/Dataset.md#spatial-coverage)
 
