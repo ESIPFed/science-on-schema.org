@@ -11,7 +11,7 @@
     - #3. [Keywords](03_keywords.md)
     - #4. [License](04_license.md)
     - #5. [Identifiers](05_identifier.md)
-        - Using sameAs
+        - [using `sameAs`](05_identifier.md#sameas)
     - #6. [Publisher](06_publisher.md)
     - #7. [Authors / Contributors](07_author-contributor.md)
     - #8. [Temporal Coverage](08_temporal.md)
