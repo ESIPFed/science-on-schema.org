@@ -2,10 +2,10 @@
 
 ## Agenda
 
-- Intro to Schema.org
+- **Intro to Schema.org**
     - What is Schema.org?
-    - Science-on-schema.org guidelines
-- Walkthrough - Build a basic schema.org entry (goal: it's not complicated)
+    - [Science-on-schema.org guidelines](https://science-on-schema.org)
+- **Build a Dataset** (it's not complicated)
     - #1. [JSON-LD Context](01_json-ld-context-type.md)
     - #2. [Basic Fields](02_basic-fields.md)
     - #3. [Keywords](03_keywords.md)
@@ -17,7 +17,7 @@
     - #8. [Temporal Coverage](08_temporal.md)
     - #9. [Spatial Coverage](09_spatial.md)
     - #10. [Data Files](10_data-files.md)
-- Walkthrough - Improving the Dataset
+- **Improving the Dataset**
     - #11. [Keywords](11_keywords-vocabulary.md)
     - #12. [Identifiers](12_identifiers-propertyvalue.md)
     - #13. [Authors / Contributors Improved](13_author-contributor.md)
@@ -26,8 +26,8 @@
     - #16. [Variables](16_variables.md)
     - #17. [Metadata Records](17_metadata-records.md)
     - #18. [Checksums](18_checksums.md)
-4. [Advanced Techniques](#advanced-techniques)
-    - [Geologic Time]()
-    - [Provenance]()
+- **Advanced Techniques**
+    - [Geologic Time](/guides/Dataset.md#geologic-time)
+    - [Provenance](/guides/Dataset.md#provenance-relationships)
     - [Validating with SHACL](validation.md) 
           
