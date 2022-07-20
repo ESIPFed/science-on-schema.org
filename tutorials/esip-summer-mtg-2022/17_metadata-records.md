@@ -1,5 +1,10 @@
 # 17. Metadata Records
 
+#### Lesson
+> - Revisiting the `DataDownload` for metadata records
+> - Using `subjectOf` and `about` for bi-directional links between objects
+
+
 **Guidelines:** 
 [Metadata](/guides/Dataset.md#metadata)
 
