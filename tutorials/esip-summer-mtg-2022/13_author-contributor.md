@@ -1,5 +1,10 @@
 # 13. Improving Authors / Contributors 
 
+#### Lesson
+> - Re-using the identifier "pattern"
+> - Using schema.org website to find additional properties
+
+
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#roles-of-people)
 
