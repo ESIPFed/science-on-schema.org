@@ -1,5 +1,10 @@
 # 4. License
 
+#### Lesson
+> - Creating Object properties with their own `@type`
+> - Weighing expressivity vs. simplicity
+> - Re-using what we learned about arrays
+
 **Guidelines:** 
 [License](/guides/Dataset.md#license)
 
