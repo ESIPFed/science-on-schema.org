@@ -1,5 +1,10 @@
 # 5. Identifier
 
+#### Lesson
+> - Creating Object properties with their own `@type`
+> - Weighing expressivity vs. simplicity
+> - Re-using what we learned about arrays
+
 **Guidelines:** 
 [Identifier](/guides/Dataset.md#identifier)
 
@@ -20,12 +25,15 @@ doi: "10.26008/1912/bco-dmo.775849.1"
 
 #### Identifiers as Text - Good
 
+
 <pre>
 {
   "@context": "https://schema.org/",
   <strong>"identifier": "doi:10.26008/1912/bco-dmo.775849.1"</strong>
 }
 </pre>
+
+> **NOTE:** specifying "doi:" before the DOI value lets harvesters know that `10.26008/1912/bco-dmo.775849.1` is a DOI and not some other identifier type
 
 
 #### Identifiers as URL - Better
@@ -41,6 +49,12 @@ doi: "10.26008/1912/bco-dmo.775849.1"
 
 - https://schema.org/sameAs
     - `URL`
+
+> Inform the harvesters/search engines of other web pages that describe the same exact thing
+> - So your page can be added as possible search results when the other page is found
+> - Provides better information and context to web searchers
+
+![SameAs](images/google-dataset-search-same-as.png "SameAs")
 
 <pre>
 {
