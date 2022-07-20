@@ -1,4 +1,7 @@
-# 15. Data Files aka Distributions
+# 15. Data Files
+
+#### Lesson
+> - Introducing the `DataDownload` type
 
 **Guidelines:** 
 [Variables](/guides/Dataset.md#distributions)
@@ -21,6 +24,10 @@ files:
 
 - [`distribution`](https://schema.org/distribution)
     - DataDownload
+        - `contentSize`	Text	File size in (mega/kilo) bytes.
+        - `contentUrl`	URL	Actual bytes of the media object, for example the image file or video file.
+        - `encodingFormat` Media type typically expressed using a MIME format (see IANA site and MDN reference) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.). _Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL_
+
 
 #### Data Downloads
 
