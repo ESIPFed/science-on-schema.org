@@ -1,5 +1,7 @@
 # ESIP Summer Meeting 2022
 
+THIS TUTORIAL: [bit.ly/soso-tutorial](https://bit.ly/soso-tutorial)
+
 **Tutorial**
 - Uses source metadata: ProteOMZ nitrous oxide data from BCO-DMO at [examples/dataset-01.txt](examples/dataset-01.txt)
 - Each section has a lesson or exercise about Schema.org or JSON-LD
@@ -17,8 +19,9 @@
 ## Agenda
 
 - **Intro to Schema.org**
-    - What is Schema.org?
+    - [What is Schema.org?]()
     - [Science-on-schema.org guidelines](https://science-on-schema.org)
+        - 1.3 Guidelines submitted for Endorsement ([github]()) 
 - **Build a Dataset** (it's not complicated)
     - #1. [JSON-LD Context](01_json-ld-context-type.md)
     - #2. [Basic Fields](02_basic-fields.md)
