@@ -6,6 +6,12 @@
 
 _NOTE: A provider may be a metadata aggregator or another repository with a duplicate copy._
 
+
+#### Lesson
+> - Difference between publisher and provider (for proper credit)
+> - Revisiting `sameAs` for Dataset web pages
+> - Re-using `@id` to reference an existing object
+
 **Guidelines:** 
 [Publisher / Provider](/guides/Dataset.md#publisher--provider)
 
