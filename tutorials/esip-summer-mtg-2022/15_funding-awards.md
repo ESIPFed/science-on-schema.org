@@ -82,6 +82,79 @@ https://doi.crossref.org/funderNames
 **Schmidt Ocean Institute**
 doi:10.13039/100016377
 
+#### Q: What if we have an award number in our metadata?
+
+Let's imagine our Sloane Foundation award metadata was altered to:
+
+<pre>
+- award:
+    <strong>name: "2016 Award to Alyson Santoro - #7129"
+    awardNumber: "FG-2016-7129"</strong>
+    url: "https://www.bco-dmo.org/award/875341"
+    source:
+        name: "Sloan Foundation"
+        doi: "10.13039/100000879"
+</pre>
+
+Then, we may model the awardNumber using the `identifier` pattern:
+
+
+<pre>
+{
+  "@context": "https://schema.org/",
+  "funding": [
+    {
+      "@type": "MonetaryGrant",
+      <strong>"name": "2016 Award to Alyson Santoro - #7129",
+      "identifier": "FG-2016-7129",</strong>
+      "url": "https://www.bco-dmo.org/award/875341",
+      "funder": {
+        "@type": "Organization",
+        "name": "Sloan Foundation",
+        <strong>"identifier": {
+          "@id": "https://doi.org/10.13039/100000879",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/doi",
+          "value": "doi:10.13039/100000879",
+          "url": "https://doi.org/10.13039/100000879"
+        }</strong>
+      }
+    }
+  ]
+}
+</pre>
+
+If the awardNumber has more metadata like a URL, etc. we can continue to employ the `identifier` pattern using a `PropertyValue`:
+  
+<pre>
+{
+  "@context": "https://schema.org/",
+  "funding": [
+    {
+      "@type": "MonetaryGrant",
+      "name": "2016 Award to Alyson Santoro - #7129",
+      <strong>"identifier": {
+        "@type": "PropertyValue",
+        "value": "FG-2016-7129",
+        "url": "https://example.award.url/id/FG-2016-7129"
+      },</strong>
+      "url": "https://www.bco-dmo.org/award/875341",
+      "funder": {
+        "@type": "Organization",
+        "name": "Sloan Foundation",
+        <strong>"identifier": {
+          "@id": "https://doi.org/10.13039/100000879",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/doi",
+          "value": "doi:10.13039/100000879",
+          "url": "https://doi.org/10.13039/100000879"
+        }</strong>
+      }
+    }
+  ]
+}
+</pre>
+
 ### Updated Markup - Funding & Awards
 
 <pre>
