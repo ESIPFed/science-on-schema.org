@@ -1,5 +1,10 @@
 # 3. Keywords
 
+#### Lesson
+> - Building an [array](https://json-ld.org/spec/latest/json-ld/#sets-and-lists) in JSON-LD
+> - Focus on multiple values with no inherent order ([example from JSON-LD spec](https://json-ld.org/spec/latest/json-ld/#example-48-multiple-values-with-no-inherent-order))
+
+
 **Guidelines:** 
 [Keywords](/guides/Dataset.md#keywords)
 
@@ -73,6 +78,7 @@ keywords:
 <hr/>
 
 ### Resources
-- <strong>Tutorial:</strong> [Section #10: Keywords from a Controlled Vocabulary](10_keywords-vocabulary.md)
+- _@see_ https://json-ld.org/spec/latest/json-ld/#sets-and-lists
+- **Advanced Tutorial:** [Section #10: Keywords from a Controlled Vocabulary](10_keywords-vocabulary.md)
 - **Source:** [ProteOMZ nitrous oxide data](/tutorials/esip-summer-mtg-2022/examples/dataset-01.txt) (example metadata)
 - **Testing:** [Google Rich Results Tool](https://search.google.com/test/rich-results)
