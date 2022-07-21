@@ -43,7 +43,7 @@ metadata:
   "@context": "https://schema.org/",
   <strong>"subjectOf": { 
     "@type": "DataDownload",
-    "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
+    "contentURL":"https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes"
   }</strong>
@@ -58,7 +58,7 @@ metadata:
   <strong>"@id": "https://www.bco-dmo.org/dataset/775849",</strong>
   "subjectOf": { 
     "@type": "DataDownload",
-    "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
+    "contentURL":"https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
     <strong>"about": { "@id": "https://www.bco-dmo.org/dataset/775849" }</strong>
@@ -77,7 +77,7 @@ One way to let harvesters know that data or metadata has changed, would be to ad
   "@id": "https://www.bco-dmo.org/dataset/775849",
   "subjectOf": { 
     "@type": "DataDownload",
-    "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
+    "contentURL":"https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
     "about": { "@id": "https://www.bco-dmo.org/dataset/775849" },
@@ -255,7 +255,7 @@ One way to let harvesters know that data or metadata has changed, would be to ad
   ],
   <strong>"subjectOf": { 
     "@type": "DataDownload",
-    "contentURL":"[https://example.com/metadata/eml-metadata.xml](https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml)",
+    "contentURL":"https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml",
     "encodingFormat": ["application/xml", "http://www.isotc211.org/2005/gmd-noaa"],
     "contentSize": "64855 bytes",
     "about": { "@id": "https://www.bco-dmo.org/dataset/775849" },
