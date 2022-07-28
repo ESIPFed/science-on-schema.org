@@ -6,29 +6,29 @@
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Describing a Dataset](#describing-a-dataset)
-	- [Common Properties](#common-properties)
-		- [Keywords](#keywords)
-		- [Identifier](#identifier)
-			- [How to reference Short DOIs](#how-to-reference-short-dois)
-		- [Variables](#variables)
-		- [Collections of datasets using schema.org DataCatalog](#collections-of-datasets-using-schemaorg-datacatalog)
-		- [Metadata](#metadata)
-		- [Dates](#dates)
-		- [Distributions](#distributions)
-			- [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
-		- [Temporal Coverage](#temporal-coverage)
-			- [Geologic Time](#geologic-time)
-		- [Spatial Coverage](#spatial-coverage)
-			- [Use GeoCoordinates for Point locations](#use-geocoordinates-for-point-locations)
-			- [Use GeoShape for all other location types](#use-geoshape-for-all-other-location-types)
-			- [Handling multiple locations](#handling-multiple-locations)
-			- [Spatial Reference Systems](#spatial-reference-systems)
-		- [Roles of People](#roles-of-people)
-		- [Publisher / Provider](#publisher-provider)
-		- [Funding](#funding)
-		- [License](#license)
-        - [Checksum](#checksum)
-		- [Provenance Relationships](#provenance-relationships)
+    - [Common Properties](#common-properties)
+    - [Keywords](#keywords)
+    - [Identifier](#identifier)
+        - [How to reference Short DOIs](#how-to-reference-short-dois)
+    - [Variables](#variables)
+    - [Collections of datasets using schema.org DataCatalog](#collections-of-datasets-using-schemaorg-datacatalog)
+    - [Metadata](#metadata)
+    - [Distributions](#distributions)
+        - [Accessing Data through a Service Endpoint](#accessing-data-through-a-service-endpoint)
+    - [Dates](#dates)
+    - [Temporal Coverage](#temporal-coverage)
+        - [Geologic Time](#geologic-time)
+    - [Spatial Coverage](#spatial-coverage)
+        - [Use GeoCoordinates for Point locations](#use-geocoordinates-for-point-locations)
+        - [Use GeoShape for all other location types](#use-geoshape-for-all-other-location-types)
+        - [Handling multiple locations](#handling-multiple-locations)
+        - [Spatial Reference Systems](#spatial-reference-systems)
+    - [Roles of People](#roles-of-people)
+    - [Publisher / Provider](#publisher-provider)
+    - [Funding](#funding)
+    - [License](#license)
+    - [Checksum](#checksum)
+    - [Provenance Relationships](#provenance-relationships)
 
 <!-- /TOC -->
 
@@ -236,7 +236,7 @@ Optionally, the `schema:name` field can be used to give this specific identifier
       {
         "@id": "https://doi.org/10.5066/F7VX0DMQ",
         "@type": "PropertyValue",
-	    "name": "DOI: 10.5066/F7VX0DMQ",
+        "name": "DOI: 10.5066/F7VX0DMQ",
         "propertyID": "https://registry.identifiers.org/registry/doi",
         "value": "doi:10.5066/F7VX0DMQ",
         "url": "https://doi.org/10.5066/F7VX0DMQ"
@@ -279,7 +279,7 @@ For more examples of using `schema:PropertyValue` for identifiers other than DOI
     },
     {
         "@id": "https://identifiers.org/pdb:2gc4",
-	    "@type": "PropertyValue",
+        "@type": "PropertyValue",
         "propertyID": "https://registry.identifiers.org/registry/pdb",
         "name": "Protein Data Bank 2gc4",
         "value": "pdb:2gc4",
@@ -316,7 +316,7 @@ Or as a URL:
 }
 </pre>
 
-However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
+However, if the identifier is a persistent identifier such as a DOI, ARK, or accession number, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
 
 [schema:Dataset](https://schema.org/Dataset) also defines a field for the [schema:citation](https://schema.org/citation) as either text or a [schema:CreativeWork](https://schema.org/CreativeWork). To provide citation text:
 
@@ -552,21 +552,6 @@ Note that the `encodingFormat` property contains an array of formats to describe
 
 Back to [top](#top)
 
-### Dates
-
-Scientific datasets typically have multiple associated date or time periods.  Time periods can be specified for 1) the time at which an entity or phenonomon occurred or was measured, and 2) the time periods when a dataset containing that information was created, changed, published, etc. `temporalCoverage` describes the age of the sample and the other dates describe the data created from observations or process. For example, if one took a sample 200 ft down in an ice core, `temporalCoverage` would describe the period when that layer of ice was deposited in geologic time, while other date properties (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice core sample. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
-
-Schema.org offers various date properties that can be used to encode this information. We recommend use of the following fields for Dates:
-
-- `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
-
-- `schema:dateCreated` ::  use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
-- `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
-- `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
-- `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
-
-Back to [top](#top)
-
 ### Distributions
 
 While the [schema:url](https://schema.org/url) property of the Dataset should point to a landing page, the way to describe how to download the data is through the [schema:distribution](https://schema.org/distribution) property. The "distribution" property describes where to get the data and in what format by using the [schema:DataDownload](https://schema.org/DataDownload) type. If your dataset is not accessible through a direct download URL, but rather through a service URL that may need input parameters jump to the next section [Accessing Data through a Service Endpoint](#dataset-service-endpoint).
@@ -647,6 +632,21 @@ If access to the data requires some input parameters before a download can occur
 </pre>
 
 Here, we use the [schema:SearchAction](https://schema.org/SearchAction) type becuase it lets you define the query parameters and HTTP methods so that machines can build user interfaces to collect those query parmaeters and actuate a request to provide the user what they are looking for.
+
+Back to [top](#top)
+
+### Dates
+
+Scientific datasets typically have multiple associated date or time periods.  Time periods can be specified for 1) the time at which an entity or phenonomon occurred or was measured, and 2) the time periods when a dataset containing that information was created, changed, published, etc. `temporalCoverage` describes the age of the sample and the other dates describe the data created from observations or process. For example, if one took a sample 200 ft down in an ice core, `temporalCoverage` would describe the period when that layer of ice was deposited in geologic time, while other date properties (dateCreated, dateModified, datePublished, and expired) would describe the dataset that was created by measuring and analyzing that ice core sample. The temporalCoverage might also be a range of ages. For example if the dataset was from a study of the whole ice core it could have a range of ages from 300 to 6000 years before present (BP).
+
+Schema.org offers various date properties that can be used to encode this information. We recommend use of the following fields for Dates:
+
+- `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
+
+- `schema:dateCreated` ::  use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
+- `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
+- `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
+- `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
 
 Back to [top](#top)
 
@@ -748,14 +748,13 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Eruption of Bishop Tuff, about 760,000 years ago",
 <strong>    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
-		"@type": "time:TimePosition",
+                "@type": "time:TimePosition",
                 "time:hasTRS": {
                     "@id": "gsqtime:MillionsOfYearsAgo"
                 },
@@ -768,8 +767,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     "value": "Ma"
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -785,7 +784,6 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/200 (from [OWL Time](http://www.w3.org/2006/time))4/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
 <strong>    "temporalCoverage": [
@@ -813,8 +811,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     "value": 2.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -832,7 +830,6 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
 <strong>    "temporalCoverage": [
@@ -890,8 +887,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                      "value": 2.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -908,7 +905,6 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
 <strong>    "temporalCoverage": [
@@ -940,8 +936,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                      "value": 1.0
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -960,7 +956,6 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
     },
-    {
     "@type": "Dataset",
     "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
 <strong>    "temporalCoverage": [
@@ -1013,8 +1008,8 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
                     }
                 }
             }
-        }]</strong>
-    }
+        }
+    ]</strong>
 }
 </pre>
 
@@ -1030,7 +1025,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
         "time": "http://www.w3.org/2006/time#",
         "ts": "http://resource.geosciml.org/vocabulary/timescale/",
         "xsd": "https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/datatypes.html"
-	},
+    },
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
 <strong>    "temporalCoverage": [{
@@ -1066,9 +1061,9 @@ Used to document the location on Earth that is the focus of the  dataset content
 Schema.org documentation does not specify a convention for the coordinate reference system, our recommended practice is to use [WGS84](EPSG:3857) for at least one spatial coverage description if applicable. Spatial coverage location using other coordinate systems can be included, see recommendation for specifying coordinate reference systems, [below](#spatial_reference-system).  
 
 #### Use GeoCoordinates for Point locations
-	
+
 Please indicate a point location by using a [schema:GeoCoordinates](https://schema.org/GeoCoordinates) object with [schema:latitude](https://schema.org/latitude) and [schema:longitude](https://schema.org/longitude) properties.
-	
+
 *Not Recommended* The [schema:Place](https://schema.org/Place) definition allows the latitude and longitude of a point location to be specified directly; although this is more succinct, it makes parsing the metadata more complex and should be avoided.
 
 Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.
@@ -1104,9 +1099,9 @@ Be aware that some client applications might only index or display bounding box 
 
 
 **Examples:**
-	
+
 ##### <a id="geoshape-line">Linear spatial location</a>
-	
+
 Useful for data that were collected along a traverse, ship track, flight line or other linear sampling feature.
 
 <pre>
@@ -1121,7 +1116,7 @@ Useful for data that were collected along a traverse, ship track, flight line or
 </pre>
 
 ##### <a id="geoshape-polygon">Polygon spatial location</a>
-	
+
 A polygon provides the most precise approach to delineating the spatial extent of the focus area for a dataset, but polygon spatial locations might not be recognized (indexed, displayed) by some client applications.
 
 <pre>
@@ -1129,7 +1124,7 @@ A polygon provides the most precise approach to delineating the spatial extent o
 </pre>
 
 ##### <a id="geoshape-box">Bounding Boxes</a>
-	
+
 A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. Point locations are tuples of {latitude  east-longitude} (y x). The schema.org [GeoShape](https://schema.org/GeoShape) documentation states "*Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points*." Since the box is a list of points, a space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian.  A box where 'lower-left' (southwest) corner is 39.3280/120.1633 and 'upper-right' (northeast) corner is 40.445/123.7878 would be encoded thus:
 <pre>
   <strong>"box": "39.3280 120.1633 40.445 123.7878"</strong>
@@ -1176,7 +1171,7 @@ If you have multiple geometries, you can publish those by making the [schema:geo
 Be aware that some client application might not index or display multiple geometries.
 
 #### Spatial Reference Systems
-	
+
 A Spatial Reference System (SRS) or Coordinate Reference System (CRS) is the method for defining the [frame of reference for geospatial location representation](https://developers.arcgis.com/documentation/core-concepts/spatial-references/). Schema.org currently has no defined property for specifying a Spatial Reference System; the assumption is that coordinates are WGS84 decimal degrees.
 
 In the mean time, to represent an SRS in schema.org, we recommend using the [schema:additionalProperty](https://schema.org/additionalProperty) property to specify an object of type [schema:PropertyValue](https://schema.org/PropertyValue), with a [schema:propertyID](https://schema.org/propertyID) of
@@ -1197,8 +1192,8 @@ A spatial reference system can be added in this way:
 {
   "@context": [
     "https://schema.org/",
-	{
-    <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
+    {
+        <strong>"dbpedia": "http://dbpedia.org/resource/"</strong>
     }
   ],
   "@type": "Dataset",
@@ -1226,45 +1221,45 @@ Back to [top](#top)
 People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable.
 
 NOTE: JSON-LD doesn't preserve the order of its collection values, so if you need to preserve the order of people's names (e.g., for a citation) you can do so by applying the `@list` JSON-LD keyword (for more information about this see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list)). 
-	
+
 Given the following `creator` JSON-LD block,:
-	
+
 ```
 {
   ...
   "creator:[
     {
-	"@type": "Person",
-	"name": "Creator #1"
+        "@type": "Person",
+        "name": "Creator #1"
     },
     {
-	"@type": "Person",
-	"name": "Creator #2"
+        "@type": "Person",
+        "name": "Creator #2"
     }
   ]
 }
 ```
-	
+
 The order of these creators can be preserved by the using the `@list` JSON-LD keyword:
-	
+
 ```
 {
   ...
   "creator:{
     "@list": [
       {
-	"@type": "Person",
-	"name": "Creator #1"
+          "@type": "Person",
+          "name": "Creator #1"
       },
       {
-	"@type": "Person",
-	"name": "Creator #2"
+          "@type": "Person",
+          "name": "Creator #2"
       }
     ]
   }
 }
 ```
-	
+
 Because there are more things that can be said about how and when a person contributed to a Dataset, we use the [schema:Role](https://schema.org/Role). You'll notice that the schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this [blog post introducing Role into schema.org](http://blog.schema.org/2014/06/introducing-role.html). *Thanks to [Stephen Richard](https://github.com/smrgeoinfo) for this contribution*
 
 ![People Roles](/assets/diagrams/dataset/dataset_people-roles.svg "Dataset - People Roles")
@@ -1298,7 +1293,7 @@ Because there are more things that can be said about how and when a person contr
         "@id": "https://www.sample-data-repository.org/person/50663",
         "@type": "Person",
         "identifier": {
-	  "@id": "https://orcid.org/0000-0003-3432-2297",
+          "@id": "https://orcid.org/0000-0003-3432-2297",
           "@type": "PropertyValue",
           "propertyID": "https://registry.identifiers.org/registry/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
@@ -1374,7 +1369,7 @@ If a single Person plays multiple roles on a Dataset, each role should be explic
         "@id": "https://www.sample-data-repository.org/person/50663",
         "@type": "Person",
         "identifier": {
-	  "@id": "https://orcid.org/0000-0003-3432-2297",
+          "@id": "https://orcid.org/0000-0003-3432-2297",
           "@type": "PropertyValue",
           "propertyID": "https://registry.identifiers.org/registry/orcid",
           "url": "https://orcid.org/0000-0003-3432-2297",
@@ -1473,13 +1468,13 @@ Linking a Dataset to the grants and awards that fund it can be acheived by addin
       "name": "Collaborative Research: Nutritional Landscapes of Arctic Caribou: Observations, Experiments, and Models Provide Process-Level Understanding of Forage Traits and Trajectories",
       "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1604105",
       "funder": {
-	    "@id": "http://dx.doi.org/10.13039/100000001",
-	    "@type": "Organization",
-	    "name": "National Science Foundation",
-	    "identifier": [
-	      "http://dx.doi.org/10.13039/100000001",
-	      "https://ror.org/021nxhr62"
-	    ]
+        "@id": "http://dx.doi.org/10.13039/100000001",
+        "@type": "Organization",
+        "name": "National Science Foundation",
+        "identifier": [
+          "http://dx.doi.org/10.13039/100000001",
+          "https://ror.org/021nxhr62"
+        ]
       }
     },
     {
@@ -1489,13 +1484,13 @@ Linking a Dataset to the grants and awards that fund it can be acheived by addin
       "name": "Where does water go when snow melts? New spatio-temporal resolution in stable water isotopes measurements to inform cold climate hydrological modelling",        
       "url": "https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_hakkuvaus2&HAKNRO1=316349&UILANG=en&TULOSTE=HTML",
       "funder": {
-	    "@id": "http://dx.doi.org/10.13039/501100002341",
-	    "@type": "Organization",
-	    "name": "Academy of Finland",
-	    "identifier": [
-	      "http://dx.doi.org/10.13039/501100002341",
-	      "https://ror.org/05k73zm37"
-	    ]
+        "@id": "http://dx.doi.org/10.13039/501100002341",
+        "@type": "Organization",
+        "name": "Academy of Finland",
+        "identifier": [
+          "http://dx.doi.org/10.13039/501100002341",
+          "https://ror.org/05k73zm37"
+        ]
       }
     }
   ]
@@ -1562,11 +1557,11 @@ Here's an example that provides two different checksum values for a single digit
 <pre>
 {
     "@context": [
-	  "https://schema.org/",
-	  {
+      "https://schema.org/",
+      {
         <strong>"spdx": "http://spdx.org/rdf/terms#"</strong>
       }
-	],
+    ],
     "@type": "Dataset",
     "@id": "https://dataone.org/datasets/doi%3A10.18739%2FA2NK36607",
     "sameAs": "https://doi.org/10.18739/A2NK36607",
