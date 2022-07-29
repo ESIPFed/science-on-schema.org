@@ -1574,14 +1574,14 @@ Here's an example that provides two different checksum values for a single digit
             {
                 "@type": "spdx:Checksum",
                 "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
-                "spdx:checksumAlgorithm": {
+                "spdx:algorithm": {
                     "@id": "spdx:checksumAlgorithm_sha256"
                 }
             },
             {
                 "@type": "spdx:Checksum",
                 "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
-                "spdx:checksumAlgorithm": {
+                "spdx:algorithm": {
                     "@id": "spdx:checksumAlgorithm_md5"
                 }
             }
