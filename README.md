@@ -30,7 +30,6 @@ Science on Schema.org (SOSO) releases are archived on Zenodo, and the current re
 This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets twice monthly, and all are welcome:
 
 - When: 
-    - 1st Monday at 5pm ET
     - 4th Thursday, 2:30pm ET
 - Where: Telecons via Zoom
     - Connection: https://us02web.zoom.us/j/84043422486?pwd=bGM4YkFyMkFGSW1FZG5yaFRNaGNvdz09
