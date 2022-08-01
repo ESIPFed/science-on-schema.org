@@ -5,7 +5,6 @@ We will leverage the [Earth Science Information Partners - Science on Schema.org
 Meetings are scheduled twice monthly:
 
 - When: 
-    - 1st Monday at 5pmET
     - 4th Thursday, 2:30pmET
 - Where: Telecons via Zoom
     - Connection: https://us02web.zoom.us/j/85680809640?pwd=a09zQTl2eFd6NnpoRkRxNHlDdFN0dz09
