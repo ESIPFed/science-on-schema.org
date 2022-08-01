@@ -24,7 +24,7 @@
         - [Handling multiple locations](#handling-multiple-locations)
         - [Spatial Reference Systems](#spatial-reference-systems)
     - [Roles of People](#roles-of-people)
-    - [Publisher / Provider](#publisher--provider)
+    - [Publisher and Provider](#publisher-and-provider)
     - [Funding](#funding)
     - [License](#license)
     - [Checksum](#checksum)
@@ -1386,7 +1386,7 @@ Notice that since Uta Passow has already been defined in the document with `"@id
 
 Back to [top](#top)
 
-### Publisher / Provider
+### Publisher and Provider
 
 ![Publisher/Provider](/assets/diagrams/dataset/dataset_publisher-provider.svg "Dataset - Publisher/Provider")
 
