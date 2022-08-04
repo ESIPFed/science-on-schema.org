@@ -24,7 +24,7 @@
         - [Handling multiple locations](#handling-multiple-locations)
         - [Spatial Reference Systems](#spatial-reference-systems)
     - [Roles of People](#roles-of-people)
-    - [Publisher / Provider](#publisher-provider)
+    - [Publisher and Provider](#publisher-and-provider)
     - [Funding](#funding)
     - [License](#license)
     - [Checksum](#checksum)
@@ -316,7 +316,7 @@ Or as a URL:
 }
 </pre>
 
-However, if the identifier is a persistent identifier such as a DOI, ARK, or accession nmumber, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
+However, if the identifier is a persistent identifier such as a DOI, ARK, or accession number, then the best way to represent these identifiers is by using a [schema:PropertyValue](https://schema.org/PropertyValue). The PropertyValue allows for more information about the identifier to be represented such as the identifier type or scheme, the identifier's value, it's URL and more. Because of this flexibility, we recommend using PropertyValue for all identifier types.
 
 [schema:Dataset](https://schema.org/Dataset) also defines a field for the [schema:citation](https://schema.org/citation) as either text or a [schema:CreativeWork](https://schema.org/CreativeWork). To provide citation text:
 
@@ -722,7 +722,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 
     "@type": "Dataset",
         "description": "Eruptive activity at Mt. St. Helens, Washington, March 1980 - January 1981",
-<strong>        "temporalCoverage": ["1980-03-27T19:36:00/1981-01-03T00:00:00Z",
+<strong>        "temporalCoverage": [
             {
                 "@type": "time:ProperInterval",
                 "time:hasBeginning": {
@@ -737,7 +737,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 }</strong>
 </pre>
 
-2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system (TRS) and date/age unit abbreviation. Also provide a text form of the temporalCoverage (here "760 ka"). The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago". 
+2. The dataset's temporalCoverage is described using Instant, inTimePosition, hasTRS, and numericPosition elements for a single geological date/age without uncertainties from [OWL Time](http://www.w3.org/2006/time).  Use a decimal value with appropriate timescale temporal reference system (TRS) and date/age unit abbreviation. The human readable description can be found in the description field: "Eruption of Bishop Tuff, about 760,000 years ago". 
 
    *Example*:
 
@@ -750,7 +750,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Eruption of Bishop Tuff, about 760,000 years ago",
-    <strong>"temporalCoverage": ["760 ka",
+<strong>    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -772,7 +772,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 }
 </pre>
 
-3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the uncertainty value and specify at what sigma. Also provide a text form of the temporalCoverage (here "4.404 +/-+/- 0.008 Ga"). "+/-+/-" indicates the uncertainty is given at 2-sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)". 
+3. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, numericPosition from [OWL Time](http://www.w3.org/2006/time) with a geological date/age with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the uncertainty value and specify at what sigma. The human readable description can be found in the description field: "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)". 
 
    *Example*:
 
@@ -786,7 +786,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Very old zircons from the Jack Hills formation Australia 4.404 +- 0.008 Ga (2-sigma)",
-    <strong>"temporalCoverage": ["4.404 +/-+/- 0.008 Ga",
+<strong>    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -816,7 +816,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 }
 </pre>
 
-4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. Also provide a text form of the temporalCoverage (here "17.1 +/- 0.15 to 15.7 +/- 0.14 Ma"). "+/-" indicates the uncertainty is given at 1-sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts". 
+4. The dataset's temporalCoverage is described using the ProperInterval, hasBeginning, hasEnd, Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a geological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, uncertainty value and at what sigma. The human readable description can be found in the description field: "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts". 
 
    *Example*:
 
@@ -832,7 +832,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Isotopic ages determined at the bottom and top of a stratigraphic section in the Columbia River Basalts",
-    <strong>"temporalCoverage": ["17.1 +/- 0.15 to 15.7 +/- 0.14 Ma",
+<strong>    "temporalCoverage": [
         {
             "@type": "time:ProperInterval",
             "time:hasBeginning": {
@@ -892,7 +892,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 }
 </pre>
 
-5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. Also provide a text form of the temporalCoverage (here "2640 +130 -80 BP-CAL (INTCAL20)"). The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
+5. The dataset's temporalCoverage is described using the Instant, inTimePosition, TimePosition, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time) with a archeological date/age range with uncertainties. Use a decimal value with appropriate timescale temporal reference system(TRS), date/age unit abbreviation, the older and younger uncertainty values and at what sigma. The human readable description can be found in the description field: "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve."
 
    *Example:*
 
@@ -907,7 +907,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Age of a piece of charcoal found in a burnt hut at an archeological site in Kenya carbon dated at BP Calibrated of 2640 +130 -80 (one-sigma) using the INTCAL20 carbon dating curve.",
-    <strong>"temporalCoverage": ["2640 +130 -80 BP-CAL (INTCAL20)",
+<strong>    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -941,7 +941,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
 }
 </pre>
 
-6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time). With temporal coverage that is a named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart).
+6. The dataset's temporalCoverage is described using the Instant, TimePosition, inTimePosition, NominalPosition, Interval, hasBeginning, hasEnd, and hasTRS elements from [OWL Time](http://www.w3.org/2006/time). With temporal coverage that is a named time interval from a geologic time scale, provide numeric positions of the beginning and end for interoperability. Providing the numeric values is only critical, but still recommended, if the TRS for the nominalPosition is not the [International Chronostratigraphic Chart](https://stratigraphy.org/chart). In this example the temporalCoverage is described in two ways: by the named interval Bartonian and by defining a time interval using numerical beginning and end values.
 
    *Example:*
 
@@ -958,7 +958,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Temporal position expressed with a named time ordinal era from [International Chronostratigraphic Chart](https://stratigraphy.org/chart):",
-    <strong>"temporalCoverage": ["Bartonian",
+<strong>    "temporalCoverage": [
         {
             "@type": "time:Instant",
             "time:inTimePosition": {
@@ -1028,7 +1028,7 @@ These examples can be found in one JSON-LD file at [temporalCoverage.jsonld](/ex
     },
     "@type": "Dataset",
     "description": "Temporal position expressed with an interval bounded by named time ordinal eras from [International Chronostratigraphic Chart](https://stratigraphy.org/chart). NumericPositions not included, expect clients can lookup bounds for ISC nominal positions:",
-    <strong>"temporalCoverage": ["Triassic to Jurassic", {
+<strong>    "temporalCoverage": [{
         "@type": "time:ProperInterval",
         "time:hasBeginning": {
             "@type": "time:Instant",
@@ -1386,7 +1386,7 @@ Notice that since Uta Passow has already been defined in the document with `"@id
 
 Back to [top](#top)
 
-### Publisher / Provider
+### Publisher and Provider
 
 ![Publisher/Provider](/assets/diagrams/dataset/dataset_publisher-provider.svg "Dataset - Publisher/Provider")
 
@@ -1574,14 +1574,14 @@ Here's an example that provides two different checksum values for a single digit
             {
                 "@type": "spdx:Checksum",
                 "spdx:checksumValue": "39ae639d33cea4a287198bbcdca5e6856e6607a7c91dc4c54348031be2ad4c51",
-                "spdx:checksumAlgorithm": {
+                "spdx:algorithm": {
                     "@id": "spdx:checksumAlgorithm_sha256"
                 }
             },
             {
                 "@type": "spdx:Checksum",
                 "spdx:checksumValue": "65d3616852dbf7b1a6d4b53b00626032",
-                "spdx:checksumAlgorithm": {
+                "spdx:algorithm": {
                     "@id": "spdx:checksumAlgorithm_md5"
                 }
             }
