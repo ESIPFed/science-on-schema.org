@@ -41,7 +41,7 @@ To provide a place for the scientific data community to work out how best to imp
 1. To be **pragmatic** with our use of schema.org and external vocabulary adoption.
 2. To **consider schema.org classes and properties first** before considering external vocabularies.
 3. Use **[JSON-LD](https://json-ld.org/)** in our guidance documents for simplicity and terseness as compared to *[Microdata](https://www.w3.org/TR/microdata/)* and *[RDFa](https://rdfa.info/)*. For more, see [Why JSON-LD?](/CONVENTIONS.md#why-jsonld) from the [Conventions](/CONVENTIONS.md) document.
-4. Presently, the [Google Rich Results Tool](https://search.google.com/test/rich-results) enforces use of [schema.org](https://schema.org/) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies usuing the [schema:additionalType](https://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), it's data type is a literal. However, using the [Schema.org Validator](https://validator.schema.org/) allows for the use of external vocabularies. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
+4. Presently, the [Google Rich Results Tool](https://search.google.com/test/rich-results) enforces use of [schema.org](https://schema.org/) classes and properties by displaying an error whenever external vocabularies are used. schema.org proposes linking to external vocabularies using the [schema:additionalType](https://schema.org/additionalType) property. While this property is defined as a sub property of [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type), its data type is a literal. However, using the [Schema.org Validator](https://validator.schema.org/) allows for the use of external vocabularies. We encourage the use of JSON-LD ```'@type'``` for typing classes to external vocabularies. For more, see [Typing to External Vocabularies](/CONVENTIONS.md#external-vocab-typing) from the [Conventions](/CONVENTIONS.md) document.
 5. See [Governance](/GOVERNANCE.md) for how we will govern the project.
 6. See [Conventions](/CONVENTIONS.md) for guidance on creating/editing guidance documents.
 
@@ -53,18 +53,18 @@ To provide a place for the scientific data community to work out how best to imp
 
   JSON-LD is valid JSON, so standard developer tools that support JSON can be used. For some specific JSON-LD and schema.org help though, there are some other resources.
 
-  ##### JSON-LD resources  https://json-ld.org
-  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.  
-  There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go.  While JSON-LD is just
+  ##### JSON-LD resources https://json-ld.org
+  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.
+  There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go. While JSON-LD is just
   JSON and can be generated many ways, these libraries
-  can generate valid JSON-LD spec output.   
+  can generate valid JSON-LD spec output.
 
   ##### JSON-LD playground https://json-ld.org/playground/
   The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You
-  can explore examples of JSON-LD and view how they convert to RDF, flatten, etc.   Note, that JSON-LD
-  is not associated with schema.org.  It can be used for much more and so most examples here don't
-  use schema.org and this site will NOT look to see if you are using schema.org types and properties
-  correctly.  Only that your JSON-LD is well formed.  
+  can explore examples of JSON-LD and view how they convert to RDF, flatten, etc. Note that JSON-LD
+  is not associated with schema.org. It can be used for much more and so most examples at the JSON-LD
+  website don't use schema.org and the site will NOT look to see if you are using schema.org types
+  and properties correctly; it will only check that your JSON-LD is well-formed.
 
 3. We assume that you've heard about [schema.org](https://schema.org/) and have already decided that it's useful to you.
 4. We assume that you have a general understanding of what may describe a scientific dataset.
@@ -73,10 +73,10 @@ Let's go!
 
 <a id="introduction"></a>
 ## Introduction ##
-There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this
-work is taking place in the context (no pun intended) of schema.org.  This approach has extended to the resource type Dataset.
+There is an emerging practice to leverage structured metadata to aid in the discovery of web-based resources. Much of this
+work is taking place in the context (no pun intended) of schema.org. This approach has extended to the resource type Dataset.
 This page will present approaches, tools and references that will aid in the understanding and development of schema.org in
-JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry
+JSON-LD and its connection to external vocabularies. For a more thorough presentation on this, visit the Google AI Blog entry
 of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-of-public.html .
 
 <a id="using-schemaorg"></a>
@@ -84,7 +84,7 @@ of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-o
 
 <a id="using-schemaorg_adding-jsonld-webpages"></a>
 ### Modifying web pages to include schema.org as JSON-LD ###
-JSON-LD should be incorporated into the landing page html inside the `<head></head>` as a `<script>` element with a type of `application/ld+json`.  
+JSON-LD should be incorporated into the landing page html inside the `<head></head>` as a `<script>` element with a type of `application/ld+json`.
 
 ```
 <html>
@@ -108,14 +108,14 @@ JSON-LD should be incorporated into the landing page html inside the `<head></he
 ### Specifying the `context`
 
 The `context` in a JSON-LD document defines the namespaces used in the document and their mappings to URIs when they
-are referenced using prefix notation. The JSON-LD 1.1 specification 
+are referenced using prefix notation. The JSON-LD 1.1 specification
 [provides many rules](https://www.w3.org/TR/json-ld11-api/#remote-document-and-context-retrieval) that impact how the context is
 loaded and how it is retrieved, but ultimately the goal is to define a context map with the namespace mappings for each
 vocabulary used in the document. For the schema.org vocabulary specifically, the official namespace is `http://schema.org/`
 (note this is not an `https` URI), but the context file for schema.org can be retrieved from the `https` web location at
 `https://schema.org` by following the JSON-LD processing rules. For providers, this translates to a few simple recommendations.
 
-1. We recommend retrieving the context file from it's `https` location using the following syntax:
+1. We recommend retrieving the context file from its `https` location using the following syntax:
 
 ```
 {
@@ -126,7 +126,7 @@ vocabulary used in the document. For the schema.org vocabulary specifically, the
 }
 ```
 
-Using that approach, the schema.org namespace will be set to `http` URIs. For example the `Dataset` type will be expanded to
+Using this approach, the schema.org namespace will be set to `http` URIs. For example the `Dataset` type will be expanded to
 `http://schema.org/Dataset`.
 
 2. Should you need to define additional namespaces in your context, it can be done by expanding the context using a JSON array as follows:
@@ -156,7 +156,7 @@ namespace for the `prov` vocabulary to the context. Now, terms from the PROV nam
 accepting `https://schema.org/` as an equivalent namespace URI for all terms, processors should treat schema.org terms in the http and https
 URI spaces as equivalent, but providers might find it safer to continue to use `http://schema.org/` as the official namespace for now. This
 particularly applies when defining a default vocabulary for un-prefixed terms, in which case we recommend using `"@vocab": "http://schema.org/"`
-if this is necessary. That said, most user's should not have need to define `@vocab` in typical usage.
+if this is necessary. That said, most users should not have need to define `@vocab` in typical usage.
 
 <a id="sitemaps"></a>
 ### Provide a Sitemap.xml file
@@ -179,7 +179,7 @@ Many harvesters and aggregators depend on the existence of a `sitemap.xml` file 
 
 Note the `<lastmod>` field, which indicates the last date on which the page was modified and is formatted as a [W3C DateTime](https://www.w3.org/TR/NOTE-datetime) and may vary in precision. Most harvesters will use that date along with the HTTP `Last-modified` header to determine if a page has changed since the last time that a harvest was attempted. Keeping accurate `lastmod` values can massively improve the efficiency of indexing your catalog, as only the few items that have changed will need to be indexed.
 
-**Location:** The sitemap.xml file can be located anywhere on your site that is above the path in the hierachy in which your pages are listed. Typically, the sitemap.xml is places at the root of the site, but other locations can be used as well. A great way to indicate to harvesters where your sitemap is located would be to include it in your `robots.txt` file at the root of your web site, which is bascially an instruction manual for harvesters. For example, you might have a robots.txt file with the following contents:
+**Location:** The sitemap.xml file can be located anywhere on your site that is above the path in the hierarchy in which your pages are listed. Typically, the sitemap.xml is placed at the root of the site, but other locations can be used as well. A great way to indicate to harvesters where your sitemap is located would be to include it in your `robots.txt` file, which is basically an instruction manual for harvesters, at the root of your web site. For example, you might have a robots.txt file with the following contents:
 
 <pre>
 User-agent: *
@@ -199,10 +199,10 @@ For each schema.org type, such as Person or Event, there are fields that let you
 <p align="center">
   <strong>Figure 1. schema.org field data types</strong><br/>
   <img src="/assets/schemaorg-datatypes.png">
-  <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the field's description.</em>
+  <em>The expected data type for each field appears in the middle column. The left column is the name of the field, the middle column is the data type, and the right column is the description of the field.</em>
 </p>
 
-Every data type is either a *resource* or a *literal*. Resources refer to other schema.org types. For example a Dataset type has a field called author of which the data type can be either a Person or an Organization. Because Person and Organization are other schema.org "types" who have their own fields, they are called resources. In JSON-LD, you specify resources by using curly brackets ```{}```:
+Every data type is either a *resource* or a *literal*. Resources refer to other schema.org types. For example, a Dataset type has a field called 'author' of which the data type can be either a 'Person' or an 'Organization'. Because 'Person' and 'Organization' are other schema.org "types" with their own fields, they are called resources. In JSON-LD, you specify resources by using curly brackets ```{}```:
 
 <pre>
 {
@@ -217,9 +217,9 @@ Every data type is either a *resource* or a *literal*. Resources refer to other 
 
 In the JSON-LD above, the 'author' is a resource of type 'Person'. Fields that simply have a value are called literal data types. For examples, the 'Person' type above has a 'name' of "Jane Goodall" - a literal text value.
 
-Schema.org defines six literal, or primitive,  data types: [Text](https://schema.org/Text), [Number](https://schema.org/Number), [Boolean](https://schema.org/Boolean), [Date](https://schema.org/Date), [DateTime](https://schema.org/DateTime), and [Time](https://schema.org/Time). [Text](https://schema.org/Text) has two special variations: [URL](https://schema.org/URL) and how to specify when text is actually [HTML](#data-type_HTML).  
+Schema.org defines six literal, or primitive, data types: [Text](https://schema.org/Text), [Number](https://schema.org/Number), [Boolean](https://schema.org/Boolean), [Date](https://schema.org/Date), [DateTime](https://schema.org/DateTime), and [Time](https://schema.org/Time). [Text](https://schema.org/Text) has two special variations: [URL](https://schema.org/URL) and how to specify when text is actually [HTML](#data-type_HTML).
 
-When using schema.org, literal data types are not not specified using curly brackets ```{}``` as these are resrved for specifying 'objects' or 'resources' such as other schema.org types like ```Person```, ```Organization```, etc. First, let's see how to use a primitive data type by using fields of [CreativeWork](https://schema.org/CreativeWork), the superclass for [Dataset](https://schema.org/Dataset).
+When using schema.org, literal data types are not specified using curly brackets ```{}``` as these are reserved for specifying 'objects' or 'resources' such as other schema.org types like ```Person```, ```Organization```, etc. First, let's see how to use a primitive data type by using fields of [CreativeWork](https://schema.org/CreativeWork), the superclass for [Dataset](https://schema.org/Dataset).
 
 <a id="data-types_Text"></a>
 #### Text ####
@@ -248,7 +248,7 @@ Let's say we want to specify the version number of our manifest using the [versi
 
 <a id="data-types_URL"></a>
 #### URL ####
-Now, let's specify the URL of our manifest using the [url](https://schema.org/url) field of CreativeWork, an inheritied field from [Thing](https://schema.org/Thing). This fields expects a valid URL represented as Text:
+Now, let's specify the URL of our manifest using the [url](https://schema.org/url) field of CreativeWork, an inherited field from [Thing](https://schema.org/Thing). This fields expects a valid URL represented as Text:
 
 <pre>
 {
@@ -262,7 +262,7 @@ Now, let's specify the URL of our manifest using the [url](https://schema.org/ur
 
 <a id="data-types_Boolean"></a>
 #### Boolean ####
-Using the Boolean value, we can speficy that our manifest is accessible for free using the field [isAccessibleForFree](https://schema.org/isAccessibleForFree) by using the text ```true``` or ```false``` and omitting the quotes:
+Using the Boolean value, we can specify that our manifest is accessible for free using the field [isAccessibleForFree](https://schema.org/isAccessibleForFree) by using the text ```true``` or ```false``` and omitting the quotes:
 
 <pre>
 {
@@ -295,7 +295,7 @@ To specify the [datePublished](https://schema.org/datePublished), which allows e
 <a id="data-types_DateTime"></a>
 #### DateTime ####
 
-To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as a Date, we must follow the [ISO 8601  format for combining date and time representations](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) using the form ```[-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] ```:
+To specify the [dateModified](https://schema.org/dateModified) as a DateTime, as a Date, we must follow the [ISO 8601 format for combining date and time representations](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) using the form ```[-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] ```:
 
 <pre>
 {
@@ -378,7 +378,7 @@ All schema.org resources should make use of the ```@type``` property which 'clas
 }
 </pre>
 
-Even though the above resource has a name of 'My Dataset' harvesters are unaware that your *intent* was to classify it as a Dataset. Un-typed resources are not valid schema.org resources, and so they require the ```@type``` property:
+Even though the above resource has a name of 'My Dataset', harvesters are unaware that your *intent* was to classify it as a Dataset. Un-typed resources are not valid schema.org resources, and so they require the ```@type``` property:
 
 <pre>
 {
@@ -388,7 +388,7 @@ Even though the above resource has a name of 'My Dataset' harvesters are unaware
 }
 </pre>
 
-In some cases, it useful to multi-type a resource. One example of this may be a data repository. A data repositotry is typically functioning as noth an 'Organization' that employs people and has an address, but it also functions as a 'Service' to its user community. To multi-type a resource, we use JSON arrays:
+In some cases, it useful to multi-type a resource. One example of this may be a data repository. A data repository is typically functioning as both an 'Organization' that employs people and has an address, but also as a 'Service' to its user community. To assign multiple types to a resource, we use JSON arrays:
 
 <pre>
 {
@@ -436,7 +436,7 @@ may have a [`dateModified`](https://schema.org/dateModified) property to indicat
 the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
 This property should be provided with any instance of `schema.org/Dataset` or any other `schema.org`
 entity published in a landing page or though other mechanisms. The JSON spec does not include a
-built-in type for date time values, however the general consensus and a sensible practices is to
+built-in type for date time values, but the general consensus and a sensible practice is to
 represent a date time value as a time zone aware ISO 8601 formatted string. For example:
 
 ```json
@@ -482,7 +482,7 @@ desireable, and should be provided where possible. For example:
 <a id="json-ld-list"></a>
 ### Ordering items with JSON-LD `@list`
 
-Unlike plain JSON, collections in JSON-LD are unordered [[1](https://json-ld/json-ld.org#12), [2](https://www.w3.org/TR/json-ld/#lists)]. In cases where ordering of items needs to be preserved, we can use the `@list` keyword to specify that order should be preserved for a collection.  Ordered lists would be important, for example, when a list of authors or creators should be ordered as intended when rendering a view of the metadata, or when a list of bounding box coordinates in an array need to come in a particular order.
+Unlike plain JSON, collections in JSON-LD are unordered [[1](https://json-ld/json-ld.org#12), [2](https://www.w3.org/TR/json-ld/#lists)]. In cases where ordering of items needs to be preserved, we can use the `@list` keyword to specify that order should be preserved for a collection. Ordered lists would be important, for example, when a list of authors or creators should be ordered as intended when rendering a view of the metadata, or when a list of bounding box coordinates in an array need to come in a particular order.
 
 In the following example, the list of `creator` items is not ordered, and so client tools could return the creator names in any order, and different tools may return them in different orders. This would be problematic for building a citation, for example.
 
@@ -565,4 +565,4 @@ Example 3. Ordering of a list of creators is preserved anywhere such a list appe
 }
 ```
 
-With this technique, ordering can be set once in the context using `@list`, and then order will be preserved anytime that concept is used in the document.
+With this technique, ordering can be set once in the context using `@list`, and then order will be preserved any time that concept is used in the document.
