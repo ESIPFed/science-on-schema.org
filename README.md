@@ -1,5 +1,5 @@
 <a id="top"></a>
-[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.6502539.svg"/>](https://doi.org/10.5281/zenodo.6502539) 
+[<img src ="https://zenodo.org/badge/DOI/10.5281/zenodo.7872383.svg"/>](https://doi.org/10.5281/zenodo.7872383) 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ESIPFed/science-on-schema.org)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ScienceOnSchema.svg?style=social&label=Follow)](https://twitter.com/ScienceOnSchema)
 
@@ -23,7 +23,7 @@ This repository provides guidance for repository operators and others to follow 
 
 Science on Schema.org (SOSO) releases are archived on Zenodo, and the current release should be cited as:
 
->  Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicholas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley. (2022). Science-on-Schema.org v1.3.0. Zenodo. https://doi.org/10.5281/zenodo.6502539
+>  Adam Shepherd, Matthew B. Jones, Stephen Richard,  Nicholas Jarboe, Dave Vieglais, Douglas Fils, Ruth Duerr, Chantelle Verhey, Melinda Minch, Bryce Mecum, Nokome Bentley. (2022). Science-on-Schema.org v1.3.1. Zenodo. https://doi.org/10.5281/zenodo.7872383
 
 ## Community 
 
@@ -41,6 +41,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
 
 | Version | DOI |
 | ------------- | ------------- |
+|[1.3.1](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.3.1)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7872383.svg"/>](https://doi.org/10.5281/zenodo.7872383)|
 |[1.3.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.3.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6502539.svg"/>](https://doi.org/10.5281/zenodo.6502539)|
 |[1.2.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.2.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4477164.svg"/>](https://doi.org/10.5281/zenodo.4477164)|
 |[1.1.0](https://github.com/ESIPFed/science-on-schema.org/releases/tag/1.1.0)|[<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3736235.svg"/>](https://doi.org/10.5281/zenodo.3736235)|
