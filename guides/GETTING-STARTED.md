@@ -50,22 +50,6 @@ To provide a place for the scientific data community to work out how best to imp
 
 1. We assume a general understanding of [JSON](http://www.json.org/).
 2. We assume a basic knowledge about [JSON-LD](https://json-ld.org).
-
-  JSON-LD is valid JSON, so standard developer tools that support JSON can be used. For some specific JSON-LD and schema.org help though, there are some other resources.
-
-  ##### JSON-LD resources  https://json-ld.org
-  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.  
-  There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go.  While JSON-LD is just
-  JSON and can be generated many ways, these libraries
-  can generate valid JSON-LD spec output.   
-
-  ##### JSON-LD playground https://json-ld.org/playground/
-  The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You
-  can explore examples of JSON-LD and view how they convert to RDF, flatten, etc.   Note, that JSON-LD
-  is not associated with schema.org.  It can be used for much more and so most examples here don't
-  use schema.org and this site will NOT look to see if you are using schema.org types and properties
-  correctly.  Only that your JSON-LD is well formed.  
-
 3. We assume that you've heard about [schema.org](https://schema.org/) and have already decided that it's useful to you.
 4. We assume that you have a general understanding of what may describe a scientific dataset.
 
@@ -73,11 +57,60 @@ Let's go!
 
 <a id="introduction"></a>
 ## Introduction ##
-There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this
-work is taking place in the context (no pun intended) of schema.org.  This approach has extended to the resource type Dataset.
-This page will present approaches, tools and references that will aid in the understanding and development of schema.org in
-JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry
-of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-of-public.html .
+There is an emerging practice to leverage structured metadata to aid in the discovery of web based resources.  Much of this work is taking place in the context (no pun intended) of schema.org.  This page presents approaches, tools and references that will aid in the understanding and development of schema.org in JSON-LD and its connection to external vocabularies.  For a more thorough presentation on this visit the Google AI Blog entry of January 24 2017 at https://ai.googleblog.com/2017/01/facilitating-discovery-of-public.html.  The accompanying Dataset.md and DataRepository.md guides provide detailed recommendations for documenting schemma.org resource type Dataset and for documenting data respoitories. 
+
+### RDF
+RDF (Resource Description Framework) is logical approach to representing information. It is is based on making statements in the form of subject-predicate-object expressions called triples. The subject denotes the resource being described, the predicate denotes the property or relation, and the object denotes the value of the property. For example, the triple "granite - hasConstituent - feldspar" states that "granite" has a "constituent" relation with "feldspar". In web applications, RDF uses URIs ([Uniform Resource Identifiers](https://datatracker.ietf.org/doc/html/rfc3986)) to identify web resources and properties. The object values can be expressed as literal values-- text or numeric. The use of web resolvable identifiers allows linkage to any resource on the web. If those resources are represented using a compatible RDF serialization, the statements they contain can be incorporated into a knowledge graph.  Binding of identifiers to a resource that provides definitions of the identified concept is the foundation of meaning in this graph. RDF enables a linked data graph to create a massive web of structured data.  The guidance documents here recommend serializing metadata describing datasets or repositories using RDF, with JSON-LD as the preferred serialization scheme.
+
+### JSON-LD
+JSON-LD is valid JSON, so standard developer tools that support JSON can be used. For some specific JSON-LD and schema.org help though, there are some other resources.
+
+##### JSON-LD resources  https://json-ld.org
+  Generating the JSON-LD is best done via libraries like those you can find at https://json-ld.org.  There are libraries for; Javascript, Python, PHP, Ruby, Java, C# and Go.  While JSON-LD is just JSON and can be generated many ways, these libraries can generate valid JSON-LD spec output.   
+
+##### JSON-LD playground https://json-ld.org/playground/
+  The playground is hosted at the very useful [JSON-LD web site](https://json-ld.org) site. You can explore examples of JSON-LD and view how they convert to RDF, flatten, etc.   Note, that JSON-LD is not associated with schema.org.  It can be used for much more and so most examples here don't use schema.org and this site will NOT look to see if you are using schema.org types and properties correctly.  Only that your JSON-LD is well formed.
+
+### Structure of a metadata record
+A metadata record has two parts; one part is about the metadata record itself, the other part is the content about the resource that the metadata documents. The part about the record specifies the identifier for the metadata record, agents with responsibility for the record, when it was last updated, what specification or profiles the metadata serialization conforms to, and other optional properties of the metadata that are deemed useful. The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent, distribution information, etc.
+
+Schema.org includes several properties that can be used to embed information about the metadata record in the resource metadata: sdDatePublished, sdLicense, sdPublisher, but lacks a way to provide an identifier for the metadata record distinct from the resource it describes, to specify other agents responsible for the metadata except the publisher, or to assert specification or profile conformance for the metadata record itself.
+
+The recommended approach is to flag statements documenting the resource inside an about property:
+
+```
+{   "@context": [
+        "https://schema.org",
+        {"dct": "http://purl.org/dc/terms/",
+         "soso":"https://github.com/ESIPFed/science-on-schema.org/releases/tag/",
+         "ex":"https://example.com/99152/"   }
+       ],
+    "@id": "ex:URIforTheMetadata",
+    "@type": "DigitalDocument",
+    "dateModified": "2023-05-23",
+    "dct:conformsTo": {"@id":"soso:1.3.1"},
+    "about": {
+         "@id": "ex:URIforDescribedResource",
+         "@type": {URI for the type of the described resource},
+         "dateModified": "2014-02-23",         
+         "name": "title to identify resource",
+         ... other metadata
+       }   }
+```    
+
+In the example above, there is a 'dateModified' metadata assertion. It would translate into a triple like this:
+
+```ex:URIforThisMetadataRecord schema:dateModified "2023-05-23" ```
+
+Which states that the Metadata was modified (most recently) on 2023-05-23. The dct:conformsTo property is used to assert that the metadata conforms to the ESIPfed Science on Schema.org recommendations.
+
+On the other hand, in the 'about' object, there is a statement:
+
+```ex:URIforDescribedResource schema:dateModified "2014-02-23" ```
+
+Which states that the DescribedResource was modified (most recently) on 2014-02-23. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the [Fair Digital Object](https://fairdigitalobjectframework.org/) (FDO) community, recognizing that the metadata record is a digital object.
+
+See the [discussion of 'Identifier'](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#identifier) in the Dataset guidance document for a more in-depth discussion about identifiers for documented resources.
 
 <a id="using-schemaorg"></a>
 ## Using schema.org ##
