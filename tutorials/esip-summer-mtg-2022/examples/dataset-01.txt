@@ -1,0 +1,156 @@
+title: "Nitrous oxide concentrations from the R/V Falkor expedition FK160115 in the Central Pacific from January to February 2016"
+url: "https://www.bco-dmo.org/dataset/775849"
+abstract: "Dissolved N2O concentrations from were measured in discrete samples on a research expedition to the Equatorial Pacific. Water samples were collected using a 24 bottle Niskin rosette equipped with a CTD. N₂O concentrations were measured using a headspace equilibration method and analyzed on a SRI Greenhouse Gas Monitoring Gas Chromatograph."
+version: "1"
+createdDate: "2019-08-22"
+modifiedDate: "2019-08-22"
+publishedDate: "2022-06-08"
+doi: "10.26008/1912/bco-dmo.775849.1"
+keywords:
+  - name: "nitrous oxide"
+  - name: "Central Pacific"
+  - name: "headspace equilibration"
+  - name: "SRI Greenhouse Gas Monitoring Gas Chromatograph"
+  - name: "CTD profiler"
+    identifier:
+      name: "CTD"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/130/"
+      source:
+        name: "SeaDataNet device categories"
+        url: "http://vocab.nerc.ac.uk/collection/L05/current/"
+    
+  - name: "Gas Chromatograph"
+    identifier:
+      name: "gas chromatographs"
+      id: "LAB02"
+      uri: "http://vocab.nerc.ac.uk/collection/L05/current/LAB02/"
+author:
+  - name: "Alyson E. Santoro"
+    orcid: "0000-0003-2503-8219"
+  - name: "Sarah Marie Laperriere"
+    orcid: "0000-0003-4691-8741"
+contributor:
+  - name: "Makoto Saito"
+    orcid: "0000-0001-6040-9295"
+license: 
+  name: "Creative Commons Attribution 4.0"
+  url: "https://creativecommons.org/licenses/by/4.0/"
+sameAs: "https://doi.org/10.26008/1912/bco-dmo.775849.1"
+publisher:
+  name: "Biological and Chemical Data Management Office (BCO-DMO)"
+  url: "https://www.bco-dmo.org"
+funding:
+  - award:
+    name: "R/V Falkor 160115 SOI ProteOMZ Expedition"
+    url: "https://www.bco-dmo.org/award/685695"
+    source: 
+        name: "Schmidt Ocean Institute"
+  - award:
+    name: "FG-2016-7129"
+    url: "https://www.bco-dmo.org/award/875341"
+    source:
+        name: "Sloan Foundation"
+        doi: "10.13039/100000879"
+spatial:
+  location: "Central Pacific Ocean (Hawaii to Tahiti)"
+  boundingBox:
+    west: 139.8
+    south: -10.563
+    east: 156
+    north: 17
+  centroid: 
+    lat: 3.2185
+    lon: 147.9
+collectionDate:
+  start: "2016-01-17"
+  end: "2016-02-04"
+instrumentation:
+  - name: "CTD profiler"
+  - name: "Gas Chromatograph"
+files:
+  - 
+    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/1/dataset-775849_proteomz-nitrous-oxide-data__v1.tsv"
+    bytesize: 15077
+    mimetype: "text/tab-separated-values"
+    md5: "76d40298217986657af66bfadba28623"
+  - 
+    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/2/dataset-775849_proteomz-nitrous-oxide-data__v1_README.txt"
+    bytesize: 136
+    mimetype: "text/plain"
+    md5: "6ecdbb2ced7fc9edceeafd35f0fc08cd"
+  - 
+    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/3/Dataset_description.pdf"
+    bytesize: 58700
+    mimetype: "application/pdf"
+    md5: "9d1792cb73de2074199a0b6095f14135"
+metadata:
+  - 
+    url: "https://darchive.mblwhoilibrary.org/bitstream/1912/28977/4/NOAA_ISO19115-2.xml"
+    bytesize: 64855
+    mimetype: "application/xml"
+    format: "http://www.isotc211.org/2005/gmd-noaa"
+    md5: "77584383325794d3d9b7be42024687f6"
+parameters:
+  - 
+    name: "ISO_DateTime_UTC"
+    description: "Date time time of cast following ISO 8601 convention in UTC"
+    format: "YYYY-MM-DDTHH:MM:SS[.xx]Z"
+    identifier:
+      uri: "http://vocab.nerc.ac.uk/collection/P01/current/DTUT8601/"
+  -  
+    name: "station"
+    description: "Station number"
+  -  
+    name: "cast"
+    description: "CTD cast number"
+  -  
+    name: "latitude"
+    description: "latitude of station; North is positive; negative denotes South"
+    identifier:
+      name: "latitude"
+      uri: "http://vocab.nerc.ac.uk/collection/P09/current/LATX/"
+    units:
+      name: "decimal degrees"
+  - 
+    name: "longitude"
+    description: "longitude station East is positive; negative denotes West"
+    identifier:
+      name: "longitude"
+      uri: "http://vocab.nerc.ac.uk/collection/P09/current/LONX/"
+    units:
+      name: "decimal degrees"
+  -  
+    name: "depth"
+    description: "depth of sampling"
+    identifier:
+      name: "depth"
+      uri: "http://vocab.nerc.ac.uk/collection/P01/current/ADEPZZ01/"
+    units:
+      name: "meters (m)"
+  -  
+    name: "salinity"
+    description: "Salinity from CTD"
+    identifier:
+      name: "salinity"
+      uri: "https://vocab.nerc.ac.uk/collection/P25/current/SALIN/"
+    units:
+      name: "practical salinity units (PSU)"
+  - 
+    name: "temperature"
+    description: "Temperature from CTD"
+    identifier:
+      name: "water temperature"
+      uri: "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP901/"
+    units:
+      name: "Celsius (C)"
+      uri: "https://qudt.org/vocab/unit/DEG_C"
+  - 
+    name: "n2o_1"
+    description: "Nitrous oxide concentration replicate 1"
+    units:
+      name: "nanomoles per liter (nmol/L)"
+  - 
+    name: "n2o_2"
+    description: "Nitrous oxide concentration replicate 2"
+    units:
+      name: "nanomoles per liter (nmol/L)"

@@ -1,0 +1,87 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/"
+    },
+    "@type": "Dataset",
+    "@id": "https://obis.org/dataset/dcbb8f12-c869-4d31-aa8b-23abb27898ce",
+    "name": "MIRC NAVFAC MISTCS Vessel Surveys Jan-Apr 2007",
+    "description": "Original provider:\nHDR Environmental, Operations and Construction, Inc.\n\nDataset credits:\nThe U.S. Navy Marine Species Monitoring Program\n\nAbstract:\nFeatures in this feature class represent sightings from the NAVFAC MISTCS Vessel Surveys Jan-Apr 2007.",
+    "url": "https://obis.org/dataset/dcbb8f12-c869-4d31-aa8b-23abb27898ce",
+    "sameAs": [
+        "http://ipt.env.duke.edu/resource?r=zd_1519"
+    ],
+    "license": "This work is licensed under a  Creative Commons Attribution (CC-BY) 4.0 License",
+    "citation": "Ampela, K. and G. Miller-Francisco. 2017. MIRC NAVFAC MISTCS Vessel Surveys Jan-Apr 2007. Data downloaded from OBIS-SEAMAP (http://seamap.env.duke.edu/dataset/1519) on yyyy-mm-dd.",
+    "version": "2021-04-24T06:34:56.000Z",
+    "keywords": [
+        "Occurrence, Mariana Islands Range Complex,Marine Animal Survey,Marine Biology, Marine mammals, Sea turtles, Visual Sighting,Vessel",
+        "Observation",
+        "Occurrence"
+    ],
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "name": "Abundance",
+            "description": "Abundance"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "NetMeshSize",
+            "url": "http://vocab.nerc.ac.uk/collection/Q01/current/Q0100015/",
+            "description": "NetMeshSize DEVNOTE:  is this technically a measured variable, or an instrument property?"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "SamplingDeviceApertureSurfaceArea",
+            "url": "http://vocab.nerc.ac.uk/collection/Q01/current/Q0100017/",
+            "description": "SamplingDeviceApertureSurfaceArea  DEVNOTE, I can not put PropertyValue on thing well, so going to call this a variable Measured"
+        }
+    ],
+    "includedInDataCatalog": {
+        "@id": "https://obis.org",
+        "@type": "DataCatalog",
+        "url": "https://obis.org"
+    },
+    "temporalCoverage": "2007/2007",
+    "distribution": {
+        "@type": "DataDownload",
+        "contentUrl": "http://ipt.env.duke.edu/archive.do?r=zd_1519",
+        "encodingFormat": "application/zip"
+    },
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoShape",
+            "polygon": "142.014 10.161667,142.014 18.033833,147.997833 18.033833,147.997833 10.161667,142.014 10.161667"
+        },
+        "additionalProperty": {
+            "@type": "PropertyValue",
+            "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+        }
+    },
+    "provider": [
+        {
+            "@id": "https://oceanexpert.org/institution/19393",
+            "@type": "Organization",
+            "legalName": "Duke University",
+            "name": "Duke University",
+            "url": "https://oceanexpert.org/institution/19393"
+        }
+    ],
+    "subjectOf": {
+        "@type": "Event",
+        "description": "describe the activity, might include name here too.",
+        "name": "Name of the activity, p-wave velocity measurement of drill cores  DEVNOTE  really a simple measurement technique?",
+        "potentialAction": {
+            "@type": "Action",
+            "name": "The instrumented action, measuring X",
+            "instrument": {
+                "@type": "Thing",
+                "name": "Sampling instrument",
+                "url": "http://vocab.nerc.ac.uk/collection/Q01/current/Q0100002/",
+                "description": "Sampling instrument"
+            }
+        }
+    }
+}
