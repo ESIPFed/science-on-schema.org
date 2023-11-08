@@ -1,0 +1,24 @@
+{
+    "@context": "https://schema.org/",
+    "@id": "https://example.org/metadata/1234567890",
+    "@type": "DigitalDocument",
+    "dateModified": "2023-11-09",
+    "schemaEncodingFormat": "https://github.com/ESIPFed/science-on-schema.org/Dataset",
+    "about": {
+        "@type": "Dataset",
+        "@id": "https://example.org/datasets/1234567890",
+        "identifier": "doi:10.1234/1234567890",
+        "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
+        "description": "A description between 50 and 5000 characters.",
+        "url": "https://example.org/datasets/1234567890",
+        "version": "2013-11-21",
+        "keywords": [
+            "ocean acidification",
+            "OA",
+            "oceans"
+        ],
+        "license": "CC-BY-4.0",
+        "sameAs": "https://doi.org/10.1234/1234567890",
+        "isAccessibleForFree": "true"
+    }
+}
