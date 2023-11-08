@@ -30,7 +30,49 @@
     - [Checksum](#checksum)
     - [Provenance Relationships](#provenance-relationships)
 
+
 <!-- /TOC -->
+
+## Structure of the metadata record
+
+A metadata record has two parts; one part is about the metadata record itself, the other part is the content about the resource that the metadata documents. The part about the record specifies the identifier for the metadata record, agents with responsibility for the record, when it was last updated, what specification or profiles the metadata serialization conforms to, and other optional properties of the metadata that are deemed useful. The metadata about the resource has properties about the resource like title, description, responsible parties, spatial or temporal extent, distribution information, etc.
+
+The recommended approach is to flag statements documenting the resource inside an about property:
+
+```
+{   "@context": [
+        "https://schema.org",
+        {"dct": "http://purl.org/dc/terms/",
+         "soso":"https://github.com/ESIPFed/science-on-schema.org/releases/tag/",
+         "ex":"https://example.com/99152/"   }
+       ],
+    "@id": "ex:URIforTheMetadata",
+    "@type": "DigitalDocument",
+    "dateModified": "2023-05-23",
+    "dct:conformsTo": {"@id":"soso:1.3.1"},
+    "about": {
+         "@id": "ex:URIforDescribedResource",
+         "@type": {URI for the type of the described resource},
+         "dateModified": "2014-02-23",         
+         "name": "title to identify resource",
+         ... other metadata
+       }   }
+```    
+
+In the example above, there is a 'dateModified' metadata assertion. It would translate into a triple like this:
+
+```ex:URIforThisMetadataRecord schema:dateModified "2023-05-23" ```
+
+Which states that the Metadata was modified (most recently) on 2023-05-23. The dct:conformsTo property is used to assert that the metadata conforms to the ESIPfed Science on Schema.org recommendations.
+
+On the other hand, in the 'about' object, there is a statement:
+
+```ex:URIforDescribedResource schema:dateModified "2014-02-23" ```
+
+Which states that the DescribedResource was modified (most recently) on 2014-02-23. The distinct identifier for the metadata record allows statements to be made about the metadata separately from statements about the resource it describes. Note that the @type for the metadata node is 'DigitalDocument'. This is a schema.org type that corresponds broadly to the concept of DigitalObject as used by the [Fair Digital Object](https://fairdigitalobjectframework.org/) (FDO) community, recognizing that the metadata record is a digital object.
+
+See the [discussion of 'Identifier'](https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#identifier) section for a more in-depth discussion about identifiers for documented resources.
+
 
 ## Common Properties
 
