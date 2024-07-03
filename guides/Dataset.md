@@ -35,7 +35,7 @@
 ## Common Properties
 
 Google has drafted a [guide to help publishers](https://developers.google.com/search/docs/data-types/dataset). The guide describes the only required fields as - name and description.
-* [name](https://schema.org/name) - A descriptive name of a dataset (e.g. “Snow depth in Northern Hemisphere”)
+* [name](https://schema.org/name) - A descriptive name of a dataset (e.g., “Snow depth in Northern Hemisphere”)
 * [description](https://schema.org/description) - A short summary describing a dataset.
 
 <pre>
@@ -55,7 +55,7 @@ The [Google guide](https://developers.google.com/search/docs/data-types/dataset)
 * [isAccessibleForFree](https://schema.org/isAccessibleForFree) - Boolean (true|false) specifying if the dataset is accessible for free.
 * [keywords](https://schema.org/keywords) - Keywords summarizing the dataset.
 * [identifier](https://schema.org/identifier) - An identifier for the dataset, such as a DOI. (text,URL, or PropertyValue).
-* [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g. temperature, pressure)
+* [variableMeasured](https://schema.org/variableMeasured) - What does the dataset measure? (e.g., temperature, pressure)
 
 ![Basic Fields](/assets/diagrams/dataset/dataset_basic-fields.png "Dataset - Basic Fields")
 
@@ -100,7 +100,7 @@ For a dataset with the keywords of: `ocean acidification`, `Dissolved Organic Ca
 
 #### Keywords as DefinedTerm ####
 
-If you have information about a controlled vocabulary from which keywords come from, use `schema:DefinedTerm` to describe that keyword. The relevant properties of a `schema:DefinedTerm` are:
+If you have information about a controlled vocabulary from which keywords come, use `schema:DefinedTerm` to describe that keyword. The relevant properties of a `schema:DefinedTerm` are:
 
 * [name](https://schema.org/name) - The name of the keyword. (Required)
 * [inDefinedTermSet](https://schema.org/inDefinedTermSet) - The controlled vocabulary responsible for this keyword. (Required)
@@ -384,17 +384,17 @@ Back to [top](#top)
 <a id="variables"></a>
 ### Variables
 
-A Dataset is a collection of data entities, each of which contains structured and unstructured values for a set of properties about that entity. For example, an hypothetical Dataset might contain three data files: 1) a data table in CSV format containing columns of data that both classify and measure the properties of a set of lakes in a region; 2) an image file containing rasterized geospatial data values for each location for properties like water temperature at multiple depths; and 3) a text file containing responses to a survey assessing perspectives on water rights, with values for questions containing both natural language responses and responses on a Likert scale. In each of these examples, we are recording the value of attributes (aka properties) about an entity of interest (lake). In schema.org, details about these attributes can be recorded using `schema:variableMeasured`. So, while schema.org uses the term "variable" and the term "measured", it is usually conceptualized as a listing of any of the properties or attributes of an entity that are recorded, and not strictly a measured variable. Thus, we recommend using `schema:variableMeasured` to represent any recordable property of an entity that is found in the dataset. While this includes quantitatively "measured" observations (e.g. rainfall in mm), it also includes classification values that are asserted or qualitatively assigned (e.g. "moderate velocity"), contextual attributes such as spatial locations, times, or sampling information associated with a value, and textual values such as narrative text.
+A Dataset is a collection of data entities, each of which contains structured and unstructured values for a set of properties about that entity. For example, an hypothetical Dataset might contain three data files: 1) a data table in CSV format containing columns of data that both classify and measure the properties of a set of lakes in a region; 2) an image file containing rasterized geospatial data values for each location for properties like water temperature at multiple depths; and 3) a text file containing responses to a survey assessing perspectives on water rights, with values for questions containing both natural language responses and responses on a Likert scale. In each of these examples, we are recording the value of attributes (aka properties) about an entity of interest (lake). In schema.org, details about these attributes can be recorded using `schema:variableMeasured`. So, while schema.org uses the term "variable" and the term "measured", it is usually conceptualized as a listing of any of the properties or attributes of an entity that are recorded, and not strictly a measured variable. Thus, we recommend using `schema:variableMeasured` to represent any recordable property of an entity that is found in the dataset. While this includes quantitatively "measured" observations (e.g., rainfall in mm), it also includes classification values that are asserted or qualitatively assigned (e.g., "moderate velocity"), contextual attributes such as spatial locations, times, or sampling information associated with a value, and textual values such as narrative text.
 
 Information about the variables/attributes in a dataset can enhance discovery and support evaluation of the data. This can be done using the [schema:variableMeasured](https://schema.org/variableMeasured) field. Schema.org allows the value of variableMeasured to be a simple text string, but it is strongly recommended to use the [schema:PropertyValue](https://schema.org/PropertyValue) type to describe the variable in more detail.
 
 ![Variables](/assets/diagrams/dataset/dataset_variables.svg "Dataset - Variables")
 
-This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3). See [Experimental Recommendations](/guides/Experimental.md) for proposed recommendations to document variables with with non-numeric or enumerated (controlled vocabulary) values, variables whose values are structured objects (e.g. json objects, arrays, gridded data), or are references to external value representations.
+This recommendation outlines several tiers of variable description. Tier 1 is the simplest, with other tiers adding recommendations for additional content (Tier 2 and 3). See [Experimental Recommendations](/guides/Experimental.md) for proposed recommendations to document variables with with non-numeric or enumerated (controlled vocabulary) values, variables whose values are structured objects (e.g., json objects, arrays, gridded data), or are references to external value representations.
 
 #### Tier 1. Simple list of variable names
 
-The simplest approach is to provide a `schema:name` and a textual description of the variable. The `schema:name` should match the label associated with the variable in the dataset serialization (e.g. the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using `schema:alternateName`. The field `schema:description` is used to provide a definition of the variable/property/attribute that allows others to correctly understand and interpret the values.
+The simplest approach is to provide a `schema:name` and a textual description of the variable. The `schema:name` should match the label associated with the variable in the dataset serialization (e.g., the column name in a CSV file). If the variable name in the dataset does not clearly convey the variable concept, a more human-intelligible name can be provide using `schema:alternateName`. The field `schema:description` is used to provide a definition of the variable/property/attribute that allows others to correctly understand and interpret the values.
 
 Example:
 <pre>
@@ -643,7 +643,7 @@ Schema.org offers various date properties that can be used to encode this inform
 
 - `schema:temporalCoverage` :: use to specify the **time period(s) that the content applies to**, i.e. the time the entity or phenomenon described in the dataset occurred. See details at [temporalCoverage](#temporal-coverage). `temporalCoverage` is usually prior to the date of data publication for observational data, and can be afterwards for models, simulations, and forecasts.
 
-- `schema:dateCreated` :: use to specify the date the dataset was initially generated (e.g. when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
+- `schema:dateCreated` :: use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed). This is typically fixed when the first dataset version is created.
 - `schema:dateModified` :: use to specify the date the dataset was most recently updated or changed.
 - `schema:datePublished` :: use to specify the date when a dataset was made available to the public through a publication process.
 - `schema:expires` :: use to specify the date when the dataset expires and is no longer useful or available. If `datePublished` is when the dataset is made available, then 'expires' brackets the time the dataset is valid or recommended for use.
@@ -1088,7 +1088,7 @@ Point locations are recommended for data that is associated with specific sample
 
 #### Use GeoShape for all other location types
 
-<a id="spatial_shape"></a>A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g. a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.
+<a id="spatial_shape"></a>A [schema:GeoShape](https://schema.org/GeoShape) can describe spatial coverage as a line (e.g., a ship track), a bounding box, a polygon, or a circle. The geometry is described with a set of latitude/longitude pairs. The spatial definitions were added to schema.org early in its [development](https://github.com/schemaorg/schemaorg/issues/8#issuecomment-97667478) based on the [GeoRSS specification](http://docs.opengeospatial.org/cs/17-002r1/17-002r1.html#21). The documentation for [schema:GeoShape](https://schema.org/GeoShape) states "Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." At least for bounding boxes (see the discussion below), it appears that the Google Dataset Search parsing of the coordinate strings depends on whether a comma or space is used to delimit the coordinates in an individual tuple.
 
 Be aware that some client applications might only index or display bounding box extents.
 
@@ -1220,7 +1220,7 @@ Back to [top](#top)
 
 People can be linked to datasets using three fields: author, creator, and contributor. Since  [schema:contributor](https://schema.org/contributor) is defined as a secondary author, and [schema:Creator](https://schema.org/creator) is defined as being synonymous with the [schema:author](https://schema.org/author) field, we recommend using the more expressive fields creator and contributor, but using any of these fields is acceptable.
 
-NOTE: JSON-LD doesn't preserve the order of its collection values, so if you need to preserve the order of people's names (e.g. for a citation) you can do so by applying the `@list` JSON-LD keyword (for more information about this see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list)).
+NOTE: JSON-LD doesn't preserve the order of its collection values, so if you need to preserve the order of people's names (e.g., for a citation) you can do so by applying the `@list` JSON-LD keyword (for more information about this see [Getting Started - JSON-LD Lists](GETTING-STARTED.md#json-ld-list)).
 
 Given the following `creator` JSON-LD block:
 
@@ -1504,7 +1504,7 @@ Back to [top](#top)
 
 ### License
 
-Link a Dataset to its license to document legal constraints by adding a [schema:license](https://schema.org/license) property. The [guide](https://developers.google.com/search/docs/data-types/dataset) recommends providing a URL that unambiguously identifies a specific version of the license used, but for many licenses it is hard to determine what that URL should be. Thus, we recommend that the license URL be drawn from the [SPDX license list](https://spdx.org/licenses/), which provides a curated list of licenses and their properties that is well maintained. For each SPDX entry, SPDX provides a canonical URL for the license (e.g. `http://spdx.org/licenses/CC0-1.0`), a unique `licenseId` (e.g. `CC0-1.0`), and other metadata about the license. Here's an example using the SPDX license URI for the Creative Commons CC-0 license:
+Link a Dataset to its license to document legal constraints by adding a [schema:license](https://schema.org/license) property. The [guide](https://developers.google.com/search/docs/data-types/dataset) recommends providing a URL that unambiguously identifies a specific version of the license used, but for many licenses it is hard to determine what that URL should be. Thus, we recommend that the license URL be drawn from the [SPDX license list](https://spdx.org/licenses/), which provides a curated list of licenses and their properties that is well maintained. For each SPDX entry, SPDX provides a canonical URL for the license (e.g., `http://spdx.org/licenses/CC0-1.0`), a unique `licenseId` (e.g., `CC0-1.0`), and other metadata about the license. Here's an example using the SPDX license URI for the Creative Commons CC-0 license:
 
 <pre>
 {
