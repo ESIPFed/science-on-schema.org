@@ -39,7 +39,22 @@ Core identifying properties about an observing network include common properties
 - [description](https://schema.org/description) - A short abstract describing the observing network.
 - [identifier](https://schema.org/identifier) - An identifier for the observing network, such as a DOI. (text, URL, or PropertyValue).
 
-![Basic Fields](/assets/diagrams/observingnetwork/obs-net-basic.png "Observing Network - Basic Fields")
+```mermaid
+flowchart LR
+    classDef soClassStyle fill:#C7E8AC,stroke:#333,stroke-width:2px;
+    classDef soLiteralStyle fill:#B2D6EF,stroke:#333,stroke-width:1px;
+
+    ObsNet["`schema:
+    ObservingNetwork`"]
+    class ObsNet soClassStyle
+    ObsNet -->|name| C((Text))
+    ObsNet -->|description| D((Text))
+    ObsNet -->|identifier| E(("`Text
+    URL
+    PropertyValue`"))
+    ObsNet -->|url| F((URL))
+    class C,D,E,F soLiteralStyle
+```
 
 <pre>
 {
