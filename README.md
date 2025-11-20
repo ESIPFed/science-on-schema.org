@@ -128,6 +128,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)
   * [SHACL playground](https://shacl.org/playground/)
+  * [soso](https://github.com/clnsmth/soso) Python package for converting metadata records into science-on-schema.org markup & validating shapes
 
 ## License
 
