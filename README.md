@@ -123,6 +123,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)
   * [SHACL playground](https://shacl.org/playground/)
+  * [SOSO](https://soso.readthedocs.io/en/latest/) python tool for converting various metadata standards into Science On Schema.Org format
 
 ## License
 
