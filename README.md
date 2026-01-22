@@ -100,7 +100,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
 
 * ESIP and this group
   * [Learn about ESIP](https://www.esipfed.org/)
-  * [Join ESIP Slack](https://esip-slack-invite.herokuapp.com/) for real time chat
+  * [Join ESIP Slack](https://www.esipfed.org/join-slack) for real time chat
   * Chat on the [`sci-schemaorg`](https://esip-all.slack.com/archives/sci-schemaorg) Slack channel
   * [`sci-schemaorg` mailing list](https://lists.esipfed.org/mailman/listinfo/esip-schema-dot-org)
   * [`sci-schemaorg` wiki](http://wiki.esipfed.org/index.php/Schema.org_Cluster)
@@ -123,6 +123,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
   * TopQuadrant TopBraid [SHACL validator](https://github.com/TopQuadrant/shacl)
   * [pySHACL](https://github.com/RDFLib/pySHACL)
   * [SHACL playground](https://shacl.org/playground/)
+  * [soso](https://github.com/clnsmth/soso) Python package for converting metadata records into science-on-schema.org markup & validating shapes
 
 ## License
 
