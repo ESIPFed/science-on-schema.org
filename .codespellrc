@@ -1,6 +1,28 @@
 [codespell]
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
-skip = .git,.gitignore,.gitattributes,*.svg,.codespellrc
+# validation/shapegraphs/schema.ttl and schema_ontology.ttl are vendored
+# copies of the Schema.org SHACL shapes/ontology -- not ours to fix.
+# validation/testingDataGraphs/ are test/reference graphs (some intentionally
+# malformed, e.g. dataset-full-BAD.json-ld) and contain typos in copied
+# descriptions from external sources (e.g. BCO-DMO).
+skip = .git,.gitignore,.gitattributes,*.svg,.codespellrc,*/validation/shapegraphs/schema.ttl,*/validation/shapegraphs/schema_ontology.ttl,*/validation/testingDataGraphs/*
 check-hidden = true
-ignore-regex = ^\s*"image/\S+": ".*
-# ignore-words-list =
+# Ignore base64-encoded images embedded in Jupyter notebooks, and URLs
+# (URLs often contain strings that look like typos -- e.g. usgin.github.io,
+# lod.bco-dmo.org, github.com/fils -- which must not be "corrected").
+ignore-regex = ^\s*"image/\S+": ".*|https?://\S+
+ignore-words-list =
+  # Douglas Fils -- longtime contributor; also his GitHub username
+  fils,
+  # NSF Division of Ocean Sciences abbreviation (appears in funder records)
+  oce,
+  # Linked Open Data acronym (also "lod" subdomain in BCO-DMO URLs)
+  lod,
+  # USGIN -- U.S. Geoscience Information Network (project/profile name)
+  usgin,
+  # "Fo" -- Forsterite mineral content abbreviation in petrology
+  # (e.g. "OL, Fo 74.68" in AstroMaterials sample descriptions)
+  fo,
+  # "Re-using" / "Re-use" used as stylistic choice across tutorials/decisions
+  re-using,
+  re-use
