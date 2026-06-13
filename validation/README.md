@@ -14,6 +14,6 @@ principles would be welcome.
 
 If you are looking for tools test SHACL shapes with you should look at the 
 W3C Implementation Report (https://w3c.github.io/data-shapes/data-shapes-test-suite/).  
-Two of the higer ranking tools are pySHACL (https://github.com/RDFLib/pySHACL)
+Two of the higher ranking tools are pySHACL (https://github.com/RDFLib/pySHACL)
 and TopBraid (https://github.com/TopQuadrant/shacl)
 

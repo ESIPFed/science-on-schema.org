@@ -622,7 +622,7 @@ If access to the data requires some input parameters before a download can occur
       {
         "@type": "PropertyValueSpecification",
         "valueName": "bbox",
-        "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+        "description": "Two points in decimal degrees that create a bounding box formatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
         "valueRequired": false,
         "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
       }

@@ -28,12 +28,12 @@ In schema.org, we model a repository as both an [schema:ResearchProject](https:/
 </pre>
 
 <a id="basic-fields"></a>
-The other fields you can use to describe the Organziation and the Service are:
+The other fields you can use to describe the Organization and the Service are:
 
 [![Repository  - Basic Fields](/assets/diagrams/repository/repository_basic-fields.svg "Repository - Basic Fields")](#)
 
 * [schema:legalName](https://schema.org/legalName) should be the official name of the  repository,
-* [schema:name](https://schema.org/name) can be an acronym or the name typcially used for the repository,
+* [schema:name](https://schema.org/name) can be an acronym or the name typically used for the repository,
 * [schema:url](https://schema.org/url) should be the url of your repository's homepage,
 * [schema:description](https://schema.org/description) should be text describing your repository,
 * [schema:sameAs](https://schema.org/sameAs) can be used to link the repository to other URLs such as Re3Data, Twitter, LinkedIn, etc.,
@@ -62,7 +62,7 @@ The other fields you can use to describe the Organziation and the Service are:
 
 (See [advanced publishing techniques](#advanced-publishing) for how to [describe categories/disciplines in more detail](#advanced-publishing-category) than just simple text.)
 
-If you are using the "@id" attribute for your Repository, and the provider of the repository's services is the same Organziation, you can specify the [schema:provider](https://schema.org/provider)  of the [schema:Service](https://schema.org/Service) in this way:
+If you are using the "@id" attribute for your Repository, and the provider of the repository's services is the same Organization, you can specify the [schema:provider](https://schema.org/provider)  of the [schema:Service](https://schema.org/Service) in this way:
 <pre>
 {
   "@context": "https://schema.org/",
@@ -353,7 +353,7 @@ Back to [top](#top)
 <a id="data-collections"></a>
 ### Describing a Repository's Data Collections
 
-If your repository has a concept of a data collection, some grouping of a number of datasets, we can use the [schema:DataCatalog](https://schema.org/DataCatalog) to describe these collections using the [schema:OfferCatalog](https://schema.org/OfferCatalog). One exampel of a DataCatalog might be to group datasets by a categorization such as 'biological data' or 'chemical data'. Or a catalog could be grouped by instrument, parameter or whatever logical grouping a repository may have.
+If your repository has a concept of a data collection, some grouping of a number of datasets, we can use the [schema:DataCatalog](https://schema.org/DataCatalog) to describe these collections using the [schema:OfferCatalog](https://schema.org/OfferCatalog). One example of a DataCatalog might be to group datasets by a categorization such as 'biological data' or 'chemical data'. Or a catalog could be grouped by instrument, parameter or whatever logical grouping a repository may have.
 
 [![Repository - Offer Catalog](/assets/diagrams/repository/repository_offer-catalog.svg "Repository - Offer Catalog")](#)
 

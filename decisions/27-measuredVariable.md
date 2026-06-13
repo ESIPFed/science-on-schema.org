@@ -23,9 +23,9 @@ Update the Variable section in the Science on Schema.org Dataset.md document, re
 ## Context ##
 Original issue question: which is the best way to represent ontological terms representing observation types of a measuredVariable.  This has evolved into a wider discussion of what needs to be represented in schema.org documents to document dataset variables.  See [discussion document](https://github.com/ESIPFed/science-on-schema.org/blob/issue27-measuredVariable/guides/DiscussionVariableMeasured.md)
 
-Other more advanced definitions of variables within an Observational data context using `schema:Observation` were explored but only described in a new Experimental.md document as we determined that more work would be needed to reach agreeement on a consistent and logically consistent approach.
+Other more advanced definitions of variables within an Observational data context using `schema:Observation` were explored but only described in a new Experimental.md document as we determined that more work would be needed to reach agreement on a consistent and logically consistent approach.
 
 ## Consequences ##
 - inclusion of description of variables included in a dataset will enhance search capabilities, allowing users to find datasets that contain the specific kinds of information they need.
-- More in depth information about variable will allow more meaningful assessment of whether a dataset is fit for purpose before accessing the data. This information migh include how variables were determined (measurement technique), the range of values in data, what vocabularies are used, or what data type is used to quantify a variable.
+- More in depth information about variable will allow more meaningful assessment of whether a dataset is fit for purpose before accessing the data. This information might include how variables were determined (measurement technique), the range of values in data, what vocabularies are used, or what data type is used to quantify a variable.
 

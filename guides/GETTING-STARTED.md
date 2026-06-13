@@ -468,7 +468,7 @@ tag to indicate when the resource identified by the `<url>/<loc>` was last modif
 specification is fairly loose, indicating that date in the
 [W3C Datetime](https://www.w3.org/TR/NOTE-datetime) format of `YYYY-MM-DD` may be
 sufficient. However, for the purposes of content synchronization, a higher precision is
-desireable, and should be provided where possible. For example:
+desirable, and should be provided where possible. For example:
 
 ```
 2018-12-10T13:45:00.000Z

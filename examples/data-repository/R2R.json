@@ -12,7 +12,7 @@
         "WebPage"
     ],
     "@id": "http://www.rvdata.us",
-    "comment6": "//@id is meant to be an internal identifier for this document, like a fragment identifier in http; makeing these URLs is confusing in my opinion. (of course they're just strings so you can use anything you want, as long as its unique in the scope of the document.",
+    "comment6": "//@id is meant to be an internal identifier for this document, like a fragment identifier in http; making these URLs is confusing in my opinion. (of course they're just strings so you can use anything you want, as long as its unique in the scope of the document.",
     "additionalType": "https://geodex.org/voc/ResearchRepositoryService", "comment7":"geodexl.org/voc URIs don't resolve. are they useful? Is someone building a geoDex vocabulary service?",
     "comment2": "// URI doesn't resolve",
     "legalName": "Rolling Deck to Repository",
@@ -179,7 +179,7 @@
                 "@id": "CatalogItem3",
                 "additionalType": "https://geodex.org/voc/ResearchResourceTypes",
                 "name": "R2R Resources and Best Practices",
-                "description": "R2R supplied information for scientist, vessel operators and users. These documents help plan for, participate in and archive the data/metadat for a cruise.",
+                "description": "R2R supplied information for scientist, vessel operators and users. These documents help plan for, participate in and archive the data/metadata for a cruise.",
                 "comment9":"is there a distribution available to access this resource"
             }
         ]
@@ -203,7 +203,7 @@
                 "@type": "Service",
                 "additionalType": "https://geodex.org/voc/SearchService",
                 "name": "R2R OGC CSW Cruise Descriptions",
-                "description": "Get overview of capablities of cruise description service.",
+                "description": "Get overview of capabilities of cruise description service.",
                 "potentialAction": {"@id": "http://api.rvdata.us/catalog?service=CSW&version=3.0.0&request=GetCapabilities"}
             }
         },

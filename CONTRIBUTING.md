@@ -1,6 +1,6 @@
 # Contributing to Science on schema.org
 
-The goal of science-on-schema.org is to foster community agreement on guidelines for using schema.org for science-related resource descriptions. Thus, we welcome and encourage community contributions to the work, including proposals for new guidelines, clarifications on the existing guidelines, and proposals for extensions to the schema.org model to accomodate new fields.  Thus, community members are invited to contribute through:
+The goal of science-on-schema.org is to foster community agreement on guidelines for using schema.org for science-related resource descriptions. Thus, we welcome and encourage community contributions to the work, including proposals for new guidelines, clarifications on the existing guidelines, and proposals for extensions to the schema.org model to accommodate new fields.  Thus, community members are invited to contribute through:
 
 - Creating and discussing proposals through [GitHub issues](https://github.com/ESIPFed/science-on-schema.org/issues)
 - Implementing proposed features by editing the guidelines and extension documentation, and editing the Architectural Decision Record for the proposal

@@ -8,7 +8,7 @@
     "@type": "Dataset",
     "additionalType": "http://schemas.usgin.org/models/#boreholetemperature",
     "name": "Borehole Temperature data from Pima County, Arizona",
-    "description": "National Geothermal Data System denormalized flat file format, merges information about the borehole (location, depth etc.) with observation data for each temperature measurment",
+    "description": "National Geothermal Data System denormalized flat file format, merges information about the borehole (location, depth etc.) with observation data for each temperature measurement",
     "variableMeasured": [
         {
             "@type": "PropertyValue",
