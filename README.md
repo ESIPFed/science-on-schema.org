@@ -27,7 +27,7 @@ Science on Schema.org (SOSO) releases are archived on Zenodo, and the current re
 
 ## Community 
 
-This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets monthly, and all are welcome:
+This guidance has been created by members of the ESIP [science-on-schema.org cluster](http://web.archive.org/web/20191120085718/http://web.archive.org/web/20191120085718/http://wiki.esipfed.org/index.php/Schema.org_Cluster). The cluster will be seeking endorsement across all members of ESIP, and in the meantime is releasing a series of progressively more mature guidance documents for the community. Your feedback and contributions are welcome. The cluster meets monthly, and all are welcome:
 
 - When: 
     - 4th Thursday, 2:30pm ET
@@ -100,7 +100,7 @@ This guidance has been created by members of the ESIP [science-on-schema.org clu
 
 * ESIP and this group
   * [Learn about ESIP](https://www.esipfed.org/)
-  * [Join ESIP Slack](https://esip-slack-invite.herokuapp.com/) for real time chat
+  * [Join ESIP Slack](http://web.archive.org/web/20221024011539/https://esip-slack-invite.herokuapp.com/) for real time chat
   * Chat on the [`sci-schemaorg`](https://esip-all.slack.com/archives/sci-schemaorg) Slack channel
   * [`sci-schemaorg` mailing list](https://lists.esipfed.org/mailman/listinfo/esip-schema-dot-org)
   * [`sci-schemaorg` wiki](http://wiki.esipfed.org/index.php/Schema.org_Cluster)
